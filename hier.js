@@ -53,6 +53,11 @@ angular.module('myApp')
 
         $scope.mappings = [{
             'type': 'mappingType',
+            'name': null, // Represents the default mapping.
+            'fields': [],
+            'mappings': [],
+        }, {
+            'type': 'mappingType',
             'name': 'user',
             'fields': [
                 {'type': 'field', 'property': 'fullName', "name": "fullName_en"},

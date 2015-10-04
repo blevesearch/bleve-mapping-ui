@@ -1,23 +1,35 @@
-<script type="text/ng-template" id="child_menu.html">
-  <a ng-click="addChildField(this)">[+F]</a>
-  <a ng-click="addChildMapping(this)">[+M]</a>
-</script>
-
 <script type="text/ng-template" id="mapping_subpart.html">
   <div ui-tree-handle class="tree-node tree-node-content">
     <a class="btn btn-success btn-xs"
        data-nodrag
-       ng-click="toggle(this)"
-       ng-if="mapping.mappings && mapping.mappings.length > 0">
+       ng-click="toggle(this)">
       <span class="glyphicon" ng-class="{
           'glyphicon-chevron-right': collapsed,
           'glyphicon-chevron-down': !collapsed
         }"></span></a>
-    {...} {{mapping.name}}
+    <span ng-if="mapping.type == 'mappingType'">
+      <span ng-if="mapping.name == null">
+        type [default]
+      </span>
+      <span ng-if="mapping.name != null">
+        type: {{mapping.name}}
+      </span>
+    </span>
+    <span ng-if="mapping.type != 'mappingType'">
+      {...} {{mapping.name}}
+    </span>
     <a class="pull-right btn btn-danger btn-xs"
-        data-nodrag ng-click="removeMapping(this)">
-       <span class="glyphicon glyphicon-remove">[X]</span></a>
-    <span data-nodrag ng-include="'child_menu.html'"></span>
+       data-nodrag
+       ng-click="removeMapping(this)">
+       <span class="glyphicon glyphicon-remove"></span> [X]</a>
+    <a class="pull-right btn btn-danger btn-xs"
+       data-nodrag
+       ng-click="addChildField(this)">
+       [+F]</a>
+    <a class="pull-right btn btn-danger btn-xs"
+       data-nodrag
+       ng-click="addChildMapping(this)">
+       [+M]</a>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"
@@ -26,10 +38,11 @@
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
       <div ui-tree-handle>
-        <a class="pull-right btn btn-danger btn-xs"
-        data-nodrag ng-click="removeField(this)">
-        <span class="glyphicon glyphicon-remove">[X]</span></a>
         {{field.name}} [property: {{field.property}}]
+        <a class="pull-right btn btn-danger btn-xs"
+           data-nodrag
+           ng-click="removeField(this)">
+           <span class="glyphicon glyphicon-remove"></span> [X]</a>
       </div>
     </li>
   </ol>
