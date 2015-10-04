@@ -1,10 +1,6 @@
 <script type="text/ng-template" id="child_menu.html">
-  <div class="child_menu">
-    <ul>
-      <li><a ng-click="addChildField(this)">add field</a></li>
-      <li><a ng-click="addChildMapping(this)">add nested</a></li>
-    </ul>
-  </div>
+  <a ng-click="addChildField(this)">[+F]</a>
+  <a ng-click="addChildMapping(this)">[+M]</a>
 </script>
 
 <script type="text/ng-template" id="mapping_subpart.html">
@@ -17,13 +13,11 @@
           'glyphicon-chevron-right': collapsed,
           'glyphicon-chevron-down': !collapsed
         }"></span></a>
-    {{mapping.name}}
+    {...} {{mapping.name}}
     <a class="pull-right btn btn-danger btn-xs"
         data-nodrag ng-click="removeMapping(this)">
-       <span class="glyphicon glyphicon-remove">[--]</span></a>
-    <a class="pull-right btn btn-primary btn-xs"
-        data-nodrag ng-click="toggle(this)">[V]</a>
-    <div data-nodrag ng-include="'child_menu.html'"></div>
+       <span class="glyphicon glyphicon-remove">[X]</span></a>
+    <span data-nodrag ng-include="'child_menu.html'"></span>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"
@@ -34,7 +28,7 @@
       <div ui-tree-handle>
         <a class="pull-right btn btn-danger btn-xs"
         data-nodrag ng-click="removeField(this)">
-        <span class="glyphicon glyphicon-remove">[--]</span></a>
+        <span class="glyphicon glyphicon-remove">[X]</span></a>
         {{field.name}} [property: {{field.property}}]
       </div>
     </li>
