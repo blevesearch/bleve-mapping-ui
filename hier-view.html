@@ -46,14 +46,15 @@
 <div class="row">
   <div class="col-sm-12">
     <h3>Hier Example</h3>
+    <a ng-click="addChildMapping(null)">[+TYPE]</a>
   </div>
 </div>
 
 <div class="row">
   <div class="col-sm-6">
     <div ui-tree="options" id="tree-root">
-      <ol ui-tree-nodes ng-model="data" data-type="mappingTypeContainer">
-        <li ng-repeat="mapping in data"
+      <ol ui-tree-nodes ng-model="mappings" data-type="mappingTypeContainer">
+        <li ng-repeat="mapping in mappings"
             ui-tree-node ng-include="'mapping_subpart.html'"></li>
       </ol>
     </div>
@@ -63,6 +64,6 @@
     <div class="info">
       {{info}}
     </div>
-    <pre class="code">{{ data | json }}</pre>
+    <pre class="code">{{ mappings | json }}</pre>
   </div>
 </div>

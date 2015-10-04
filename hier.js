@@ -14,7 +14,7 @@ angular.module('myApp')
             scope.toggle();
         };
 
-        $scope.addChildField = function (scope) {
+        $scope.addChildField = function(scope) {
             var mapping = scope.$modelValue;
             mapping.fields.push({
                 type: 'field',
@@ -22,10 +22,14 @@ angular.module('myApp')
             });
         };
 
-        $scope.addChildMapping = function (scope) {
-            var mapping = scope.$modelValue;
+        $scope.addChildMapping = function(scope) {
+            var mapping = $scope;
+            if (scope != null) {
+                mapping = scope.$modelValue;
+            }
+
             mapping.mappings.push({
-                type: 'mapping',
+                type: mapping == $scope ? 'mappingType' : 'mapping',
                 name: mapping.name + "-" + mapping.mappings.length,
                 fields: [],
                 mappings: []
@@ -47,7 +51,7 @@ angular.module('myApp')
             }
         };
 
-        $scope.data = [{
+        $scope.mappings = [{
             'type': 'mappingType',
             'name': 'user',
             'fields': [
