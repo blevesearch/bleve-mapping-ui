@@ -1,0 +1,74 @@
+<script type="text/ng-template" id="child_menu.html">
+  <div class="child_menu">
+    <ul>
+      <li><a ng-click="addChildField(this)">add field</a></li>
+      <li><a ng-click="addChildMapping(this)">add nested</a></li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/ng-template" id="mapping_subpart.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-success btn-xs"
+       data-nodrag
+       ng-click="toggle(this)"
+       ng-if="mapping.mappings && mapping.mappings.length > 0">
+      <span class="glyphicon" ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></a>
+    {{mapping.name}}
+    <a class="pull-right btn btn-danger btn-xs"
+        data-nodrag ng-click="removeMapping(this)">
+       <span class="glyphicon glyphicon-remove">[--]</span></a>
+    <a class="pull-right btn btn-primary btn-xs"
+        data-nodrag ng-click="toggle(this)">[V]</a>
+    <div data-nodrag ng-include="'child_menu.html'"></div>
+  </div>
+  <ol ui-tree-nodes
+      ng-model="mapping.fields"
+      data-type="fieldContainer"
+      ng-class="{hidden: collapsed}">
+    <li ng-repeat="field in mapping.fields"
+        ui-tree-node>
+      <div ui-tree-handle>
+        <a class="pull-right btn btn-danger btn-xs"
+        data-nodrag ng-click="removeField(this)">
+        <span class="glyphicon glyphicon-remove">[--]</span></a>
+        {{field.name}} [property: {{field.property}}]
+      </div>
+    </li>
+  </ol>
+  <ol ui-tree-nodes
+      ng-model="mapping.mappings"
+      data-type="mappingContainer"
+      ng-class="{hidden: collapsed}">
+    <li ng-repeat="mapping in mapping.mappings"
+        ui-tree-node ng-include="'mapping_subpart.html'">
+    </li>
+  </ol>
+</script>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Hier Example</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div ui-tree="options" id="tree-root">
+      <ol ui-tree-nodes ng-model="data" data-type="mappingTypeContainer">
+        <li ng-repeat="mapping in data"
+            ui-tree-node ng-include="'mapping_subpart.html'"></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="info">
+      {{info}}
+    </div>
+    <pre class="code">{{ data | json }}</pre>
+  </div>
+</div>
