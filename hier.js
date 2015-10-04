@@ -51,6 +51,8 @@ angular.module('myApp')
             }
         };
 
+        $scope.hello = "world";
+
         $scope.mappings = [{
             'type': 'mappingType',
             'name': null, // Represents the default mapping.
