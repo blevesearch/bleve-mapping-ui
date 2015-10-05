@@ -39,11 +39,17 @@
         type [default]
       </span>
       <span ng-if="mapping.name != null">
-        type: {{mapping.name}}
+        type:
+        <span ng-show="!mapping.editing">{{mapping.name}}</span>
+        <input ng-show="mapping.editing" type="text" placeholder="property name"
+               ng-model="mapping.name"/>
       </span>
     </span>
     <span ng-if="mapping.type != 'mappingType'">
-      {...} {{mapping.name}}
+      {...}
+      <span ng-show="!mapping.editing">{{mapping.name}}</span>
+      <input ng-show="mapping.editing" type="text" placeholder="property name"
+             ng-model="mapping.name"/>
     </span>
     <a class="pull-right btn btn-xs btn-danger"
        data-nodrag
@@ -57,6 +63,16 @@
        data-nodrag
        ng-click="addChildField(this)">
        <i class="glyphicon glyphicon-plus"></i></a>
+    <a class="pull-right btn btn-xs"
+       data-nodrag
+       ng-show="mapping.editing"
+       ng-click="editMappingDone(mapping)">
+       <i class="glyphicon glyphicon-ok"></i></a>
+    <a class="pull-right btn btn-xs"
+       data-nodrag
+       ng-show="!mapping.editing"
+       ng-click="editMapping(mapping)">
+       <i class="glyphicon glyphicon-pencil"></i></a>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"

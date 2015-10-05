@@ -36,6 +36,13 @@ angular.module('myApp')
             });
         };
 
+        $scope.editMapping = function(mapping) {
+            mapping.editing = true;
+        }
+
+        $scope.editMappingDone = function(mapping) {
+            mapping.editing = false;
+        }
 
         $scope.options = {
             accept: function(sourceAccept, destAccept, destIndex) {
