@@ -19,17 +19,21 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.btn {
+  margin-right: 10px;
+}
 </style>
 
 <script type="text/ng-template" id="mapping_subpart.html">
   <div ui-tree-handle>
-    <a class="btn btn-success btn-xs"
+    <a class="btn btn-xs btn-success"
        data-nodrag
        ng-click="toggle(this)">
-      <span class="glyphicon" ng-class="{
+      <i class="glyphicon" ng-class="{
           'glyphicon-chevron-right': collapsed,
           'glyphicon-chevron-down': !collapsed
-        }"></span></a>
+        }"></i></a>
     <span ng-if="mapping.type == 'mappingType'">
       <span ng-if="mapping.name == null">
         type [default]
@@ -41,18 +45,18 @@
     <span ng-if="mapping.type != 'mappingType'">
       {...} {{mapping.name}}
     </span>
-    <a class="pull-right btn btn-danger btn-xs"
+    <a class="pull-right btn btn-xs btn-danger"
        data-nodrag
        ng-click="removeMapping(this)">
-       <span class="glyphicon glyphicon-remove"></span> [X]</a>
-    <a class="pull-right btn btn-danger btn-xs"
-       data-nodrag
-       ng-click="addChildField(this)">
-       [+F]</a>
-    <a class="pull-right btn btn-danger btn-xs"
+       <i class="glyphicon glyphicon-remove"></i></a>
+    <a class="pull-right btn btn-xs btn-warning"
        data-nodrag
        ng-click="addChildMapping(this)">
-       [+M]</a>
+       <i class="glyphicon glyphicon-plus"></i></a>
+    <a class="pull-right btn btn-xs"
+       data-nodrag
+       ng-click="addChildField(this)">
+       <i class="glyphicon glyphicon-plus"></i></a>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"
@@ -62,10 +66,10 @@
         ui-tree-node>
       <div ui-tree-handle>
         {{field.name}} [property: {{field.property}}]
-        <a class="pull-right btn btn-danger btn-xs"
+        <a class="pull-right btn btn-xs btn-danger"
            data-nodrag
            ng-click="removeField(this)">
-           <span class="glyphicon glyphicon-remove"></span> [X]</a>
+           <i class="glyphicon glyphicon-remove"></i></a>
       </div>
     </li>
   </ol>
@@ -81,7 +85,7 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <h3>Hier Example</h3>
+    <h3>Mapping</h3>
     <a ng-click="addChildMapping(null)">[+TYPE]</a>
   </div>
 </div>
@@ -89,7 +93,9 @@
 <div class="row">
   <div class="col-sm-6">
     <div ui-tree="options" id="tree-root">
-      <ol ui-tree-nodes ng-model="mappings" data-type="mappingTypeContainer">
+      <ol ui-tree-nodes
+          ng-model="mappings"
+          data-type="mappingTypeContainer">
         <li ng-repeat="mapping in mappings"
             ui-tree-node ng-include="'mapping_subpart.html'"></li>
       </ol>
