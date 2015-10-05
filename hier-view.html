@@ -53,7 +53,7 @@
               'has-error': !mapping.name.length
             }">
         <span ng-show="!mapping.editing">{{mapping.name}}</span>
-        <input type="text" placeholder="type name"
+        <input type="text" placeholder="please enter a type name"
                ng-show="mapping.editing"
                ng-model="mapping.name"/>
       </span>
@@ -64,7 +64,7 @@
           }">
       {}
       <span ng-show="!mapping.editing">{{mapping.name}}</span>
-      <input type="text" placeholder="property name"
+      <input type="text" placeholder="please enter a property name"
              ng-show="mapping.editing"
              ng-model="mapping.name"/>
       <span ng-show="mapping.nameError">{{mapping.nameError}}</span>
@@ -106,7 +106,7 @@
              'has-error': !field.name.length
            }">
         <span ng-show="!field.editing">{{field.name}}</span>
-        <input type="text" placeholder="field name"
+        <input type="text" placeholder="please enter a field name"
                ng-show="field.editing"
                ng-model="field.name"/>
         <span ng-show="field.nameError">{{field.nameError}}</span>

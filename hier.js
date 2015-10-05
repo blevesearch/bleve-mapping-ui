@@ -11,7 +11,8 @@ angular.module('myApp')
         $scope.addChildField = function(mapping) {
             mapping.fields.push({
                 type: 'field',
-                name: mapping.name + "-" + mapping.fields.length,
+                name: "",
+                editing: true
             });
         };
 
@@ -22,9 +23,10 @@ angular.module('myApp')
 
             mapping.mappings.push({
                 type: mapping == $scope ? 'mappingType' : 'mapping',
-                name: mapping.name + "-" + mapping.mappings.length,
+                name: "",
                 fields: [],
-                mappings: []
+                mappings: [],
+                editing: true
             });
         };
 
