@@ -1,5 +1,7 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
+        $scope.editing = false;
+
         $scope.removeField = function(scope) {
             scope.remove();
         };
@@ -14,6 +16,8 @@ angular.module('myApp')
                 name: "",
                 editing: true
             });
+
+            $scope.editing = true;
         };
 
         $scope.addChildMapping = function(mapping) {
@@ -28,9 +32,13 @@ angular.module('myApp')
                 mappings: [],
                 editing: true
             });
+
+            $scope.editing = true;
         };
 
         $scope.editAttr = function(obj, attr) {
+            $scope.editing = true;
+
             obj.editing = true;
             obj[attr + "Error"] = null;
         }
@@ -43,6 +51,8 @@ angular.module('myApp')
 
             obj[attr + "Error"] = null;
             obj.editing = false;
+
+            $scope.editing = false;
         }
 
         $scope.options = {
