@@ -56,6 +56,10 @@ angular.module('myApp')
             'name': null, // Represents the default mapping.
             'fields': [],
             'mappings': [],
+
+            'enabled': true,
+            'dynamic': true,
+            'defaultAnalyzer': "",
         }, {
             'type': 'mappingType',
             'name': 'user',
