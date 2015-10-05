@@ -1,9 +1,5 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
-        $scope.toggle = function(scope) {
-            scope.toggle();
-        };
-
         $scope.removeField = function(scope) {
             scope.remove();
         };
