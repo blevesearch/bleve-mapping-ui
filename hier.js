@@ -36,19 +36,19 @@ angular.module('myApp')
             });
         };
 
-        $scope.editMapping = function(mapping) {
-            mapping.editing = true;
-            mapping.nameError = null;
+        $scope.editAttr = function(obj, attr) {
+            obj.editing = true;
+            obj[attr + "Error"] = null;
         }
 
-        $scope.editMappingDone = function(mapping) {
-            if (mapping.name == null || mapping.name.length <= 0) {
-                mapping.nameError = "name required";
+        $scope.editAttrDone = function(obj, attr) {
+            if (obj[attr] == null || obj[attr].length <= 0) {
+                obj[attr + "Error"] = attr + " required";
                 return;
             }
 
-            mapping.nameError = null;
-            mapping.editing = false;
+            obj[attr + "Error"] = null;
+            obj.editing = false;
         }
 
         $scope.options = {

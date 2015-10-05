@@ -55,7 +55,7 @@
       <span ng-if="mapping.name != null">
         type:
         <span ng-show="!mapping.editing">{{mapping.name}}</span>
-        <input ng-show="mapping.editing" type="text" placeholder="property name"
+        <input ng-show="mapping.editing" type="text" placeholder="type name"
                ng-model="mapping.name"/>
       </span>
     </span>
@@ -82,12 +82,12 @@
       <a class="pull-right btn btn-xs"
          data-nodrag
          ng-show="mapping.editing"
-         ng-click="editMappingDone(mapping)">
+         ng-click="editAttrDone(mapping, 'name')">
          <i class="glyphicon glyphicon-ok"></i></a>
       <a class="pull-right btn btn-xs btn-edit"
          data-nodrag
          ng-show="!mapping.editing"
-         ng-click="editMapping(mapping)">
+         ng-click="editAttr(mapping, 'name')">
          <i class="glyphicon glyphicon-pencil"></i></a>
     </span>
   </div>
@@ -98,12 +98,26 @@
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
       <div ui-tree-handle class="field">
-        {{field.name}} [property: {{field.property}}]
+        <span ng-show="!field.editing">{{field.name}}</span>
+        <input ng-show="field.editing" type="text" placeholder="field name"
+               ng-model="field.name"/>
+        <span ng-show="field.nameError">{{field.nameError}}</span>
+        [property: {{field.property}}]
         <span class="fieldControls">
           <a class="pull-right btn btn-xs btn-danger"
              data-nodrag
              ng-click="removeField(this)">
              <i class="glyphicon glyphicon-remove"></i></a>
+          <a class="pull-right btn btn-xs"
+             data-nodrag
+             ng-show="field.editing"
+             ng-click="editAttrDone(field, 'name')">
+             <i class="glyphicon glyphicon-ok"></i></a>
+          <a class="pull-right btn btn-xs btn-edit"
+             data-nodrag
+             ng-show="!field.editing"
+             ng-click="editAttr(field, 'name')">
+             <i class="glyphicon glyphicon-pencil"></i></a>
         </span>
       </div>
     </li>
