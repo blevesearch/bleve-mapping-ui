@@ -37,16 +37,23 @@ angular.module('myApp')
         };
 
         $scope.editAttr = function(obj, attr) {
+            obj[attr + "Prev"] = obj[attr];
+
             $scope.editing = true;
 
             obj.editing = true;
             obj[attr + "Error"] = null;
         }
 
-        $scope.editAttrDone = function(obj, attr) {
-            if (obj[attr] == null || obj[attr].length <= 0) {
-                obj[attr + "Error"] = attr + " required";
-                return;
+        $scope.editAttrDone = function(obj, attr, ok) {
+            if (ok) {
+                // Validation.
+                if (obj[attr] == null || obj[attr].length <= 0) {
+                    obj[attr + "Error"] = attr + " required";
+                    return;
+                }
+            } else { // Cancelled.
+                obj[attr] = obj[attr + "Prev"];
             }
 
             obj[attr + "Error"] = null;

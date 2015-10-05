@@ -63,7 +63,7 @@
              ng-model="mapping.name"/>
       <span ng-show="mapping.nameError">{{mapping.nameError}}</span>
     </span>
-    <span class="mappingControls">
+    <span class="mappingControls" ng-if="!editing">
       <a ng-if="mapping.name != null"
          class="pull-right btn btn-xs btn-danger"
          data-nodrag
@@ -77,16 +77,23 @@
          data-nodrag
          ng-click="addChildField(mapping)">
          <i class="glyphicon glyphicon-plus"></i></a>
-      <a class="pull-right btn btn-xs"
-         data-nodrag
-         ng-show="mapping.editing"
-         ng-click="editAttrDone(mapping, 'name')">
-         <i class="glyphicon glyphicon-ok"></i></a>
       <a class="pull-right btn btn-xs btn-edit"
          data-nodrag
          ng-show="!mapping.editing"
          ng-click="editAttr(mapping, 'name')">
          <i class="glyphicon glyphicon-pencil"></i></a>
+    </span>
+    <span class="mappingControls" ng-if="editing">
+      <a class="pull-right btn btn-xs"
+         data-nodrag
+         ng-show="mapping.editing"
+         ng-click="editAttrDone(mapping, 'name', false)">
+         <i class="glyphicon glyphicon-remove"></i></a>
+      <a class="pull-right btn btn-xs"
+         data-nodrag
+         ng-show="mapping.editing"
+         ng-click="editAttrDone(mapping, 'name', true)">
+         <i class="glyphicon glyphicon-ok"></i></a>
     </span>
   </div>
   <ol ui-tree-nodes
@@ -102,21 +109,27 @@
                ng-model="field.name"/>
         <span ng-show="field.nameError">{{field.nameError}}</span>
         [property: {{field.property}}]
-        <span class="fieldControls">
+        <span class="fieldControls" ng-if="!editing">
           <a class="pull-right btn btn-xs btn-danger"
              data-nodrag
              ng-click="removeField(this)">
              <i class="glyphicon glyphicon-remove"></i></a>
-          <a class="pull-right btn btn-xs"
-             data-nodrag
-             ng-show="field.editing"
-             ng-click="editAttrDone(field, 'name')">
-             <i class="glyphicon glyphicon-ok"></i></a>
           <a class="pull-right btn btn-xs btn-edit"
              data-nodrag
              ng-show="!field.editing"
              ng-click="editAttr(field, 'name')">
              <i class="glyphicon glyphicon-pencil"></i></a>
+        </span>
+        <span class="fieldControls" ng-if="editing">
+          <a class="pull-right btn btn-xs"
+             data-nodrag
+             ng-click="editAttrDone(field, 'name', false)">
+             <i class="glyphicon glyphicon-remove"></i></a>
+          <a class="pull-right btn btn-xs"
+             data-nodrag
+             ng-show="field.editing"
+             ng-click="editAttrDone(field, 'name', true)">
+             <i class="glyphicon glyphicon-ok"></i></a>
         </span>
       </div>
     </li>
