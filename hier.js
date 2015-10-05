@@ -38,9 +38,16 @@ angular.module('myApp')
 
         $scope.editMapping = function(mapping) {
             mapping.editing = true;
+            mapping.nameError = null;
         }
 
         $scope.editMappingDone = function(mapping) {
+            if (mapping.name == null || mapping.name.length <= 0) {
+                mapping.nameError = "name required";
+                return;
+            }
+
+            mapping.nameError = null;
             mapping.editing = false;
         }
 

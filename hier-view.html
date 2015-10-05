@@ -23,10 +23,24 @@
 .btn {
   margin-right: 10px;
 }
+
+.mapping .mappingControls {
+  visibility: hidden;
+}
+.mapping:hover .mappingControls {
+  visibility: inherit;
+}
+
+.field .fieldControls {
+  visibility: hidden;
+}
+.field:hover .fieldControls {
+  visibility: inherit;
+}
 </style>
 
 <script type="text/ng-template" id="mapping_subpart.html">
-  <div ui-tree-handle>
+  <div ui-tree-handle class="mapping">
     <a class="btn btn-xs btn-success"
        data-nodrag
        ng-click="toggle(this)">
@@ -50,29 +64,32 @@
       <span ng-show="!mapping.editing">{{mapping.name}}</span>
       <input ng-show="mapping.editing" type="text" placeholder="property name"
              ng-model="mapping.name"/>
+      <span ng-show="mapping.nameError">{{mapping.nameError}}</span>
     </span>
-    <a class="pull-right btn btn-xs btn-danger"
-       data-nodrag
-       ng-click="removeMapping(this)">
-       <i class="glyphicon glyphicon-remove"></i></a>
-    <a class="pull-right btn btn-xs btn-warning"
-       data-nodrag
-       ng-click="addChildMapping(this)">
-       <i class="glyphicon glyphicon-plus"></i></a>
-    <a class="pull-right btn btn-xs"
-       data-nodrag
-       ng-click="addChildField(this)">
-       <i class="glyphicon glyphicon-plus"></i></a>
-    <a class="pull-right btn btn-xs"
-       data-nodrag
-       ng-show="mapping.editing"
-       ng-click="editMappingDone(mapping)">
-       <i class="glyphicon glyphicon-ok"></i></a>
-    <a class="pull-right btn btn-xs"
-       data-nodrag
-       ng-show="!mapping.editing"
-       ng-click="editMapping(mapping)">
-       <i class="glyphicon glyphicon-pencil"></i></a>
+    <span class="mappingControls">
+      <a class="pull-right btn btn-xs btn-danger"
+         data-nodrag
+         ng-click="removeMapping(this)">
+         <i class="glyphicon glyphicon-remove"></i></a>
+      <a class="pull-right btn btn-xs btn-warning"
+         data-nodrag
+         ng-click="addChildMapping(this)">
+         <i class="glyphicon glyphicon-plus"></i></a>
+      <a class="pull-right btn btn-xs"
+         data-nodrag
+         ng-click="addChildField(this)">
+         <i class="glyphicon glyphicon-plus"></i></a>
+      <a class="pull-right btn btn-xs"
+         data-nodrag
+         ng-show="mapping.editing"
+         ng-click="editMappingDone(mapping)">
+         <i class="glyphicon glyphicon-ok"></i></a>
+      <a class="pull-right btn btn-xs btn-edit"
+         data-nodrag
+         ng-show="!mapping.editing"
+         ng-click="editMapping(mapping)">
+         <i class="glyphicon glyphicon-pencil"></i></a>
+    </span>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"
@@ -80,12 +97,14 @@
       ng-class="{hidden: collapsed}">
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
-      <div ui-tree-handle>
+      <div ui-tree-handle class="field">
         {{field.name}} [property: {{field.property}}]
-        <a class="pull-right btn btn-xs btn-danger"
-           data-nodrag
-           ng-click="removeField(this)">
-           <i class="glyphicon glyphicon-remove"></i></a>
+        <span class="fieldControls">
+          <a class="pull-right btn btn-xs btn-danger"
+             data-nodrag
+             ng-click="removeField(this)">
+             <i class="glyphicon glyphicon-remove"></i></a>
+        </span>
       </div>
     </li>
   </ol>
