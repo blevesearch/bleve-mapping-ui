@@ -1,6 +1,8 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
-        console.log("HierCtrl...");
+        $scope.toggle = function(scope) {
+            scope.toggle();
+        };
 
         $scope.removeField = function(scope) {
             scope.remove();
@@ -10,22 +12,16 @@ angular.module('myApp')
             scope.remove();
         };
 
-        $scope.toggle = function(scope) {
-            scope.toggle();
-        };
-
-        $scope.addChildField = function(scope) {
-            var mapping = scope.$modelValue;
+        $scope.addChildField = function(mapping) {
             mapping.fields.push({
                 type: 'field',
                 name: mapping.name + "-" + mapping.fields.length,
             });
         };
 
-        $scope.addChildMapping = function(scope) {
-            var mapping = $scope;
-            if (scope != null) {
-                mapping = scope.$modelValue;
+        $scope.addChildMapping = function(mapping) {
+            if (mapping == null) {
+                mapping = $scope;
             }
 
             mapping.mappings.push({
@@ -56,12 +52,9 @@ angular.module('myApp')
                 var sourceData = sourceAccept.$modelValue;
                 var destType = destAccept.$element.attr('data-type');
 
-                var acceptable = (sourceData.type+"Container") == destType;
-                console.log("accept", sourceData, destType, acceptable);
-                return acceptable;
+                return (sourceData.type+"Container") == destType;
             },
             dropped: function(event) {
-                console.log("dropped", event);
             }
         };
 

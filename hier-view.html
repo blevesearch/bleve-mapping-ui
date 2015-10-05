@@ -52,33 +52,41 @@
       <span ng-if="mapping.name == null">
         type [default]
       </span>
-      <span ng-if="mapping.name != null">
+      <span ng-if="mapping.name != null"
+            ng-class="{
+              'has-error': !mapping.name.length
+            }">
         type:
         <span ng-show="!mapping.editing">{{mapping.name}}</span>
-        <input ng-show="mapping.editing" type="text" placeholder="type name"
+        <input type="text" placeholder="type name"
+               ng-show="mapping.editing"
                ng-model="mapping.name"/>
       </span>
     </span>
-    <span ng-if="mapping.type != 'mappingType'">
+    <span ng-if="mapping.type != 'mappingType'"
+          ng-class="{
+            'has-error': !mapping.name.length
+          }">
       {...}
       <span ng-show="!mapping.editing">{{mapping.name}}</span>
-      <input ng-show="mapping.editing" type="text" placeholder="property name"
+      <input type="text" placeholder="property name"
+             ng-show="mapping.editing"
              ng-model="mapping.name"/>
       <span ng-show="mapping.nameError">{{mapping.nameError}}</span>
     </span>
     <span class="mappingControls">
-      <a ng-if="mapping.type != 'mappingType'"
+      <a ng-if="mapping.name != null"
          class="pull-right btn btn-xs btn-danger"
          data-nodrag
          ng-click="removeMapping(this)">
          <i class="glyphicon glyphicon-remove"></i></a>
       <a class="pull-right btn btn-xs btn-warning"
          data-nodrag
-         ng-click="addChildMapping(this)">
+         ng-click="addChildMapping(mapping)">
          <i class="glyphicon glyphicon-plus"></i></a>
       <a class="pull-right btn btn-xs"
          data-nodrag
-         ng-click="addChildField(this)">
+         ng-click="addChildField(mapping)">
          <i class="glyphicon glyphicon-plus"></i></a>
       <a class="pull-right btn btn-xs"
          data-nodrag
@@ -98,9 +106,13 @@
       ng-class="{hidden: collapsed}">
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
-      <div ui-tree-handle class="field">
+      <div ui-tree-handle class="field"
+           ng-class="{
+             'has-error': !field.name.length
+           }">
         <span ng-show="!field.editing">{{field.name}}</span>
-        <input ng-show="field.editing" type="text" placeholder="field name"
+        <input type="text" placeholder="field name"
+               ng-show="field.editing"
                ng-model="field.name"/>
         <span ng-show="field.nameError">{{field.nameError}}</span>
         [property: {{field.property}}]
