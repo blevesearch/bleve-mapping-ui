@@ -67,7 +67,8 @@
       <span ng-show="mapping.nameError">{{mapping.nameError}}</span>
     </span>
     <span class="mappingControls">
-      <a class="pull-right btn btn-xs btn-danger"
+      <a ng-if="mapping.type != 'mappingType'"
+         class="pull-right btn btn-xs btn-danger"
          data-nodrag
          ng-click="removeMapping(this)">
          <i class="glyphicon glyphicon-remove"></i></a>
