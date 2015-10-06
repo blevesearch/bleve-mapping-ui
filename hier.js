@@ -1,5 +1,11 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
+        var typeAttrs = {
+            "field": ['name'],
+            "mapping": ['name'],
+            "mappingType": ['name'],
+        };
+
         $scope.editing = null;
 
         $scope.removeFromParent = function(scope) {
@@ -44,29 +50,43 @@ angular.module('myApp')
             $scope.editing = m;
         };
 
-        $scope.editAttr = function(obj, attr) {
-            obj[attr + "Prev"] = obj[attr];
+        $scope.editAttrs = function(obj) {
+            var attrs = typeAttrs[obj.type];
+            for (var i = 0; i < attrs.length; i++) {
+                var attr = attrs[i];
 
-            $scope.editing = obj;
-
-            obj.editing = true;
-            obj[attr + "Error"] = null;
-        }
-
-        $scope.editAttrDone = function(obj, attr, ok) {
-            if (ok) {
-                // Validation.
-                if (obj[attr] != null && obj[attr].length <= 0) {
-                    obj[attr + "Error"] = attr + " required";
-                    return;
-                }
-            } else { // Cancelled.
-                obj[attr] = obj[attr + "Prev"];
+                obj[attr + "Error"] = null;
+                obj[attr + "Prev"] = obj[attr];
             }
 
-            obj[attr + "Error"] = null;
-            obj.editing = false;
+            obj.editing = true;
+            $scope.editing = obj;
+        }
 
+        $scope.editAttrsDone = function(obj, ok) {
+            var attrs = typeAttrs[obj.type];
+            for (var i = 0; i < attrs.length; i++) {
+                var attr = attrs[i];
+
+                if (ok) {
+                    // Validation.
+                    if (obj[attr] != null && obj[attr].length <= 0) {
+                        obj[attr + "Error"] = attr + " required";
+                        return;
+                    }
+                } else { // Cancelled.
+                    obj[attr] = obj[attr + "Prev"];
+                }
+            }
+
+            for (var i = 0; i < attrs.length; i++) {
+                var attr = attrs[i];
+
+                delete obj[attr + "Error"];
+                delete obj[attr + "Prev"];
+            }
+
+            delete obj.editing;
             $scope.editing = null;
         }
 

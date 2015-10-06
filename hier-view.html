@@ -78,17 +78,17 @@
          <i class="glyphicon glyphicon-plus"></i></a>
       <a class="pull-right btn btn-xs btn-edit"
          data-nodrag
-         ng-click="editAttr(mapping, 'name')">
+         ng-click="editAttrs(mapping)">
          <i class="glyphicon glyphicon-pencil"></i></a>
     </span>
     <span class="mappingControlsEditing" ng-if="editing == mapping">
       <a class="pull-right btn btn-xs"
          data-nodrag
-         ng-click="editAttrDone(mapping, 'name', false)">
+         ng-click="editAttrsDone(mapping, false)">
          <i class="glyphicon glyphicon-remove"></i></a>
       <a class="pull-right btn btn-xs"
          data-nodrag
-         ng-click="editAttrDone(mapping, 'name', true)">
+         ng-click="editAttrsDone(mapping, true)">
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
   </div>
@@ -111,18 +111,18 @@
              <i class="glyphicon glyphicon-remove"></i></a>
           <a class="pull-right btn btn-xs btn-edit"
              data-nodrag
-             ng-click="editAttr(field, 'name')">
+             ng-click="editAttrs(field)">
              <i class="glyphicon glyphicon-pencil"></i></a>
         </span>
         <span class="fieldControlsEditing" ng-if="editing == field">
           <a class="pull-right btn btn-xs"
              data-nodrag
-             ng-click="editAttrDone(field, 'name', false)">
+             ng-click="editAttrsDone(field, false)">
              <i class="glyphicon glyphicon-remove"></i></a>
           <a class="pull-right btn btn-xs"
              data-nodrag
              ng-show="field.editing"
-             ng-click="editAttrDone(field, 'name', true)">
+             ng-click="editAttrsDone(field, true)">
              <i class="glyphicon glyphicon-ok"></i></a>
         </span>
       </div>
