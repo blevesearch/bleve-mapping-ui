@@ -56,7 +56,7 @@ angular.module('myApp')
         $scope.editAttrDone = function(obj, attr, ok) {
             if (ok) {
                 // Validation.
-                if (obj[attr] == null || obj[attr].length <= 0) {
+                if (obj[attr] != null && obj[attr].length <= 0) {
                     obj[attr + "Error"] = attr + " required";
                     return;
                 }
