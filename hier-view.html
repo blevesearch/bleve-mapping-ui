@@ -50,9 +50,9 @@
 <script type="text/ng-template" id="mapping_subpart.html">
   <div ui-tree-handle class="mapping">
     <a class="btn btn-xs"
-       ng-show="mapping.type == 'mappingType'">
+       ng-show="mapping._kind == 'mappingType'">
       <i class="glyphicon glyphicon-file"></i></a>
-    <span ng-if="mapping.type != 'mappingType'">
+    <span ng-if="mapping._kind != 'mappingType'">
       {}
     </span>
 
@@ -72,10 +72,10 @@
     </span>
     <span ng-if="mapping._editing">
       <input type="text" placeholder="please enter a type name"
-             ng-if="mapping.type == 'mappingType'"
+             ng-if="mapping._kind == 'mappingType'"
              ng-model="mapping.name"/>
       <input type="text" placeholder="please enter a property name"
-             ng-if="mapping.type == 'mapping'"
+             ng-if="mapping._kind == 'mapping'"
              ng-model="mapping.name"/>
     </span>
 

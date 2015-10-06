@@ -1,6 +1,6 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
-        var typeAttrs = {
+        var kindAttrs = {
             "field": {'name': 'string'},
             "mapping": {'name': 'string'},
             "mappingType": {'name': 'string'},
@@ -18,7 +18,7 @@ angular.module('myApp')
             }
 
             var field = {
-                type: 'field',
+                _kind: 'field',
                 _editing: true,
                 name: "",
                 property: "",
@@ -43,7 +43,7 @@ angular.module('myApp')
             }
 
             var m = {
-                type: mapping == $scope ? 'mappingType' : 'mapping',
+                _kind: mapping == $scope ? 'mappingType' : 'mapping',
                 _editing: true,
                 name: "",
                 fields: [],
@@ -56,7 +56,7 @@ angular.module('myApp')
         };
 
         $scope.editAttrs = function(obj) {
-            var attrs = typeAttrs[obj.type];
+            var attrs = kindAttrs[obj._kind];
             for (var attr in attrs) {
                 obj[attr + "Error"] = null;
                 obj[attr + "Prev"] = obj[attr];
@@ -67,13 +67,13 @@ angular.module('myApp')
         }
 
         $scope.editAttrsDone = function(obj, ok) {
-            var attrs = typeAttrs[obj.type];
+            var attrs = kindAttrs[obj._kind];
             for (var attr in attrs) {
-                var kind = attrs[attr];
+                var attrKind = attrs[attr];
 
                 if (ok) {
                     // Validation.
-                    if (kind == "string" &&
+                    if (attrKind == "string" &&
                         obj[attr] != null && obj[attr].length <= 0) {
                         obj[attr + "Error"] = attr + " required";
                         return;
@@ -101,14 +101,14 @@ angular.module('myApp')
                 var sourceData = sourceAccept.$modelValue;
                 var destType = destAccept.$element.attr('data-type');
 
-                return (sourceData.type+"Container") == destType;
+                return (sourceData._kind+"Container") == destType;
             },
             dropped: function(event) {
             }
         };
 
         $scope.mappings = [{
-            'type': 'mappingType',
+            '_kind': 'mappingType',
             'name': null, // Represents the default mapping.
             'fields': [],
             'mappings': [],
@@ -117,47 +117,47 @@ angular.module('myApp')
             'dynamic': true,
             'default_analyzer': "",
         }, {
-            'type': 'mappingType',
+            '_kind': 'mappingType',
             'name': 'user',
             'fields': [
-                {'type': 'field', 'property': 'fullName', "name": "fullName_en"},
-                {'type': 'field', 'property': 'fullName', "name": "fullName_es"},
+                {'_kind': 'field', 'property': 'fullName', "name": "fullName_en"},
+                {'_kind': 'field', 'property': 'fullName', "name": "fullName_es"},
             ],
             'mappings': [
                 {
-                    'type': 'mapping',
+                    '_kind': 'mapping',
                     'name': 'address',
                     'fields': [
-                        {'type': 'field', 'property': 'city', "name": "city_en"},
-                        {'type': 'field', 'property': 'city', "name": "city_es"},
+                        {'_kind': 'field', 'property': 'city', "name": "city_en"},
+                        {'_kind': 'field', 'property': 'city', "name": "city_es"},
                     ],
                     'mappings': [
                     ]
                 },
                 {
-                    'type': 'mapping',
+                    '_kind': 'mapping',
                     'name': 'inventory',
                     'fields': [
-                        {'type': 'field', 'property': 'description', "name": "description"},
+                        {'_kind': 'field', 'property': 'description', "name": "description"},
                     ],
                     'mappings': [
                     ]
                 }
             ]
         }, {
-            'type': 'mappingType',
+            '_kind': 'mappingType',
             'name': 'item',
             'fields': [
-                {'type': 'field', 'property': 'description', "name": "description_en"},
-                {'type': 'field', 'property': 'description', "name": "description_es"},
+                {'_kind': 'field', 'property': 'description', "name": "description_en"},
+                {'_kind': 'field', 'property': 'description', "name": "description_es"},
             ],
             'mappings': [
                 {
-                    'type': 'mapping',
+                    '_kind': 'mapping',
                     'name': 'comments',
                     'fields': [
-                        {'type': 'field', 'property': 'msg', "name": "msg_en"},
-                        {'type': 'field', 'property': 'msg', "name": "msg_es"},
+                        {'_kind': 'field', 'property': 'msg', "name": "msg_en"},
+                        {'_kind': 'field', 'property': 'msg', "name": "msg_es"},
                     ],
                     'mappings': [
                     ]
