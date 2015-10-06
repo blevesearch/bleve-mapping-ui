@@ -37,6 +37,10 @@
 .field:hover .fieldControls {
   visibility: inherit;
 }
+
+.subControls {
+  padding-left: 50px;
+}
 </style>
 
 <script type="text/ng-template" id="mapping_subpart.html">
@@ -44,30 +48,31 @@
     <a class="btn btn-xs"
        ng-show="mapping.type == 'mappingType'">
       <i class="glyphicon glyphicon-file"></i></a>
-    <span ng-if="mapping.type == 'mappingType'">
+    <span ng-if="mapping.type != 'mappingType'">
+      {}
+    </span>
+
+    <span ng-if="!mapping.editing">
       <span ng-if="mapping.name == null">
         <i>default</i>
       </span>
-      <span ng-if="mapping.name != null">
-        <span ng-show="!mapping.editing">{{mapping.name}}</span>
-        <input type="text" placeholder="please enter a type name"
-               ng-show="mapping.editing"
-               ng-model="mapping.name"/>
-      </span>
-      <span ng-if="!mapping.enabled">disabled</span>
-      <span ng-if="mapping.enabled">enabled</span>
-    </span>
-    <span ng-if="mapping.type != 'mappingType'">
-      {}
-      <span ng-show="!mapping.editing">
+      <span ng-if="mapping.name">
         {{mapping.name}}
-        <span ng-if="!mapping.enabled">disabled</span>
-        <span ng-if="mapping.enabled">enabled</span>
       </span>
+
+      <span ng-if="!mapping.enabled">| disabled</span>
+      <span ng-if="mapping.dynamic">| dynamic</span>
+      <span ng-if="mapping.defaultAnalyzer">{{mapping.defaultAnalyzer}}</span>
+    </span>
+    <span ng-if="mapping.editing">
+      <input type="text" placeholder="please enter a type name"
+             ng-if="mapping.type == 'mappingType'"
+             ng-model="mapping.name"/>
       <input type="text" placeholder="please enter a property name"
-             ng-show="mapping.editing"
+             ng-if="mapping.type == 'mapping'"
              ng-model="mapping.name"/>
     </span>
+
     <span class="mappingControls" ng-if="!editing">
       <a ng-if="mapping.name != null"
          class="pull-right btn btn-xs btn-danger"
@@ -97,8 +102,10 @@
          ng-click="editAttrsDone(mapping, true)">
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
-    <div ng-if="mapping.editing">
-      <label><input type="checkbox" ng-model="mapping.enabled"/>enabled</label>
+
+    <div ng-if="mapping.editing" class="subControls">
+      <label><input type="checkbox" ng-model="mapping.enabled"/>
+             enabled</label>
     </div>
   </div>
   <ol ui-tree-nodes
