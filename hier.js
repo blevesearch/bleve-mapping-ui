@@ -21,7 +21,11 @@ angular.module('myApp')
                 type: 'field',
                 name: "",
                 property: "",
-                editing: true
+                editing: true,
+                store: true,
+                index: true,
+                include_term_vectors: true,
+                include_in_all: true
             };
 
             mapping.fields.push(field);
@@ -111,7 +115,7 @@ angular.module('myApp')
 
             'enabled': true,
             'dynamic': true,
-            'defaultAnalyzer': "",
+            'default_analyzer': "",
         }, {
             'type': 'mappingType',
             'name': 'user',

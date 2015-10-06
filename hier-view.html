@@ -67,7 +67,7 @@
       <span class="subAttr">
         <span ng-if="!mapping.enabled">| disabled</span>
         <span ng-if="mapping.dynamic">| dynamic</span>
-        <span ng-if="mapping.defaultAnalyzer">| {{mapping.defaultAnalyzer}}</span>
+        <span ng-if="mapping.default_analyzer">| {{mapping.default_analyzer}}</span>
       </span>
     </span>
     <span ng-if="mapping.editing">
@@ -129,8 +129,8 @@
             <span ng-if="field.name != field.property">{{field.name}}</span>
             <span ng-if="field.store">| store</span>
             <span ng-if="field.index">| index</span>
-            <span ng-if="field.includeTermVectors">| include in term vectors</span>
-            <span ng-if="field.includeInAll">| include in all</span>
+            <span ng-if="field.include_term_vectors">| include term vectors</span>
+            <span ng-if="field.include_in_all">| include in '_all' field</span>
           </span>
         </span>
         <span ng-if="field.editing">
@@ -138,7 +138,7 @@
                  ng-model="field.property"/>
 
           <label>searchable as
-                 <input type="text" placeholder="please enter a field name"
+                 <input type="text" placeholder="please enter a name"
                         ng-model="field.name"/>
                  </label>
         </span>
@@ -170,10 +170,10 @@
                  store</label>
           <label><input type="checkbox" ng-model="field.index"/>
                  index</label>
-          <label><input type="checkbox" ng-model="field.includeTermVectors"/>
-                 include in term vectors</label>
-          <label><input type="checkbox" ng-model="field.includeInAll"/>
-                 include in all</label>
+          <label><input type="checkbox" ng-model="field.include_term_vectors"/>
+                 include term vectors</label>
+          <label><input type="checkbox" ng-model="field.include_in_all"/>
+                 include in '_all' field</label>
         </div>
       </div>
     </li>
