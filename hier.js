@@ -58,8 +58,8 @@ angular.module('myApp')
         $scope.editAttrs = function(obj) {
             var attrs = kindAttrs[obj._kind];
             for (var attr in attrs) {
-                obj[attr + "Error"] = null;
-                obj[attr + "Prev"] = obj[attr];
+                obj["_" + attr + "_ERR"] = null;
+                obj["_" + attr + "_PREV"] = obj[attr];
             }
 
             obj._editing = true;
@@ -75,17 +75,17 @@ angular.module('myApp')
                     // Validation.
                     if (attrKind == "string" &&
                         obj[attr] != null && obj[attr].length <= 0) {
-                        obj[attr + "Error"] = attr + " required";
+                        obj["_" + attr + "_ERR"] = attr + " required";
                         return;
                     }
                 } else { // Cancelled.
-                    obj[attr] = obj[attr + "Prev"];
+                    obj[attr] = obj["_" + attr + "_PREV"];
                 }
             }
 
             for (var attr in attrs) {
-                delete obj[attr + "Error"];
-                delete obj[attr + "Prev"];
+                delete obj["_" + attr + "_ERR"];
+                delete obj["_" + attr + "_PREV"];
             }
 
             delete obj._editing;
