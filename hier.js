@@ -9,10 +9,23 @@ angular.module('myApp')
         }
 
         var kindAttrs = {
-            "field": {'name': validateString, 'property': null},
-            "mapping": {'name': validateString},
-            "mappingType": {'name': validateString},
+            "field": {
+                'name': validateString,
+                'property': null,
+                'store': null,
+                'index': null,
+                'include_term_vectors': null,
+                'include_in_all': null
+            },
+            "mapping": {
+                'name': validateString,
+                'enabled': null,
+                'dynamic': null,
+                'default_analyzer': null
+            }
         };
+
+        kindAttrs['mappingType'] = kindAttrs['mapping'];
 
         $scope.editing = null;
 
