@@ -2,11 +2,7 @@ angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
         $scope.editing = null;
 
-        $scope.removeField = function(scope) {
-            scope.remove();
-        };
-
-        $scope.removeMapping = function(scope) {
+        $scope.removeFromParent = function(scope) {
             scope.remove();
         };
 
@@ -76,6 +72,10 @@ angular.module('myApp')
 
         $scope.options = {
             accept: function(sourceAccept, destAccept, destIndex) {
+                if ($scope.editing) {
+                    return false;
+                }
+
                 var sourceData = sourceAccept.$modelValue;
                 var destType = destAccept.$element.attr('data-type');
 

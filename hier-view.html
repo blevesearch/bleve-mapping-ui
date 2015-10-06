@@ -61,7 +61,6 @@
       <input type="text" placeholder="please enter a property name"
              ng-show="mapping.editing"
              ng-model="mapping.name"/>
-      <span ng-show="mapping.nameError">{{mapping.nameError}}</span>
     </span>
     <span class="mappingControls" ng-if="!editing">
       <a ng-if="mapping.name != null"
@@ -104,12 +103,11 @@
         <input type="text" placeholder="please enter a field name"
                ng-show="field.editing"
                ng-model="field.name"/>
-        <span ng-show="field.nameError">{{field.nameError}}</span>
         [property: {{field.property}}]
         <span class="fieldControls" ng-if="!editing">
           <a class="pull-right btn btn-xs btn-danger"
              data-nodrag
-             ng-click="removeField(this)">
+             ng-click="removeFromParent(this)">
              <i class="glyphicon glyphicon-remove"></i></a>
           <a class="pull-right btn btn-xs btn-edit"
              data-nodrag
