@@ -56,7 +56,7 @@
       {}
     </span>
 
-    <span ng-if="!mapping.editing">
+    <span ng-if="!mapping._editing">
       <span ng-if="mapping.name == null">
         <i>default</i>
       </span>
@@ -70,7 +70,7 @@
         <span ng-if="mapping.default_analyzer">| {{mapping.default_analyzer}}</span>
       </span>
     </span>
-    <span ng-if="mapping.editing">
+    <span ng-if="mapping._editing">
       <input type="text" placeholder="please enter a type name"
              ng-if="mapping.type == 'mappingType'"
              ng-model="mapping.name"/>
@@ -109,7 +109,7 @@
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
 
-    <div ng-if="mapping.editing" class="subControls">
+    <div ng-if="mapping._editing" class="subControls">
       <label><input type="checkbox" ng-model="mapping.enabled"/>
              enabled</label>
       <label><input type="checkbox" ng-model="mapping.dynamic"/>
@@ -123,7 +123,7 @@
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
       <div ui-tree-handle class="field">
-        <span ng-if="!field.editing">
+        <span ng-if="!field._editing">
           {{field.property}}
           <span class="subAttr">
             <span ng-if="field.name != field.property">{{field.name}}</span>
@@ -133,7 +133,7 @@
             <span ng-if="field.include_in_all">| include in '_all' field</span>
           </span>
         </span>
-        <span ng-if="field.editing">
+        <span ng-if="field._editing">
           <input type="text" placeholder="please enter a property name"
                  ng-model="field.property"/>
 
@@ -160,12 +160,12 @@
              <i class="glyphicon glyphicon-remove"></i></a>
           <a class="pull-right btn btn-xs"
              data-nodrag
-             ng-show="field.editing"
+             ng-show="field._editing"
              ng-click="editAttrsDone(field, true)">
              <i class="glyphicon glyphicon-ok"></i></a>
         </span>
 
-        <div ng-if="field.editing" class="subControls">
+        <div ng-if="field._editing" class="subControls">
           <label><input type="checkbox" ng-model="field.store"/>
                  store</label>
           <label><input type="checkbox" ng-model="field.index"/>

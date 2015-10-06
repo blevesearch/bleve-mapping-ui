@@ -19,9 +19,9 @@ angular.module('myApp')
 
             var field = {
                 type: 'field',
+                _editing: true,
                 name: "",
                 property: "",
-                editing: true,
                 store: true,
                 index: true,
                 include_term_vectors: true,
@@ -44,10 +44,10 @@ angular.module('myApp')
 
             var m = {
                 type: mapping == $scope ? 'mappingType' : 'mapping',
+                _editing: true,
                 name: "",
                 fields: [],
-                mappings: [],
-                editing: true
+                mappings: []
             };
 
             mapping.mappings.push(m);
@@ -62,7 +62,7 @@ angular.module('myApp')
                 obj[attr + "Prev"] = obj[attr];
             }
 
-            obj.editing = true;
+            obj._editing = true;
             $scope.editing = obj;
         }
 
@@ -88,7 +88,7 @@ angular.module('myApp')
                 delete obj[attr + "Prev"];
             }
 
-            delete obj.editing;
+            delete obj._editing;
             $scope.editing = null;
         }
 
