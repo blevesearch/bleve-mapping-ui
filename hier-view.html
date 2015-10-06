@@ -54,10 +54,16 @@
                ng-show="mapping.editing"
                ng-model="mapping.name"/>
       </span>
+      <span ng-if="!mapping.enabled">disabled</span>
+      <span ng-if="mapping.enabled">enabled</span>
     </span>
     <span ng-if="mapping.type != 'mappingType'">
       {}
-      <span ng-show="!mapping.editing">{{mapping.name}}</span>
+      <span ng-show="!mapping.editing">
+        {{mapping.name}}
+        <span ng-if="!mapping.enabled">disabled</span>
+        <span ng-if="mapping.enabled">enabled</span>
+      </span>
       <input type="text" placeholder="please enter a property name"
              ng-show="mapping.editing"
              ng-model="mapping.name"/>
@@ -91,6 +97,9 @@
          ng-click="editAttrsDone(mapping, true)">
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
+    <div ng-if="mapping.editing">
+      <label><input type="checkbox" ng-model="mapping.enabled"/>enabled</label>
+    </div>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"
