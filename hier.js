@@ -11,6 +11,10 @@ angular.module('myApp')
         };
 
         $scope.addChildField = function(mapping) {
+            if ($scope.editing) {
+                return;
+            }
+
             var field = {
                 type: 'field',
                 name: "",
@@ -23,6 +27,10 @@ angular.module('myApp')
         };
 
         $scope.addChildMapping = function(mapping) {
+            if ($scope.editing) {
+                return;
+            }
+
             if (mapping == null) {
                 mapping = $scope;
             }
@@ -132,23 +140,6 @@ angular.module('myApp')
                     'mappings': [
                     ]
                 },
-            ]
-        }, {
-            'type': 'mappingType',
-            'name': 'area',
-            'fields': [
-                {'type': 'field', 'property': 'description', "name": "description_en"},
-                {'type': 'field', 'property': 'description', "name": "description_es"},
-            ],
-
-            'mappings': [
-                {
-                    'type': 'mapping',
-                    'name': 'node3.1',
-                    'fields': [
-                    ],
-                    'mappings': []
-                }
             ]
         }];
     }]);
