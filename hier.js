@@ -20,6 +20,7 @@ angular.module('myApp')
             var field = {
                 type: 'field',
                 name: "",
+                property: "",
                 editing: true
             };
 

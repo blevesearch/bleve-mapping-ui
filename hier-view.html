@@ -124,18 +124,23 @@
         ui-tree-node>
       <div ui-tree-handle class="field">
         <span ng-if="!field.editing">
-          {{field.name}}
+          {{field.property}}
           <span class="subAttr">
-            [property: {{field.property}}]
-            <span ng-if="!field.store">| stored</span>
-            <span ng-if="!field.index">| indexed</span>
-            <span ng-if="!field.includeTermVectors">| included in term vectors</span>
-            <span ng-if="!field.includeInAll">| included in all</span>
+            <span ng-if="field.name != field.property">{{field.name}}</span>
+            <span ng-if="field.store">| store</span>
+            <span ng-if="field.index">| index</span>
+            <span ng-if="field.includeTermVectors">| include in term vectors</span>
+            <span ng-if="field.includeInAll">| include in all</span>
           </span>
         </span>
         <span ng-if="field.editing">
-          <input type="text" placeholder="please enter a field name"
-                 ng-model="field.name"/>
+          <input type="text" placeholder="please enter a property name"
+                 ng-model="field.property"/>
+
+          <label>searchable as
+                 <input type="text" placeholder="please enter a field name"
+                        ng-model="field.name"/>
+                 </label>
         </span>
 
         <span class="fieldControls" ng-if="!editing">
@@ -162,13 +167,13 @@
 
         <div ng-if="field.editing" class="subControls">
           <label><input type="checkbox" ng-model="field.store"/>
-                 stored</label>
+                 store</label>
           <label><input type="checkbox" ng-model="field.index"/>
-                 indexed</label>
+                 index</label>
           <label><input type="checkbox" ng-model="field.includeTermVectors"/>
-                 included in term vectors</label>
+                 include in term vectors</label>
           <label><input type="checkbox" ng-model="field.includeInAll"/>
-                 included in all</label>
+                 include in all</label>
         </div>
       </div>
     </li>
