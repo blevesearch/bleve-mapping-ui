@@ -38,6 +38,10 @@
   visibility: inherit;
 }
 
+.subAttr {
+  font-weight: normal;
+  font-size: 9pt;
+}
 .subControls {
   padding-left: 50px;
 }
@@ -60,9 +64,11 @@
         {{mapping.name}}
       </span>
 
-      <span ng-if="!mapping.enabled">| disabled</span>
-      <span ng-if="mapping.dynamic">| dynamic</span>
-      <span ng-if="mapping.defaultAnalyzer">| {{mapping.defaultAnalyzer}}</span>
+      <span class="subAttr">
+        <span ng-if="!mapping.enabled">| disabled</span>
+        <span ng-if="mapping.dynamic">| dynamic</span>
+        <span ng-if="mapping.defaultAnalyzer">| {{mapping.defaultAnalyzer}}</span>
+      </span>
     </span>
     <span ng-if="mapping.editing">
       <input type="text" placeholder="please enter a type name"
@@ -119,11 +125,13 @@
       <div ui-tree-handle class="field">
         <span ng-if="!field.editing">
           {{field.name}}
-          [property: {{field.property}}]
-          <span ng-if="!field.store">| stored</span>
-          <span ng-if="!field.index">| indexed</span>
-          <span ng-if="!field.includeTermVectors">| included in term vectors</span>
-          <span ng-if="!field.includeInAll">| included in all</span>
+          <span class="subAttr">
+            [property: {{field.property}}]
+            <span ng-if="!field.store">| stored</span>
+            <span ng-if="!field.index">| indexed</span>
+            <span ng-if="!field.includeTermVectors">| included in term vectors</span>
+            <span ng-if="!field.includeInAll">| included in all</span>
+          </span>
         </span>
         <span ng-if="field.editing">
           <input type="text" placeholder="please enter a field name"
