@@ -117,11 +117,19 @@
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
       <div ui-tree-handle class="field">
-        <span ng-show="!field.editing">{{field.name}}</span>
-        <input type="text" placeholder="please enter a field name"
-               ng-show="field.editing"
-               ng-model="field.name"/>
-        [property: {{field.property}}]
+        <span ng-if="!field.editing">
+          {{field.name}}
+          [property: {{field.property}}]
+          <span ng-if="!field.store">| stored</span>
+          <span ng-if="!field.index">| indexed</span>
+          <span ng-if="!field.includeTermVectors">| included in term vectors</span>
+          <span ng-if="!field.includeInAll">| included in all</span>
+        </span>
+        <span ng-if="field.editing">
+          <input type="text" placeholder="please enter a field name"
+                 ng-model="field.name"/>
+        </span>
+
         <span class="fieldControls" ng-if="!editing">
           <a class="pull-right btn btn-xs btn-danger"
              data-nodrag
@@ -143,6 +151,17 @@
              ng-click="editAttrsDone(field, true)">
              <i class="glyphicon glyphicon-ok"></i></a>
         </span>
+
+        <div ng-if="field.editing" class="subControls">
+          <label><input type="checkbox" ng-model="field.store"/>
+                 stored</label>
+          <label><input type="checkbox" ng-model="field.index"/>
+                 indexed</label>
+          <label><input type="checkbox" ng-model="field.includeTermVectors"/>
+                 included in term vectors</label>
+          <label><input type="checkbox" ng-model="field.includeInAll"/>
+                 included in all</label>
+        </div>
       </div>
     </li>
   </ol>
