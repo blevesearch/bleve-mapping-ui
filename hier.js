@@ -1,9 +1,17 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
+        function validateString(obj, attr) {
+            if (obj[attr] != null && obj[attr].length <= 0) {
+                obj["_" + attr + "_ERR"] = attr + " required";
+                return false;
+            }
+            return true;
+        }
+
         var kindAttrs = {
-            "field": {'name': 'string'},
-            "mapping": {'name': 'string'},
-            "mappingType": {'name': 'string'},
+            "field": {'name': validateString, 'property': null},
+            "mapping": {'name': validateString},
+            "mappingType": {'name': validateString},
         };
 
         $scope.editing = null;
@@ -67,20 +75,24 @@ angular.module('myApp')
         }
 
         $scope.editAttrsDone = function(obj, ok) {
+            var valid = true;
+
             var attrs = kindAttrs[obj._kind];
             for (var attr in attrs) {
-                var attrKind = attrs[attr];
+                var attrValidator = attrs[attr];
 
                 if (ok) {
                     // Validation.
-                    if (attrKind == "string" &&
-                        obj[attr] != null && obj[attr].length <= 0) {
-                        obj["_" + attr + "_ERR"] = attr + " required";
-                        return;
+                    if (attrValidator) {
+                        valid = attrValidator(obj, attr) && valid;
                     }
                 } else { // Cancelled.
                     obj[attr] = obj["_" + attr + "_PREV"];
                 }
+            }
+
+            if (!valid) {
+                return;
             }
 
             for (var attr in attrs) {
