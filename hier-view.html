@@ -83,15 +83,13 @@
          ng-click="editAttr(mapping, 'name')">
          <i class="glyphicon glyphicon-pencil"></i></a>
     </span>
-    <span class="mappingControls" ng-if="editing">
+    <span class="mappingControlsEditing" ng-if="editing == mapping">
       <a class="pull-right btn btn-xs"
          data-nodrag
-         ng-show="mapping.editing"
          ng-click="editAttrDone(mapping, 'name', false)">
          <i class="glyphicon glyphicon-remove"></i></a>
       <a class="pull-right btn btn-xs"
          data-nodrag
-         ng-show="mapping.editing"
          ng-click="editAttrDone(mapping, 'name', true)">
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
@@ -120,7 +118,7 @@
              ng-click="editAttr(field, 'name')">
              <i class="glyphicon glyphicon-pencil"></i></a>
         </span>
-        <span class="fieldControls" ng-if="editing">
+        <span class="fieldControlsEditing" ng-if="editing == field">
           <a class="pull-right btn btn-xs"
              data-nodrag
              ng-click="editAttrDone(field, 'name', false)">
