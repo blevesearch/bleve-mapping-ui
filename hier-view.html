@@ -62,7 +62,7 @@
 
       <span ng-if="!mapping.enabled">| disabled</span>
       <span ng-if="mapping.dynamic">| dynamic</span>
-      <span ng-if="mapping.defaultAnalyzer">{{mapping.defaultAnalyzer}}</span>
+      <span ng-if="mapping.defaultAnalyzer">| {{mapping.defaultAnalyzer}}</span>
     </span>
     <span ng-if="mapping.editing">
       <input type="text" placeholder="please enter a type name"
@@ -106,6 +106,8 @@
     <div ng-if="mapping.editing" class="subControls">
       <label><input type="checkbox" ng-model="mapping.enabled"/>
              enabled</label>
+      <label><input type="checkbox" ng-model="mapping.dynamic"/>
+             dynamic</label>
     </div>
   </div>
   <ol ui-tree-nodes

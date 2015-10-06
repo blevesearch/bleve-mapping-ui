@@ -1,9 +1,9 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
         var typeAttrs = {
-            "field": ['name'],
-            "mapping": ['name'],
-            "mappingType": ['name'],
+            "field": {'name': 'string'},
+            "mapping": {'name': 'string'},
+            "mappingType": {'name': 'string'},
         };
 
         $scope.editing = null;
@@ -52,9 +52,7 @@ angular.module('myApp')
 
         $scope.editAttrs = function(obj) {
             var attrs = typeAttrs[obj.type];
-            for (var i = 0; i < attrs.length; i++) {
-                var attr = attrs[i];
-
+            for (var attr in attrs) {
                 obj[attr + "Error"] = null;
                 obj[attr + "Prev"] = obj[attr];
             }
@@ -65,12 +63,13 @@ angular.module('myApp')
 
         $scope.editAttrsDone = function(obj, ok) {
             var attrs = typeAttrs[obj.type];
-            for (var i = 0; i < attrs.length; i++) {
-                var attr = attrs[i];
+            for (var attr in attrs) {
+                var kind = attrs[attr];
 
                 if (ok) {
                     // Validation.
-                    if (obj[attr] != null && obj[attr].length <= 0) {
+                    if (kind == "string" &&
+                        obj[attr] != null && obj[attr].length <= 0) {
                         obj[attr + "Error"] = attr + " required";
                         return;
                     }
@@ -79,9 +78,7 @@ angular.module('myApp')
                 }
             }
 
-            for (var i = 0; i < attrs.length; i++) {
-                var attr = attrs[i];
-
+            for (var attr in attrs) {
                 delete obj[attr + "Error"];
                 delete obj[attr + "Prev"];
             }
