@@ -23,38 +23,39 @@
 .mapping .btn {
   margin-right: 10px;
 }
+.mapping .label {
+  font-weight: normal;
+}
 
-.mapping .subAttr {
+.mapping .attrs {
   font-weight: normal;
   font-size: 9pt;
 }
 
-.mappingHandle .mappingControls {
+.mapping .mappingHandle .attrControls {
   visibility: hidden;
 }
-.mappingHandle:hover .mappingControls {
+
+.mapping .mappingHandle:hover .attrControls {
   visibility: inherit;
 }
 
-.field .fieldControls {
+.mapping .fieldHandle .attrControls {
   visibility: hidden;
 }
-.field:hover .fieldControls {
+
+.mapping .fieldHandle:hover .attrControls {
   visibility: inherit;
 }
-.field .subControls input[type=checkbox] {
-  margin-left: 10px;
+
+.mapping .editArea {
+  padding-left: 30px;
 }
-.fieldContainer .field label {
-  font-weight: normal;
-}
-.fieldContainer .field label > span {
+
+.mapping .field label > span {
   display: inline-block;
   text-align: right;
   min-width: 8em;
-}
-.fieldCheckboxes, .mappingCheckboxes {
-  margin-left: 30px;
 }
 </style>
 
@@ -75,7 +76,7 @@
         {{mapping.name}}
       </span>
 
-      <span class="subAttr">
+      <span class="attrs">
         <span ng-if="!mapping.enabled">| disabled</span>
         <span ng-if="mapping.dynamic">| dynamic</span>
         <span ng-if="mapping.default_analyzer">| {{mapping.default_analyzer}}</span>
@@ -90,9 +91,9 @@
              ng-model="mapping.name"/>
     </span>
 
-    <span class="mappingControls" ng-if="!editing">
+    <span class="attrControls" ng-if="!editing">
       <a ng-if="mapping.name != null"
-         class="pull-right btn btn-xs btn-danger btn-remove"
+         class="pull-right btn btn-xs btn-danger"
          data-nodrag
          ng-click="removeFromParent(this)">
          <i class="glyphicon glyphicon-remove"></i></a>
@@ -109,7 +110,7 @@
          ng-click="editAttrs(mapping)">
          <i class="glyphicon glyphicon-pencil"></i></a>
     </span>
-    <span class="mappingControlsEditing" ng-if="editing == mapping">
+    <span class="attrControls" ng-if="editing == mapping">
       <a class="pull-right btn btn-xs"
          data-nodrag
          ng-click="editAttrsDone(mapping, false)">
@@ -120,22 +121,18 @@
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
 
-    <div ng-if="mapping._editing" class="subControls">
-      <div class="mappingCheckboxes">
-        <label><input type="checkbox" ng-model="mapping.enabled"/>
-               enabled
-        </label>
-        <label><input type="checkbox" ng-model="mapping.dynamic"/>
-               dynamic
-        </label>
-      </div>
+    <div ng-if="mapping._editing" class="editArea">
+      <label><input type="checkbox" ng-model="mapping.enabled"/>
+             enabled
+      </label>
+      <label><input type="checkbox" ng-model="mapping.dynamic"/>
+             dynamic
+      </label>
     </div>
   </div>
   <ol ui-tree-nodes
       ng-model="mapping.fields"
-      data-type="fieldContainer"
-      class="fieldContainer"
-      ng-class="{hidden: collapsed}">
+      data-type="fieldContainer">
     <li ng-repeat="field in mapping.fields"
         ui-tree-node
         class="field">
@@ -143,7 +140,7 @@
            class="fieldHandle">
         <span ng-if="!field._editing">
           {{field.property}}
-          <span class="subAttr">
+          <span class="attrs">
             <span ng-if="field.name != field.property">{{field.name}}</span>
             <span ng-if="field.type">| {{field.type}}</span>
             <span ng-if="field.analyzer">| {{field.analyzer}}</span>
@@ -162,8 +159,8 @@
           </label>
         </span>
 
-        <span class="fieldControls" ng-if="!editing">
-          <a class="pull-right btn btn-xs btn-danger btn-remove"
+        <span class="attrControls" ng-if="!editing">
+          <a class="pull-right btn btn-xs btn-danger"
              data-nodrag
              ng-click="removeFromParent(this)">
              <i class="glyphicon glyphicon-remove"></i></a>
@@ -172,7 +169,7 @@
              ng-click="editAttrs(field)">
              <i class="glyphicon glyphicon-pencil"></i></a>
         </span>
-        <span class="fieldControlsEditing" ng-if="editing == field">
+        <span class="attrControls" ng-if="editing == field">
           <a class="pull-right btn btn-xs"
              data-nodrag
              ng-click="editAttrsDone(field, false)">
@@ -183,7 +180,7 @@
              <i class="glyphicon glyphicon-ok"></i></a>
         </span>
 
-        <div ng-if="field._editing" class="subControls">
+        <div ng-if="field._editing" class="editArea">
           <div>
             <label>
               <span>property</span>
@@ -219,8 +216,7 @@
               </select>
             </label>
           </div>
-          <div ng-if="field.type != 'disabled'"
-               class="fieldCheckboxes">
+          <div ng-if="field.type != 'disabled'">
             <label><input type="checkbox" ng-model="field.store"/>
                    store
             </label>
@@ -239,6 +235,7 @@
       </div>
     </li>
   </ol>
+
   <ol ui-tree-nodes
       ng-model="mapping.mappings"
       data-type="mappingContainer">
