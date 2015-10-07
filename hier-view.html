@@ -72,6 +72,27 @@
 .mapping.editing > *, .field.editing > * {
   background: #f4f6f7;
 }
+
+.mapping .popupContainer {
+  position: relative;
+  display: block;
+  top: 0px;
+  left: 0px;
+  overflow: visible;
+}
+
+.mapping .popup {
+  position: absolute;
+  display: block;
+  top: 1.5em;
+  right: -2em;
+  border: 1px solid #666;
+  background: white;
+  padding: 5px 10px 5px 10px;
+  font-weight: normal;
+  white-space: nowrap;
+  z-index: 100;
+}
 </style>
 
 <script type="text/ng-template" id="mapping_subpart.html">
@@ -109,14 +130,23 @@
 
     <span ng-if="!editing"
           class="attrControls">
-      <a class="pull-right btn btn-xs btn-warning"
-         data-nodrag
-         ng-click="addChildMapping(mapping)">
-         <i class="glyphicon glyphicon-plus"></i></a>
       <a class="pull-right btn btn-xs"
          data-nodrag
-         ng-click="addChildField(mapping)">
+         ng-click="popupToggle(mapping)">
          <i class="glyphicon glyphicon-plus"></i></a>
+      <div class="pull-right popupContainer"
+           data-nodrag>
+        <div ng-show="popup == mapping" class="popup">
+          <div>
+            <a ng-click="addChildMapping(mapping)">
+               insert child mapping</a>
+          </div>
+          <div>
+            <a ng-click="addChildField(mapping)">
+               insert child field</a>
+          </div>
+        </div>
+      </div>
       <a class="pull-right btn btn-xs btn-edit"
          data-nodrag
          ng-click="editAttrs(mapping)">

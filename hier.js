@@ -34,6 +34,12 @@ function initMappingController(
 
     $scope.editing = null;
 
+    $scope.popup = null;
+
+    $scope.popupToggle = function(obj) {
+        $scope.popup = ($scope.popup == obj) ? null : obj;
+    }
+
     $scope.removeFromParent = function(obj, scope) {
         $scope.editAttrsDone(obj, false); // Cancel any edits.
 
@@ -61,6 +67,7 @@ function initMappingController(
         mapping.fields.unshift(f);
 
         $scope.editing = f;
+        $scope.popup = null;
     };
 
     $scope.addChildMapping = function(mapping) {
@@ -82,6 +89,7 @@ function initMappingController(
         mapping.mappings.unshift(m);
 
         $scope.editing = m;
+        $scope.popup = null;
     };
 
     $scope.editAttrs = function(obj) {
