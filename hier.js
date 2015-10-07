@@ -2,12 +2,15 @@ angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
         var kindAttrs = {
             "field": {
-                'name': validateString,
                 'property': null,
+                'name': validateString,
+                'type': null,
+                'analyzer': null,
                 'store': null,
                 'index': null,
                 'include_term_vectors': null,
-                'include_in_all': null
+                'include_in_all': null,
+                'date_format': null,
             },
             "mapping": {
                 'name': validateString,
@@ -32,12 +35,15 @@ angular.module('myApp')
 
             var f = {
                 _kind: 'field',
-                name: "",
                 property: "",
+                name: "",
+                type: "text",
+                analyzer: "",
                 store: true,
                 index: true,
                 include_term_vectors: true,
-                include_in_all: true
+                include_in_all: true,
+                date_format: null,
             };
             f._editing = function() { removeEntry(mapping.fields, f); };
             mapping.fields.push(f);
