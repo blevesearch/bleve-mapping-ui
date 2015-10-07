@@ -1,13 +1,5 @@
 angular.module('myApp')
     .controller('HierCtrl', ['$scope', function ($scope) {
-        function validateString(obj, attr) {
-            if (obj[attr] != null && obj[attr].length <= 0) {
-                obj["_" + attr + "_ERR"] = attr + " required";
-                return false;
-            }
-            return true;
-        }
-
         var kindAttrs = {
             "field": {
                 'name': validateString,
@@ -40,7 +32,6 @@ angular.module('myApp')
 
             var field = {
                 _kind: 'field',
-                _editing: true,
                 name: "",
                 property: "",
                 store: true,
@@ -48,6 +39,8 @@ angular.module('myApp')
                 include_term_vectors: true,
                 include_in_all: true
             };
+
+            field._editing = function() { removeEntry(mapping.fields, field); };
 
             mapping.fields.push(field);
 
@@ -65,11 +58,12 @@ angular.module('myApp')
 
             var m = {
                 _kind: mapping == $scope ? 'mappingType' : 'mapping',
-                _editing: true,
                 name: "",
                 fields: [],
                 mappings: []
             };
+
+            m._editing = function() { removeEntry(mapping.mappings, m); };
 
             mapping.mappings.push(m);
 
@@ -113,6 +107,10 @@ angular.module('myApp')
                 delete obj["_" + attr + "_PREV"];
             }
 
+            if (!ok && typeof(obj._editing) == 'function') {
+                obj._editing(); // Invoke editing cancellation callback.
+            }
+
             delete obj._editing;
             $scope.editing = null;
         }
@@ -131,6 +129,22 @@ angular.module('myApp')
             dropped: function(event) {
             }
         };
+
+        function validateString(obj, attr) {
+            if (obj[attr] != null && obj[attr].length <= 0) {
+                obj["_" + attr + "_ERR"] = attr + " required";
+                return false;
+            }
+            return true;
+        }
+
+        function removeEntry(arr, entry) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === entry) {
+                    arr.splice(i, 1);
+                }
+            }
+        }
 
         $scope.mappings = [{
             '_kind': 'mappingType',
