@@ -58,7 +58,7 @@ function initMappingController(
             date_format: null,
         };
         f._editing = function() { removeEntry(mapping.fields, f); };
-        mapping.fields.push(f);
+        mapping.fields.unshift(f);
 
         $scope.editing = f;
     };
@@ -79,7 +79,7 @@ function initMappingController(
             mappings: []
         };
         m._editing = function() { removeEntry(mapping.mappings, m); };
-        mapping.mappings.push(m);
+        mapping.mappings.unshift(m);
 
         $scope.editing = m;
     };
