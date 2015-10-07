@@ -24,7 +24,7 @@ angular.module('myApp')
 
         $scope.analyzerNames = ['en', 'es', 'keyword'];
 
-        $scope.fieldTypes = ['text', 'number', 'datetime', 'disable'];
+        $scope.fieldTypes = ['text', 'number', 'datetime', 'disabled'];
 
         // -------------------------------------------------------
 
