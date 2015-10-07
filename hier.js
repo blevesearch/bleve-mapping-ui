@@ -22,7 +22,7 @@ angular.module('myApp')
 
         kindAttrs['mappingType'] = kindAttrs['mapping'];
 
-        $scope.editing = null;
+        $scope.analyzerNames = ['en', 'es', 'keyword'];
 
         $scope.fieldTypes = [
 		    {
@@ -46,6 +46,10 @@ angular.module('myApp')
 			    "description": "a section of JSON to be completely ignored"
 		    }
 	    ];
+
+        // -------------------------------------------------------
+
+        $scope.editing = null;
 
         $scope.removeFromParent = function(scope) {
             scope.remove();
