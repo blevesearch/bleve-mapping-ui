@@ -30,7 +30,7 @@ angular.module('myApp')
                 return;
             }
 
-            var field = {
+            var f = {
                 _kind: 'field',
                 name: "",
                 property: "",
@@ -39,12 +39,10 @@ angular.module('myApp')
                 include_term_vectors: true,
                 include_in_all: true
             };
+            f._editing = function() { removeEntry(mapping.fields, f); };
+            mapping.fields.push(f);
 
-            field._editing = function() { removeEntry(mapping.fields, field); };
-
-            mapping.fields.push(field);
-
-            $scope.editing = field;
+            $scope.editing = f;
         };
 
         $scope.addChildMapping = function(mapping) {
@@ -62,9 +60,7 @@ angular.module('myApp')
                 fields: [],
                 mappings: []
             };
-
             m._editing = function() { removeEntry(mapping.mappings, m); };
-
             mapping.mappings.push(m);
 
             $scope.editing = m;
