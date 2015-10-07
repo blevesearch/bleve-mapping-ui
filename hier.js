@@ -34,7 +34,9 @@ function initMappingController(
 
     $scope.editing = null;
 
-    $scope.removeFromParent = function(scope) {
+    $scope.removeFromParent = function(obj, scope) {
+        $scope.editAttrsDone(obj, false); // Cancel any edits.
+
         scope.remove();
     };
 

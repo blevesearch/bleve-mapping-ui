@@ -105,11 +105,6 @@
 
     <span ng-if="!editing"
           class="attrControls">
-      <a ng-if="mapping.name != null"
-         class="pull-right btn btn-xs btn-danger"
-         data-nodrag
-         ng-click="removeFromParent(this)">
-         <i class="glyphicon glyphicon-remove"></i></a>
       <a class="pull-right btn btn-xs btn-warning"
          data-nodrag
          ng-click="addChildMapping(mapping)">
@@ -134,6 +129,11 @@
          data-nodrag
          ng-click="editAttrsDone(mapping, true)">
          <i class="glyphicon glyphicon-ok"></i></a>
+      <a ng-if="mapping._editing === true && mapping.name != null"
+         class="pull-right btn btn-xs btn-danger"
+         data-nodrag
+         ng-click="removeFromParent(mapping, this)">
+         <i class="glyphicon glyphicon-remove"></i></a>
     </span>
 
     <div ng-if="mapping._editing"
@@ -181,10 +181,6 @@
 
         <span ng-if="!editing"
               class="attrControls">
-          <a class="pull-right btn btn-xs btn-danger"
-             data-nodrag
-             ng-click="removeFromParent(this)">
-             <i class="glyphicon glyphicon-remove"></i></a>
           <a class="pull-right btn btn-xs btn-edit"
              data-nodrag
              ng-click="editAttrs(field)">
@@ -201,6 +197,11 @@
              data-nodrag
              ng-click="editAttrsDone(field, true)">
              <i class="glyphicon glyphicon-ok"></i></a>
+          <a ng-if="field._editing === true"
+             class="pull-right btn btn-xs btn-danger"
+             data-nodrag
+             ng-click="removeFromParent(field, this)">
+             <i class="glyphicon glyphicon-remove"></i></a>
         </span>
 
         <div ng-if="field._editing"
