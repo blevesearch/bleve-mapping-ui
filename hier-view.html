@@ -188,9 +188,10 @@ div.subControls input[type=checkbox] {
           <div>
             <label>
               <span>type</span>
-              <input type="text"
-                     placeholder="type"
-                     ng-model="field.type"/>
+              <select ng-model="field.type"
+                      ng-options="t.name as t.label for t in fieldTypes">
+                <option value="">Object</option>
+              </select>
             </label>
           </div>
           <div>
