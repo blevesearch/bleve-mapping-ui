@@ -24,10 +24,15 @@
   margin-right: 10px;
 }
 
-.mapping .mappingControls {
+.mapping .subAttr {
+  font-weight: normal;
+  font-size: 9pt;
+}
+
+.mappingHandle .mappingControls {
   visibility: hidden;
 }
-.mapping:hover .mappingControls {
+.mappingHandle:hover .mappingControls {
   visibility: inherit;
 }
 
@@ -37,15 +42,7 @@
 .field:hover .fieldControls {
   visibility: inherit;
 }
-
-.subAttr {
-  font-weight: normal;
-  font-size: 9pt;
-}
-div.subControls {
-  padding-left: 50px;
-}
-div.subControls input[type=checkbox] {
+.field .subControls input[type=checkbox] {
   margin-left: 10px;
 }
 .fieldContainer .field label {
@@ -54,12 +51,16 @@ div.subControls input[type=checkbox] {
 .fieldContainer .field label > span {
   display: inline-block;
   text-align: right;
-  min-width: 5em;
+  min-width: 8em;
+}
+.fieldCheckboxes, .mappingCheckboxes {
+  margin-left: 30px;
 }
 </style>
 
 <script type="text/ng-template" id="mapping_subpart.html">
-  <div ui-tree-handle class="mapping">
+  <div ui-tree-handle
+       class="mappingHandle">
     <span ng-if="mapping._kind == 'mappingType'">
       <i class="glyphicon glyphicon-file"></i></span>
     <span ng-if="mapping._kind != 'mappingType'">
@@ -120,12 +121,14 @@ div.subControls input[type=checkbox] {
     </span>
 
     <div ng-if="mapping._editing" class="subControls">
-      <label><input type="checkbox" ng-model="mapping.enabled"/>
-             enabled
-      </label>
-      <label><input type="checkbox" ng-model="mapping.dynamic"/>
-             dynamic
-      </label>
+      <div class="mappingCheckboxes">
+        <label><input type="checkbox" ng-model="mapping.enabled"/>
+               enabled
+        </label>
+        <label><input type="checkbox" ng-model="mapping.dynamic"/>
+               dynamic
+        </label>
+      </div>
     </div>
   </div>
   <ol ui-tree-nodes
@@ -134,8 +137,10 @@ div.subControls input[type=checkbox] {
       class="fieldContainer"
       ng-class="{hidden: collapsed}">
     <li ng-repeat="field in mapping.fields"
-        ui-tree-node>
-      <div ui-tree-handle class="field">
+        ui-tree-node
+        class="field">
+      <div ui-tree-handle
+           class="fieldHandle">
         <span ng-if="!field._editing">
           {{field.property}}
           <span class="subAttr">
@@ -149,9 +154,11 @@ div.subControls input[type=checkbox] {
           </span>
         </span>
         <span ng-if="field._editing">
-          <label>searchable as
-                 <input type="text" placeholder="please enter a name"
-                        ng-model="field.name"/>
+          <label>
+            <span>searchable as</span>
+            <input type="text"
+                   placeholder="please enter a name"
+                   ng-model="field.name"/>
           </label>
         </span>
 
@@ -212,7 +219,8 @@ div.subControls input[type=checkbox] {
               </select>
             </label>
           </div>
-          <div ng-if="field.type != 'disabled'">
+          <div ng-if="field.type != 'disabled'"
+               class="fieldCheckboxes">
             <label><input type="checkbox" ng-model="field.store"/>
                    store
             </label>
@@ -237,7 +245,9 @@ div.subControls input[type=checkbox] {
       class="mappingContainer"
       ng-class="{hidden: collapsed}">
     <li ng-repeat="mapping in mapping.mappings"
-        ui-tree-node ng-include="'mapping_subpart.html'">
+        ui-tree-node
+        class="mapping"
+        ng-include="'mapping_subpart.html'">
     </li>
   </ol>
 </script>
@@ -254,9 +264,12 @@ div.subControls input[type=checkbox] {
     <div ui-tree="options" id="tree-root">
       <ol ui-tree-nodes
           ng-model="mappings"
-          data-type="mappingTypeContainer">
+          data-type="mappingTypeContainer"
+          class="mappingTypeContainer">
         <li ng-repeat="mapping in mappings"
-            ui-tree-node ng-include="'mapping_subpart.html'"></li>
+            ui-tree-node
+            class="mapping"
+            ng-include="'mapping_subpart.html'"></li>
       </ol>
     </div>
   </div>
