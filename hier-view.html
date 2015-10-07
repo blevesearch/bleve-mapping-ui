@@ -37,15 +37,17 @@
   visibility: hidden;
 }
 
-.mapping .mappingHandle:hover .attrControls {
+.mapping .mappingHandle:hover .attrControls,
+.mapping.editing .mappingHandle .attrControls {
   visibility: inherit;
 }
 
-.mapping .fieldHandle .attrControls {
+.mapping .field .fieldHandle .attrControls {
   visibility: hidden;
 }
 
-.mapping .fieldHandle:hover .attrControls {
+.mapping .field .fieldHandle:hover .attrControls,
+.mapping .field.editing .fieldHandle .attrControls {
   visibility: inherit;
 }
 
