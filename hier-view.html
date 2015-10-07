@@ -20,8 +20,11 @@
     box-sizing: border-box;
 }
 
-.btn {
+.mapping .btn {
   margin-right: 10px;
+}
+.mapping .btn-remove {
+  margin-left: 30px;
 }
 
 .mapping .subAttr {
@@ -92,7 +95,7 @@
 
     <span class="mappingControls" ng-if="!editing">
       <a ng-if="mapping.name != null"
-         class="pull-right btn btn-xs btn-danger"
+         class="pull-right btn btn-xs btn-danger btn-remove"
          data-nodrag
          ng-click="removeFromParent(this)">
          <i class="glyphicon glyphicon-remove"></i></a>
@@ -163,7 +166,7 @@
         </span>
 
         <span class="fieldControls" ng-if="!editing">
-          <a class="pull-right btn btn-xs btn-danger"
+          <a class="pull-right btn btn-xs btn-danger btn-remove"
              data-nodrag
              ng-click="removeFromParent(this)">
              <i class="glyphicon glyphicon-remove"></i></a>
