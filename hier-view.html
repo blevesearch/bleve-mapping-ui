@@ -48,7 +48,7 @@
   visibility: inherit;
 }
 
-.mapping .editArea {
+.mapping .mappingHandle .editArea {
   padding-left: 30px;
 }
 
@@ -56,6 +56,10 @@
   display: inline-block;
   text-align: right;
   min-width: 8em;
+}
+
+.mapping .field .editArea label:first-child input[type=checkbox] {
+  margin-left: 60px;
 }
 </style>
 
@@ -82,7 +86,7 @@
         <span ng-if="mapping.default_analyzer">| {{mapping.default_analyzer}}</span>
       </span>
     </span>
-    <span ng-if="mapping._editing">
+    <span ng-if="mapping._editing" data-nodrag>
       <input type="text" placeholder="please enter a type name"
              ng-if="mapping._kind == 'mappingType'"
              ng-model="mapping.name"/>
@@ -110,7 +114,7 @@
          ng-click="editAttrs(mapping)">
          <i class="glyphicon glyphicon-pencil"></i></a>
     </span>
-    <span class="attrControls" ng-if="editing == mapping">
+    <span class="attrControls" ng-if="editing == mapping" data-nodrag>
       <a class="pull-right btn btn-xs"
          data-nodrag
          ng-click="editAttrsDone(mapping, false)">
@@ -121,7 +125,7 @@
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
 
-    <div ng-if="mapping._editing" class="editArea">
+    <div ng-if="mapping._editing" class="editArea" data-nodrag>
       <label><input type="checkbox" ng-model="mapping.enabled"/>
              enabled
       </label>
@@ -150,7 +154,7 @@
             <span ng-if="field.include_term_vectors">| include term vectors</span>
           </span>
         </span>
-        <span ng-if="field._editing">
+        <span ng-if="field._editing" data-nodrag>
           <label>
             <span>searchable as</span>
             <input type="text"
@@ -169,7 +173,7 @@
              ng-click="editAttrs(field)">
              <i class="glyphicon glyphicon-pencil"></i></a>
         </span>
-        <span class="attrControls" ng-if="editing == field">
+        <span class="attrControls" ng-if="editing == field" data-nodrag>
           <a class="pull-right btn btn-xs"
              data-nodrag
              ng-click="editAttrsDone(field, false)">
@@ -180,7 +184,7 @@
              <i class="glyphicon glyphicon-ok"></i></a>
         </span>
 
-        <div ng-if="field._editing" class="editArea">
+        <div ng-if="field._editing" class="editArea" data-nodrag>
           <div>
             <label>
               <span>property</span>
