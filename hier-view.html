@@ -24,6 +24,10 @@
   margin-right: 10px;
 }
 
+.mapping .btn-trash {
+  margin-right: 25px;
+}
+
 .mapping .label {
   font-weight: normal;
 }
@@ -130,7 +134,7 @@
          ng-click="editAttrsDone(mapping, true)">
          <i class="glyphicon glyphicon-ok"></i></a>
       <a ng-if="mapping._editing === true && mapping.name != null"
-         class="pull-right btn btn-xs"
+         class="pull-right btn btn-xs btn-trash"
          data-nodrag
          ng-click="removeFromParent(mapping, this)">
          <i class="glyphicon glyphicon-trash"></i></a>
@@ -198,7 +202,7 @@
              ng-click="editAttrsDone(field, true)">
              <i class="glyphicon glyphicon-ok"></i></a>
           <a ng-if="field._editing === true"
-             class="pull-right btn btn-xs"
+             class="pull-right btn btn-xs btn-trash"
              data-nodrag
              ng-click="removeFromParent(field, this)">
              <i class="glyphicon glyphicon-trash"></i></a>
