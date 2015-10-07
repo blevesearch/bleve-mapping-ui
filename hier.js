@@ -24,28 +24,7 @@ angular.module('myApp')
 
         $scope.analyzerNames = ['en', 'es', 'keyword'];
 
-        $scope.fieldTypes = [
-		    {
-			    "name": "text",
-			    "label": "Text",
-			    "description": "a text field"
-		    },
-		    {
-			    "name": "number",
-			    "label": "Number",
-			    "description": "a numerical value, indexed to facilitate range queries"
-		    },
-		    {
-			    "name": "datetime",
-			    "label": "Date/Time",
-			    "description": "a date/time value, indexed to facilitate range queries"
-		    },
-		    {
-			    "name": "disabled",
-			    "label": "Disabled",
-			    "description": "a section of JSON to be completely ignored"
-		    }
-	    ];
+        $scope.fieldTypes = ['text', 'number', 'datetime', 'disable'];
 
         // -------------------------------------------------------
 

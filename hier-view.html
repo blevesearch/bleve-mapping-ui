@@ -189,8 +189,8 @@ div.subControls input[type=checkbox] {
             <label>
               <span>type</span>
               <select ng-model="field.type"
-                      ng-options="t.name as t.label for t in fieldTypes">
-                <option value="">Object</option>
+                      ng-options="t as t for t in fieldTypes">
+                <option value="">object</option>
               </select>
             </label>
           </div>
@@ -199,7 +199,7 @@ div.subControls input[type=checkbox] {
               <span>analyzer</span>
               <select ng-model="field.analyzer"
                       ng-options="t as t for t in analyzerNames">
-                <option value="">Inherit</option>
+                <option value="">inherit</option>
               </select>
             </label>
           </div>
