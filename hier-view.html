@@ -42,16 +42,16 @@
   font-weight: normal;
   font-size: 9pt;
 }
-.subControls {
+div.subControls {
   padding-left: 50px;
 }
-.subControls input[type=checkbox] {
+div.subControls input[type=checkbox] {
   margin-left: 10px;
 }
-.field label {
+.fieldContainer > .field > label {
   font-weight: normal;
 }
-.field label span {
+.fieldContainer > .field > label > span {
   display: inline-block;
   text-align: right;
   min-width: 5em;
@@ -60,9 +60,8 @@
 
 <script type="text/ng-template" id="mapping_subpart.html">
   <div ui-tree-handle class="mapping">
-    <a class="btn btn-xs"
-       ng-show="mapping._kind == 'mappingType'">
-      <i class="glyphicon glyphicon-file"></i></a>
+    <span ng-if="mapping._kind == 'mappingType'">
+      <i class="glyphicon glyphicon-file"></i></span>
     <span ng-if="mapping._kind != 'mappingType'">
       {}
     </span>
@@ -132,6 +131,7 @@
   <ol ui-tree-nodes
       ng-model="mapping.fields"
       data-type="fieldContainer"
+      class="fieldContainer"
       ng-class="{hidden: collapsed}">
     <li ng-repeat="field in mapping.fields"
         ui-tree-node>
@@ -222,6 +222,7 @@
   <ol ui-tree-nodes
       ng-model="mapping.mappings"
       data-type="mappingContainer"
+      class="mappingContainer"
       ng-class="{hidden: collapsed}">
     <li ng-repeat="mapping in mapping.mappings"
         ui-tree-node ng-include="'mapping_subpart.html'">
