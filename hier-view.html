@@ -23,9 +23,6 @@
 .mapping .btn {
   margin-right: 10px;
 }
-.mapping .btn-remove {
-  margin-left: 30px;
-}
 
 .mapping .subAttr {
   font-weight: normal;
@@ -244,14 +241,11 @@
   </ol>
   <ol ui-tree-nodes
       ng-model="mapping.mappings"
-      data-type="mappingContainer"
-      class="mappingContainer"
-      ng-class="{hidden: collapsed}">
+      data-type="mappingContainer">
     <li ng-repeat="mapping in mapping.mappings"
         ui-tree-node
         class="mapping"
-        ng-include="'mapping_subpart.html'">
-    </li>
+        ng-include="'mapping_subpart.html'"></li>
   </ol>
 </script>
 
@@ -267,8 +261,7 @@
     <div ui-tree="options" id="tree-root">
       <ol ui-tree-nodes
           ng-model="mappings"
-          data-type="mappingTypeContainer"
-          class="mappingTypeContainer">
+          data-type="mappingTypeContainer">
         <li ng-repeat="mapping in mappings"
             ui-tree-node
             class="mapping"
