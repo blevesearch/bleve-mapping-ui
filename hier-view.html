@@ -23,6 +23,7 @@
 .mapping .btn {
   margin-right: 10px;
 }
+
 .mapping .label {
   font-weight: normal;
 }
@@ -61,6 +62,10 @@
 .mapping .field .editArea label:first-child input[type=checkbox] {
   margin-left: 60px;
 }
+
+.mapping.editing > *, .field.editing > * {
+  background: #f4f6f7;
+}
 </style>
 
 <script type="text/ng-template" id="mapping_subpart.html">
@@ -86,7 +91,8 @@
         <span ng-if="mapping.default_analyzer">| {{mapping.default_analyzer}}</span>
       </span>
     </span>
-    <span ng-if="mapping._editing" data-nodrag>
+    <span ng-if="mapping._editing"
+          data-nodrag>
       <input type="text" placeholder="please enter a type name"
              ng-if="mapping._kind == 'mappingType'"
              ng-model="mapping.name"/>
@@ -95,7 +101,8 @@
              ng-model="mapping.name"/>
     </span>
 
-    <span class="attrControls" ng-if="!editing">
+    <span ng-if="!editing"
+          class="attrControls">
       <a ng-if="mapping.name != null"
          class="pull-right btn btn-xs btn-danger"
          data-nodrag
@@ -114,7 +121,9 @@
          ng-click="editAttrs(mapping)">
          <i class="glyphicon glyphicon-pencil"></i></a>
     </span>
-    <span class="attrControls" ng-if="editing == mapping" data-nodrag>
+    <span ng-if="editing == mapping"
+          class="attrControls"
+          data-nodrag>
       <a class="pull-right btn btn-xs"
          data-nodrag
          ng-click="editAttrsDone(mapping, false)">
@@ -125,7 +134,9 @@
          <i class="glyphicon glyphicon-ok"></i></a>
     </span>
 
-    <div ng-if="mapping._editing" class="editArea" data-nodrag>
+    <div ng-if="mapping._editing"
+         class="editArea"
+         data-nodrag>
       <label><input type="checkbox" ng-model="mapping.enabled"/>
              enabled
       </label>
@@ -134,12 +145,14 @@
       </label>
     </div>
   </div>
+
   <ol ui-tree-nodes
       ng-model="mapping.fields"
       data-type="fieldContainer">
     <li ng-repeat="field in mapping.fields"
         ui-tree-node
-        class="field">
+        class="field"
+        ng-class="{'editing': field._editing}">
       <div ui-tree-handle
            class="fieldHandle">
         <span ng-if="!field._editing">
@@ -154,7 +167,8 @@
             <span ng-if="field.include_term_vectors">| include term vectors</span>
           </span>
         </span>
-        <span ng-if="field._editing" data-nodrag>
+        <span ng-if="field._editing"
+              data-nodrag>
           <label>
             <span>searchable as</span>
             <input type="text"
@@ -163,7 +177,8 @@
           </label>
         </span>
 
-        <span class="attrControls" ng-if="!editing">
+        <span ng-if="!editing"
+              class="attrControls">
           <a class="pull-right btn btn-xs btn-danger"
              data-nodrag
              ng-click="removeFromParent(this)">
@@ -173,7 +188,9 @@
              ng-click="editAttrs(field)">
              <i class="glyphicon glyphicon-pencil"></i></a>
         </span>
-        <span class="attrControls" ng-if="editing == field" data-nodrag>
+        <span ng-if="editing == field"
+              class="attrControls"
+              data-nodrag>
           <a class="pull-right btn btn-xs"
              data-nodrag
              ng-click="editAttrsDone(field, false)">
@@ -184,7 +201,9 @@
              <i class="glyphicon glyphicon-ok"></i></a>
         </span>
 
-        <div ng-if="field._editing" class="editArea" data-nodrag>
+        <div ng-if="field._editing"
+             class="editArea"
+             data-nodrag>
           <div>
             <label>
               <span>property</span>
@@ -246,6 +265,7 @@
     <li ng-repeat="mapping in mapping.mappings"
         ui-tree-node
         class="mapping"
+        ng-class="{'editing': mapping._editing}"
         ng-include="'mapping_subpart.html'"></li>
   </ol>
 </script>
@@ -266,6 +286,7 @@
         <li ng-repeat="mapping in mappings"
             ui-tree-node
             class="mapping"
+            ng-class="{'editing': mapping._editing}"
             ng-include="'mapping_subpart.html'"></li>
       </ol>
     </div>
