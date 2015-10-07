@@ -130,10 +130,10 @@
          ng-click="editAttrsDone(mapping, true)">
          <i class="glyphicon glyphicon-ok"></i></a>
       <a ng-if="mapping._editing === true && mapping.name != null"
-         class="pull-right btn btn-xs btn-danger"
+         class="pull-right btn btn-xs"
          data-nodrag
          ng-click="removeFromParent(mapping, this)">
-         <i class="glyphicon glyphicon-remove"></i></a>
+         <i class="glyphicon glyphicon-trash"></i></a>
     </span>
 
     <div ng-if="mapping._editing"
@@ -198,10 +198,10 @@
              ng-click="editAttrsDone(field, true)">
              <i class="glyphicon glyphicon-ok"></i></a>
           <a ng-if="field._editing === true"
-             class="pull-right btn btn-xs btn-danger"
+             class="pull-right btn btn-xs"
              data-nodrag
              ng-click="removeFromParent(field, this)">
-             <i class="glyphicon glyphicon-remove"></i></a>
+             <i class="glyphicon glyphicon-trash"></i></a>
         </span>
 
         <div ng-if="field._editing"
