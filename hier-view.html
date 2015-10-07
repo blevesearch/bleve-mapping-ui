@@ -163,8 +163,8 @@
             <span ng-if="field.name != field.property">{{field.name}}</span>
             <span ng-if="field.type">| {{field.type}}</span>
             <span ng-if="field.analyzer">| {{field.analyzer}}</span>
-            <span ng-if="field.store">| store</span>
             <span ng-if="field.index">| index</span>
+            <span ng-if="field.store">| store</span>
             <span ng-if="field.include_in_all">| include in '_all' field</span>
             <span ng-if="field.include_term_vectors">| include term vectors</span>
           </span>
@@ -243,11 +243,11 @@
             </label>
           </div>
           <div ng-if="field.type != 'disabled'">
-            <label><input type="checkbox" ng-model="field.store"/>
-                   store
-            </label>
             <label><input type="checkbox" ng-model="field.index"/>
                    index
+            </label>
+            <label><input type="checkbox" ng-model="field.store"/>
+                   store
             </label>
             <label><input type="checkbox" ng-model="field.include_in_all"/>
                    include in '_all' field
