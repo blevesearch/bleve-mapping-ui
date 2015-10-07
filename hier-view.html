@@ -48,10 +48,10 @@ div.subControls {
 div.subControls input[type=checkbox] {
   margin-left: 10px;
 }
-.fieldContainer > .field > label {
+.fieldContainer .field label {
   font-weight: normal;
 }
-.fieldContainer > .field > label > span {
+.fieldContainer .field label > span {
   display: inline-block;
   text-align: right;
   min-width: 5em;
@@ -178,7 +178,7 @@ div.subControls input[type=checkbox] {
 
         <div ng-if="field._editing" class="subControls">
           <div>
-            <label class="row">
+            <label>
               <span>property</span>
               <input type="text"
                      placeholder="please enter a property name"
@@ -186,7 +186,7 @@ div.subControls input[type=checkbox] {
             </label>
           </div>
           <div>
-            <label class="row">
+            <label>
               <span>type</span>
               <input type="text"
                      placeholder="type"
@@ -194,7 +194,7 @@ div.subControls input[type=checkbox] {
             </label>
           </div>
           <div>
-            <label class="row">
+            <label>
               <span>analyzer</span>
               <input type="text"
                      placeholder="analyzer"
