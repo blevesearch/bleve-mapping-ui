@@ -7,10 +7,11 @@
       {}
     </span>
 
+    <span ng-if="mapping.name == null">
+      <i>default</i>
+    </span>
+
     <span ng-if="!mapping._editing">
-      <span ng-if="mapping.name == null">
-        <i>default</i>
-      </span>
       <span ng-if="mapping.name">
         {{mapping.name}}
       </span>
@@ -21,13 +22,13 @@
         <span ng-if="mapping.default_analyzer">| {{mapping.default_analyzer}}</span>
       </span>
     </span>
-    <span ng-if="mapping._editing"
+    <span ng-if="mapping._editing && mapping.name != null"
           data-nodrag>
-      <input type="text" placeholder="please enter a type name"
-             ng-if="mapping._kind == 'mappingType'"
+      <input ng-if="mapping._kind == 'mappingType'"
+             type="text" placeholder="please enter a type name"
              ng-model="mapping.name"/>
-      <input type="text" placeholder="please enter a property name"
-             ng-if="mapping._kind == 'mapping'"
+      <input ng-if="mapping._kind == 'mapping'"
+             type="text" placeholder="please enter a property name"
              ng-model="mapping.name"/>
     </span>
 
