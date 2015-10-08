@@ -165,3 +165,91 @@ function initMappingController(
         }
     }
 }
+
+// Convert from a near-bleve-friendly TypeMapping data structure to a
+// UI-friendly data structure.  By "near", an entry with null key
+// represents the default type mapping.
+function convertFromTypeMapping(typeMapping) {
+    typeMapping = JSON.parse(JSON.stringify(typeMapping));
+}
+
+// Convert froma UI-friendly data structure to a near-bleve-friendly
+// TypeMapping data structure.  By "near", an entry with null key
+// represents the default type mapping.
+function convertToTypeMapping(mappings) {
+    var typeMapping = {};
+
+    mappings = scrub(JSON.parse(JSON.stringify(mappings)));
+    for (var i in mappings) {
+        var mapping = mappings[i];
+
+        typeMapping[mapping.name] = mapping; // The mapping.name may be null.
+
+        delete mapping["name"];
+
+        convertPropertiedFields(mapping);
+
+        mapping.display_order = i;
+    }
+
+    return typeMapping;
+
+    // Recursively remove every entry with '_' prefix.
+    function scrub(m) {
+        if (typeof(m) == "object") {
+            for (var k in m) {
+                if (typeof(k) == "string" && k.charAt(0) == "_") {
+                    delete m[k];
+                    continue;
+                }
+
+                m[k] = scrub(m[k]);
+            }
+        }
+
+        return m;
+    }
+
+    // Recursively convert fields with "property" attribute into a
+    // document mapping in the properties map.
+    function convertPropertiedFields(m) {
+        var properties = {};
+        var fields = [];
+
+        for (var i in m.fields) {
+            var field = m.fields[i];
+            if (field.property && field.property.length > 0) {
+                var property = properties[field.property];
+                if (property == null) {
+                    property = properties[field.property] = {
+                        enabled: true,
+                        dynamic: false,
+                        properties: {},
+                        fields: []
+                    };
+                }
+
+                property.fields.push(field);
+            } else {
+                fields.push(field);
+            }
+
+            delete field["property"];
+            field.display_order = i;
+        }
+
+        for (var i in m.mappings) {
+            var mapping = m.mappings[i];
+
+            properties[mapping.name] = mapping;
+
+            delete mapping["name"];
+            mapping.display_order = i;
+
+            convertPropertiedFields(mapping);
+        }
+
+        m.properties = properties;
+        m.fields = fields;
+    }
+}
