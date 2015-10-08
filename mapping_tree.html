@@ -89,6 +89,7 @@
   </div>
 
   <ol ui-tree-nodes
+      ng-if="mapping.enabled"
       ng-model="mapping.fields"
       data-type="fieldContainer">
     <li ng-repeat="field in mapping.fields"
@@ -211,6 +212,7 @@
   </ol>
 
   <ol ui-tree-nodes
+      ng-if="mapping.enabled"
       ng-model="mapping.mappings"
       data-type="mappingContainer">
     <li ng-repeat="mapping in mapping.mappings"
