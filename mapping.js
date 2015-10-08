@@ -146,8 +146,6 @@ function initMappingController(
             var destType = destAccept.$element.attr('data-type');
 
             return (sourceData._kind+"Container") == destType;
-        },
-        dropped: function(event) {
         }
     };
 
