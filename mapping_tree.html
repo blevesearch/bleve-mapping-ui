@@ -100,18 +100,20 @@
         <span ng-if="!field._editing">
           {{field.property}}
           <span class="attrs">
-            <span ng-if="field.name != field.property">
-              searchable as <i>{{field.name}}</i>
-            </span>
             <span ng-if="field.type">| {{field.type}}</span>
-            <span ng-if="field.analyzer && field.type == 'text'">
-              | {{field.analyzer}}
-            </span>
-            <span ng-if="field.index">| index</span>
-            <span ng-if="field.store">| store</span>
-            <span ng-if="field.include_in_all">| include in <i>_all</i> field</span>
-            <span ng-if="field.include_term_vectors && field.type == 'text'">
-              | include term vectors
+            <span ng-if="field.type != 'disabled'">
+              <span ng-if="field.name != field.property">
+                | searchable as <i>{{field.name}}</i>
+              </span>
+              <span ng-if="field.analyzer && field.type == 'text'">
+                | {{field.analyzer}}
+              </span>
+              <span ng-if="field.index">| index</span>
+              <span ng-if="field.store">| store</span>
+              <span ng-if="field.include_in_all">| include in <i>_all</i> field</span>
+              <span ng-if="field.include_term_vectors && field.type == 'text'">
+                | include term vectors
+              </span>
             </span>
           </span>
         </span>
@@ -155,19 +157,19 @@
              data-nodrag>
           <div>
             <label>
-              <span>searchable as</span>
-              <input type="text"
-                     placeholder="please enter a name"
-                     ng-model="field.name"/>
-            </label>
-          </div>
-          <div>
-            <label>
               <span>type</span>
               <select ng-model="field.type"
                       ng-options="t as t for t in fieldTypes">
                 <option value="">object</option>
               </select>
+            </label>
+          </div>
+          <div ng-if="field.type != 'disabled'">
+            <label>
+              <span>searchable as</span>
+              <input type="text"
+                     placeholder="please enter a name"
+                     ng-model="field.name"/>
             </label>
           </div>
           <div ng-if="field.type == 'text'">
