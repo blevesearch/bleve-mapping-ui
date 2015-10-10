@@ -44,7 +44,7 @@ function initMappingController(
         $scope.editAttrsDone(obj, false); // Cancel any edits.
 
         scope.remove();
-    };
+    }
 
     $scope.addChildField = function(mapping) {
         if ($scope.editing) {
@@ -68,7 +68,7 @@ function initMappingController(
 
         $scope.editing = f;
         $scope.popup = null;
-    };
+    }
 
     $scope.addChildMapping = function(mapping) {
         if ($scope.editing) {
@@ -83,6 +83,7 @@ function initMappingController(
             _kind: mapping == $scope ? 'mappingType' : 'mapping',
             name: "",
             enabled: true,
+            dynamic: true,
             fields: [],
             mappings: []
         };
@@ -91,7 +92,7 @@ function initMappingController(
 
         $scope.editing = m;
         $scope.popup = null;
-    };
+    }
 
     $scope.editAttrs = function(obj) {
         var attrs = kindAttrs[obj._kind];
@@ -148,7 +149,7 @@ function initMappingController(
 
             return (sourceData._kind+"Container") == destType;
         }
-    };
+    }
 
     function validateString(obj, attr) {
         if (obj[attr] != null && obj[attr].length <= 0) {

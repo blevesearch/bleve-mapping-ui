@@ -38,11 +38,14 @@
           class="attrControls">
       <a class="pull-right btn btn-xs"
          data-nodrag
+         ng-if="mapping.enabled"
          ng-click="popupToggle(mapping)">
          <i class="glyphicon glyphicon-plus"></i></a>
       <div class="pull-right popupContainer"
-           data-nodrag>
-        <div ng-show="popup == mapping" class="popup">
+           data-nodrag
+           ng-if="mapping.enabled">
+        <div ng-show="popup == mapping"
+             class="popup">
           <div>
             <a ng-click="addChildMapping(mapping)">
                insert child mapping</a>
