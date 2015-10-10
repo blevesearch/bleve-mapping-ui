@@ -1,11 +1,15 @@
 IndexMapping...
     types map[string]DocMapping
-    defaultMapping DocMapping
+    defaultMapping DocMapping...
+       FieldMappings []FieldMapping{FieldMapping{Name: "body_en", Analyzer: "en"}, FieldMapping{Name: "body_es", Analyzer: "es"}}
 
 
 DocMapping...
     Properties map[string]DocMapping
-    FieldMappings []FieldMapping (unnamed field mappings)
+    FieldMappings []FieldMapping (unpropertied field mappings)
+
+
+
 
 
 some properties are "field mappings only"
@@ -15,17 +19,19 @@ a named field would normally be
   DocMapping...
      Properties["description"] :=
        DocMapping...
+         Properties := nil
          FieldMapping{ Name: "description_en" }
          FieldMapping{ Name: "description_es" }
 
 
-example
+example IndexMapping
   type [default]...
   type: beer...
-  type: breweries...
+  type: brewery...
     fields:
-      description: description_en, property: description
-      description: description_es, property: description
+      name: description_en, property:
+      name: description_en, property: "description
+      name: description_es, property: "description
     nested mappings:
       address...
         named fields:
