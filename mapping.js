@@ -82,6 +82,7 @@ function initMappingController(
         var m = {
             _kind: mapping == $scope ? 'mappingType' : 'mapping',
             name: "",
+            enabled: true,
             fields: [],
             mappings: []
         };
@@ -170,7 +171,37 @@ function initMappingController(
 // UI-friendly data structure.  By "near", an entry with null key
 // represents the default type mapping.
 function convertFromTypeMapping(typeMapping) {
+    var mappings = [];
+
     typeMapping = JSON.parse(JSON.stringify(typeMapping));
+    for (var type in typeMapping) {
+        var mapping = typeMapping[type];
+
+        mappings.push(mapping);
+        mapping._kind = 'mappingType';
+        mapping.name = type;
+
+        convert(mapping);
+    }
+
+    mappings.sort(displayOrderComparator);
+
+    return mappings;
+
+    function displayOrderComparator(a, b) {
+        return (a.display_order || 0) - (b.display_order || 0);
+    }
+
+    function convert(mapping) {
+        var mappings = [];
+        var fields = [];
+
+        mappings.sort(displayOrderComparator);
+        fields.sort(displayOrderComparator);
+
+        mapping.mappings = mappings;
+        mapping.fields = fields;
+    }
 }
 
 // Convert froma UI-friendly data structure to a near-bleve-friendly
