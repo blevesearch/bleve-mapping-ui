@@ -193,9 +193,40 @@ function convertFromTypeMapping(typeMapping) {
         return (a.display_order || 0) - (b.display_order || 0);
     }
 
+    function isEmpty(obj) {
+        for (var k in obj) {
+            return false;
+        }
+        return true;
+    }
+
     function convert(mapping) {
         var mappings = [];
-        var fields = [];
+        var fields = mapping.fields || [];
+
+        for (var property in mapping.properties) {
+            var m = mapping.properties[property];
+            if (isEmpty(m.properties)) {
+                // Promote m's fields into to propertied fields.
+                for (var i in m.fields) {
+                    var field = m.fields[i];
+                    field.property = property;
+                    fields.push(field);
+                }
+            } else {
+                m._kind = 'mapping';
+                m.name = property;
+                mappings.push(m);
+
+                convert(m);
+            }
+        }
+
+        for (var i in fields) {
+            fields[i]._kind = 'field';
+        }
+
+        delete mapping["properties"];
 
         mappings.sort(displayOrderComparator);
         fields.sort(displayOrderComparator);
@@ -280,6 +311,8 @@ function convertToTypeMapping(mappings) {
 
             convertPropertiedFields(mapping);
         }
+
+        delete m["mappings"];
 
         m.properties = properties;
         m.fields = fields;
