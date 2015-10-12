@@ -3,20 +3,12 @@ angular.module('myApp', ['ui.tree', 'ngRoute'])
         console.log("app...");
 
         $routeProvider
-            .when('/basic', {
-                controller: 'BasicCtrl',
-                templateUrl: 'basic-view.html'
-            })
-            .when('/groups', {
-                controller: 'GroupsCtrl',
-                templateUrl: 'groups-view.html'
-            })
             .when('/hier', {
                 controller: 'HierCtrl',
                 templateUrl: 'hier-view.html'
             })
             .otherwise({
-                redirectTo: '/basic'
+                redirectTo: '/hier'
             });
 
         console.log("app... done.");
