@@ -53,7 +53,6 @@ func RegisterHandlers(router *mux.Router, pathBase string) {
 }
 
 func ListAnalyzerNames(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -135,7 +134,6 @@ func AnalyzerText(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -174,7 +172,6 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListCharFilterNames(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -213,7 +210,6 @@ func ListCharFilterNames(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListCharFilterTypes(w http.ResponseWriter, req *http.Request) {
-
 	// built in char filter names
 	charFilterTypes, _ := registry.CharFilterTypesAndInstances()
 
@@ -230,7 +226,6 @@ func ListCharFilterTypes(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListTokenizerNames(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -269,7 +264,6 @@ func ListTokenizerNames(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListTokenizerTypes(w http.ResponseWriter, req *http.Request) {
-
 	// built in char filter names
 	tokenizerTypes, _ := registry.TokenizerTypesAndInstances()
 
@@ -286,7 +280,6 @@ func ListTokenizerTypes(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListTokenFilterNames(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -325,7 +318,6 @@ func ListTokenFilterNames(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListTokenFilterTypes(w http.ResponseWriter, req *http.Request) {
-
 	// built in char filter names
 	tokenFilterTypes, _ := registry.TokenFilterTypesAndInstances()
 
@@ -342,7 +334,6 @@ func ListTokenFilterTypes(w http.ResponseWriter, req *http.Request) {
 }
 
 func ListTokenMapNames(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -381,7 +372,6 @@ func ListTokenMapNames(w http.ResponseWriter, req *http.Request) {
 }
 
 func ValidateMapping(w http.ResponseWriter, req *http.Request) {
-
 	indexMapping := bleve.NewIndexMapping()
 
 	// read the request body
@@ -406,7 +396,6 @@ func ValidateMapping(w http.ResponseWriter, req *http.Request) {
 		Status: "ok",
 	}
 	mustEncode(w, rv)
-
 }
 
 func showError(w http.ResponseWriter, r *http.Request,
