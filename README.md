@@ -11,7 +11,7 @@ Start a webserver...
 
 Browse to this URL...
 
-    http://localhost:8000/app.html
+    http://localhost:8000/test.html
 
 ## Unit tests
 

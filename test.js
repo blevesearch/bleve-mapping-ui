@@ -1,3 +1,19 @@
+angular.module('testApp', ['ui.tree', 'ngRoute'])
+    .config(['$routeProvider', function ($routeProvider) {
+        console.log("app...");
+
+        $routeProvider
+            .when('/test', {
+                controller: 'TestCtrl',
+                templateUrl: 'test-view.html'
+            })
+            .otherwise({
+                redirectTo: '/test'
+            });
+
+        console.log("app... done.");
+    }]);
+
 var SAMPLE_MAPPINGS = [
     {
         '_kind': 'mappingType',
@@ -57,8 +73,8 @@ var SAMPLE_MAPPINGS = [
     }
 ];
 
-angular.module('myApp')
-    .controller('HierCtrl', ['$scope', function($scope) {
+angular.module('testApp')
+    .controller('TestCtrl', ['$scope', function($scope) {
         initMappingController(
             $scope,
             ['en', 'es', 'keyword'],
