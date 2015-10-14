@@ -1,5 +1,11 @@
 function initBleveMappingController(
     $scope, analyzerNames, dateTimeParserNames, mappingsIn) {
+    $scope.type_mapping_html =
+        $scope.type_mapping_html || "type-mapping.html";
+
+    $scope.type_mapping_tree_html =
+        $scope.type_mapping_tree_html || "type-mapping-tree.html";
+
     $scope.analyzerNames = analyzerNames;
 
     $scope.dateTimeParserNames = dateTimeParserNames;
