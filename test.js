@@ -75,7 +75,7 @@ var SAMPLE_MAPPINGS = [
 
 angular.module('testApp')
     .controller('TestCtrl', ['$scope', function($scope) {
-        initMappingController(
+        initBleveMappingController(
             $scope,
             ['en', 'es', 'keyword'],
             ['julien', 'gregorian', 'yyyymmdd'],
