@@ -15,8 +15,8 @@ angular.module('testApp', ['ui.tree', 'ngRoute'])
     }]);
 
 var SAMPLE_TYPE_MAPPING = {
-    null: {
-     "enabled": true,
+    "": {
+        "enabled": true,
     },
     "brewery": {
         "enabled": true,

@@ -177,7 +177,7 @@ function initBleveTypeMappingController(
 }
 
 // Convert from a near-bleve-friendly TypeMapping data structure to a
-// UI-friendly data structure.  By "near", an entry with null key
+// UI-friendly data structure.  By "near", an entry with "" key
 // represents the default type mapping.
 function bleveMappingConvertFromTypeMapping(typeMapping) {
     var mappings = [];
@@ -188,7 +188,11 @@ function bleveMappingConvertFromTypeMapping(typeMapping) {
 
         mappings.push(mapping);
         mapping._kind = 'mappingType';
-        mapping.name = type;
+
+        delete mapping["name"];
+        if (type) {
+            mapping.name = type;
+        }
 
         convert(mapping);
     }
@@ -245,7 +249,7 @@ function bleveMappingConvertFromTypeMapping(typeMapping) {
 }
 
 // Convert froma UI-friendly data structure to a near-bleve-friendly
-// TypeMapping data structure.  By "near", an entry with null key
+// TypeMapping data structure.  By "near", an entry with "" key
 // represents the default type mapping.
 function bleveMappingConvertToTypeMapping(mappings) {
     var typeMapping = {};
@@ -254,7 +258,7 @@ function bleveMappingConvertToTypeMapping(mappings) {
     for (var i in mappings) {
         var mapping = mappings[i];
 
-        typeMapping[mapping.name] = mapping; // The mapping.name may be null.
+        typeMapping[mapping.name || ""] = mapping;
 
         delete mapping["name"];
 
