@@ -14,64 +14,39 @@ angular.module('testApp', ['ui.tree', 'ngRoute'])
         console.log("app... done.");
     }]);
 
-var SAMPLE_MAPPINGS = [
-    {
-        '_kind': 'mappingType',
-        'name': null, // Represents the default mapping.
-        'fields': [],
-        'mappings': [],
-        'enabled': true,
-        'dynamic': true,
-        'default_analyzer': "",
-    }, {
-        '_kind': 'mappingType',
-        'name': 'user',
-        'fields': [
-            {'_kind': 'field', 'property': 'fullName', "name": "fullName_en"},
-            {'_kind': 'field', 'property': 'fullName', "name": "fullName_es"},
-        ],
-        'mappings': [
-            {
-                '_kind': 'mapping',
-                'name': 'address',
-                'fields': [
-                    {'_kind': 'field', 'property': 'city', "name": "city_en"},
-                    {'_kind': 'field', 'property': 'city', "name": "city_es"},
-                ],
-                'mappings': [
-                ]
+var SAMPLE_TYPE_MAPPING = {
+    null: {
+     "enabled": true,
+    },
+    "brewery": {
+        "enabled": true,
+        "properties": {
+            "name": {
+                "fields":[{"name":"name","type":"text","analyzer":"en"}],
+                "display_order": 2
             },
-            {
-                '_kind': 'mapping',
-                'name': 'inventory',
-                'fields': [
-                    {'_kind': 'field', 'property': 'description', "name": "description"},
-                ],
-                'mappings': [
-                ]
+            "address": {
+                "enabled": true,
+                "properties": {
+                    "city": {
+                        "fields":[{"name":"city","type":"text"}]
+                    }
+                },
+                "display_order": 1
             }
-        ]
-    }, {
-        '_kind': 'mappingType',
-        'name': 'item',
-        'fields': [
-            {'_kind': 'field', 'property': 'description', "name": "description_en"},
-            {'_kind': 'field', 'property': 'description', "name": "description_es"},
-        ],
-        'mappings': [
-            {
-                '_kind': 'mapping',
-                'name': 'comments',
-                'fields': [
-                    {'_kind': 'field', 'property': 'msg', "name": "msg_en"},
-                    {'_kind': 'field', 'property': 'msg', "name": "msg_es"},
-                ],
-                'mappings': [
-                ]
-            },
-        ]
+        },
+        "display_order":"10"
+    },
+    "beer":{
+        "enabled": true,
+        "properties": {
+            "name": {
+                "fields":[{"name":"name","type":"text"}]
+            }
+        },
+        "display_order":"5"
     }
-];
+};
 
 angular.module('testApp')
     .controller('TestCtrl', ['$scope', function($scope) {
@@ -84,5 +59,5 @@ angular.module('testApp')
             $scope,
             ['en', 'es', 'keyword'],
             ['julien', 'gregorian', 'yyyymmdd'],
-            SAMPLE_MAPPINGS);
+            SAMPLE_TYPE_MAPPING);
     }]);

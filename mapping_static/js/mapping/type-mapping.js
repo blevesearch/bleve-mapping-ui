@@ -1,5 +1,7 @@
 function initBleveTypeMappingController(
-    $scope, analyzerNames, dateTimeParserNames, mappingsIn) {
+    $scope, analyzerNames, dateTimeParserNames, typeMappingIn) {
+    mappings = bleveMappingConvertFromTypeMapping(typeMappingIn)
+
     $scope.type_mapping_html =
         $scope.type_mapping_html || "type-mapping.html";
 
@@ -36,7 +38,7 @@ function initBleveTypeMappingController(
 
     // -------------------------------------------------------
 
-    $scope.mappings = mappingsIn;
+    $scope.mappings = mappings;
 
     $scope.editing = null;
 
