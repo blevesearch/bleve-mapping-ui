@@ -80,7 +80,7 @@ angular.module('testApp')
         $scope.type_mapping_tree_html =
             "mapping_static/partials/mapping/type-mapping-tree.html";
 
-        initBleveMappingController(
+        initBleveTypeMappingController(
             $scope,
             ['en', 'es', 'keyword'],
             ['julien', 'gregorian', 'yyyymmdd'],
