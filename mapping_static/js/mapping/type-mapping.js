@@ -1,6 +1,6 @@
 function initBleveTypeMappingController(
     $scope, analyzerNames, dateTimeParserNames, typeMappingIn) {
-    mappings = bleveMappingConvertFromTypeMapping(typeMappingIn)
+    mappings = bleveConvertFromTypeMapping(typeMappingIn)
 
     $scope.type_mapping_html =
         $scope.type_mapping_html || "type-mapping.html";
@@ -179,7 +179,7 @@ function initBleveTypeMappingController(
 // Convert from a near-bleve-friendly TypeMapping data structure to a
 // UI-friendly data structure.  By "near", an entry with "" key
 // represents the default type mapping.
-function bleveMappingConvertFromTypeMapping(typeMapping) {
+function bleveConvertFromTypeMapping(typeMapping) {
     var mappings = [];
 
     typeMapping = JSON.parse(JSON.stringify(typeMapping));
@@ -251,7 +251,7 @@ function bleveMappingConvertFromTypeMapping(typeMapping) {
 // Convert froma UI-friendly data structure to a near-bleve-friendly
 // TypeMapping data structure.  By "near", an entry with "" key
 // represents the default type mapping.
-function bleveMappingConvertToTypeMapping(mappings) {
+function bleveConvertToTypeMapping(mappings) {
     var typeMapping = {};
 
     mappings = scrub(JSON.parse(JSON.stringify(mappings)));
