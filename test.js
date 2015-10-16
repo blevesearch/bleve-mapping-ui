@@ -50,6 +50,8 @@ var SAMPLE_TYPE_MAPPING = {
 
 angular.module('testApp')
     .controller('TestCtrl', ['$scope', function($scope) {
+        $scope.index_mapping_html =
+            "mapping_static/partials/mapping/index-mapping.html";
         $scope.type_mapping_html =
             "mapping_static/partials/mapping/type-mapping.html";
         $scope.type_mapping_tree_html =
