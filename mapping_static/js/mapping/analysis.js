@@ -3,7 +3,7 @@
 function AnalysisCtrl($scope, $http, $log, $modal) {
     // analyzers
 
-    $scope.newAnalyzer = function () {
+    $scope.newAnalyzer = function() {
         return $scope.editAnalyzer("", {
             "type": "custom",
             "char_filters": [],
@@ -12,7 +12,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         });
     };
 
-    $scope.deleteAnalyzer = function (name) {
+    $scope.deleteAnalyzer = function(name) {
         used = $scope.isAnalyzerUsed(name);
         if (used) {
             alert("This analyzer cannot be deleted"+
@@ -86,17 +86,17 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editAnalyzer = function (name, value) {
+    $scope.editAnalyzer = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/analyzer.html',
           controller: 'AnalyzerModalCtrl',
           resolve: {
-            name: function () {
+            name: function() {
               return name;
             },
-            value: function () {
+            value: function() {
                 return value;
             },
             mapping: function() {
@@ -105,7 +105,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           }
         });
 
-        modalInstance.result.then(function (result) {
+        modalInstance.result.then(function(result) {
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -116,18 +116,18 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 // reload parent available analyzers
                 $scope.$parent.loadAnalyzerNames();
             }
-        }, function () {
+        }, function() {
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
 
     // word lists
 
-    $scope.newWordList = function () {
+    $scope.newWordList = function() {
         return $scope.editWordList("", {tokens:[]});
     };
 
-    $scope.deleteWordList = function (name) {
+    $scope.deleteWordList = function(name) {
         used = $scope.isWordListUsed(name);
         if (used) {
             alert("This word list cannot be deleted"+
@@ -154,17 +154,17 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-	$scope.editWordList = function (name, value) {
+	$scope.editWordList = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/wordlist.html',
           controller: 'WordListModalCtrl',
           resolve: {
-            name: function () {
+            name: function() {
               return name;
             },
-            words: function () {
+            words: function() {
                 return value.tokens;
             },
             mapping: function() {
@@ -173,7 +173,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           }
         });
 
-        modalInstance.result.then(function (result) {
+        modalInstance.result.then(function(result) {
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -182,7 +182,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 }
                 $scope.$parent.mapping.analysis.token_maps[resultKey] = result[resultKey];
             }
-        }, function () {
+        }, function() {
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
@@ -219,17 +219,17 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editCharFilter = function (name, value) {
+    $scope.editCharFilter = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/charfilter.html',
           controller: 'CharFilterModalCtrl',
           resolve: {
-            name: function () {
+            name: function() {
               return name;
             },
-            value: function () {
+            value: function() {
                 return value;
             },
             mapping: function() {
@@ -238,7 +238,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           }
         });
 
-        modalInstance.result.then(function (result) {
+        modalInstance.result.then(function(result) {
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -247,18 +247,18 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 }
                 $scope.$parent.mapping.analysis.char_filters[resultKey] = result[resultKey];
             }
-        }, function () {
+        }, function() {
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
 
     // tokenizers
 
-    $scope.newTokenizer = function () {
+    $scope.newTokenizer = function() {
         return $scope.editTokenizer("", {});
     };
 
-    $scope.deleteTokenizer = function (name) {
+    $scope.deleteTokenizer = function(name) {
         used = $scope.isTokenizerUsed(name);
         if (used) {
             alert("This tokenizer cannot be deleted"+
@@ -289,17 +289,17 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editTokenizer = function (name, value) {
+    $scope.editTokenizer = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/tokenizer.html',
           controller: 'TokenizerModalCtrl',
           resolve: {
-            name: function () {
+            name: function() {
               return name;
             },
-            value: function () {
+            value: function() {
                 return value;
             },
             mapping: function() {
@@ -308,7 +308,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           }
         });
 
-        modalInstance.result.then(function (result) {
+        modalInstance.result.then(function(result) {
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -317,18 +317,18 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 }
                 $scope.$parent.mapping.analysis.tokenizers[resultKey] = result[resultKey];
             }
-        }, function () {
+        }, function() {
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
 
     // token filters
 
-    $scope.newTokenFilter = function () {
+    $scope.newTokenFilter = function() {
         return $scope.editTokenFilter("", {});
     };
 
-    $scope.deleteTokenFilter = function (name) {
+    $scope.deleteTokenFilter = function(name) {
         used = $scope.isTokenFilterUsed(name);
         if (used) {
             alert("This token filter cannot be deleted"+
@@ -354,17 +354,17 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editTokenFilter = function (name, value) {
+    $scope.editTokenFilter = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/tokenfilter.html',
           controller: 'TokenFilterModalCtrl',
           resolve: {
-            name: function () {
+            name: function() {
               return name;
             },
-            value: function () {
+            value: function() {
                 return value;
             },
             mapping: function() {
@@ -373,7 +373,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           }
         });
 
-        modalInstance.result.then(function (result) {
+        modalInstance.result.then(function(result) {
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -382,7 +382,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 }
                 $scope.$parent.mapping.analysis.token_filters[resultKey] = result[resultKey];
             }
-        }, function () {
+        }, function() {
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
