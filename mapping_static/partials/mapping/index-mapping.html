@@ -125,12 +125,12 @@
       <a ng-show="!showPropertiesSection"
          ng-click="showPropertiesSection = true">
         <i class="glyphicon glyphicon-chevron-right"></i>
-        <label>Advanced Properties</label>
+        <label>Advanced</label>
       </a>
       <a ng-show="showPropertiesSection"
          ng-click="showPropertiesSection = false">
         <i class="glyphicon glyphicon-chevron-down"></i>
-        <label>Advanced Properties</label>
+        <label>Advanced</label>
       </a>
     </div>
   </div>
@@ -143,31 +143,37 @@
       <div class="form-group">
         <label>Type Field</label>
         <input type="text" class="form-control"
+               ng-model="indexMapping.type_field"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Default Type</label>
         <input type="text" class="form-control"
+               ng-model="indexMapping.default_type"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Default Analyzer</label>
         <input type="text" class="form-control"
+               ng-model="indexMapping.default_analyzer"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Default Date/Time Parser</label>
         <input type="text" class="form-control"
+               ng-model="indexMapping.default_datetime_parser"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Default Field</label>
         <input type="text" class="form-control"
+               ng-model="indexMapping.default_field"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Byte Array Converter</label>
         <input type="text" class="form-control"
+               ng-model="indexMapping.byte_array_converter"
                placeholder="placeholder"/>
       </div>
     </div>
