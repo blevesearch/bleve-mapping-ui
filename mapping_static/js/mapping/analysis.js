@@ -20,7 +20,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
-            delete $scope.$parent.mapping.analysis.analyzers[name];
+            delete $scope.indexMapping.analysis.analyzers[name];
         }
     };
 
@@ -28,20 +28,20 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         // analyzers are used in mappings (in various places)
 
         // first check index level default analyzer
-        if ($scope.$parent.mapping.default_analyzer == name) {
+        if ($scope.indexMapping.default_analyzer == name) {
             return "index mapping default analyzer";
         }
 
         // then check the default documnt mapping
-        var dm = $scope.$parent.mapping.default_mapping;
+        var dm = $scope.indexMapping.default_mapping;
         used = $scope.isAnalyzerUsedInDocMapping(name, dm, "");
         if (used) {
             return "default document mapping " + used;
         }
 
         // then check the document mapping for each type
-        for (var docType in $scope.$parent.mapping.types) {
-            docMapping = $scope.$parent.mapping.types[docType];
+        for (var docType in $scope.indexMapping.types) {
+            docMapping = $scope.indexMapping.types[docType];
             used = $scope.isAnalyzerUsedInDocMapping(name, docMapping, "");
             if (used) {
                 return "document mapping type '" + docType + "' ";
@@ -100,7 +100,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 return value;
             },
             mapping: function() {
-                return $scope.$parent.mapping;
+                return $scope.indexMapping;
             }
           }
         });
@@ -110,9 +110,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
                     // remove the old name
-                    delete $scope.$parent.mapping.analysis.analyzers[name];
+                    delete $scope.indexMapping.analysis.analyzers[name];
                 }
-                $scope.$parent.mapping.analysis.analyzers[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.analyzers[resultKey] = result[resultKey];
                 // reload parent available analyzers
                 $scope.$parent.loadAnalyzerNames();
             }
@@ -135,14 +135,14 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
-            delete $scope.$parent.mapping.analysis.token_maps[name];
+            delete $scope.indexMapping.analysis.token_maps[name];
         }
     };
 
     $scope.isWordListUsed = function(name) {
         // word lists are only used by token filters
-        for (var tokenFilterName in $scope.$parent.mapping.analysis.token_filters) {
-            tokenFilter = $scope.$parent.mapping.analysis.token_filters[tokenFilterName];
+        for (var tokenFilterName in $scope.indexMapping.analysis.token_filters) {
+            tokenFilter = $scope.indexMapping.analysis.token_filters[tokenFilterName];
             // word lists are embeded in a variety of different field names
             if (tokenFilter.dict_token_map == name ||
                 tokenFilter.articles_token_map == name ||
@@ -168,7 +168,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 return value.tokens;
             },
             mapping: function() {
-                return $scope.$parent.mapping;
+                return $scope.indexMapping;
             }
           }
         });
@@ -178,9 +178,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
                     // remove the old name
-                    delete $scope.$parent.mapping.analysis.token_maps[name];
+                    delete $scope.indexMapping.analysis.token_maps[name];
                 }
-                $scope.$parent.mapping.analysis.token_maps[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.token_maps[resultKey] = result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
@@ -201,14 +201,14 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
-            delete $scope.$parent.mapping.analysis.char_filters[name];
+            delete $scope.indexMapping.analysis.char_filters[name];
         }
     };
 
     $scope.isCharFilterUsed = function(name) {
         // character filters can only be used by analyzers
-        for (var analyzerName in $scope.$parent.mapping.analysis.analyzers) {
-            analyzer = $scope.$parent.mapping.analysis.analyzers[analyzerName];
+        for (var analyzerName in $scope.indexMapping.analysis.analyzers) {
+            analyzer = $scope.indexMapping.analysis.analyzers[analyzerName];
             for (var charFilterIndex in analyzer.char_filters) {
                 charFilterName = analyzer.char_filters[charFilterIndex];
                 if (charFilterName == name) {
@@ -233,7 +233,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 return value;
             },
             mapping: function() {
-                return $scope.$parent.mapping;
+                return $scope.indexMapping;
             }
           }
         });
@@ -243,9 +243,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
                     // remove the old name
-                    delete $scope.$parent.mapping.analysis.char_filters[name];
+                    delete $scope.indexMapping.analysis.char_filters[name];
                 }
-                $scope.$parent.mapping.analysis.char_filters[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.char_filters[resultKey] = result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
@@ -266,22 +266,22 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
-            delete $scope.$parent.mapping.analysis.tokenizers[name];
+            delete $scope.indexMapping.analysis.tokenizers[name];
         }
     };
 
     $scope.isTokenizerUsed = function(name) {
         // tokenizers can be used by *other* tokenizers
-        for (var tokenizerName in $scope.$parent.mapping.analysis.tokenizers) {
-            tokenizer = $scope.$parent.mapping.analysis.tokenizers[tokenizerName];
+        for (var tokenizerName in $scope.indexMapping.analysis.tokenizers) {
+            tokenizer = $scope.indexMapping.analysis.tokenizers[tokenizerName];
             if (tokenizer.tokenizer == name) {
                 return "tokenizer named '" + tokenizerName + "'";
             }
         }
 
         // tokenizers can be used by analyzers
-        for (var analyzerName in $scope.$parent.mapping.analysis.analyzers) {
-            analyzer = $scope.$parent.mapping.analysis.analyzers[analyzerName];
+        for (var analyzerName in $scope.indexMapping.analysis.analyzers) {
+            analyzer = $scope.indexMapping.analysis.analyzers[analyzerName];
             if (analyzer.tokenizer == name) {
                 return "analyzer named '" + analyzerName + "'";
             }
@@ -303,7 +303,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 return value;
             },
             mapping: function() {
-                return $scope.$parent.mapping;
+                return $scope.indexMapping;
             }
           }
         });
@@ -313,9 +313,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
                     // remove the old name
-                    delete $scope.$parent.mapping.analysis.tokenizers[name];
+                    delete $scope.indexMapping.analysis.tokenizers[name];
                 }
-                $scope.$parent.mapping.analysis.tokenizers[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.tokenizers[resultKey] = result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
@@ -336,14 +336,14 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
-            delete $scope.$parent.mapping.analysis.token_filters[name];
+            delete $scope.indexMapping.analysis.token_filters[name];
         }
     };
 
     $scope.isTokenFilterUsed = function(name) {
         // token filters can only be used by analyzers
-        for (var analyzerName in $scope.$parent.mapping.analysis.analyzers) {
-            analyzer = $scope.$parent.mapping.analysis.analyzers[analyzerName];
+        for (var analyzerName in $scope.indexMapping.analysis.analyzers) {
+            analyzer = $scope.indexMapping.analysis.analyzers[analyzerName];
             for (var tokenFilterIndex in analyzer.token_filters) {
                 tokenFilterName = analyzer.token_filters[tokenFilterIndex];
                 if (tokenFilterName == name) {
@@ -368,7 +368,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                 return value;
             },
             mapping: function() {
-                return $scope.$parent.mapping;
+                return $scope.indexMapping;
             }
           }
         });
@@ -378,9 +378,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
                     // remove the old name
-                    delete $scope.$parent.mapping.analysis.token_filters[name];
+                    delete $scope.indexMapping.analysis.token_filters[name];
                 }
-                $scope.$parent.mapping.analysis.token_filters[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.token_filters[resultKey] = result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());

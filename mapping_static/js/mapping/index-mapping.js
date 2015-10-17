@@ -11,7 +11,20 @@ function initBleveIndexMappingController(
 	var indexMapping =
         $scope.indexMapping = JSON.parse(JSON.stringify(indexMappingIn));
 
-    indexMapping.types = indexMapping.types || {};
+    indexMapping.types =
+        indexMapping.types || {};
+    indexMapping.analysis =
+        indexMapping.analysis || {};
+	indexMapping.analysis.analyzers =
+        indexMapping.analysis.analyzers || {};
+	indexMapping.analysis.char_filters =
+        indexMapping.analysis.char_filters || {};
+	indexMapping.analysis.tokenizers =
+        indexMapping.analysis.tokenizers ||{};
+	indexMapping.analysis.token_filters =
+        indexMapping.analysis.token_filters || {};
+	indexMapping.analysis.token_maps =
+        indexMapping.analysis.token_maps || {};
 
     if (indexMapping["default_mapping"]) {
         indexMapping.types[""] = indexMapping["default_mapping"];

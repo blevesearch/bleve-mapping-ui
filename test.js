@@ -57,6 +57,19 @@ var SAMPLE_INDEX_MAPPING = {
     "default_field": "_all",
     "byte_array_converter": "json",
     "analysis": {
+        "analyzers": {},
+        "char_filters": {},
+        "tokenizers": {},
+        "token_filters": {},
+        "token_maps": {
+            "hw": {
+                "type": "custom",
+                "tokens": [
+                    "hello",
+                    "there"
+                ]
+            }
+        }
     }
 };
 
