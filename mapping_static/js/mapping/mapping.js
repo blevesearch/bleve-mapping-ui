@@ -1,3 +1,9 @@
+// WARNING - THIS FILE WILL
+// LIKELY BE OBSOLETED / DELETED
+// once all this refactoring/rewrite is done !!! (steve 2015/10/16)
+
+// ------------------------------------------------------------
+
 // controller responsible for building a mapping
 
 function MappingCtrl($scope, $http, $routeParams, $log, $sce, $location) {
