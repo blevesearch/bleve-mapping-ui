@@ -154,15 +154,15 @@
       </div>
       <div class="form-group">
         <label>Default Analyzer</label>
-        <input type="text" class="form-control"
-               ng-model="indexMapping.default_analyzer"
-               placeholder="placeholder"/>
+        <select ng-model="indexMapping.default_analyzer"
+                ng-options="t as t for t in analyzerNames">
+        </select>
       </div>
       <div class="form-group">
         <label>Default Date/Time Parser</label>
-        <input type="text" class="form-control"
-               ng-model="indexMapping.default_datetime_parser"
-               placeholder="placeholder"/>
+        <select ng-model="indexMapping.default_datetime_parser"
+          ng-options="t as t for t in dateTimeParserNames">
+        </select>
       </div>
       <div class="form-group">
         <label>Default Field</label>
