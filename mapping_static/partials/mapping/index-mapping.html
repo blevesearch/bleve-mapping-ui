@@ -82,20 +82,20 @@
 <div class="filtersSection" ng-show="showFiltersSection">
   <div class="row">
     <div class="col-sm-12">
-      <tabset>
-        <tab heading="Character Filters">
+      <uib-tabset>
+        <uib-tab heading="Character Filters">
           <div ng-include src="static_prefix + '/partials/analysis/charfilters.html'"></div>
-        </tab>
-        <tab heading="Tokenizers">
+        </uib-tab>
+        <uib-tab heading="Tokenizers">
           <div ng-include src="static_prefix + '/partials/analysis/tokenizers.html'"></div>
-        </tab>
-        <tab heading="Token Filters">
+        </uib-tab>
+        <uib-tab heading="Token Filters">
           <div ng-include src="static_prefix + '/partials/analysis/tokenfilters.html'"></div>
-        </tab>
-        <tab heading="Word Lists">
+        </uib-tab>
+        <uib-tab heading="Word Lists">
           <div ng-include src="static_prefix + '/partials/analysis/wordlists.html'"></div>
-        </tab>
-      </tabset>
+        </uib-tab>
+      </uib-tabset>
     </div>
   </div>
 </div>
