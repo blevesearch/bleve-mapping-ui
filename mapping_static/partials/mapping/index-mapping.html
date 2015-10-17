@@ -1,22 +1,28 @@
-<div class="row">
-  <div class="col-sm-12">
-    <a ng-show="!showIndexMapping"
-       ng-click="showIndexMapping = true">
-      <i class="glyphicon glyphicon-chevron-right"></i>
-      <label>Index Mapping</label>
-    </a>
-    <a ng-show="showIndexMapping"
-       ng-click="showIndexMapping = false">
-      <i class="glyphicon glyphicon-chevron-down"></i>
-      <label>Index Mapping</label>
-    </a>
+<div class="indexMapping">
+
+<!-- ======================================================= -->
+
+<div class="showTypeMappingsSection">
+  <div class="row">
+    <div class="col-sm-12">
+      <a ng-show="!showTypeMappingsSection"
+         ng-click="showTypeMappingsSection = true">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+        <label>Type Mappings</label>
+      </a>
+      <a ng-show="showTypeMappingsSection"
+         ng-click="showTypeMappingsSection = false">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+        <label>Type Mappings</label>
+      </a>
+    </div>
   </div>
 </div>
 
-<div class="indexMapping" ng-show="showIndexMapping">
+<div class="typeMappingsSection" ng-show="showTypeMappingsSection">
   <div class="row">
     <div class="col-sm-12">
-      <a ng-click="addChildMapping(null)">[+TYPE]</a>
+      <a ng-click="addChildMapping(null)">Add Type Mapping</a>
     </div>
   </div>
 
@@ -29,22 +35,24 @@
 
 <!-- ======================================================= -->
 
-<div class="row">
-  <div class="col-sm-12">
-    <a ng-show="!showAnalyzers"
-       ng-click="showAnalyzers = true">
-      <i class="glyphicon glyphicon-chevron-right"></i>
-      <label>Analyzers</label>
-    </a>
-    <a ng-show="showAnalyzers"
-       ng-click="showAnalyzers = false">
-      <i class="glyphicon glyphicon-chevron-down"></i>
-      <label>Analyzers</label>
-    </a>
+<div class="showAnalyzersSection">
+  <div class="row">
+    <div class="col-sm-12">
+      <a ng-show="!showAnalyzersSection"
+         ng-click="showAnalyzersSection = true">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+        <label>Analyzers</label>
+      </a>
+      <a ng-show="showAnalyzersSection"
+         ng-click="showAnalyzersSection = false">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+        <label>Analyzers</label>
+      </a>
+    </div>
   </div>
 </div>
 
-<div class="analyzers" ng-show="showAnalyzers">
+<div class="analyzersSection" ng-show="showAnalyzersSection">
   <div class="row">
     <div class="col-sm-12">
       analyzers here
@@ -54,22 +62,24 @@
 
 <!-- ======================================================= -->
 
-<div class="row">
-  <div class="col-sm-12">
-    <a ng-show="!showFilters"
-       ng-click="showFilters = true">
-      <i class="glyphicon glyphicon-chevron-right"></i>
-      <label>Custom Filters</label>
-    </a>
-    <a ng-show="showFilters"
-       ng-click="showFilters = false">
-      <i class="glyphicon glyphicon-chevron-down"></i>
-      <label>Custom Filters</label>
-    </a>
+<div class="showFiltersSection">
+  <div class="row">
+    <div class="col-sm-12">
+      <a ng-show="!showFiltersSection"
+         ng-click="showFiltersSection = true">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+        <label>Custom Filters</label>
+      </a>
+      <a ng-show="showFiltersSection"
+         ng-click="showFiltersSection = false">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+        <label>Custom Filters</label>
+      </a>
+    </div>
   </div>
 </div>
 
-<div class="filters" ng-show="showFilters">
+<div class="filters" ng-show="showFiltersSection">
   <div class="row">
     <div class="col-sm-12">
       filters here
@@ -79,8 +89,4 @@
 
 <!-- ======================================================= -->
 
-<div class="row">
-  <div class="col-sm-12">
-    <pre class="code">{{ mappings | json }}</pre>
-  </div>
 </div>
