@@ -2,7 +2,9 @@
 
 <!-- ======================================================= -->
 
-<div class="showTypeMappingsSection">
+<div class="section">
+
+<div class="sectionHeader showTypeMappingsSection">
   <div class="row">
     <div class="col-sm-12">
       <a ng-show="!showTypeMappingsSection"
@@ -19,7 +21,8 @@
   </div>
 </div>
 
-<div class="typeMappingsSection" ng-show="showTypeMappingsSection">
+<div class="sectionBody typeMappingsSection"
+   ng-show="showTypeMappingsSection">
   <div class="row">
     <div class="col-sm-12">
       <a ng-click="addChildMapping(null)">Add Type Mapping</a>
@@ -33,9 +36,13 @@
   </div>
 </div>
 
+</div>
+
 <!-- ======================================================= -->
 
-<div class="showAnalyzersSection">
+<div class="section">
+
+<div class="sectionHeader showAnalyzersSection">
   <div class="row">
     <div class="col-sm-12">
       <a ng-show="!showAnalyzersSection"
@@ -52,7 +59,8 @@
   </div>
 </div>
 
-<div class="analyzersSection" ng-show="showAnalyzersSection">
+<div class="sectionBody analyzersSection"
+   ng-show="showAnalyzersSection">
   <div class="row">
     <div class="col-sm-12">
       <div ng-include src="static_prefix + '/partials/analysis/analyzers.html'"></div>
@@ -60,9 +68,13 @@
   </div>
 </div>
 
+</div>
+
 <!-- ======================================================= -->
 
-<div class="showFiltersSection">
+<div class="section">
+
+<div class="sectionHeader showFiltersSection">
   <div class="row">
     <div class="col-sm-12">
       <a ng-show="!showFiltersSection"
@@ -79,7 +91,8 @@
   </div>
 </div>
 
-<div class="filtersSection" ng-show="showFiltersSection">
+<div class="sectionBody filtersSection"
+   ng-show="showFiltersSection">
   <div class="row">
     <div class="col-sm-12">
       <uib-tabset>
@@ -100,9 +113,13 @@
   </div>
 </div>
 
+</div>
+
 <!-- ======================================================= -->
 
-<div class="showPropertiesSection">
+<div class="section">
+
+<div class="sectionHeader showPropertiesSection">
   <div class="row">
     <div class="col-sm-12">
       <a ng-show="!showPropertiesSection"
@@ -119,7 +136,8 @@
   </div>
 </div>
 
-<div class="propertiesSection" ng-show="showPropertiesSection">
+<div class="sectionBody propertiesSection"
+   ng-show="showPropertiesSection">
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
@@ -154,6 +172,8 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
 
 <!-- ======================================================= -->

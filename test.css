@@ -19,6 +19,15 @@
     box-sizing: border-box;
 }
 
+.section .sectionHeader {
+  margin-top: 10px;
+}
+
+.section .sectionBody {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
 .mapping .btn {
   margin-right: 10px;
 }
