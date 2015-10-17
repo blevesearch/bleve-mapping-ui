@@ -7,30 +7,32 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="(cfname,cfval) in mapping.analysis.char_filters">
+    <tr ng-repeat="(cfname,cfval) in indexMapping.analysis.char_filters">
       <td>{{cfname}}</td>
       <td>{{cfval.type}}</td>
       <td>
         <div class="btn-group btn-group-xs" role="group">
-          <button ng-click="editCharFilter(cfname, cfval)" type="button" class="btn btn-default btn-xs">
+          <button ng-click="editCharFilter(cfname, cfval)" type="button"
+                  class="btn btn-default btn-xs">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
           </button>
-          <button ng-click="deleteCharFilter(cfname)" type="button" class="btn btn-default btn-xs">
+          <button ng-click="deleteCharFilter(cfname)" type="button"
+                  class="btn btn-default btn-xs">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
           </button>
         </div>
       </td>
     </tr>
-    <tr ng-show="Utils.keys(mapping.analysis.char_filters).length < 1">
+    <tr ng-show="Utils.keys(indexMapping.analysis.char_filters).length < 1">
       <td colspan="3">None</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
       <td colspan="3">
-        <button ng-click="newCharFilter()" type="button" class="btn btn-sm btn-default pull-right">New Character Filter</button>
+        <button ng-click="newCharFilter()" type="button"
+                class="btn btn-sm btn-default pull-right">New Character Filter</button>
       </td>
     </tr>
   </tfoot>
 </table>
-

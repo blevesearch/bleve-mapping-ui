@@ -7,28 +7,31 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="(tfname,tfval) in mapping.analysis.token_filters">
+    <tr ng-repeat="(tfname,tfval) in indexMapping.analysis.token_filters">
       <td>{{tfname}}</td>
       <td>{{tfval.type}}</td>
       <td>
         <div class="btn-group btn-group-xs" role="group">
-          <button ng-click="editTokenFilter(tfname, tfval)" type="button" class="btn btn-default btn-xs">
+          <button ng-click="editTokenFilter(tfname, tfval)" type="button"
+                  class="btn btn-default btn-xs">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
           </button>
-          <button ng-click="deleteTokenFilter(tfname)" type="button" class="btn btn-default btn-xs">
+          <button ng-click="deleteTokenFilter(tfname)" type="button"
+                  class="btn btn-default btn-xs">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
           </button>
         </div>
       </td>
     </tr>
-    <tr ng-show="Utils.keys(mapping.analysis.token_filters).length < 1">
+    <tr ng-show="Utils.keys(indexMapping.analysis.token_filters).length < 1">
       <td colspan="3">None</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
       <td colspan="3">
-        <button ng-click="newTokenFilter()" type="button" class="btn btn-sm btn-default pull-right">New Token Filter</button>
+        <button ng-click="newTokenFilter()" type="button"
+                class="btn btn-sm btn-default pull-right">New Token Filter</button>
       </td>
     </tr>
   </tfoot>
