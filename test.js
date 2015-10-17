@@ -15,9 +15,6 @@ angular.module('testApp', ['ui.tree', 'ui.bootstrap', 'ngRoute'])
     }]);
 
 var SAMPLE_TYPE_MAPPING = {
-    "": {
-        "enabled": true,
-    },
     "brewery": {
         "enabled": true,
         "properties": {
@@ -48,18 +45,29 @@ var SAMPLE_TYPE_MAPPING = {
     }
 };
 
+var SAMPLE_INDEX_MAPPING = {
+    "types": SAMPLE_TYPE_MAPPING,
+    "default_mapping": {
+        "enabled": true,
+    },
+    "type_field": "_type",
+    "default_type": "_default",
+    "default_analyzer": "standard",
+    "default_datetime_parser": "dateTimeOptional",
+    "default_field": "_all",
+    "byte_array_converter": "json",
+    "analysis": {
+    }
+};
+
 angular.module('testApp').
     controller('TestCtrl', ['$scope', '$http', '$log', '$uibModal',
     function($scope, $http, $log, $uibModal) {
-        $scope.static_prefix = 'mapping_static';
-
-        initBleveTypeMappingController(
-            $scope,
-            ['en', 'es', 'keyword'],
-            ['julien', 'gregorian', 'yyyymmdd'],
-            SAMPLE_TYPE_MAPPING);
-
-        AnalysisCtrl($scope, $http, $log, $uibModal);
+        initBleveIndexMappingController(
+            $scope, $http, $log, $uibModal,
+            ['en', 'es', 'keyword', 'standard'],
+            ['julien', 'gregorian', 'yyyymmdd', 'dateTimeOptional'],
+            SAMPLE_INDEX_MAPPING);
     }]);
 
 angular.module('testApp').
