@@ -67,6 +67,7 @@ angular.module('testApp').
             $scope, $http, $log, $uibModal,
             ['en', 'es', 'keyword', 'standard'],
             ['julien', 'gregorian', 'yyyymmdd', 'dateTimeOptional'],
+            ['json'],
             SAMPLE_INDEX_MAPPING);
     }]);
 

@@ -1,8 +1,12 @@
 function initBleveIndexMappingController(
     $scope, $http, $log, $uibModal,
-    analyzerNames, dateTimeParserNames,
+    analyzerNames, dateTimeParserNames, byteArrayConverterNames,
     indexMappingIn) {
     $scope.static_prefix = $scope.static_prefix || 'mapping_static';
+
+    $scope.analyzerNames = analyzerNames;
+    $scope.dateTimeParserNames = dateTimeParserNames;
+    $scope.byteArrayConverterNames = byteArrayConverterNames;
 
 	var indexMapping =
         $scope.indexMapping = JSON.parse(JSON.stringify(indexMappingIn));
@@ -13,9 +17,7 @@ function initBleveIndexMappingController(
         indexMapping.types[""] = indexMapping["default_mapping"];
     }
 
-    initBleveTypeMappingController($scope,
-                                   analyzerNames, dateTimeParserNames,
-                                   indexMapping.types);
+    initBleveTypeMappingController($scope, indexMapping.types);
 
     AnalysisCtrl($scope, $http, $log, $uibModal);
 }

@@ -1,16 +1,5 @@
-function initBleveTypeMappingController(
-    $scope, analyzerNames, dateTimeParserNames, typeMappingIn) {
+function initBleveTypeMappingController($scope, typeMappingIn) {
     mappings = bleveConvertFromTypeMapping(typeMappingIn)
-
-    $scope.type_mapping_html =
-        $scope.type_mapping_html || "type-mapping.html";
-
-    $scope.type_mapping_tree_html =
-        $scope.type_mapping_tree_html || "type-mapping-tree.html";
-
-    $scope.analyzerNames = analyzerNames;
-
-    $scope.dateTimeParserNames = dateTimeParserNames;
 
     $scope.fieldTypes = ['text', 'number', 'datetime', 'disabled'];
 
