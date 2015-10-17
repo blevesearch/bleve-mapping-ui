@@ -48,8 +48,7 @@ var SAMPLE_TYPE_MAPPING = {
     }
 };
 
-angular.
-    module('testApp').
+angular.module('testApp').
     controller('TestCtrl', ['$scope', '$http', '$log', '$uibModal',
     function($scope, $http, $log, $uibModal) {
         $scope.static_prefix = 'mapping_static';
@@ -62,3 +61,10 @@ angular.
 
         AnalysisCtrl($scope, $http, $log, $uibModal);
     }]);
+
+angular.module('testApp').
+    controller('AnalyzerModalCtrl', AnalyzerModalCtrl).
+    controller('CharFilterModalCtrl', CharFilterModalCtrl).
+    controller('TokenizerModalCtrl', TokenizerModalCtrl).
+    controller('TokenFilterModalCtrl', TokenFilterModalCtrl).
+    controller('WordListModalCtrl', WordListModalCtrl);

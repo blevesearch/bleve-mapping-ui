@@ -33,7 +33,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
         }
 
         // then check the default documnt mapping
-        used = $scope.isAnalyzerUsedInDocMapping(name, $scope.$parent.mapping.default_mapping, "");
+        var dm = $scope.$parent.mapping.default_mapping;
+        used = $scope.isAnalyzerUsedInDocMapping(name, dm, "");
         if (used) {
             return "default document mapping " + used;
         }
@@ -88,7 +89,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editAnalyzer = function (name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: '/static/partials/analysis/analyzer.html',
+          templateUrl: ($scope.static_prefix || '/static') +
+                '/partials/analysis/analyzer.html',
           controller: 'AnalyzerModalCtrl',
           resolve: {
             name: function () {
@@ -155,7 +157,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
 	$scope.editWordList = function (name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: '/static/partials/analysis/wordlist.html',
+          templateUrl: ($scope.static_prefix || '/static') +
+                '/partials/analysis/wordlist.html',
           controller: 'WordListModalCtrl',
           resolve: {
             name: function () {
@@ -219,7 +222,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editCharFilter = function (name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: '/static/partials/analysis/charfilter.html',
+          templateUrl: ($scope.static_prefix || '/static') +
+                '/partials/analysis/charfilter.html',
           controller: 'CharFilterModalCtrl',
           resolve: {
             name: function () {
@@ -288,7 +292,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editTokenizer = function (name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: '/static/partials/analysis/tokenizer.html',
+          templateUrl: ($scope.static_prefix || '/static') +
+                '/partials/analysis/tokenizer.html',
           controller: 'TokenizerModalCtrl',
           resolve: {
             name: function () {
@@ -352,7 +357,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editTokenFilter = function (name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: '/static/partials/analysis/tokenfilter.html',
+          templateUrl: ($scope.static_prefix || '/static') +
+                '/partials/analysis/tokenfilter.html',
           controller: 'TokenFilterModalCtrl',
           resolve: {
             name: function () {
