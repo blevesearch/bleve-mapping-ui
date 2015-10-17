@@ -52,14 +52,7 @@ angular.
     module('testApp').
     controller('TestCtrl', ['$scope', '$http', '$log', '$uibModal',
     function($scope, $http, $log, $uibModal) {
-        $scope.index_mapping_html =
-            "mapping_static/partials/mapping/index-mapping.html";
-        $scope.type_mapping_html =
-            "mapping_static/partials/mapping/type-mapping.html";
-        $scope.type_mapping_tree_html =
-            "mapping_static/partials/mapping/type-mapping-tree.html";
-        $scope.analyzers_html =
-            "mapping_static/partials/analysis/analyzers.html";
+        $scope.static_prefix = 'mapping_static';
 
         initBleveTypeMappingController(
             $scope,

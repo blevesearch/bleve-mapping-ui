@@ -28,7 +28,7 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <div ng-include="type_mapping_html"></div>
+      <div ng-include="static_prefix + '/partials/mapping/type-mapping.html'"></div>
     </div>
   </div>
 </div>
@@ -55,7 +55,7 @@
 <div class="analyzersSection" ng-show="showAnalyzersSection">
   <div class="row">
     <div class="col-sm-12">
-      <div ng-include src="analyzers_html"></div>
+      <div ng-include src="static_prefix + '/partials/analysis/analyzers.html'"></div>
     </div>
   </div>
 </div>
@@ -82,7 +82,76 @@
 <div class="filtersSection" ng-show="showFiltersSection">
   <div class="row">
     <div class="col-sm-12">
-      filters here
+      <tabset>
+        <tab heading="Character Filters">
+          <div ng-include src="static_prefix + '/partials/analysis/charfilters.html'"></div>
+        </tab>
+        <tab heading="Tokenizers">
+          <div ng-include src="static_prefix + '/partials/analysis/tokenizers.html'"></div>
+        </tab>
+        <tab heading="Token Filters">
+          <div ng-include src="static_prefix + '/partials/analysis/tokenfilters.html'"></div>
+        </tab>
+        <tab heading="Word Lists">
+          <div ng-include src="static_prefix + '/partials/analysis/wordlists.html'"></div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+
+<div class="showPropertiesSection">
+  <div class="row">
+    <div class="col-sm-12">
+      <a ng-show="!showPropertiesSection"
+         ng-click="showPropertiesSection = true">
+        <i class="glyphicon glyphicon-chevron-right"></i>
+        <label>Advanced Properties</label>
+      </a>
+      <a ng-show="showPropertiesSection"
+         ng-click="showPropertiesSection = false">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+        <label>Advanced Properties</label>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="propertiesSection" ng-show="showPropertiesSection">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Type Field</label>
+        <input type="text" class="form-control"
+               placeholder="placeholder"/>
+      </div>
+      <div class="form-group">
+        <label>Default Type</label>
+        <input type="text" class="form-control"
+               placeholder="placeholder"/>
+      </div>
+      <div class="form-group">
+        <label>Default Analyzer</label>
+        <input type="text" class="form-control"
+               placeholder="placeholder"/>
+      </div>
+      <div class="form-group">
+        <label>Default Date/Time Parser</label>
+        <input type="text" class="form-control"
+               placeholder="placeholder"/>
+      </div>
+      <div class="form-group">
+        <label>Default Field</label>
+        <input type="text" class="form-control"
+               placeholder="placeholder"/>
+      </div>
+      <div class="form-group">
+        <label>Byte Array Converter</label>
+        <input type="text" class="form-control"
+               placeholder="placeholder"/>
+      </div>
     </div>
   </div>
 </div>
