@@ -1,4 +1,4 @@
-angular.module('testApp', ['ui.tree', 'ngRoute'])
+angular.module('testApp', ['ui.tree', 'ui.bootstrap', 'ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
         console.log("app...");
 
@@ -48,18 +48,24 @@ var SAMPLE_TYPE_MAPPING = {
     }
 };
 
-angular.module('testApp')
-    .controller('TestCtrl', ['$scope', function($scope) {
+angular.
+    module('testApp').
+    controller('TestCtrl', ['$scope', '$http', '$log', '$uibModal',
+    function($scope, $http, $log, $uibModal) {
         $scope.index_mapping_html =
             "mapping_static/partials/mapping/index-mapping.html";
         $scope.type_mapping_html =
             "mapping_static/partials/mapping/type-mapping.html";
         $scope.type_mapping_tree_html =
             "mapping_static/partials/mapping/type-mapping-tree.html";
+        $scope.analyzers_html =
+            "mapping_static/partials/analysis/analyzers.html";
 
         initBleveTypeMappingController(
             $scope,
             ['en', 'es', 'keyword'],
             ['julien', 'gregorian', 'yyyymmdd'],
             SAMPLE_TYPE_MAPPING);
+
+        AnalysisCtrl($scope, $http, $log, $uibModal);
     }]);

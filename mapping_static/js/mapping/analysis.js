@@ -1,7 +1,6 @@
 // controller responsible for building a custom analysis components
 
-function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal) {
-
+function AnalysisCtrl($scope, $http, $log, $modal) {
     // analyzers
 
     $scope.newAnalyzer = function () {
@@ -16,7 +15,8 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
     $scope.deleteAnalyzer = function (name) {
         used = $scope.isAnalyzerUsed(name);
         if (used) {
-            alert("This analyzer cannot be deleted because it is being used by the " + used + ".");
+            alert("This analyzer cannot be deleted"+
+                  " because it is being used by the " + used + ".");
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
@@ -60,6 +60,7 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
                 return "default analyzer";
             }
         }
+
         // now check fields at this level
         for (var fieldIndex in docMapping.fields) {
             field = docMapping.fields[fieldIndex];
@@ -127,7 +128,8 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
     $scope.deleteWordList = function (name) {
         used = $scope.isWordListUsed(name);
         if (used) {
-            alert("This word list cannot be deleted because it is being used by the " + used + ".");
+            alert("This word list cannot be deleted"+
+                  " because it is being used by the " + used + ".");
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
@@ -191,7 +193,8 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
     $scope.deleteCharFilter = function(name) {
         used = $scope.isCharFilterUsed(name);
         if (used) {
-            alert("This character filter cannot be deleted because it is being used by the " + used + ".");
+            alert("This character filter cannot be deleted"+
+                  " because it is being used by the " + used + ".");
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
@@ -254,7 +257,8 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
     $scope.deleteTokenizer = function (name) {
         used = $scope.isTokenizerUsed(name);
         if (used) {
-            alert("This tokenizer cannot be deleted because it is being used by the " + used + ".");
+            alert("This tokenizer cannot be deleted"+
+                  " because it is being used by the " + used + ".");
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
@@ -322,7 +326,8 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
     $scope.deleteTokenFilter = function (name) {
         used = $scope.isTokenFilterUsed(name);
         if (used) {
-            alert("This token filter cannot be deleted because it is being used by the " + used + ".");
+            alert("This token filter cannot be deleted"+
+                  " because it is being used by the " + used + ".");
             return;
         }
         if (confirm("Are you sure you want to delete '" + name + "'?")) {
@@ -375,5 +380,4 @@ function AnalysisCtrl($scope, $http, $routeParams, $log, $sce, $location, $modal
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
-
 }
