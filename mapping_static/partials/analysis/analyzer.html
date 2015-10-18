@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-          <label for="exampleInputPassword1">Character Filters</label>
+          <label>Character Filters</label>
           <ul class="list-group"
               ng-show="analyzer.char_filters.length < 1">
             <li class="list-group-item">None</li>
@@ -32,22 +32,22 @@
                     class="glyphicon glyphicon-remove pull-right"></span>
             </li>
           </ul>
-        </div>
 
-        <div class="form-group">
-          <label for="exampleInputPassword2"></label>
-          <div class="col-sm-10">
-            <select ng-change="addCharFilterChanged()"
-                    ng-model="addCharacterFilterName"
-                    class="form-control"
-                   id="addCharacterFilters">
-              <option ng-repeat="charFilter in charFilterNames">{{charFilter}}</option>
-            </select>
-          </div>
+          <div class="form-group">
+            <label></label>
+            <div class="col-sm-10">
+              <select ng-change="addCharFilterChanged()"
+                      ng-model="addCharacterFilterName"
+                      class="form-control"
+                     id="addCharacterFilters">
+                <option ng-repeat="charFilter in charFilterNames">{{charFilter}}</option>
+              </select>
+            </div>
 
-          <div class="col-sm-2">
-            <button ng-click="addCharFilter(this)" type="button"
-                    class="btn btn-default pull-right">Add</button>
+            <div class="col-sm-2">
+              <button ng-click="addCharFilter(this)" type="button"
+                      class="btn btn-default pull-right">Add</button>
+            </div>
           </div>
         </div>
 
@@ -62,7 +62,7 @@
         </div>
 
         <div class="form-group">
-          <label for="exampleInputPassword2">Token Filters</label>
+          <label>Token Filters</label>
           <ul class="list-group"
               ng-show="analyzer.token_filters.length < 1">
             <li class="list-group-item">None</li>
@@ -78,21 +78,21 @@
                     class="glyphicon glyphicon-remove pull-right"></span>
             </li>
           </ul>
-        </div>
 
-        <div class="form-group">
-          <label for="exampleInputPassword2"></label>
-          <div class="col-sm-10">
-            <select ng-change="addTokenFilterChanged()"
-                    ng-model="addTokenFilterName"
-                    class="form-control"
-                    id="addTokenFilters">
-              <option ng-repeat="tokenFilter in tokenFilterNames">{{tokenFilter}}</option>
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <button ng-click="addTokenFilter(this)" type="button"
-                    class="btn btn-default pull-right">Add</button>
+          <div class="form-group">
+            <label></label>
+            <div class="col-sm-10">
+              <select ng-change="addTokenFilterChanged()"
+                      ng-model="addTokenFilterName"
+                      class="form-control"
+                      id="addTokenFilters">
+                <option ng-repeat="tokenFilter in tokenFilterNames">{{tokenFilter}}</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <button ng-click="addTokenFilter(this)" type="button"
+                      class="btn btn-default pull-right">Add</button>
+            </div>
           </div>
         </div>
     </form>

@@ -19,6 +19,15 @@
     box-sizing: border-box;
 }
 
+.modal-body .form-group {
+  padding-bottom: 10px;
+}
+
+.indexCancelCreate {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
 .section .sectionHeader {
   margin-top: 10px;
 }

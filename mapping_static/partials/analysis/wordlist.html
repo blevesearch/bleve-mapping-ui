@@ -25,17 +25,19 @@
 
         <div class="form-group">
             <label for="what"></label>
-              <div class="col-sm-8">
-                <input ng-model="newWord" type="text"
-                       class="form-control" id="newWord" placeholder="word">
-              </div>
-              <div class="col-sm-4">
-                  <button ng-click="addWord()" type="button"
+            <div class="col-sm-9">
+              <input ng-model="newWord" type="text"
+                     class="form-control" id="newWord" placeholder="word">
+            </div>
+            <div class="col-sm-3">
+                <button ng-click="addWord()"
+                        type="button"
                         class="btn btn-sm btn-default">Add</button>
-                  <button ng-click="removeWord()"
+                <button ng-click="removeWord()"
                         ng-disabled="selectedWords.length < 1"
-                        type="button" class="btn btn-sm btn-default pull-right">Remove</button>
-              </div>
+                        type="button"
+                        class="btn btn-sm btn-default pull-right">Remove</button>
+            </div>
         </div>
     </form>
 </div>
