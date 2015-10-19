@@ -1,9 +1,11 @@
-var CharFilterModalCtrl = function ($scope, $modalInstance, $http, name, value, mapping) {
+var CharFilterModalCtrl = function ($scope, $modalInstance, $http,
+                                    name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";
     $scope.formpath = "";
     $scope.mapping = mapping;
+    $scope.static_prefix = static_prefix;
 
     $scope.charfilter = {};
     // copy in value for editing
@@ -11,10 +13,17 @@ var CharFilterModalCtrl = function ($scope, $modalInstance, $http, name, value, 
         $scope.charfilter[k] = value[k];
     }
 
-    $scope.unknownCharFilterTypeTemplate = "/static/partials/analysis/charfilters/generic.html";
+    var sp = ($scope.static_prefix || '/static');
+
+    console.log(sp, $scope);
+
+    $scope.unknownCharFilterTypeTemplate =
+        sp + "/partials/analysis/charfilters/generic.html";
+
     $scope.charFilterTypeTemplates = {
-        "regexp": "/static/partials/analysis/charfilters/regexp.html",
+        "regexp": sp + "/partials/analysis/charfilters/regexp.html",
     };
+
     $scope.charFilterTypeDefaults = {
         "regexp": function() {
             return {
@@ -46,8 +55,8 @@ var CharFilterModalCtrl = function ($scope, $modalInstance, $http, name, value, 
             $scope.charfilter = {};
         }
         $scope.charfilter.type = defaultType;
-        
     }
+
     $scope.formpath = $scope.charFilterTypeTemplates[$scope.charfilter.type];
 
     $scope.charFilterTypeChange = function() {

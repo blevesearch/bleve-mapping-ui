@@ -101,6 +101,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             },
             mapping: function() {
                 return $scope.indexMapping;
+            },
+            static_prefix: function() {
+                return $scope.static_prefix;
             }
           }
         });
@@ -169,6 +172,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             },
             mapping: function() {
                 return $scope.indexMapping;
+            },
+            static_prefix: function() {
+                return $scope.static_prefix;
             }
           }
         });
@@ -234,6 +240,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             },
             mapping: function() {
                 return $scope.indexMapping;
+            },
+            static_prefix: function() {
+                return $scope.static_prefix;
             }
           }
         });
@@ -304,6 +313,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             },
             mapping: function() {
                 return $scope.indexMapping;
+            },
+            static_prefix: function() {
+                return $scope.static_prefix;
             }
           }
         });
@@ -369,6 +381,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
             },
             mapping: function() {
                 return $scope.indexMapping;
+            },
+            static_prefix: function() {
+                return $scope.static_prefix;
             }
           }
         });

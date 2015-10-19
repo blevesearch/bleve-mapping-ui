@@ -1,9 +1,11 @@
-var AnalyzerModalCtrl = function ($scope, $modalInstance, $http, name, value, mapping) {
+var AnalyzerModalCtrl = function ($scope, $modalInstance, $http,
+                                  name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";
     $scope.formpath = "";
     $scope.mapping = mapping;
+    $scope.static_prefix = static_prefix;
 
     $scope.analyzer = {};
     // copy in value for editing

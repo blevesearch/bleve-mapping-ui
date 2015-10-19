@@ -1,4 +1,5 @@
-var WordListModalCtrl = function ($scope, $modalInstance, name, words, mapping) {
+var WordListModalCtrl = function ($scope, $modalInstance,
+                                  name, words, mapping, static_prefix) {
     $scope.name = name;
     $scope.origName = name;
     $scope.errorMessage = "";
@@ -6,6 +7,7 @@ var WordListModalCtrl = function ($scope, $modalInstance, name, words, mapping) 
     $scope.words = words.slice(0); // create copy
     $scope.selectedWords = [];
     $scope.mapping = mapping;
+    $scope.static_prefix = static_prefix;
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');

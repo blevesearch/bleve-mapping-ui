@@ -1,9 +1,11 @@
-var TokenFilterModalCtrl = function ($scope, $modalInstance, $http, name, value, mapping) {
+var TokenFilterModalCtrl = function ($scope, $modalInstance, $http,
+                                     name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";
     $scope.formpath = "";
     $scope.mapping = mapping;
+    $scope.static_prefix = static_prefix;
 
     $scope.tokenfilter = {};
     // copy in value for editing
@@ -24,19 +26,24 @@ var TokenFilterModalCtrl = function ($scope, $modalInstance, $http, name, value,
 
     $scope.loadTokenMapNames();
 
-    $scope.unknownTokenFilterTypeTemplate = "/static/partials/analysis/tokenfilters/generic.html";
+    var sp = ($scope.static_prefix || '/static');
+
+    $scope.unknownTokenFilterTypeTemplate =
+        sp + "/partials/analysis/tokenfilters/generic.html";
+
     $scope.tokenFilterTypeTemplates = {
-        "dict_compound": "/static/partials/analysis/tokenfilters/dict_compound.html",
-        "edge_ngram": "/static/partials/analysis/tokenfilters/edge_ngram.html",
-        "elision": "/static/partials/analysis/tokenfilters/elision.html",
-        "keyword_marker": "/static/partials/analysis/tokenfilters/keyword_marker.html",
-        "length": "/static/partials/analysis/tokenfilters/length.html",
-        "ngram": "/static/partials/analysis/tokenfilters/ngram.html",
-        "normalize_unicode": "/static/partials/analysis/tokenfilters/normalize_unicode.html",
-        "shingle": "/static/partials/analysis/tokenfilters/shingle.html",
-        "stop_tokens": "/static/partials/analysis/tokenfilters/stop_tokens.html",
-        "truncate_token": "/static/partials/analysis/tokenfilters/truncate_token.html",
+        "dict_compound": sp + "/partials/analysis/tokenfilters/dict_compound.html",
+        "edge_ngram": sp + "/partials/analysis/tokenfilters/edge_ngram.html",
+        "elision": sp + "/partials/analysis/tokenfilters/elision.html",
+        "keyword_marker": sp + "/partials/analysis/tokenfilters/keyword_marker.html",
+        "length": sp + "/partials/analysis/tokenfilters/length.html",
+        "ngram": sp + "/partials/analysis/tokenfilters/ngram.html",
+        "normalize_unicode": sp + "/partials/analysis/tokenfilters/normalize_unicode.html",
+        "shingle": sp + "/partials/analysis/tokenfilters/shingle.html",
+        "stop_tokens": sp + "/partials/analysis/tokenfilters/stop_tokens.html",
+        "truncate_token": sp + "/partials/analysis/tokenfilters/truncate_token.html",
     };
+
     $scope.tokenFilterTypeDefaults = {
         "dict_compound": function() {
             return {
@@ -150,7 +157,8 @@ var TokenFilterModalCtrl = function ($scope, $modalInstance, $http, name, value,
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName && $scope.mapping.analysis.token_filters[$scope.name]) {
+        if ($scope.name != $scope.origName &&
+            $scope.mapping.analysis.token_filters[$scope.name]) {
             $scope.errorMessage = "Token filter named '" + $scope.name + "' already exists";
             return;
         }
@@ -164,6 +172,7 @@ var TokenFilterModalCtrl = function ($scope, $modalInstance, $http, name, value,
                 "token_maps": $scope.mapping.analysis.token_maps
             }
         };
+
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};
@@ -174,6 +183,5 @@ var TokenFilterModalCtrl = function ($scope, $modalInstance, $http, name, value,
             // otherwise display error
             $scope.errorMessage = data;
         });
-
     };
 };

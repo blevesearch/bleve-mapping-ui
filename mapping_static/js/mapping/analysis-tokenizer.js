@@ -1,9 +1,11 @@
-var TokenizerModalCtrl = function ($scope, $modalInstance, $http, name, value, mapping) {
+var TokenizerModalCtrl = function ($scope, $modalInstance, $http,
+                                   name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";
     $scope.formpath = "";
     $scope.mapping = mapping;
+    $scope.static_prefix = static_prefix;
 
     $scope.tokenizer = {};
     // copy in value for editing
@@ -24,11 +26,16 @@ var TokenizerModalCtrl = function ($scope, $modalInstance, $http, name, value, m
 
     $scope.loadTokenizerNames();
 
-    $scope.unknownTokenizerTypeTemplate = "/static/partials/analysis/tokenizers/generic.html";
+    var sp = ($scope.static_prefix || '/static');
+
+    $scope.unknownTokenizerTypeTemplate =
+        sp + "/partials/analysis/tokenizers/generic.html";
+
     $scope.tokenizerTypeTemplates = {
-        "regexp": "/static/partials/analysis/tokenizers/regexp.html",
-        "exception": "/static/partials/analysis/tokenizers/exception.html"
+        "regexp": sp + "/partials/analysis/tokenizers/regexp.html",
+        "exception": sp + "/partials/analysis/tokenizers/exception.html"
     };
+
     $scope.tokenizerTypeDefaults = {
         "regexp": function() {
             return {
@@ -106,7 +113,8 @@ var TokenizerModalCtrl = function ($scope, $modalInstance, $http, name, value, m
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName && $scope.mapping.analysis.tokenizers[$scope.name]) {
+        if ($scope.name != $scope.origName &&
+            $scope.mapping.analysis.tokenizers[$scope.name]) {
             $scope.errorMessage = "Tokenizer named '" + $scope.name + "' already exists";
             return;
         }
@@ -123,6 +131,7 @@ var TokenizerModalCtrl = function ($scope, $modalInstance, $http, name, value, m
                 "tokenizers": tokenizers
             }
         };
+
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};
