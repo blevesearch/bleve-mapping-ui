@@ -1,0 +1,75 @@
+<html>
+<head>
+  <link rel="stylesheet"
+        href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet"
+        href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css"/>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+
+  <script src="mapping_static/js/mapping/index-mapping.js"></script>
+  <script src="mapping_static/js/mapping/type-mapping.js"></script>
+
+  <script src="mapping_static/js/mapping/analysis.js"></script>
+  <script src="mapping_static/js/mapping/analysis-analyzer.js"></script>
+  <script src="mapping_static/js/mapping/analysis-wordlist.js"></script>
+  <script src="mapping_static/js/mapping/analysis-charfilter.js"></script>
+  <script src="mapping_static/js/mapping/analysis-tokenizer.js"></script>
+  <script src="mapping_static/js/mapping/analysis-tokenfilter.js"></script>
+
+  <link rel="stylesheet" href="sample.css"/>
+
+  <script src="sample.js"></script>
+</head>
+<body ng-app="sampleApp">
+<style>
+.sampleCtrl {
+  padding: 20px 20px 20px 20px;
+}
+</style>
+
+  <div ng-controller="SampleCtrl" class="sampleCtrl">
+    <div class="row indexTopFields">
+      <div class="col-sm-6 name">
+        <label>Index Name</label>
+        <input type="text"/>
+      </div>
+
+      <div class="col-sm-6 bucket">
+        <label>Bucket Name</label>
+        <input type="text"/>
+      </div>
+    </div>
+
+    <div ng-include="static_prefix + '/partials/mapping/index-mapping.html'"></div>
+
+    <div class="row indexCancelCreate">
+      <div class="col-sm-6">
+        <a class="showJSON">Show JSON</a>
+      </div>
+      <div class="col-sm-6">
+        <a class="cancel">Cancel</a>
+        <button class="create">Create</button>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-sm-6">
+        indexMapping
+        <pre class="code">{{ indexMapping | json }}</pre>
+      </div>
+
+      <div class="col-sm-6">
+        mappings
+        <pre class="code">{{ mappings | json }}</pre>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
