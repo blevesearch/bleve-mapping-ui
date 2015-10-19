@@ -166,6 +166,7 @@ var TokenFilterModalCtrl = function ($scope, $modalInstance, $http,
         // ensure that this new mapping component is valid
         tokenfilters = {};
         tokenfilters[$scope.name] = $scope.tokenfilter;
+
         testMapping = {
             "analysis": {
                 "token_filters": tokenfilters,

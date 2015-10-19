@@ -92,11 +92,13 @@ var CharFilterModalCtrl = function ($scope, $modalInstance, $http,
         // ensure that this new mapping component is valid
         charFilters = {};
         charFilters[$scope.name] = $scope.charfilter;
+
         testMapping = {
             "analysis": {
                 "char_filters": charFilters
             }
         };
+
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};

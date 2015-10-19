@@ -48,6 +48,7 @@ var WordListModalCtrl = function ($scope, $modalInstance,
             "type": "custom",
             "tokens": $scope.words
         };
+
         $modalInstance.close(result);
     };
 };

@@ -125,9 +125,11 @@ var AnalyzerModalCtrl = function ($scope, $modalInstance, $http,
         analyzers = {};
         analyzers[$scope.name] = $scope.analyzer;
         analysis["analyzers"] = analyzers;
+
         testMapping = {
             "analysis": analysis
         };
+
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};

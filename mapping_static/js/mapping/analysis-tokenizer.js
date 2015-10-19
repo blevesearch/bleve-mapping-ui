@@ -126,6 +126,7 @@ var TokenizerModalCtrl = function ($scope, $modalInstance, $http,
         for (var t in $scope.mapping.analysis.tokenizers) {
             tokenizers[t] = $scope.mapping.analysis.tokenizers[t];
         }
+
         testMapping = {
             "analysis": {
                 "tokenizers": tokenizers

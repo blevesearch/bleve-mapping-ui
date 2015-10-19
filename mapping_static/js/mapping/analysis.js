@@ -115,7 +115,9 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                     // remove the old name
                     delete $scope.indexMapping.analysis.analyzers[name];
                 }
-                $scope.indexMapping.analysis.analyzers[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.analyzers[resultKey] =
+                    result[resultKey];
+
                 // reload parent available analyzers
                 $scope.$parent.loadAnalyzerNames();
             }
@@ -186,7 +188,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                     // remove the old name
                     delete $scope.indexMapping.analysis.token_maps[name];
                 }
-                $scope.indexMapping.analysis.token_maps[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.token_maps[resultKey] =
+                    result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
@@ -254,7 +257,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                     // remove the old name
                     delete $scope.indexMapping.analysis.char_filters[name];
                 }
-                $scope.indexMapping.analysis.char_filters[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.char_filters[resultKey] =
+                    result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
@@ -327,7 +331,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                     // remove the old name
                     delete $scope.indexMapping.analysis.tokenizers[name];
                 }
-                $scope.indexMapping.analysis.tokenizers[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.tokenizers[resultKey] =
+                    result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
@@ -395,7 +400,8 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
                     // remove the old name
                     delete $scope.indexMapping.analysis.token_filters[name];
                 }
-                $scope.indexMapping.analysis.token_filters[resultKey] = result[resultKey];
+                $scope.indexMapping.analysis.token_filters[resultKey] =
+                    result[resultKey];
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
