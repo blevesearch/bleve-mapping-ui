@@ -59,7 +59,6 @@ var AnalyzerModalCtrl = function ($scope, $modalInstance, $http,
         if (filter !== undefined && filter !== "") {
             $scope.selectedAnalyzer.char_filters.push(filter);
         }
-        console.log($scope.selectedAnalyzer.char_filters);
     };
 
     $scope.removeCharFilter = function(index) {
@@ -84,7 +83,6 @@ var AnalyzerModalCtrl = function ($scope, $modalInstance, $http,
         if (filter !== undefined && filter !== "") {
             $scope.analyzer.char_filters.push(filter);
         }
-        console.log($scope.analyzer.char_filters);
     };
 
     $scope.removeCharFilter = function(index) {
@@ -96,7 +94,6 @@ var AnalyzerModalCtrl = function ($scope, $modalInstance, $http,
         if (filter !== undefined && filter !== "") {
             $scope.analyzer.token_filters.push(filter);
         }
-        console.log($scope.analyzer.token_filters);
     };
 
     $scope.removeTokenFilter = function(index) {

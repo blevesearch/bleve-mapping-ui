@@ -15,8 +15,6 @@ var CharFilterModalCtrl = function ($scope, $modalInstance, $http,
 
     var sp = ($scope.static_prefix || '/static');
 
-    console.log(sp, $scope);
-
     $scope.unknownCharFilterTypeTemplate =
         sp + "/partials/analysis/charfilters/generic.html";
 
