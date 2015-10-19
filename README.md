@@ -5,20 +5,33 @@ JSON based on angular JS and the angular-ui-control.
 
 ## Demo
 
-Start a webserver...
+Build the sample webapp...
 
-    python -m SimpleHTTPServer
+    go build ./cmd/sample
+
+Run the sample webapp...
+
+    ./sample
 
 Browse to this URL...
 
-    http://localhost:8000/test.html
-
-## Unit tests
-
-There are some "poor man's" unit tests, which you can run by visiting...
-
-    http://localhost:8000/mapping_test.html
+    http://localhost:9090/sample.html
 
 ## License
 
 Apache License Version 2.0
+
+## For bleve mapping UI developers
+
+### Code generation
+
+There's static bindata resources, which can be regenerated using...
+
+    go generate
+
+### Unit tests
+
+There are some "poor man's" unit tests, which you can run by visiting...
+
+    http://localhost:9090/mapping_test.html
+
