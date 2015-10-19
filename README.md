@@ -17,6 +17,10 @@ Browse to this URL...
 
     http://localhost:9090/sample.html
 
+## Screenshot
+
+![screenshot](https://raw.githubusercontent.com/blevesearch/bleve-mapping-ui/master/docs/screenshot.png)
+
 ## License
 
 Apache License Version 2.0
