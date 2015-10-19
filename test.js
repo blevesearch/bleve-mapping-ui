@@ -1,18 +1,4 @@
-angular.module('testApp', ['ui.tree', 'ui.bootstrap', 'ngRoute'])
-    .config(['$routeProvider', function ($routeProvider) {
-        console.log("app...");
-
-        $routeProvider
-            .when('/test', {
-                controller: 'TestCtrl',
-                templateUrl: 'test-view.html'
-            })
-            .otherwise({
-                redirectTo: '/test'
-            });
-
-        console.log("app... done.");
-    }]);
+angular.module('testApp', ['ui.tree', 'ui.bootstrap']);
 
 var SAMPLE_TYPE_MAPPING = {
     "brewery": {
