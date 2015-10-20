@@ -52,7 +52,9 @@
       </div>
       <div class="col-sm-6">
         <a class="cancel">Cancel</a>
-        <button class="create">Create</button>
+        <button class="create"
+                ng-disabled="!isValid()"
+                ng-click="done()">Create</button>
       </div>
     </div>
 

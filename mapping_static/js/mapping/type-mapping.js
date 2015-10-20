@@ -163,6 +163,15 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
             }
         }
     }
+
+    return {
+        isValid: function() {
+            return true;
+        },
+        typeMapping: function() {
+            return bleveConvertToTypeMapping($scope.mappings);
+        }
+    }
 }
 
 // Convert from a near-bleve-friendly TypeMapping data structure to a

@@ -30,9 +30,42 @@ function initBleveIndexMappingController(
         indexMapping.types[""] = indexMapping["default_mapping"];
     }
 
-    initBleveTypeMappingController($scope, indexMapping.types);
+    var tmc = initBleveTypeMappingController($scope, indexMapping.types);
+
+    $scope.isValid = function() {
+        return tmc.isValid();
+    };
 
     BleveAnalysisCtrl($scope, $http, $log, $uibModal);
+
+    return {
+        isValid: $scope.isValid,
+        indexMapping: function() {
+            var r = JSON.parse(JSON.stringify($scope.indexMapping));
+
+            r.types = tmc.typeMapping();
+            r.default_mapping = r.types[""];
+            delete r.types[""];
+
+            return JSON.parse(JSON.stringify(scrub(r)));
+        }
+    }
+
+    // Recursively remove every entry with '$' prefix.
+    function scrub(m) {
+        if (typeof(m) == "object") {
+            for (var k in m) {
+                if (typeof(k) == "string" && k.charAt(0) == "$") {
+                    delete m[k];
+                    continue;
+                }
+
+                m[k] = scrub(m[k]);
+            }
+        }
+
+        return m;
+    }
 }
 
 function IndexMappingController($scope, $http) {

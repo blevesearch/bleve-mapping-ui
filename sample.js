@@ -62,12 +62,18 @@ var SAMPLE_INDEX_MAPPING = {
 angular.module('sampleApp').
     controller('SampleCtrl', ['$scope', '$http', '$log', '$uibModal',
     function($scope, $http, $log, $uibModal) {
-        initBleveIndexMappingController(
+        var imc = initBleveIndexMappingController(
             $scope, $http, $log, $uibModal,
             ['en', 'es', 'keyword', 'standard'],
             ['julien', 'gregorian', 'yyyymmdd', 'dateTimeOptional'],
             ['json'],
             SAMPLE_INDEX_MAPPING);
+
+        $scope.done = function() {
+            var im = imc.indexMapping();
+            console.log(im);
+            console.log(JSON.stringify(im));
+        }
     }]);
 
 angular.module('sampleApp').
