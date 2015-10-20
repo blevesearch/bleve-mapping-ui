@@ -39,8 +39,17 @@ function initBleveIndexMappingController(
     BleveAnalysisCtrl($scope, $http, $log, $uibModal);
 
     return {
+        // Allows the caller to determine if there's a valid index mapping.
         isValid: $scope.isValid,
+
+        // Allows the caller to retrieve the current index mapping,
+        // perhaps in response to a user's Create/Done/OK button click;
+        // or, the user wanting to see the index mapping JSON.
         indexMapping: function() {
+            if (!$scope.isValid()) {
+                return null;
+            }
+
             var r = JSON.parse(JSON.stringify($scope.indexMapping));
 
             r.types = tmc.typeMapping();
@@ -51,7 +60,8 @@ function initBleveIndexMappingController(
         }
     }
 
-    // Recursively remove every entry with '$' prefix.
+    // Recursively remove every entry with '$' prefix, which might be
+    // due to angularjs metadata.
     function scrub(m) {
         if (typeof(m) == "object") {
             for (var k in m) {
