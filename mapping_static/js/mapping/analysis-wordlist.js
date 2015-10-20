@@ -1,5 +1,5 @@
-var WordListModalCtrl = function ($scope, $modalInstance,
-                                  name, words, mapping, static_prefix) {
+function BleveWordListModalCtrl($scope, $modalInstance,
+                                name, words, mapping, static_prefix) {
     $scope.name = name;
     $scope.origName = name;
     $scope.errorMessage = "";

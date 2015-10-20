@@ -32,7 +32,7 @@ function initBleveIndexMappingController(
 
     initBleveTypeMappingController($scope, indexMapping.types);
 
-    AnalysisCtrl($scope, $http, $log, $uibModal);
+    BleveAnalysisCtrl($scope, $http, $log, $uibModal);
 }
 
 function IndexMappingController($scope, $http) {

@@ -1,5 +1,5 @@
-var TokenizerModalCtrl = function ($scope, $modalInstance, $http,
-                                   name, value, mapping, static_prefix) {
+function BleveTokenizerModalCtrl($scope, $modalInstance, $http,
+                                 name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";

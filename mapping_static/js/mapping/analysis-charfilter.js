@@ -1,5 +1,5 @@
-var CharFilterModalCtrl = function ($scope, $modalInstance, $http,
-                                    name, value, mapping, static_prefix) {
+function BleveCharFilterModalCtrl($scope, $modalInstance, $http,
+                                  name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";

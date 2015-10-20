@@ -71,8 +71,8 @@ angular.module('sampleApp').
     }]);
 
 angular.module('sampleApp').
-    controller('AnalyzerModalCtrl', AnalyzerModalCtrl).
-    controller('CharFilterModalCtrl', CharFilterModalCtrl).
-    controller('TokenizerModalCtrl', TokenizerModalCtrl).
-    controller('TokenFilterModalCtrl', TokenFilterModalCtrl).
-    controller('WordListModalCtrl', WordListModalCtrl);
+    controller('BleveAnalyzerModalCtrl', BleveAnalyzerModalCtrl).
+    controller('BleveCharFilterModalCtrl', BleveCharFilterModalCtrl).
+    controller('BleveTokenizerModalCtrl', BleveTokenizerModalCtrl).
+    controller('BleveTokenFilterModalCtrl', BleveTokenFilterModalCtrl).
+    controller('BleveWordListModalCtrl', BleveWordListModalCtrl);

@@ -1,5 +1,5 @@
-var TokenFilterModalCtrl = function ($scope, $modalInstance, $http,
-                                     name, value, mapping, static_prefix) {
+function BleveTokenFilterModalCtrl($scope, $modalInstance, $http,
+                                   name, value, mapping, static_prefix) {
     $scope.origName = name;
     $scope.name = name;
     $scope.errorMessage = "";

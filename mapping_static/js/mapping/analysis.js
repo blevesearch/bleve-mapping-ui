@@ -1,6 +1,6 @@
 // controller responsible for building a custom analysis components
 
-function AnalysisCtrl($scope, $http, $log, $modal) {
+function BleveAnalysisCtrl($scope, $http, $log, $modal) {
     // analyzers
 
     $scope.newAnalyzer = function() {
@@ -91,7 +91,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/analyzer.html',
-          controller: 'AnalyzerModalCtrl',
+          controller: 'BleveAnalyzerModalCtrl',
           resolve: {
             name: function() {
               return name;
@@ -164,7 +164,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/wordlist.html',
-          controller: 'WordListModalCtrl',
+          controller: 'BleveWordListModalCtrl',
           resolve: {
             name: function() {
               return name;
@@ -233,7 +233,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/charfilter.html',
-          controller: 'CharFilterModalCtrl',
+          controller: 'BleveCharFilterModalCtrl',
           resolve: {
             name: function() {
               return name;
@@ -307,7 +307,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/tokenizer.html',
-          controller: 'TokenizerModalCtrl',
+          controller: 'BleveTokenizerModalCtrl',
           resolve: {
             name: function() {
               return name;
@@ -376,7 +376,7 @@ function AnalysisCtrl($scope, $http, $log, $modal) {
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static') +
                 '/partials/analysis/tokenfilter.html',
-          controller: 'TokenFilterModalCtrl',
+          controller: 'BleveTokenFilterModalCtrl',
           resolve: {
             name: function() {
               return name;
