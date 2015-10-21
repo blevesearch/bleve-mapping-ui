@@ -64,10 +64,11 @@ angular.module('sampleApp').
     function($scope, $http, $log, $uibModal) {
         var imc = initBleveIndexMappingController(
             $scope, $http, $log, $uibModal,
-            null, /* ['en', 'es', 'keyword', 'standard'], */
-            null, /* ['julien', 'gregorian', 'yyyymmdd', 'dateTimeOptional'], */
-            ['json'],
-            SAMPLE_INDEX_MAPPING);
+            SAMPLE_INDEX_MAPPING, {
+                analyzerNames: null, /* ['en', 'es', 'keyword', 'standard'], */
+                dateTypeParseNames: null, /* ['julien', 'yyyymmdd', 'dateTimeOptional'], */
+                byteArrayConverterNames: null, /* ['json'], */
+            });
 
         $scope.done = function() {
             var im = imc.indexMapping();

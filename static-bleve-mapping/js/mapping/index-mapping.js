@@ -1,7 +1,7 @@
 function initBleveIndexMappingController(
-    $scope, $http, $log, $uibModal,
-    analyzerNames, dateTimeParserNames, byteArrayConverterNames,
-    indexMappingIn) {
+    $scope, $http, $log, $uibModal, indexMappingIn, options) {
+    options = options || {};
+
     $scope.static_prefix = $scope.static_prefix || 'static-bleve-mapping';
 
 	var indexMapping =
@@ -36,7 +36,7 @@ function initBleveIndexMappingController(
 
     // ------------------------------------------------
 
-    $scope.analyzerNames = analyzerNames || [];
+    $scope.analyzerNames = options.analyzerNames || [];
 	$scope.loadAnalyzerNames = function() {
         $http.post('/api/_analyzerNames', $scope.indexMappingResult()).
         success(function(data) {
@@ -46,11 +46,11 @@ function initBleveIndexMappingController(
 			$scope.errorMessage = data;
         });
 	};
-    if (analyzerNames == null) {
+    if (options.analyzerNames == null) {
 	    $scope.loadAnalyzerNames();
     }
 
-    $scope.dateTimeParserNames = dateTimeParserNames || [];
+    $scope.dateTimeParserNames = options.dateTimeParserNames || [];
 	$scope.loadDatetimeParserNames = function() {
         $http.post('/api/_datetimeParserNames', $scope.indexMappingResult()).
         success(function(data) {
@@ -60,13 +60,13 @@ function initBleveIndexMappingController(
 			$scope.errorMessage = data;
         });
 	};
-    if (dateTimeParserNames == null) {
+    if (options.dateTimeParserNames == null) {
 	    $scope.loadDatetimeParserNames();
     }
 
-    $scope.byteArrayConverterNames = byteArrayConverterNames || [];
+    $scope.byteArrayConverterNames = options.byteArrayConverterNames || ['json'];
 
-    // TODO: loadByteArrayConverterNames.
+    // TODO: loadByteArrayConverterNames from server.
 
     // ------------------------------------------------
 
