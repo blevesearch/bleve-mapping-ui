@@ -118,8 +118,13 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
                 $scope.indexMapping.analysis.analyzers[resultKey] =
                     result[resultKey];
 
-                // reload parent available analyzers
-                $scope.$parent.loadAnalyzerNames();
+                // reload available analyzers
+                var lan =
+                    $scope.loadAnalyzerNames ||
+                    $scope.$parent.loadAnalyzerNames;
+                if (lan) {
+                    lan();
+                }
             }
         }, function() {
           $log.info('Modal dismissed at: ' + new Date());
