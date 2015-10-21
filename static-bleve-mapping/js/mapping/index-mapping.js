@@ -4,10 +4,6 @@ function initBleveIndexMappingController(
     indexMappingIn) {
     $scope.static_prefix = $scope.static_prefix || 'static-bleve-mapping';
 
-    $scope.analyzerNames = analyzerNames;
-    $scope.dateTimeParserNames = dateTimeParserNames;
-    $scope.byteArrayConverterNames = byteArrayConverterNames;
-
 	var indexMapping =
         $scope.indexMapping = JSON.parse(JSON.stringify(indexMappingIn));
 
@@ -32,11 +28,47 @@ function initBleveIndexMappingController(
 
     var tmc = initBleveTypeMappingController($scope, indexMapping.types);
 
-    $scope.isValid = function() {
-        return tmc.isValid();
-    };
+    $scope.isValid = function() { return tmc.isValid(); };
+
+    $scope.indexMappingResult = indexMappingResult;
 
     BleveAnalysisCtrl($scope, $http, $log, $uibModal);
+
+    // ------------------------------------------------
+
+    $scope.analyzerNames = analyzerNames || [];
+	$scope.loadAnalyzerNames = function() {
+        $http.post('/api/_analyzerNames', $scope.indexMappingResult()).
+        success(function(data) {
+            $scope.analyzerNames = data.analyzers;
+        }).
+        error(function(data, code) {
+			$scope.errorMessage = data;
+        });
+	};
+    if (analyzerNames == null) {
+	    $scope.loadAnalyzerNames();
+    }
+
+    $scope.dateTimeParserNames = dateTimeParserNames || [];
+	$scope.loadDatetimeParserNames = function() {
+        $http.post('/api/_datetimeParserNames', $scope.indexMappingResult()).
+        success(function(data) {
+            $scope.dateTimeParserNames = data.datetime_parsers;
+        }).
+        error(function(data, code) {
+			$scope.errorMessage = data;
+        });
+	};
+    if (dateTimeParserNames == null) {
+	    $scope.loadDatetimeParserNames();
+    }
+
+    $scope.byteArrayConverterNames = byteArrayConverterNames || [];
+
+    // TODO: loadByteArrayConverterNames.
+
+    // ------------------------------------------------
 
     return {
         // Allows the caller to determine if there's a valid index mapping.
@@ -45,19 +77,23 @@ function initBleveIndexMappingController(
         // Allows the caller to retrieve the current index mapping,
         // perhaps in response to a user's Create/Done/OK button click;
         // or, the user wanting to see the index mapping JSON.
-        indexMapping: function() {
-            if (!$scope.isValid()) {
-                return null;
-            }
+        indexMapping: $scope.indexMappingResult
+    }
 
-            var r = JSON.parse(JSON.stringify($scope.indexMapping));
+    // ------------------------------------------------
 
-            r.types = tmc.typeMapping();
-            r.default_mapping = r.types[""];
-            delete r.types[""];
-
-            return JSON.parse(JSON.stringify(scrub(r)));
+    function indexMappingResult() {
+        if (!$scope.isValid()) {
+            return null;
         }
+
+        var r = JSON.parse(JSON.stringify($scope.indexMapping));
+
+        r.types = tmc.typeMapping();
+        r.default_mapping = r.types[""];
+        delete r.types[""];
+
+        return JSON.parse(JSON.stringify(scrub(r)));
     }
 
     // Recursively remove every entry with '$' prefix, which might be
@@ -76,34 +112,4 @@ function initBleveIndexMappingController(
 
         return m;
     }
-}
-
-function IndexMappingController($scope, $http) {
-	$scope.analyzerNames = [];
-
-	$scope.loadAnalyzerNames = function() {
-        $http.post('/api/_analyzerNames', $scope.mapping).
-        success(function(data) {
-            $scope.analyzerNames = data.analyzers;
-        }).
-        error(function(data, code) {
-			$scope.errorMessage = data;
-        });
-	};
-
-	$scope.loadAnalyzerNames();
-
-	$scope.datetimeParserNames = [];
-
-	$scope.loadDatetimeParserNames = function() {
-        $http.post('/api/_datetimeParserNames', $scope.mapping).
-        success(function(data) {
-            $scope.datetimeParserNames = data.datetime_parsers;
-        }).
-        error(function(data, code) {
-			$scope.errorMessage = data;
-        });
-	};
-
-	$scope.loadDatetimeParserNames();
 }
