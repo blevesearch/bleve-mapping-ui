@@ -25,26 +25,27 @@
   <script src="sample.js"></script>
 </head>
 <body ng-app="sampleApp">
-<style>
-.sampleCtrl {
-  padding: 20px 20px 20px 20px;
-}
-</style>
-
-  <div ng-controller="SampleCtrl" class="sampleCtrl">
+  <div ng-controller="SampleCtrl" class="sampleView">
     <div class="row indexTopFields">
-      <div class="col-sm-6 name">
+      <div class="col-sm-4 name">
         <label>Index Name</label>
         <input type="text"/>
       </div>
 
-      <div class="col-sm-6 bucket">
+      <div class="col-sm-4 name">
         <label>Bucket Name</label>
         <input type="text"/>
       </div>
+
+      <div class="col-sm-4 bucket">
+        <label>View Only</label>
+        <input type="checkbox" ng-model="viewOnly"/>
+      </div>
     </div>
 
-    <div ng-include="static_prefix + '/partials/mapping/index-mapping.html'"></div>
+    <div ng-class="{'viewOnly': viewOnly}">
+      <div ng-include="static_prefix + '/partials/mapping/index-mapping.html'"></div>
+    </div>
 
     <div class="row indexCancelCreate">
       <div class="col-sm-6">
@@ -53,7 +54,7 @@
       <div class="col-sm-6">
         <a class="cancel">Cancel</a>
         <button class="create"
-                ng-disabled="!isValid()"
+                ng-disabled="!isValid() || viewOnly"
                 ng-click="done()">Create</button>
       </div>
     </div>
@@ -73,4 +74,16 @@
     </div>
   </div>
 </body>
+
+<style>
+.sampleView {
+  padding: 20px 20px 20px 20px;
+}
+.sampleView .viewOnly .editable {
+  visibility: hidden !important;
+}
+.sampleView .viewOnly button {
+  visibility: hidden !important;
+}
+</style>
 </html>

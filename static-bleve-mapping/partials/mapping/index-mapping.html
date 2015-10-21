@@ -23,7 +23,7 @@
 
 <div class="sectionBody typeMappingsSection"
    ng-show="showTypeMappingsSection">
-  <div class="row">
+  <div class="row editable">
     <div class="col-sm-12">
       <a ng-click="addChildMapping(null)">Add Type Mapping</a>
     </div>
@@ -143,25 +143,29 @@
       <div class="form-group">
         <label>Type Field</label>
         <input type="text" class="form-control"
+               ng-disabled="viewOnly"
                ng-model="indexMapping.type_field"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Default Type</label>
         <input type="text" class="form-control"
+               ng-disabled="viewOnly"
                ng-model="indexMapping.default_type"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Default Analyzer</label>
-        <select ng-model="indexMapping.default_analyzer"
+        <select ng-disabled="viewOnly"
+                ng-model="indexMapping.default_analyzer"
                 ng-options="t as t for t in analyzerNames"
                 class="form-control">
         </select>
       </div>
       <div class="form-group">
         <label>Default Date/Time Parser</label>
-        <select ng-model="indexMapping.default_datetime_parser"
+        <select ng-disabled="viewOnly"
+                ng-model="indexMapping.default_datetime_parser"
                 ng-options="t as t for t in dateTimeParserNames"
                 class="form-control">
         </select>
@@ -169,12 +173,14 @@
       <div class="form-group">
         <label>Default Field</label>
         <input type="text" class="form-control"
+               ng-disabled="viewOnly"
                ng-model="indexMapping.default_field"
                placeholder="placeholder"/>
       </div>
       <div class="form-group">
         <label>Byte Array Converter</label>
-        <select ng-model="indexMapping.byte_array_converter"
+        <select ng-disabled="viewOnly"
+                ng-model="indexMapping.byte_array_converter"
                 ng-options="t as t for t in byteArrayConverterNames"
                 class="form-control">
         </select>
