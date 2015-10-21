@@ -89,7 +89,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editAnalyzer = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: ($scope.static_prefix || '/static') +
+          templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/analyzer.html',
           controller: 'BleveAnalyzerModalCtrl',
           resolve: {
@@ -162,7 +162,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
 	$scope.editWordList = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: ($scope.static_prefix || '/static') +
+          templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/wordlist.html',
           controller: 'BleveWordListModalCtrl',
           resolve: {
@@ -231,7 +231,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editCharFilter = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: ($scope.static_prefix || '/static') +
+          templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/charfilter.html',
           controller: 'BleveCharFilterModalCtrl',
           resolve: {
@@ -305,7 +305,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editTokenizer = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: ($scope.static_prefix || '/static') +
+          templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/tokenizer.html',
           controller: 'BleveTokenizerModalCtrl',
           resolve: {
@@ -374,7 +374,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
     $scope.editTokenFilter = function(name, value) {
         var modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: ($scope.static_prefix || '/static') +
+          templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/tokenfilter.html',
           controller: 'BleveTokenFilterModalCtrl',
           resolve: {

@@ -26,7 +26,7 @@ function BleveTokenFilterModalCtrl($scope, $modalInstance, $http,
 
     $scope.loadTokenMapNames();
 
-    var sp = ($scope.static_prefix || '/static');
+    var sp = ($scope.static_prefix || '/static-bleve-mapping');
 
     $scope.unknownTokenFilterTypeTemplate =
         sp + "/partials/analysis/tokenfilters/generic.html";

@@ -13,7 +13,7 @@ function BleveCharFilterModalCtrl($scope, $modalInstance, $http,
         $scope.charfilter[k] = value[k];
     }
 
-    var sp = ($scope.static_prefix || '/static');
+    var sp = ($scope.static_prefix || '/static-bleve-mapping');
 
     $scope.unknownCharFilterTypeTemplate =
         sp + "/partials/analysis/charfilters/generic.html";

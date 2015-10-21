@@ -26,7 +26,7 @@ function BleveTokenizerModalCtrl($scope, $modalInstance, $http,
 
     $scope.loadTokenizerNames();
 
-    var sp = ($scope.static_prefix || '/static');
+    var sp = ($scope.static_prefix || '/static-bleve-mapping');
 
     $scope.unknownTokenizerTypeTemplate =
         sp + "/partials/analysis/tokenizers/generic.html";

@@ -2,7 +2,7 @@ function initBleveIndexMappingController(
     $scope, $http, $log, $uibModal,
     analyzerNames, dateTimeParserNames, byteArrayConverterNames,
     indexMappingIn) {
-    $scope.static_prefix = $scope.static_prefix || 'mapping_static';
+    $scope.static_prefix = $scope.static_prefix || 'static-bleve-mapping';
 
     $scope.analyzerNames = analyzerNames;
     $scope.dateTimeParserNames = dateTimeParserNames;

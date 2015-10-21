@@ -11,7 +11,7 @@
 
 package mapping
 
-//go:generate go-bindata-assetfs -pkg=mapping ./mapping_static/...
+//go:generate go-bindata-assetfs -pkg=mapping ./static-bleve-mapping/...
 //go:generate go fmt .
 
 import (
