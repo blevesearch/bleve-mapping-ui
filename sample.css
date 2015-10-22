@@ -1,3 +1,7 @@
+.bleveModal .modal-body .form-group {
+  padding-bottom: 10px;
+}
+
 .indexMapping .angular-ui-tree-handle {
     background: #f8faff;
     border: 1px solid #dae2ea;
@@ -17,10 +21,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-.modal-body .form-group {
-  padding-bottom: 10px;
 }
 
 .indexMapping .indexCancelCreate {
