@@ -121,3 +121,11 @@
   white-space: nowrap;
   z-index: 100;
 }
+
+.viewOnly .section .sectionBody .editable {
+  visibility: hidden !important;
+}
+
+.viewOnly .section .sectionBody button {
+  visibility: hidden !important;
+}
