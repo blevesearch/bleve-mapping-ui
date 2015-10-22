@@ -135,6 +135,12 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
         $scope.editing = null;
     }
 
+    $scope.changedProperty = function(field) {
+        if (field._name_PREV == field._property_PREV) {
+            field.name = field.property;
+        }
+    }
+
     $scope.options = {
         accept: function(sourceAccept, destAccept, destIndex) {
             if ($scope.editing) {
