@@ -6,7 +6,7 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
     var kindAttrs = {
         "field": {
             'property': null,
-            'name': validateString,
+            'name': null,
             'type': null,
             'analyzer': null,
             'store': null,
@@ -16,7 +16,7 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
             'date_format': null,
         },
         "mapping": {
-            'name': validateString,
+            'name': null,
             'enabled': null,
             'dynamic': null,
             'default_analyzer': null
@@ -154,14 +154,6 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
         }
     }
 
-    function validateString(obj, attr) {
-        if (obj[attr] != null && obj[attr].length <= 0) {
-            obj["_" + attr + "_ERR"] = attr + " required";
-            return false;
-        }
-        return true;
-    }
-
     function removeEntry(arr, entry) {
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] === entry) {
@@ -297,7 +289,7 @@ function bleveConvertToTypeMapping(mappings) {
 
         for (var i in m.fields) {
             var field = m.fields[i];
-            if (field.property && field.property.length > 0) {
+            if (field.property != null) { // "" is allowed.
                 var property = properties[field.property];
                 if (property == null) {
                     property = properties[field.property] = {
