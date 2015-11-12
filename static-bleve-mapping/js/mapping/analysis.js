@@ -77,9 +77,11 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
         for (var propertyName in docMapping.properties) {
             subDoc = docMapping.properties[propertyName];
             if (path) {
-                return $scope.isAnalyzerUsedInDocMapping(name, subDoc, path+"."+propertyName);
+                return $scope.isAnalyzerUsedInDocMapping(name, subDoc,
+                                                         path+"."+propertyName);
             } else {
-                return $scope.isAnalyzerUsedInDocMapping(name, subDoc, propertyName);
+                return $scope.isAnalyzerUsedInDocMapping(name, subDoc,
+                                                         propertyName);
             }
         }
 
@@ -94,7 +96,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
           controller: 'BleveAnalyzerModalCtrl',
           resolve: {
             name: function() {
-              return name;
+                return name;
             },
             value: function() {
                 return value;
@@ -152,7 +154,8 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
     $scope.isWordListUsed = function(name) {
         // word lists are only used by token filters
         for (var tokenFilterName in $scope.indexMapping.analysis.token_filters) {
-            tokenFilter = $scope.indexMapping.analysis.token_filters[tokenFilterName];
+            tokenFilter =
+                $scope.indexMapping.analysis.token_filters[tokenFilterName];
             // word lists are embeded in a variety of different field names
             if (tokenFilter.dict_token_map == name ||
                 tokenFilter.articles_token_map == name ||
@@ -172,7 +175,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
           controller: 'BleveWordListModalCtrl',
           resolve: {
             name: function() {
-              return name;
+                return name;
             },
             words: function() {
                 return value.tokens;
@@ -241,7 +244,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
           controller: 'BleveCharFilterModalCtrl',
           resolve: {
             name: function() {
-              return name;
+                return name;
             },
             value: function() {
                 return value;
@@ -315,7 +318,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
           controller: 'BleveTokenizerModalCtrl',
           resolve: {
             name: function() {
-              return name;
+                return name;
             },
             value: function() {
                 return value;
@@ -384,7 +387,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
           controller: 'BleveTokenFilterModalCtrl',
           resolve: {
             name: function() {
-              return name;
+                return name;
             },
             value: function() {
                 return value;
