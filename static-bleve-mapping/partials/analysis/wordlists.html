@@ -7,16 +7,21 @@
   </thead>
   <tbody>
     <tr ng-repeat="(tmname,tmval) in indexMapping.analysis.token_maps">
+      <td><a ng-click="editWordList(tmname, tmval, true)">{{tmname}}</a></td>
       <td>{{tmname}}</td>
       <td>
         <div class="btn-group btn-group-xs" role="group">
-          <button ng-click="editWordList(tmname, tmval)" type="button"
+          <button ng-if="!viewOnlyModal"
+                  ng-click="editWordList(tmname, tmval)" type="button"
                   class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+            <span class="glyphicon glyphicon-edit"
+                  aria-hidden="true"></span> Edit
           </button>
-          <button ng-click="deleteWordList(tmname)" type="button"
+          <button ng-if="!viewOnlyModal"
+                  ng-click="deleteWordList(tmname)" type="button"
                   class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+            <span class="glyphicon glyphicon-trash"
+                  aria-hidden="true"></span> Delete
           </button>
         </div>
       </td>
@@ -28,7 +33,8 @@
   <tfoot>
     <tr>
       <td colspan="2">
-        <button ng-click="newWordList()" type="button"
+        <button ng-if="!viewOnlyModal"
+                ng-click="newWordList()" type="button"
                 class="btn btn-sm btn-default pull-right">New Word List</button>
       </td>
     </tr>

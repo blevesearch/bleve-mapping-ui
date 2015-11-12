@@ -1,7 +1,7 @@
 // controller responsible for building a custom analysis components
 
 function BleveAnalysisCtrl($scope, $http, $log, $modal) {
-    // analyzers
+    var viewOnly = $scope.viewOnly;
 
     $scope.newAnalyzer = function() {
         return $scope.editAnalyzer("", {
@@ -88,8 +88,10 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editAnalyzer = function(name, value) {
+    $scope.editAnalyzer = function(name, value, viewOnlyIn) {
+        var viewOnlyModal = $scope.viewOnlyModal = viewOnlyIn || viewOnly;
         var modalInstance = $modal.open({
+          scope: $scope,
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/analyzer.html',
@@ -106,11 +108,15 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
             },
             static_prefix: function() {
                 return $scope.static_prefix;
+            },
+            viewOnlyModal: function() {
+                return viewOnlyModal;
             }
           }
         });
 
         modalInstance.result.then(function(result) {
+            $scope.viewOnlyModal = false;
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -129,6 +135,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
                 }
             }
         }, function() {
+          $scope.viewOnlyModal = false;
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
@@ -167,8 +174,10 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-	$scope.editWordList = function(name, value) {
+    $scope.editWordList = function(name, value, viewOnlyIn) {
+        var viewOnlyModal = $scope.viewOnlyModal = viewOnlyIn || viewOnly;
         var modalInstance = $modal.open({
+          scope: $scope,
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/wordlist.html',
@@ -185,11 +194,15 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
             },
             static_prefix: function() {
                 return $scope.static_prefix;
+            },
+            viewOnlyModal: function() {
+                return viewOnlyModal;
             }
           }
         });
 
         modalInstance.result.then(function(result) {
+            $scope.viewOnlyModal = false;
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -200,6 +213,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
                     result[resultKey];
             }
         }, function() {
+          $scope.viewOnlyModal = false;
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
@@ -236,8 +250,10 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editCharFilter = function(name, value) {
+    $scope.editCharFilter = function(name, value, viewOnlyIn) {
+        var viewOnlyModal = $scope.viewOnlyModal = viewOnlyIn || viewOnly;
         var modalInstance = $modal.open({
+          scope: $scope,
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/charfilter.html',
@@ -254,11 +270,15 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
             },
             static_prefix: function() {
                 return $scope.static_prefix;
+            },
+            viewOnlyModal: function() {
+                return viewOnlyModal;
             }
           }
         });
 
         modalInstance.result.then(function(result) {
+            $scope.viewOnlyModal = false;
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -269,6 +289,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
                     result[resultKey];
             }
         }, function() {
+          $scope.viewOnlyModal = false;
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
@@ -310,8 +331,10 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editTokenizer = function(name, value) {
+    $scope.editTokenizer = function(name, value, viewOnlyIn) {
+        var viewOnlyModal = $scope.viewOnlyModal = viewOnlyIn || viewOnly;
         var modalInstance = $modal.open({
+          scope: $scope,
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/tokenizer.html',
@@ -328,11 +351,15 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
             },
             static_prefix: function() {
                 return $scope.static_prefix;
+            },
+            viewOnlyModal: function() {
+                return viewOnlyModal;
             }
           }
         });
 
         modalInstance.result.then(function(result) {
+            $scope.viewOnlyModal = false;
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -343,6 +370,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
                     result[resultKey];
             }
         }, function() {
+          $scope.viewOnlyModal = false;
           $log.info('Modal dismissed at: ' + new Date());
         });
     };
@@ -379,8 +407,10 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
         return null;
     };
 
-    $scope.editTokenFilter = function(name, value) {
+    $scope.editTokenFilter = function(name, value, viewOnlyIn) {
+        var viewOnlyModal = $scope.viewOnlyModal = viewOnlyIn || viewOnly;
         var modalInstance = $modal.open({
+          scope: $scope,
           animation: $scope.animationsEnabled,
           templateUrl: ($scope.static_prefix || '/static-bleve-mapping') +
                 '/partials/analysis/tokenfilter.html',
@@ -397,11 +427,15 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
             },
             static_prefix: function() {
                 return $scope.static_prefix;
+            },
+            viewOnlyModal: function() {
+                return viewOnlyModal;
             }
           }
         });
 
         modalInstance.result.then(function(result) {
+            $scope.viewOnlyModal = false;
             // add this result to the mapping
             for (var resultKey in result) {
                 if (name !== "" && resultKey != name) {
@@ -412,6 +446,7 @@ function BleveAnalysisCtrl($scope, $http, $log, $modal) {
                     result[resultKey];
             }
         }, function() {
+          $scope.viewOnlyModal = false;
           $log.info('Modal dismissed at: ' + new Date());
         });
     };

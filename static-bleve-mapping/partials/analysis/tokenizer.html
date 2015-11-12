@@ -13,7 +13,8 @@
     <form class="form" role="form">
         <div class="form-group">
             <label for="tname">Name</label>
-            <input ng-model="name"
+            <input ng-disabled="viewOnlyModal"
+                   ng-model="name"
                    type="text" class="form-control"
                    id="tname" placeholder="Name">
         </div>
@@ -21,7 +22,8 @@
         <div class="form-group">
             <label for="tokenizertype">Type</label>
             <div class="col-sm-12 input-group">
-            <select ng-change="tokenizerTypeChange()"
+            <select ng-disabled="viewOnlyModal"
+                    ng-change="tokenizerTypeChange()"
                     ng-model="tokenizer.type"
                     class="form-control"
                     id="tokenizertype">
@@ -35,9 +37,13 @@
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-    <button ng-click="build()" type="button"
-            class="btn btn-primary pull-right">Save</button>
+    <button ng-if="viewOnlyModal" class="btn btn-default"
+            ng-click="cancel()">Close</button>
+    <button ng-if="!viewOnlyModal" class="btn btn-default"
+            ng-click="cancel()">Cancel</button>
+    <button ng-if="!viewOnlyModal"
+            ng-click="build()"
+            type="button" class="btn btn-primary pull-right">Save</button>
 </div>
 
 </div>

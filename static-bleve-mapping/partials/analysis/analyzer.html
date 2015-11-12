@@ -13,7 +13,8 @@
     <form class="form" role="form">
         <div class="form-group">
             <label for="aname">Name</label>
-            <input ng-model="name" type="text"
+            <input ng-disabled="viewOnlyModal"
+                   ng-model="name" type="text"
                    class="form-control" id="tname" placeholder="Name">
         </div>
 
@@ -30,12 +31,14 @@
             <li class="list-group-item"
                 ng-repeat="analyzerCharFilter in analyzer.char_filters track by $index">
               <span class="glyphicon glyphicon-minus"></span> {{ analyzerCharFilter }}
-              <span ng-click="removeCharFilter($index)"
+              <span ng-if="!viewOnlyModal"
+                    ng-click="removeCharFilter($index)"
                     class="glyphicon glyphicon-remove pull-right"></span>
             </li>
           </ul>
 
-          <div class="form-group">
+          <div ng-if="!viewOnlyModal"
+               class="form-group">
             <label></label>
             <div class="col-sm-10">
               <select ng-change="addCharFilterChanged()"
@@ -45,7 +48,6 @@
                 <option ng-repeat="charFilter in charFilterNames">{{charFilter}}</option>
               </select>
             </div>
-
             <div class="col-sm-2">
               <button ng-click="addCharFilter(this)" type="button"
                       class="btn btn-default pull-right">Add</button>
@@ -55,7 +57,8 @@
 
         <div class="form-group">
           <label for="analyzerTokenizer">Tokenizer</label>
-          <select ng-change="tokenizerChanged()"
+          <select ng-disabled="viewOnlyModal"
+                  ng-change="tokenizerChanged()"
                   ng-model="analyzer.tokenizer"
                   class="form-control"
                   id="analyzerTokenizer">
@@ -76,12 +79,14 @@
             <li class="list-group-item"
                 ng-repeat="analyzerTokenFilter in analyzer.token_filters">
               <span class="glyphicon glyphicon-minus"></span> {{ analyzerTokenFilter }}
-              <span ng-click="removeTokenFilter($index)"
+              <span ng-if="!viewOnlyModal"
+                    ng-click="removeTokenFilter($index)"
                     class="glyphicon glyphicon-remove pull-right"></span>
             </li>
           </ul>
 
-          <div class="form-group">
+          <div ng-if="!viewOnlyModal"
+               class="form-group">
             <label></label>
             <div class="col-sm-10">
               <select ng-change="addTokenFilterChanged()"
@@ -101,9 +106,13 @@
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-    <button ng-click="build()" type="button"
-            class="btn btn-primary pull-right">Save</button>
+    <button ng-if="viewOnlyModal" class="btn btn-default"
+            ng-click="cancel()">Close</button>
+    <button ng-if="!viewOnlyModal" class="btn btn-default"
+            ng-click="cancel()">Cancel</button>
+    <button ng-if="!viewOnlyModal"
+            ng-click="build()"
+            type="button" class="btn btn-primary pull-right">Save</button>
 </div>
 
 </div>

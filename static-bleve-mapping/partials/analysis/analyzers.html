@@ -7,16 +7,20 @@
   </thead>
   <tbody>
     <tr ng-repeat="(aname,aval) in indexMapping.analysis.analyzers">
-      <td>{{aname}}</td>
+      <td><a ng-click="editAnalyzer(aname, aval, true)">{{aname}}</a></td>
       <td>
         <div class="btn-group btn-group-xs" role="group">
-          <button ng-click="editAnalyzer(aname, aval)" type="button"
+          <button ng-if="!viewOnlyModal"
+                  ng-click="editAnalyzer(aname, aval)" type="button"
                   class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+            <span class="glyphicon glyphicon-edit"
+                  aria-hidden="true"></span> Edit
           </button>
-          <button ng-click="deleteAnalyzer(aname)" type="button"
+          <button ng-if="!viewOnlyModal"
+                  ng-click="deleteAnalyzer(aname)" type="button"
                   class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+            <span class="glyphicon glyphicon-trash"
+                  aria-hidden="true"></span> Delete
           </button>
         </div>
       </td>
@@ -28,7 +32,8 @@
   <tfoot>
     <tr>
       <td colspan="2">
-        <button ng-click="newAnalyzer()" type="button"
+        <button ng-if="!viewOnlyModal"
+                ng-click="newAnalyzer()" type="button"
                 class="btn btn-sm btn-default pull-right">New Analyzer</button>
       </td>
     </tr>

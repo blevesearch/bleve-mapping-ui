@@ -13,14 +13,16 @@
     <form class="form" role="form">
         <div class="form-group">
             <label for="tname">Name</label>
-            <input ng-model="name" type="text"
+            <input ng-disabled="viewOnlyModal"
+                   ng-model="name" type="text"
                    class="form-control" id="tname" placeholder="Name">
         </div>
 
         <div class="form-group">
             <label for="charfiltertype">Type</label>
             <div class="col-sm-12 input-group">
-            <select ng-change="charFilterTypeChange()"
+            <select ng-disabled="viewOnlyModal"
+                    ng-change="charFilterTypeChange()"
                     ng-model="charfilter.type"
                     class="form-control"
                     id="charfiltertype">
@@ -34,9 +36,13 @@
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-    <button ng-click="build()" type="button"
-            class="btn btn-primary pull-right">Save</button>
+    <button ng-if="viewOnlyModal" class="btn btn-default"
+            ng-click="cancel()">Close</button>
+    <button ng-if="!viewOnlyModal" class="btn btn-default"
+            ng-click="cancel()">Cancel</button>
+    <button ng-if="!viewOnlyModal"
+            ng-click="build()"
+            type="button" class="btn btn-primary pull-right">Save</button>
 </div>
 
 </div>

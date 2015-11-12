@@ -1,3 +1,5 @@
-			<select ng-model="tokenfilter.word_map" class="form-control" id="tokenfilterTokenMaps">
-	    		<option ng-repeat="tokenMap in tokenMapNames">{{tokenMap}}</option>
-	    	</select>
+    <select ng-disabled="viewOnlyModal"
+            ng-model="tokenfilter.word_map"
+            class="form-control" id="tokenfilterTokenMaps">
+        <option ng-repeat="tokenMap in tokenMapNames">{{tokenMap}}</option>
+    </select>

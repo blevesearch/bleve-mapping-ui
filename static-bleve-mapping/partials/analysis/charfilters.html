@@ -8,17 +8,21 @@
   </thead>
   <tbody>
     <tr ng-repeat="(cfname,cfval) in indexMapping.analysis.char_filters">
-      <td>{{cfname}}</td>
+      <td><a ng-click="editCharFilter(cfname, cfval, true)">{{cfname}}</a></td>
       <td>{{cfval.type}}</td>
       <td>
         <div class="btn-group btn-group-xs" role="group">
-          <button ng-click="editCharFilter(cfname, cfval)" type="button"
+          <button ng-if="!viewOnlyModal"
+                  ng-click="editCharFilter(cfname, cfval)" type="button"
                   class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+            <span class="glyphicon glyphicon-edit"
+                  aria-hidden="true"></span> Edit
           </button>
-          <button ng-click="deleteCharFilter(cfname)" type="button"
+          <button ng-if="!viewOnlyModal"
+                  ng-click="deleteCharFilter(cfname)" type="button"
                   class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+            <span class="glyphicon glyphicon-trash"
+                  aria-hidden="true"></span> Delete
           </button>
         </div>
       </td>
@@ -30,7 +34,8 @@
   <tfoot>
     <tr>
       <td colspan="3">
-        <button ng-click="newCharFilter()" type="button"
+        <button ng-if="!viewOnlyModal"
+                ng-click="newCharFilter()" type="button"
                 class="btn btn-sm btn-default pull-right">New Character Filter</button>
       </td>
     </tr>
