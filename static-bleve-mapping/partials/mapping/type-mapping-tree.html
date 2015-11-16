@@ -18,8 +18,8 @@
 
       <span class="attrs">
         <span ng-if="!mapping.enabled">| disabled</span>
-        <span ng-if="mapping.enabled && mapping.dynamic">
-          | dynamic</span>
+        <span ng-if="mapping.enabled && !mapping.dynamic">
+          | only index specified fields</span>
         <span ng-if="mapping.enabled && mapping.default_analyzer">
           | {{mapping.default_analyzer}}</span>
       </span>
@@ -82,11 +82,15 @@
     <div ng-if="mapping._editing"
          class="editArea editAreaMapping"
          data-nodrag>
-      <label><input type="checkbox" ng-model="mapping.enabled"/>
+      <label><input type="checkbox"
+                    ng-model="mapping.enabled"/>
              enabled
       </label>
-      <label><input type="checkbox" ng-model="mapping.dynamic"/>
-             dynamic
+      <label><input type="checkbox"
+                    ng-init="mapping._specifiedChecked = !mapping.dynamic"
+                    ng-model="mapping._specifiedChecked"
+                    ng-change="mapping.dynamic = !mapping._specifiedChecked"/>
+             only index specified fields
       </label>
     </div>
   </div>
