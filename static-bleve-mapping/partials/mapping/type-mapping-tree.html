@@ -18,10 +18,10 @@
 
       <span class="attrs">
         <span ng-if="!mapping.enabled">| disabled</span>
-        <span ng-if="mapping.enabled && !mapping.dynamic">
-          | only index specified fields</span>
         <span ng-if="mapping.enabled && mapping.default_analyzer">
           | {{mapping.default_analyzer}}</span>
+        <span ng-if="mapping.enabled && !mapping.dynamic">
+          | only index specified fields</span>
       </span>
     </span>
     <span ng-if="mapping._editing && mapping.name != null"
@@ -32,6 +32,12 @@
       <input ng-if="mapping._kind == 'mapping'"
              type="text" placeholder="please enter a property name"
              ng-model="mapping.name"/>
+    </span>
+    <span ng-if="mapping.enabled && mapping._editing">
+      <select ng-model="mapping.default_analyzer"
+              ng-options="t as t for t in analyzerNames">
+        <option value="">inherit</option>
+      </select>
     </span>
 
     <span ng-if="!editing"
@@ -86,7 +92,8 @@
                     ng-model="mapping.enabled"/>
              enabled
       </label>
-      <label><input type="checkbox"
+      <label ng-if="mapping.enabled">
+             <input type="checkbox"
                     ng-init="mapping._specifiedChecked = !mapping.dynamic"
                     ng-model="mapping._specifiedChecked"
                     ng-change="mapping.dynamic = !mapping._specifiedChecked"/>
