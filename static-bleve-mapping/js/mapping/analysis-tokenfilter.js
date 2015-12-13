@@ -149,23 +149,22 @@ function BleveTokenFilterModalCtrl($scope, $modalInstance, $http,
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.build = function() {
-        // must have a name
-        if (!$scope.name) {
+    $scope.build = function(name) {
+        if (!name) {
             $scope.errorMessage = "Name is required";
             return;
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName &&
-            $scope.mapping.analysis.token_filters[$scope.name]) {
-            $scope.errorMessage = "Token filter named '" + $scope.name + "' already exists";
+        if (name != $scope.origName &&
+            $scope.mapping.analysis.token_filters[name]) {
+            $scope.errorMessage = "Token filter named '" + name + "' already exists";
             return;
         }
 
         // ensure that this new mapping component is valid
         tokenfilters = {};
-        tokenfilters[$scope.name] = $scope.tokenfilter;
+        tokenfilters[name] = $scope.tokenfilter;
 
         testMapping = {
             "analysis": {
@@ -177,7 +176,7 @@ function BleveTokenFilterModalCtrl($scope, $modalInstance, $http,
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};
-            result[$scope.name] = $scope.tokenfilter;
+            result[name] = $scope.tokenfilter;
             $modalInstance.close(result);
         }).
         error(function(data, code) {

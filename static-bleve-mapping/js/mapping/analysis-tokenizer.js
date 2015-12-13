@@ -105,23 +105,22 @@ function BleveTokenizerModalCtrl($scope, $modalInstance, $http,
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.build = function() {
-        // must have a name
-        if (!$scope.name) {
+    $scope.build = function(name) {
+        if (!name) {
             $scope.errorMessage = "Name is required";
             return;
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName &&
-            $scope.mapping.analysis.tokenizers[$scope.name]) {
-            $scope.errorMessage = "Tokenizer named '" + $scope.name + "' already exists";
+        if (name != $scope.origName &&
+            $scope.mapping.analysis.tokenizers[name]) {
+            $scope.errorMessage = "Tokenizer named '" + name + "' already exists";
             return;
         }
 
         // ensure that this new mapping component is valid
         tokenizers = {};
-        tokenizers[$scope.name] = $scope.tokenizer;
+        tokenizers[name] = $scope.tokenizer;
         // add in all the existing tokenizers, since we might be referencing them
         for (var t in $scope.mapping.analysis.tokenizers) {
             tokenizers[t] = $scope.mapping.analysis.tokenizers[t];
@@ -136,13 +135,12 @@ function BleveTokenizerModalCtrl($scope, $modalInstance, $http,
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};
-            result[$scope.name] = $scope.tokenizer;
+            result[name] = $scope.tokenizer;
             $modalInstance.close(result);
         }).
         error(function(data, code) {
             // otherwise display error
             $scope.errorMessage = data;
         });
-
     };
 };

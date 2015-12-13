@@ -76,22 +76,22 @@ function BleveCharFilterModalCtrl($scope, $modalInstance, $http,
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.build = function() {
-        // must have a name
-        if (!$scope.name) {
+    $scope.build = function(name) {
+        if (!name) {
             $scope.errorMessage = "Name is required";
             return;
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName && $scope.mapping.analysis.char_filters[$scope.name]) {
-            $scope.errorMessage = "Character filter named '" + $scope.name + "' already exists";
+        if (name != $scope.origName &&
+            $scope.mapping.analysis.char_filters[name]) {
+            $scope.errorMessage = "Character filter named '" + name + "' already exists";
             return;
         }
 
         // ensure that this new mapping component is valid
         charFilters = {};
-        charFilters[$scope.name] = $scope.charfilter;
+        charFilters[name] = $scope.charfilter;
 
         testMapping = {
             "analysis": {
@@ -102,13 +102,12 @@ function BleveCharFilterModalCtrl($scope, $modalInstance, $http,
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};
-            result[$scope.name] = $scope.charfilter;
+            result[name] = $scope.charfilter;
             $modalInstance.close(result);
         }).
         error(function(data, code) {
             // otherwise display error
             $scope.errorMessage = data;
         });
-
     };
 };

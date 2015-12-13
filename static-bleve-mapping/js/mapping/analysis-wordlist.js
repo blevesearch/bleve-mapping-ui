@@ -31,21 +31,21 @@ function BleveWordListModalCtrl($scope, $modalInstance,
         $scope.selectedWords = [];
     };
 
-    $scope.build = function() {
-        // must have a name
-        if (!$scope.name) {
+    $scope.build = function(name) {
+        if (!name) {
             $scope.errorMessage = "Name is required";
             return;
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName && $scope.mapping.analysis.token_maps[$scope.name]) {
-            $scope.errorMessage = "Word list named '" + $scope.name + "' already exists";
+        if (name != $scope.origName &&
+            $scope.mapping.analysis.token_maps[name]) {
+            $scope.errorMessage = "Word list named '" + name + "' already exists";
             return;
         }
 
         result = {};
-        result[$scope.name] = {
+        result[name] = {
             "type": "custom",
             "tokens": $scope.words
         };

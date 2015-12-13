@@ -104,16 +104,16 @@ function BleveAnalyzerModalCtrl($scope, $modalInstance, $http,
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.build = function() {
-        // must have a name
-        if (!$scope.name) {
+    $scope.build = function(name) {
+        if (!name) {
             $scope.errorMessage = "Name is required";
             return;
         }
 
         // name must not already be used
-        if ($scope.name != $scope.origName && $scope.mapping.analysis.analyzers[$scope.name]) {
-            $scope.errorMessage = "Analyzer named '" + $scope.name + "' already exists";
+        if (name != $scope.origName &&
+            $scope.mapping.analysis.analyzers[name]) {
+            $scope.errorMessage = "Analyzer named '" + name + "' already exists";
             return;
         }
 
@@ -123,7 +123,7 @@ function BleveAnalyzerModalCtrl($scope, $modalInstance, $http,
             analysis[ak] = $scope.mapping.analysis[ak];
         }
         analyzers = {};
-        analyzers[$scope.name] = $scope.analyzer;
+        analyzers[name] = $scope.analyzer;
         analysis["analyzers"] = analyzers;
 
         testMapping = {
@@ -133,13 +133,12 @@ function BleveAnalyzerModalCtrl($scope, $modalInstance, $http,
         $http.post('/api/_validateMapping',testMapping).success(function(data) {
             // if its valid return it
             result = {};
-            result[$scope.name] = $scope.analyzer;
+            result[name] = $scope.analyzer;
             $modalInstance.close(result);
         }).
         error(function(data, code) {
             // otherwise display error
             $scope.errorMessage = data;
         });
-
     };
 };
