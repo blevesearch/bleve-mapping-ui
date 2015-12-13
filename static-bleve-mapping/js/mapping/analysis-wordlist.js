@@ -13,9 +13,10 @@ function BleveWordListModalCtrl($scope, $modalInstance,
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.addWord = function() {
-        if ($scope.newWord) {
-            $scope.words.push($scope.newWord);
+    $scope.addWord = function(newWord) {
+        newWord = newWord || $scope.newWord;
+        if (newWord) {
+            $scope.words.push(newWord);
             $scope.newWord = "";
         }
     };
