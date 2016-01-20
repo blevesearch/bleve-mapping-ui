@@ -26,7 +26,7 @@ function initBleveIndexMappingController(
         indexMapping.types[""] = indexMapping["default_mapping"];
     }
 
-    var tmc = initBleveTypeMappingController($scope, indexMapping.types);
+    var tmc = initBleveTypeMappingController($scope, indexMapping.types, options);
 
     $scope.isValid = function() { return tmc.isValid(); };
 

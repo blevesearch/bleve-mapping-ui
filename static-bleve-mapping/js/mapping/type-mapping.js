@@ -1,4 +1,37 @@
-function initBleveTypeMappingController($scope, typeMappingIn) {
+function initBleveTypeMappingController($scope, typeMappingIn, options) {
+    options = options || {};
+
+    var defaultFieldType = options["defaultFieldType"] || "text";
+    var defaultFieldAnalyzer = options["defaultFieldAnalyzer"] || "";
+    var defaultFieldStore = true;
+    if (options["defaultFieldStore"] != undefined) {
+        defaultFieldStore = options["defaultFieldStore"];
+    }
+    var defaultFieldIndex = true;
+    if (options["defaultFieldIndex"] != undefined) {
+        defaultFieldIndex = options["defaultFieldIndex"];
+    }
+    var defaultFieldIncludeTermVectors = true;
+    if (options["defaultFieldIncludeTermVectors"] != undefined) {
+        defaultFieldIncludeTermVectors = options["defaultFieldIncludeTermVectors"];
+    }
+    var defaultFieldIncludeInAll = true;
+    if (options["defaultFieldIncludeInAll"] != undefined) {
+        defaultFieldIncludeInAll = options["defaultFieldIncludeInAll"];
+    }
+    var defaultFieldDateFormat = null;
+    if (options["defaultFieldDateFormat"] != undefined) {
+        defaultFieldDateFormat = options["defaultFieldDateFormat"];
+    }
+    var defaultMappingEnabled = true;
+    if (options["defaultMappingEnabled"] != undefined) {
+        defaultMappingEnabled = options["defaultMappingEnabled"];
+    }
+    var defaultMappingDynamic = true;
+    if (options["defaultMappingDynamic"] != undefined) {
+        defaultMappingDynamic = options["defaultMappingDynamic"];
+    }
+
     mappings = bleveConvertFromTypeMapping(typeMappingIn)
 
     $scope.fieldTypes = ['text', 'number', 'datetime', 'disabled'];
@@ -52,13 +85,13 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
             _kind: 'field',
             property: "",
             name: "",
-            type: "text",
-            analyzer: "",
-            store: true,
-            index: true,
-            include_term_vectors: true,
-            include_in_all: true,
-            date_format: null,
+            type: defaultFieldType,
+            analyzer: defaultFieldAnalyzer,
+            store: defaultFieldStore,
+            index: defaultFieldIndex,
+            include_term_vectors: defaultFieldIncludeTermVectors,
+            include_in_all: defaultFieldIncludeInAll,
+            date_format: defaultFieldDateFormat,
         };
         f._editing = function() { removeEntry(mapping.fields, f); };
         mapping.fields.unshift(f);
@@ -79,8 +112,8 @@ function initBleveTypeMappingController($scope, typeMappingIn) {
         var m = {
             _kind: mapping == $scope ? 'mappingType' : 'mapping',
             name: "",
-            enabled: true,
-            dynamic: true,
+            enabled: defaultMappingEnabled,
+            dynamic: defaultMappingDynamic,
             fields: [],
             mappings: []
         };
