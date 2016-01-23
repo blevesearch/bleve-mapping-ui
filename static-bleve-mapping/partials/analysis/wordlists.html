@@ -3,6 +3,7 @@
     <tr>
       <th>Name</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -27,12 +28,12 @@
       </td>
     </tr>
     <tr ng-show="Utils.keys(indexMapping.analysis.token_maps).length < 1">
-      <td colspan="2">None</td>
+      <td colspan="3">None</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="2">
+      <td colspan="3">
         <button ng-if="!viewOnlyModal"
                 ng-click="newWordList()" type="button"
                 class="btn btn-sm btn-default pull-right">New Word List</button>
