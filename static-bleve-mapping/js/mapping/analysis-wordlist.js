@@ -21,12 +21,12 @@ function BleveWordListModalCtrl($scope, $modalInstance,
         }
     };
 
-    $scope.removeWord = function() {
+    $scope.removeWords = function(selectedWords) {
         // sort the selected word indexes into descending order
         // so we can delete items without having to adjust indexes
-        $scope.selectedWords.sort(function(a,b){ return b - a; });
-        for (var index in $scope.selectedWords) {
-            $scope.words.splice($scope.selectedWords[index], 1);
+        selectedWords.sort(function(a, b) { return b - a; });
+        for (var index in selectedWords) {
+            $scope.words.splice(selectedWords[index], 1);
         }
         $scope.selectedWords = [];
     };
