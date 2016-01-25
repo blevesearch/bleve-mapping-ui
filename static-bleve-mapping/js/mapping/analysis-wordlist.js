@@ -16,6 +16,12 @@ function BleveWordListModalCtrl($scope, $modalInstance,
     $scope.addWord = function(newWord) {
         newWord = newWord || $scope.newWord;
         if (newWord) {
+            for (var i = 0; i < $scope.words.length; i++) {
+                if ($scope.words[i] == newWord) {
+                    return;
+                }
+            }
+
             $scope.words.push(newWord);
             $scope.newWord = "";
         }
