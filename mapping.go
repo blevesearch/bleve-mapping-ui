@@ -64,7 +64,12 @@ func ListAnalyzerNames(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -105,6 +110,11 @@ func AnalyzerText(w http.ResponseWriter, req *http.Request) {
 		Mapping  *bleve.IndexMapping `json:"mapping"`
 	}{}
 
+	requestBody, err = CleanseJSON(requestBody)
+	if err != nil {
+		showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+		return
+	}
 	err = json.Unmarshal(requestBody, &analyzeRequest)
 	if err != nil {
 		showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
@@ -145,7 +155,12 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -183,7 +198,12 @@ func ListCharFilterNames(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -237,7 +257,12 @@ func ListTokenizerNames(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -291,7 +316,12 @@ func ListTokenFilterNames(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -345,7 +375,12 @@ func ListTokenMapNames(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -383,7 +418,12 @@ func ValidateMapping(w http.ResponseWriter, req *http.Request) {
 
 	// interpret request body as index mapping
 	if len(requestBody) > 0 {
-		err := json.Unmarshal(requestBody, &indexMapping)
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
@@ -414,4 +454,48 @@ func mustEncode(w io.Writer, i interface{}) {
 	if err := e.Encode(i); err != nil {
 		panic(err)
 	}
+}
+
+// CleanseJSON returns a new mapping with bleve-mapping-ui entries
+// removed/cleansed so that it will pass bleve's strict parsing.
+func CleanseJSON(j []byte) ([]byte, error) {
+	var m map[string]interface{}
+
+	err := json.Unmarshal(j, &m)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(Cleanse(m))
+}
+
+// Cleanse returns a new mapping with bleve-mapping-ui entries
+// removed/cleansed so that it will pass bleve's strict parsing.
+func Cleanse(v interface{}) interface{} {
+	if v == nil {
+		return nil
+	}
+
+	va, vIsArr := v.([]interface{})
+	if vIsArr && va != nil {
+		var a []interface{}
+		for _, vav := range va {
+			a = append(a, Cleanse(vav))
+		}
+		return a
+	}
+
+	vm, vIsMap := v.(map[string]interface{})
+	if vIsMap && vm != nil {
+		m := map[string]interface{}{}
+		for vmk, vmv := range vm {
+			if vmk == "display_order" {
+				continue
+			}
+			m[vmk] = Cleanse(vmv)
+		}
+		return m
+	}
+
+	return v
 }
