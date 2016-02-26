@@ -80,7 +80,7 @@ func static_bleve_mapping_js_mapping_analysis_analyzer_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-analyzer.js", size: 4348, mode: os.FileMode(420), modTime: time.Unix(1449980465, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-analyzer.js", size: 4348, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -100,7 +100,7 @@ func static_bleve_mapping_js_mapping_analysis_charfilter_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-charfilter.js", size: 3396, mode: os.FileMode(420), modTime: time.Unix(1449980504, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-charfilter.js", size: 3396, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -120,7 +120,7 @@ func static_bleve_mapping_js_mapping_analysis_tokenfilter_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-tokenfilter.js", size: 5902, mode: os.FileMode(420), modTime: time.Unix(1449980548, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-tokenfilter.js", size: 5902, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -140,7 +140,7 @@ func static_bleve_mapping_js_mapping_analysis_tokenizer_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-tokenizer.js", size: 4412, mode: os.FileMode(420), modTime: time.Unix(1449980768, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-tokenizer.js", size: 4412, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -160,7 +160,7 @@ func static_bleve_mapping_js_mapping_analysis_wordlist_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-wordlist.js", size: 1803, mode: os.FileMode(420), modTime: time.Unix(1453695324, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis-wordlist.js", size: 1803, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -180,7 +180,7 @@ func static_bleve_mapping_js_mapping_analysis_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis.js", size: 15888, mode: os.FileMode(420), modTime: time.Unix(1449972090, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/analysis.js", size: 15888, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -200,7 +200,7 @@ func static_bleve_mapping_js_mapping_index_mapping_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/index-mapping.js", size: 3596, mode: os.FileMode(420), modTime: time.Unix(1453316011, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/index-mapping.js", size: 3596, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -220,7 +220,7 @@ func static_bleve_mapping_js_mapping_type_mapping_js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/type-mapping.js", size: 9945, mode: os.FileMode(420), modTime: time.Unix(1453316847, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/js/mapping/type-mapping.js", size: 9945, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -240,7 +240,7 @@ func static_bleve_mapping_partials_analysis_analyzer_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/analyzer.html", size: 4369, mode: os.FileMode(420), modTime: time.Unix(1453508625, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/analyzer.html", size: 4369, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -260,7 +260,7 @@ func static_bleve_mapping_partials_analysis_analyzers_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/analyzers.html", size: 1318, mode: os.FileMode(420), modTime: time.Unix(1447346381, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/analyzers.html", size: 1318, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -280,7 +280,7 @@ func static_bleve_mapping_partials_analysis_charfilter_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilter.html", size: 1566, mode: os.FileMode(420), modTime: time.Unix(1449980683, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilter.html", size: 1566, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -300,7 +300,7 @@ func static_bleve_mapping_partials_analysis_charfilters_generic_html() (*asset, 
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1444792171, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -320,7 +320,7 @@ func static_bleve_mapping_partials_analysis_charfilters_regexp_html() (*asset, e
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilters/regexp.html", size: 614, mode: os.FileMode(420), modTime: time.Unix(1447347374, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilters/regexp.html", size: 614, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -340,7 +340,7 @@ func static_bleve_mapping_partials_analysis_charfilters_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilters.html", size: 1398, mode: os.FileMode(420), modTime: time.Unix(1447346445, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/charfilters.html", size: 1398, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -360,7 +360,7 @@ func static_bleve_mapping_partials_analysis_tokenfilter_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilter.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1449980717, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilter.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -380,7 +380,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_dict_compound_html() (*
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/dict_compound.html", size: 359, mode: os.FileMode(420), modTime: time.Unix(1447347385, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/dict_compound.html", size: 359, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -400,7 +400,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_edge_ngram_html() (*ass
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/edge_ngram.html", size: 929, mode: os.FileMode(420), modTime: time.Unix(1447347394, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/edge_ngram.html", size: 929, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -420,7 +420,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_elision_html() (*asset,
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/elision.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1447347401, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/elision.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -440,7 +440,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_generic_html() (*asset,
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1444792171, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -460,7 +460,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_keyword_marker_html() (
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/keyword_marker.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1447347412, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/keyword_marker.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -480,7 +480,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_length_html() (*asset, 
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/length.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1447347419, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/length.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -500,7 +500,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_ngram_html() (*asset, e
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/ngram.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1447347425, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/ngram.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -520,7 +520,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_normalize_unicode_html(
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/normalize_unicode.html", size: 461, mode: os.FileMode(420), modTime: time.Unix(1447347433, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/normalize_unicode.html", size: 461, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -540,7 +540,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_shingle_html() (*asset,
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/shingle.html", size: 1499, mode: os.FileMode(420), modTime: time.Unix(1447347442, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/shingle.html", size: 1499, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -560,7 +560,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_stop_tokens_html() (*as
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/stop_tokens.html", size: 360, mode: os.FileMode(420), modTime: time.Unix(1447347447, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/stop_tokens.html", size: 360, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -580,7 +580,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_truncate_token_html() (
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/truncate_token.html", size: 295, mode: os.FileMode(420), modTime: time.Unix(1447347453, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/truncate_token.html", size: 295, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -600,7 +600,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_wordmap_html() (*asset,
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/wordmap.html", size: 233, mode: os.FileMode(420), modTime: time.Unix(1447347466, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters/wordmap.html", size: 233, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -620,7 +620,7 @@ func static_bleve_mapping_partials_analysis_tokenfilters_html() (*asset, error) 
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters.html", size: 1401, mode: os.FileMode(420), modTime: time.Unix(1447346561, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenfilters.html", size: 1401, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -640,7 +640,7 @@ func static_bleve_mapping_partials_analysis_tokenizer_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizer.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1449980726, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizer.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -660,7 +660,7 @@ func static_bleve_mapping_partials_analysis_tokenizers_exception_html() (*asset,
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers/exception.html", size: 1387, mode: os.FileMode(420), modTime: time.Unix(1447347332, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers/exception.html", size: 1387, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -680,7 +680,7 @@ func static_bleve_mapping_partials_analysis_tokenizers_generic_html() (*asset, e
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1444792171, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -700,7 +700,7 @@ func static_bleve_mapping_partials_analysis_tokenizers_regexp_html() (*asset, er
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers/regexp.html", size: 305, mode: os.FileMode(420), modTime: time.Unix(1447347482, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers/regexp.html", size: 305, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -720,7 +720,7 @@ func static_bleve_mapping_partials_analysis_tokenizers_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers.html", size: 1375, mode: os.FileMode(420), modTime: time.Unix(1447346597, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/tokenizers.html", size: 1375, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -740,7 +740,7 @@ func static_bleve_mapping_partials_analysis_wordlist_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/wordlist.html", size: 2108, mode: os.FileMode(420), modTime: time.Unix(1453510849, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/wordlist.html", size: 2108, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -760,7 +760,7 @@ func static_bleve_mapping_partials_analysis_wordlists_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/wordlists.html", size: 1371, mode: os.FileMode(420), modTime: time.Unix(1453570280, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/analysis/wordlists.html", size: 1371, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -780,7 +780,7 @@ func static_bleve_mapping_partials_mapping_index_mapping_html() (*asset, error) 
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/mapping/index-mapping.html", size: 5937, mode: os.FileMode(420), modTime: time.Unix(1445528145, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/mapping/index-mapping.html", size: 5937, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -800,7 +800,7 @@ func static_bleve_mapping_partials_mapping_type_mapping_tree_html() (*asset, err
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/mapping/type-mapping-tree.html", size: 8485, mode: os.FileMode(420), modTime: time.Unix(1447708479, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/mapping/type-mapping-tree.html", size: 8485, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -820,7 +820,7 @@ func static_bleve_mapping_partials_mapping_type_mapping_html() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindata_file_info{name: "static-bleve-mapping/partials/mapping/type-mapping.html", size: 345, mode: os.FileMode(420), modTime: time.Unix(1445103377, 0)}
+	info := bindata_file_info{name: "static-bleve-mapping/partials/mapping/type-mapping.html", size: 345, mode: os.FileMode(420), modTime: time.Unix(1456513581, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -1064,7 +1064,7 @@ func _filePath(dir, name string) string {
 
 func assetFS() *assetfs.AssetFS {
 	for k := range _bintree.Children {
-		return &assetfs.AssetFS{Asset: Asset, AssetDir: AssetDir, Prefix: k}
+		return &assetfs.AssetFS{Asset: Asset, AssetDir: AssetDir, AssetInfo: AssetInfo, Prefix: k}
 	}
 	panic("unreachable")
 }
