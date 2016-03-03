@@ -200,7 +200,7 @@
           <div ng-if="field.type == 'datetime'">
             <label>
               <span>datetime parser</span>
-              <select ng-model="field.datetime_parser"
+              <select ng-model="field.date_format"
                       ng-options="t as t for t in dateTimeParserNames">
                 <option value="">inherit</option>
               </select>
