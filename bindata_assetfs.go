@@ -121,7 +121,7 @@ func staticBleveMappingJsMappingAnalysisAnalyzerJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-analyzer.js", size: 4348, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-analyzer.js", size: 4348, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -141,7 +141,7 @@ func staticBleveMappingJsMappingAnalysisCharfilterJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-charfilter.js", size: 3396, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-charfilter.js", size: 3396, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -161,7 +161,7 @@ func staticBleveMappingJsMappingAnalysisTokenfilterJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-tokenfilter.js", size: 5902, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-tokenfilter.js", size: 5902, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -181,7 +181,7 @@ func staticBleveMappingJsMappingAnalysisTokenizerJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-tokenizer.js", size: 4412, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-tokenizer.js", size: 4412, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -201,7 +201,7 @@ func staticBleveMappingJsMappingAnalysisWordlistJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-wordlist.js", size: 1803, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis-wordlist.js", size: 1803, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -221,7 +221,7 @@ func staticBleveMappingJsMappingAnalysisJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis.js", size: 15888, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/analysis.js", size: 15888, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -241,7 +241,7 @@ func staticBleveMappingJsMappingIndexMappingJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/index-mapping.js", size: 3596, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/index-mapping.js", size: 3596, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -261,7 +261,7 @@ func staticBleveMappingJsMappingTypeMappingJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/type-mapping.js", size: 9956, mode: os.FileMode(420), modTime: time.Unix(1457035938, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/js/mapping/type-mapping.js", size: 9956, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -281,7 +281,7 @@ func staticBleveMappingPartialsAnalysisAnalyzerHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/analyzer.html", size: 4369, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/analyzer.html", size: 4369, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -301,7 +301,7 @@ func staticBleveMappingPartialsAnalysisAnalyzersHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/analyzers.html", size: 1318, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/analyzers.html", size: 1318, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -321,7 +321,7 @@ func staticBleveMappingPartialsAnalysisCharfilterHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilter.html", size: 1566, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilter.html", size: 1566, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -341,7 +341,7 @@ func staticBleveMappingPartialsAnalysisCharfiltersGenericHtml() (*asset, error) 
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -361,7 +361,7 @@ func staticBleveMappingPartialsAnalysisCharfiltersRegexpHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilters/regexp.html", size: 614, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilters/regexp.html", size: 614, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -381,7 +381,7 @@ func staticBleveMappingPartialsAnalysisCharfiltersHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilters.html", size: 1398, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/charfilters.html", size: 1398, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -401,7 +401,7 @@ func staticBleveMappingPartialsAnalysisTokenfilterHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilter.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilter.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -421,7 +421,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersDict_compoundHtml() (*asset, 
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/dict_compound.html", size: 359, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/dict_compound.html", size: 359, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -441,7 +441,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersEdge_ngramHtml() (*asset, err
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/edge_ngram.html", size: 929, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/edge_ngram.html", size: 929, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -461,7 +461,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersElisionHtml() (*asset, error)
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/elision.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/elision.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -481,7 +481,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersGenericHtml() (*asset, error)
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -501,7 +501,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersKeyword_markerHtml() (*asset,
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/keyword_marker.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/keyword_marker.html", size: 362, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -521,7 +521,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersLengthHtml() (*asset, error) 
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/length.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/length.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -541,7 +541,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersNgramHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/ngram.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/ngram.html", size: 580, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -561,7 +561,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersNormalize_unicodeHtml() (*ass
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/normalize_unicode.html", size: 461, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/normalize_unicode.html", size: 461, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -581,7 +581,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersShingleHtml() (*asset, error)
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/shingle.html", size: 1499, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/shingle.html", size: 1499, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -601,7 +601,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersStop_tokensHtml() (*asset, er
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/stop_tokens.html", size: 360, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/stop_tokens.html", size: 360, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -621,7 +621,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersTruncate_tokenHtml() (*asset,
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/truncate_token.html", size: 295, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/truncate_token.html", size: 295, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -641,7 +641,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersWordmapHtml() (*asset, error)
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/wordmap.html", size: 233, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters/wordmap.html", size: 233, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -661,7 +661,7 @@ func staticBleveMappingPartialsAnalysisTokenfiltersHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters.html", size: 1401, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenfilters.html", size: 1401, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -681,7 +681,7 @@ func staticBleveMappingPartialsAnalysisTokenizerHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizer.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizer.html", size: 1575, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -701,7 +701,7 @@ func staticBleveMappingPartialsAnalysisTokenizersExceptionHtml() (*asset, error)
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers/exception.html", size: 1387, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers/exception.html", size: 1387, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -721,7 +721,7 @@ func staticBleveMappingPartialsAnalysisTokenizersGenericHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers/generic.html", size: 0, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -741,7 +741,7 @@ func staticBleveMappingPartialsAnalysisTokenizersRegexpHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers/regexp.html", size: 305, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers/regexp.html", size: 305, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -761,7 +761,7 @@ func staticBleveMappingPartialsAnalysisTokenizersHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers.html", size: 1375, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/tokenizers.html", size: 1375, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -781,7 +781,7 @@ func staticBleveMappingPartialsAnalysisWordlistHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/wordlist.html", size: 2108, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/wordlist.html", size: 2108, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -801,12 +801,12 @@ func staticBleveMappingPartialsAnalysisWordlistsHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/wordlists.html", size: 1371, mode: os.FileMode(420), modTime: time.Unix(1457028836, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/analysis/wordlists.html", size: 1371, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
 
-var _staticBleveMappingPartialsMappingIndexMappingHtml = []byte("\x1f\x8b\x08\x00\x00\x09\x6e\x88\x00\xff\xd4\x58\x4f\x6f\xe2\x3e\x10\xbd\xf7\x53\xb8\xb9\xf0\xfb\x69\x95\x46\xbb\xc7\x15\x20\xb5\x54\xd5\x1e\xf6\x4f\xa5\xad\xb4\x47\x64\xe2\x81\x58\x75\xe2\xc8\x76\xa0\x74\xb5\xdf\x7d\xc7\x89\x93\x06\x08\x10\x20\xb4\x5d\x0e\x24\x38\xe3\x99\xf7\x9e\x67\x26\x36\x7d\xc6\xe7\x24\x14\x54\xeb\x81\xc7\x13\x06\x4f\xdf\x68\x9a\xf2\x64\xe6\x0d\x2f\xf2\x47\xc9\xcc\x77\x4f\x7f\xf7\xe6\x1c\x16\x3f\x12\xb1\xec\x7d\x26\xe5\xed\x1f\xb4\xbb\xe8\x5f\xfa\x3e\x19\x1c\xf7\x21\xbe\x6f\x3d\xd4\x50\x68\x08\x0d\x97\x89\xd7\x3c\xfc\x05\x28\x03\x45\x74\x24\x17\x0f\xcb\x14\x1c\x5a\xfd\xb3\x9a\x44\x48\x7d\x96\x92\x8b\x7c\x6c\x75\x34\x94\xc2\xd7\xb1\xff\xf1\x93\x7b\x86\x4f\xa9\x65\x6a\xbd\x0e\xbc\xcb\x6d\xce\x9d\x2d\x7e\x72\x55\x78\xf8\x88\xb0\x9a\x6d\xc9\x80\x18\x95\x41\xe5\x1f\x23\xf0\x32\xfa\x4c\x2c\xd3\x88\x87\x68\x54\xdd\xf9\x61\x04\x73\x85\x57\xc5\x67\x91\xf1\x86\xfd\x80\xd7\x66\x0a\x3a\x01\x31\xb4\x51\x48\x19\xa6\x1f\x14\x83\x25\xfc\x80\x36\x31\xe9\x86\xc8\x94\x0a\x7d\x38\x13\x26\x17\xc9\x09\x44\xfa\x01\xae\x57\xbe\x9a\xc5\x8d\xbb\x34\xa5\xc4\x8d\x64\x4b\x62\xb6\xd0\xdc\xab\x45\x43\xc6\x10\x60\xdc\xd0\x89\x80\x76\xa9\x33\xc9\x8c\x41\x09\x9c\x41\x9a\x09\x51\x2c\x23\xa1\x8c\xd5\x22\xd6\x54\x5f\x93\x1e\xed\x46\x11\x17\xcc\x19\xfe\x97\xa0\x8b\xff\xbd\xe1\x35\x63\xa4\xae\x55\x3f\x28\x22\x35\x0b\x74\x6c\xe2\xbb\x22\xe7\x49\x28\x32\x06\xa8\x93\xa1\x86\x87\xe3\x54\xc1\x94\x3f\x91\x0f\xa4\x17\xa4\x54\x19\x8e\x39\x10\xc4\x05\x8e\xc0\x6a\xed\xbb\x1f\x57\x91\x89\x45\xcf\x2e\xb4\x83\xb3\x63\xe9\xca\xeb\xdb\xb4\x8b\xeb\x84\x8a\xe5\x33\xa8\xee\x7b\xc5\x86\xe7\x6d\xf5\xb5\x6e\x78\x86\x2e\x51\x85\x68\xdf\x21\x4e\x81\xdf\x75\x6f\xd8\x0b\xff\xd0\xbe\x40\x9b\xc8\xed\xa6\x7f\x74\x5e\xac\x96\x12\xd1\x2a\xdc\x59\x4e\x39\x34\xcd\xdd\x8d\x45\xf0\xef\x14\xd3\x1d\x17\xe6\x1c\xa5\xb4\xe6\x77\x5b\x26\xae\x9a\x9d\xa1\x8c\x46\x99\x36\x32\x26\x2e\x4e\xfb\x5a\x3a\x16\x7f\xd7\x75\xd4\x0e\xff\xa1\xc5\x34\xdd\x64\xb7\x8b\xfd\xd1\x59\x91\xf1\x89\x8f\x2f\x60\x0d\xa6\x46\xcc\x0d\x92\x08\xb3\x10\x5f\x3c\x03\x6f\x14\x51\x45\x43\x0c\x58\xd2\xac\xe9\x77\x42\x35\x86\xe8\xd6\x11\x6d\xa8\xc7\x42\x36\x87\x65\x17\xba\x07\xf9\x08\x09\x7f\xee\x0c\x96\xa9\xfc\x9d\x8c\xaa\x5b\xbd\x72\x60\x1d\x08\xf6\x4b\x2a\x46\xbe\x72\x6d\x3a\xc2\xb5\x40\x7f\xc2\xba\x6b\x0b\xaa\x1a\xa8\xf2\xee\x9d\x36\xdf\x7b\x25\x53\x40\xba\xd0\x7d\xff\xdd\x74\xbd\xad\x85\x6d\x58\x9e\x63\x33\xc3\xe6\x34\x09\x81\xb5\xef\xbf\xa7\xe1\xef\x7c\x37\xb3\x07\xff\xa1\xfd\x37\x6d\x64\xb7\x47\x80\x93\xb6\x33\xee\xe9\x54\xaa\xd8\x9f\x29\x99\xa5\x5e\xf3\x71\xee\x8e\x83\x58\xa7\x69\xf5\x4b\xd2\xcc\xe4\x67\xb3\x81\x67\xe0\xc9\x78\x2b\x0e\x51\x44\xa3\xa4\x58\x3f\x18\x59\x42\x8c\x6b\x7b\x00\x63\x03\xaf\xfc\xa7\xa1\xc9\x2a\x96\x0c\xc4\xea\xff\x16\x57\x36\xd8\x78\x6a\xe1\x6c\xcc\x48\x05\x0d\x21\x92\x02\xeb\x08\xcf\x69\x2f\x3f\xbc\xe0\x65\x65\x6a\x2d\xa2\xad\x00\xb7\x30\xa5\x99\x30\xf9\x59\xed\x5d\x48\xc0\x0a\x40\x63\x1b\xf4\xb5\x45\x28\x77\xd3\x9b\x42\x68\x10\x98\x91\x2d\x99\xed\xa3\x56\x6e\x99\x1b\x27\xca\xd4\x26\x3e\x02\xc6\x23\xb8\x26\x86\x20\x6e\xfc\xe6\x49\x75\x18\xf8\x4e\x63\xd0\x9b\x53\x9b\x16\xa6\xfe\xbe\x28\x18\x74\x22\xd3\x2d\x35\x10\x3c\xf0\x18\xc8\x3d\x55\xfa\xec\x72\x31\x0c\x67\x30\xda\x38\xcd\xa3\x1d\xa6\x9a\x9d\x6c\xa1\x16\x48\xdf\x5e\xbb\xf7\xd3\x6b\x4a\x79\x5f\xb5\xdd\xdc\x2c\x0d\x90\x6b\xa5\xe8\x92\x8c\x64\x32\xc7\x66\x7f\xb6\xf4\x99\x60\xa8\x31\xb5\xa1\xc6\x61\x19\xea\xb0\xdc\xb1\x1e\x72\xac\x15\xd4\xae\xf3\xe7\x15\xf6\x68\x2b\x8e\xff\x06\x00\x00\xff\xff\xcc\x9a\x9f\xef\x31\x17\x00\x00")
+var _staticBleveMappingPartialsMappingIndexMappingHtml = []byte("\x1f\x8b\x08\x00\x00\x09\x6e\x88\x00\xff\xd4\x58\xdf\x6f\xe2\x38\x10\x7e\xef\x5f\xe1\xe6\x85\x3b\x9d\xd2\xe8\xee\xf1\x04\x48\x2d\x55\xb5\x2b\xed\x8f\x4a\xad\xb4\x8f\xc8\xd8\x86\x58\x75\xe2\xc8\x76\x80\x74\xb5\xff\xfb\x8e\x13\x27\x0d\x10\x20\x40\xa0\xdd\x3e\x34\x89\x33\x9e\xf9\xbe\xcf\x33\x13\x9b\x3e\xe5\x73\x44\x04\xd6\x7a\xe0\xf1\x98\xb2\xe5\x57\x9c\x24\x3c\x9e\x79\xc3\xab\xfc\x55\x3c\xf3\xdd\xdb\x9f\xbd\x39\x67\x8b\xef\xb1\xc8\x7a\xff\xa3\xf2\xf6\x17\xd8\x5d\xf5\xaf\x7d\x1f\x0d\x8e\xfb\x43\xbe\x6f\x3d\xd4\x50\x68\x46\x0c\x97\xb1\xd7\x3c\xfc\x89\x61\xca\x14\xd2\xa1\x5c\x3c\x67\x09\x73\x68\xf5\x53\x35\x09\xa1\xfa\x2c\x25\x17\xf9\xd8\xea\x28\x91\xc2\xd7\x91\xff\xef\x7f\xee\x1d\xbc\xc5\x96\xa9\xf5\x3a\xf0\xae\xb7\x39\x77\xb6\xf0\x97\xab\xc2\xc9\x0b\xc0\x6a\xb6\x45\x03\x64\x54\xca\x2a\xff\x10\x81\x97\xd1\x67\x22\x4b\x42\x4e\xc0\xa8\xba\xf3\x49\xc8\xe6\x0a\xae\x8a\xcf\x42\xe3\x0d\xfb\x01\xaf\xcd\x14\x78\xc2\xc4\xd0\x46\x41\x65\x98\x7e\x50\x0c\x96\xf0\x03\xdc\xc4\xa4\x1b\x22\x53\x2c\xf4\xe1\x4c\xa8\x5c\xc4\x27\x10\xe9\x07\xb0\x5e\xf9\x6a\x16\x37\xee\xd2\x94\x12\x77\x92\x66\xc8\x6c\xa1\xb9\x57\x8b\x86\x8c\x41\x8c\x72\x83\x27\x82\xb5\x4b\x9d\x49\x6a\x0c\x48\xe0\x0c\x92\x54\x88\x62\x19\x11\xa6\xb4\x16\xb1\xa6\xfa\x9a\xf4\x60\x37\x0a\xb9\xa0\xce\xf0\xaf\x18\x5c\xfc\xed\x0d\x6f\x29\x45\x75\xad\xfa\x41\x11\xa9\x59\xa0\x63\x13\xdf\x15\x39\x8f\x89\x48\x29\x03\x9d\x0c\x36\x9c\x8c\x13\xc5\xa6\x7c\x89\xfe\x41\xbd\x20\xc1\xca\x70\xc8\x81\x20\x2a\x70\x04\x56\x6b\xdf\x3d\xdc\x84\x26\x12\x3d\xbb\xd0\x0e\xce\x8e\xa5\x2b\xaf\xef\xd3\x2e\x6e\x63\x2c\xb2\x57\xa6\xba\xef\x15\x1b\x9e\xb7\xd5\xd7\xba\xe1\x19\xba\x44\x15\xa2\x7d\x87\x38\x05\x7e\xd7\xbd\x61\x2f\xfc\x43\xfb\x02\x6e\x22\xb7\x9b\xfe\xd1\x79\xb1\x5a\x4a\x48\x2b\xb2\xb3\x9c\x72\x68\x9a\xbb\x1b\x8b\xe0\xcf\x29\xa6\x07\x2e\xcc\x39\x4a\x69\xcd\xef\xb6\x4c\x5c\x35\x3b\x43\x19\x8d\x52\x6d\x64\x84\x5c\x9c\xf6\xb5\x74\x2c\xfe\xae\xeb\xa8\x1d\xfe\x43\x8b\x69\xba\xc9\x6e\x17\xfb\xa3\xb3\x22\xe5\x13\x1f\x3e\xc0\x9a\x99\x1a\x31\x37\x88\x42\xc8\x42\xf8\xf0\x0c\xbc\x51\x88\x15\x26\x10\xb0\xa4\x59\xd3\xef\x84\x6a\x24\xe0\xd6\x11\x6d\xa8\xc7\x42\x36\x87\x65\x17\xba\x67\xf9\xc2\x62\xfe\xda\x19\x2c\x53\xf9\x3b\x19\x55\xb7\x7a\xe5\xc0\x3a\x10\xec\x87\x54\x14\x7d\xe1\xda\x74\x84\x6b\x01\xfe\x84\x75\xd7\x16\x54\x35\x50\xe5\xdd\x07\x6d\xbe\x8f\x4a\x26\x0c\xe8\xb2\xee\xfb\xef\xa6\xeb\x6d\x2d\x6c\xc3\xf2\x1c\x9b\x19\x3a\xc7\x31\x61\xb4\x7d\xff\x3d\x0d\x7f\xe7\xbb\x99\x3d\xf8\x0f\xed\xbf\x49\x23\xbb\x3d\x02\x9c\xb4\x9d\x71\x6f\xa7\x52\x45\xfe\x4c\xc9\x34\xf1\x9a\x8f\x73\x0f\x9c\x89\x75\x9a\x56\xbf\x38\x49\x4d\x7e\x36\x1b\x78\x86\x2d\x8d\xb7\xe2\x10\x44\x34\x4a\x8a\xf5\x83\x91\x25\x44\xb9\xb6\x07\x30\x3a\xf0\xca\x5f\x1a\x9a\xac\x22\x49\x99\x58\xfd\xdd\xe2\xc6\x06\x1b\x4f\x2d\x9c\x8d\x19\x89\xc0\x84\x85\x52\x40\x1d\xc1\x39\xed\xed\xc1\x0b\xde\x56\xa6\xd6\x22\xda\x0a\x70\xcf\xa6\x38\x15\x26\x3f\xab\x7d\x08\x09\x68\x01\x68\x6c\x83\x5e\x5a\x84\x72\x37\xbd\x29\x84\x66\x02\x32\xb2\x25\xb3\x7d\xd4\xca\x2d\x73\xe3\x44\x99\xd8\xc4\x07\xc0\x70\x04\xd7\xc8\x20\xc0\x0d\xff\x79\x5c\x1d\x06\xbe\xe1\x88\xe9\xcd\xa9\x4d\x0b\x53\xff\x5e\x14\x0c\x3a\x91\xe9\x1e\x1b\x16\x3c\xf3\x88\xa1\x47\xac\xf4\xd9\xe5\xa2\x10\xce\x40\xb4\x71\x92\x47\x3b\x4c\x35\x3b\xd9\x42\x2d\x90\xbe\xbf\x76\x1f\xa7\xd7\x94\xf2\x5e\xb4\xdd\xdc\x65\x86\xa1\x5b\xa5\x70\x86\x46\x32\x9e\x43\xb3\x3f\x5b\xfa\x4c\x20\xd4\x18\xdb\x50\x63\x52\x86\x3a\x2c\x77\xac\x87\x1c\x6b\x05\xf5\xfd\xf2\xe7\xc9\x48\xc5\xd0\x7d\x16\xe3\x88\x93\x22\x8b\xd6\x4f\x46\x6b\x69\x04\x5f\x78\xf2\x32\x91\x4b\x6f\x8b\x8e\xdb\x74\xd3\x36\xd2\x98\x16\x91\x4e\x5c\xee\xcf\xd6\xf1\x45\x50\xe7\x0f\x3b\x51\x5f\x60\x3f\xbc\xe2\xf8\x77\x00\x00\x00\xff\xff\xff\x00\xae\x42\x9d\x18\x00\x00")
 
 func staticBleveMappingPartialsMappingIndexMappingHtmlBytes() ([]byte, error) {
 	return bindataRead(
@@ -821,7 +821,7 @@ func staticBleveMappingPartialsMappingIndexMappingHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/mapping/index-mapping.html", size: 5937, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/mapping/index-mapping.html", size: 6301, mode: os.FileMode(420), modTime: time.Unix(1457445890, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -841,7 +841,7 @@ func staticBleveMappingPartialsMappingTypeMappingTreeHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/mapping/type-mapping-tree.html", size: 8432, mode: os.FileMode(420), modTime: time.Unix(1457035696, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/mapping/type-mapping-tree.html", size: 8432, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -861,7 +861,7 @@ func staticBleveMappingPartialsMappingTypeMappingHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "static-bleve-mapping/partials/mapping/type-mapping.html", size: 345, mode: os.FileMode(420), modTime: time.Unix(1448300273, 0)}
+	info := bindataFileInfo{name: "static-bleve-mapping/partials/mapping/type-mapping.html", size: 345, mode: os.FileMode(420), modTime: time.Unix(1457444800, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
