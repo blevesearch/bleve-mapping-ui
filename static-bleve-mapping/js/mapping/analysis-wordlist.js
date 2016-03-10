@@ -3,7 +3,7 @@ function BleveWordListModalCtrl($scope, $modalInstance,
     $scope.name = name;
     $scope.origName = name;
     $scope.errorMessage = "";
-    $scope.newWord = "";
+    $scope.formdata = {};
     $scope.words = words.slice(0); // create copy
     $scope.selectedWords = [];
     $scope.mapping = mapping;
@@ -13,17 +13,16 @@ function BleveWordListModalCtrl($scope, $modalInstance,
         $modalInstance.dismiss('cancel');
     };
 
-    $scope.addWord = function(newWord) {
-        newWord = newWord || $scope.newWord;
-        if (newWord) {
+    $scope.addWord = function() {
+        if ($scope.formdata.newWord) {
             for (var i = 0; i < $scope.words.length; i++) {
-                if ($scope.words[i] == newWord) {
+                if ($scope.words[i] == $scope.formdata.newWord) {
                     return;
                 }
             }
 
-            $scope.words.push(newWord);
-            $scope.newWord = "";
+            $scope.words.push($scope.formdata.newWord);
+            $scope.formdata.newWord = "";
         }
     };
 

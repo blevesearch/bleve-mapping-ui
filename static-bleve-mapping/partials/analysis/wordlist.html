@@ -31,12 +31,12 @@
              class="form-group">
             <label for="what"></label>
             <div class="col-sm-9">
-              <input ng-model="newWord" type="text"
+              <input ng-model="formdata.newWord" type="text"
                      class="form-control" id="newWord" placeholder="word">
             </div>
             <div class="col-sm-3">
-                <button ng-click="addWord(newWord);newWord = null"
-                        type="submit"
+                <button ng-click="addWord()"
+                        type="button"
                         class="btn btn-sm btn-default">Add</button>
                 <button ng-click="removeWords(selectedWords)"
                         ng-disabled="selectedWords.length < 1"
