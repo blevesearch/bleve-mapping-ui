@@ -362,6 +362,10 @@ function bleveConvertToTypeMapping(mappings) {
         delete m["mappings"];
 
         m.properties = properties;
+
         m.fields = fields;
+        if (m.fields == null || m.fields.length <= 0) {
+            delete m["fields"];
+        }
     }
 }
