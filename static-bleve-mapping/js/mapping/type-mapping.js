@@ -322,6 +322,12 @@ function bleveConvertToTypeMapping(mappings) {
 
         for (var i in m.fields) {
             var field = m.fields[i];
+
+            if (field.date_format == null ||
+                field.date_format == "") {
+                delete field["date_format"];
+	        }
+
             if (field.property != null) { // "" is allowed.
                 var property = properties[field.property];
                 if (property == null) {
