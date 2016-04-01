@@ -107,9 +107,20 @@ function initBleveIndexMappingController(
                 }
 
                 m[k] = scrub(m[k]);
+
+                if (typeof(m[k]) == "object" && isEmpty(m[k])) {
+                    delete m[k];
+                }
             }
         }
 
         return m;
+    }
+
+    function isEmpty(obj) {
+        for (var k in obj) {
+            return false;
+        }
+        return true;
     }
 }
