@@ -64,10 +64,6 @@ function initBleveIndexMappingController(
 	    $scope.loadDatetimeParserNames();
     }
 
-    $scope.byteArrayConverterNames = options.byteArrayConverterNames || ['json'];
-
-    // TODO: loadByteArrayConverterNames from server.
-
     // ------------------------------------------------
 
     return {

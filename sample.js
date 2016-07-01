@@ -41,7 +41,6 @@ var SAMPLE_INDEX_MAPPING = {
     "default_analyzer": "standard",
     "default_datetime_parser": "dateTimeOptional",
     "default_field": "_all",
-    "byte_array_converter": "json",
     "analysis": {
         "analyzers": {},
         "char_filters": {},
@@ -67,8 +66,7 @@ angular.module('sampleApp').
             SAMPLE_INDEX_MAPPING,
             {
                 analyzerNames: null,
-                dateTypeParserNames: null,
-                byteArrayConverterNames: null,
+                dateTypeParserNames: null
             });
 
         $scope.done = function() {
