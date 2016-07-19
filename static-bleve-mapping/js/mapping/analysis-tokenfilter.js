@@ -52,7 +52,7 @@ function BleveTokenFilterModalCtrl($scope, $modalInstance, $http,
         },
         "edge_ngram": function() {
             return {
-                "edge": "front",
+                "back": "false",
                 "min": 3,
                 "max": 3,
             };

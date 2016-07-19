@@ -1,11 +1,9 @@
     <div class="form-group">
-        <label for="tokenfilterEdge">Edge</label>
-            <select ng-disabled="viewOnlyModal"
-                    class="form-control" id="tokenfilterEdge"
-                    ng-model="tokenfilter.edge">
-                <option>front</option>
-                <option>back</option>
-            </select>
+        <label for="tokenfilterBack">Back</label>
+            <input ng-disabled="viewOnlyModal"
+                   ng-model="tokenfilter.back"
+                   type="checkbox"
+                   id="tokenfilterBack">
     </div>
 
     <div class="form-group">
