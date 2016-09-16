@@ -34,7 +34,7 @@ function initBleveTypeMappingController($scope, typeMappingIn, options) {
 
     mappings = bleveConvertFromTypeMapping(typeMappingIn)
 
-    $scope.fieldTypes = ['text', 'number', 'datetime', 'boolean', 'disabled'];
+    $scope.fieldTypes = ['text', 'number', 'datetime', 'boolean'];
 
     var kindAttrs = {
         "field": {
