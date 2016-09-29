@@ -29,6 +29,7 @@ import (
 
 	"github.com/blevesearch/bleve"
 	"github.com/blevesearch/bleve/analysis"
+	"github.com/blevesearch/bleve/mapping"
 	"github.com/blevesearch/bleve/registry"
 )
 
@@ -103,11 +104,11 @@ func AnalyzerText(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	mapping := bleve.NewIndexMapping()
+	m := bleve.NewIndexMapping()
 	var analyzeRequest = struct {
-		Analyzer string              `json:"analyzer"`
-		Text     string              `json:"text"`
-		Mapping  *bleve.IndexMapping `json:"mapping"`
+		Analyzer string                    `json:"analyzer"`
+		Text     string                    `json:"text"`
+		Mapping  *mapping.IndexMappingImpl `json:"mapping"`
 	}{}
 
 	requestBody, err = CleanseJSON(requestBody)
@@ -122,10 +123,10 @@ func AnalyzerText(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if analyzeRequest.Mapping != nil {
-		mapping = analyzeRequest.Mapping
+		m = analyzeRequest.Mapping
 	}
 
-	ts, err := mapping.AnalyzeText(analyzeRequest.Analyzer, []byte(analyzeRequest.Text))
+	ts, err := m.AnalyzeText(analyzeRequest.Analyzer, []byte(analyzeRequest.Text))
 	if err != nil {
 		showError(w, req, fmt.Sprintf("error analyzing text: %v", err), 400)
 		return
