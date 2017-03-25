@@ -12,6 +12,7 @@
 package mapping
 
 import (
+	"encoding/json"
 	"reflect"
 	"testing"
 )
@@ -25,10 +26,15 @@ func TestCleanse(t *testing.T) {
 			"x": "X",
 			"y": "Y",
 		},
+		"l1": []interface{}(nil),
+		"l2": []interface{}{},
+		"l3": []interface{}{"hello"},
 	}
 	m2 := Cleanse(m).(map[string]interface{})
 	if !reflect.DeepEqual(m2, m) {
-		t.Errorf("m2 != m, m2: %#v, m: %#v", m2, m)
+		m2Nice, _ := json.MarshalIndent(m2, " ", "")
+		mNice, _ := json.MarshalIndent(m, " ", "")
+		t.Errorf("m2 != m, m2: %#v, m: %#v\nm2: %s\nm: %s", m2, m, m2Nice, mNice)
 	}
 
 	m = map[string]interface{}{
