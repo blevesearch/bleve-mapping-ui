@@ -478,8 +478,11 @@ func Cleanse(v interface{}) interface{} {
 	}
 
 	va, vIsArr := v.([]interface{})
-	if vIsArr && va != nil {
+	if vIsArr {
 		var a []interface{}
+		if va != nil {
+			a = []interface{}{}
+		}
 		for _, vav := range va {
 			a = append(a, Cleanse(vav))
 		}
