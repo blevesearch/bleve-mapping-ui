@@ -21,7 +21,7 @@ import (
 	bleveMappingUI "github.com/blevesearch/bleve-mapping-ui"
 
 	// import general purpose configuration
-	_ "github.com/blevesearch/bleve/config"
+	_ "github.com/blevesearch/bleve/v2/config"
 )
 
 var bindAddr = flag.String("bindAddr", ":9090", "http listen address")
