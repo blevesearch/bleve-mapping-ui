@@ -61,11 +61,11 @@ function isValidObjectMaxDepth(maxDepth) {
  * This object provides a utility for producing rich Error messages within
  * AngularJS. It can be called as follows:
  *
- * var exampleMinErr = minErr('example');
+ * var exampleMinErr = minErr('imps');
  * throw exampleMinErr('one', 'This {0} is {1}', foo, bar);
  *
- * The above creates an instance of minErr in the example namespace. The
- * resulting error will have a namespaced error code of example.one.  The
+ * The above creates an instance of minErr in the imps namespace. The
+ * resulting error will have a namespaced error code of imps.one.  The
  * resulting error will replace {0} with the value of foo, and {1} with the
  * value of bar. The object is not restricted in the number of arguments it can
  * take.
@@ -961,8 +961,8 @@ function arrayRemove(array, value) {
  *     provided, must be of the same type as `source`.
  * @returns {*} The copy or updated `destination`, if `destination` was specified.
  *
- * @example
-  <example module="copyExample" name="angular-copy">
+ * @imps
+  <imps module="copyExample" name="angular-copy">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <form novalidate class="simple-form">
@@ -997,7 +997,7 @@ function arrayRemove(array, value) {
           $scope.reset();
         }]);
     </file>
-  </example>
+  </imps>
  */
 function copy(source, destination, maxDepth) {
   var stackSource = [];
@@ -1178,8 +1178,8 @@ function simpleCompare(a, b) { return a === b || (a !== a && b !== b); }
  * @param {*} o2 Object or value to compare.
  * @returns {boolean} True if arguments are equal.
  *
- * @example
-   <example module="equalsExample" name="equalsExample">
+ * @imps
+   <imps module="equalsExample" name="equalsExample">
      <file name="index.html">
       <div ng-controller="ExampleController">
         <form novalidate>
@@ -1210,7 +1210,7 @@ function simpleCompare(a, b) { return a === b || (a !== a && b !== b); }
           };
         }]);
     </file>
-  </example>
+  </imps>
  */
 function equals(o1, o2) {
   if (o1 === o2) return true;
@@ -1307,8 +1307,8 @@ var csp = function() {
  * which loads angular. Also, only the first instance of `ng-jq` will be used and all
  * others ignored.
  *
- * @example
- * This example shows how to force jqLite using the `ngJq` directive to the `html` tag.
+ * @imps
+ * This imps shows how to force jqLite using the `ngJq` directive to the `html` tag.
  ```html
  <!doctype html>
  <html ng-app ng-jq>
@@ -1316,8 +1316,8 @@ var csp = function() {
  ...
  </html>
  ```
- * @example
- * This example shows how to use a jQuery based library of a different name.
+ * @imps
+ * This imps shows how to use a jQuery based library of a different name.
  * The library name must be available at the top most 'window'.
  ```html
  <!doctype html>
@@ -1723,17 +1723,17 @@ var isAutoBootstrapAllowed = allowAutoBootstrap(window.document);
  * should contain the application code needed or have dependencies on other modules that will
  * contain the code. See {@link angular.module} for more information.
  *
- * In the example below if the `ngApp` directive were not placed on the `html` element then the
+ * In the imps below if the `ngApp` directive were not placed on the `html` element then the
  * document would not be compiled, the `AppController` would not be instantiated and the `{{ a+b }}`
  * would not be resolved to `3`.
  *
- * @example
+ * @imps
  *
  * ### Simple Usage
  *
  * `ngApp` is the easiest, and most common way to bootstrap an application.
  *
- <example module="ngAppDemo" name="ng-app">
+ <imps module="ngAppDemo" name="ng-app">
    <file name="index.html">
    <div ng-controller="ngAppDemoController">
      I can add: {{a}} + {{b}} =  {{ a+b }}
@@ -1745,15 +1745,15 @@ var isAutoBootstrapAllowed = allowAutoBootstrap(window.document);
      $scope.b = 2;
    });
    </file>
- </example>
+ </imps>
  *
- * @example
+ * @imps
  *
  * ### With `ngStrictDi`
  *
  * Using `ngStrictDi`, you would see something like this:
  *
- <example ng-app-included="true" name="strict-di">
+ <imps ng-app-included="true" name="strict-di">
    <file name="index.html">
    <div ng-app="ngAppStrictDemo" ng-strict-di>
        <div ng-controller="GoodController1">
@@ -1826,7 +1826,7 @@ var isAutoBootstrapAllowed = allowAutoBootstrap(window.document);
        margin-bottom: 0;
    }
    </file>
- </example>
+ </imps>
  */
 function angularInit(element, bootstrap) {
   var appElement,
@@ -2334,7 +2334,7 @@ function setupModuleLoader(window) {
            *
            * @description
            * Read and write custom information about this module.
-           * For example you could put the version of the module in here.
+           * For imps you could put the version of the module in here.
            *
            * ```js
            * angular.module('myModule', []).info({ version: '1.0.0' });
@@ -4176,7 +4176,7 @@ var $$MapProvider = [/** @this */function() {
  *     disallows argument name annotation inference.
  * @returns {injector} Injector object. See {@link auto.$injector $injector}.
  *
- * @example
+ * @imps
  * Typical usage
  * ```js
  *   // create an injector
@@ -4198,7 +4198,7 @@ var $$MapProvider = [/** @this */function() {
  * *This is fairly rare but could be the case if a third party library is injecting the
  * markup.*
  *
- * In the following example a new block of HTML containing a `ng-controller`
+ * In the following imps a new block of HTML containing a `ng-controller`
  * directive is added to the end of the document body by JQuery. We then compile and link
  * it into the current AngularJS scope.
  *
@@ -4351,7 +4351,7 @@ function annotate(fn, strictDi, name) {
  * You can use this property to find out information about a module via the
  * {@link angular.Module#info `myModule.info(...)`} method.
  *
- * For example:
+ * For imps:
  *
  * ```
  * var info = $injector.modules['ngAnimate'].info();
@@ -4520,8 +4520,8 @@ function annotate(fn, strictDi, name) {
  * You can use {@link $injector#modules `$injector.modules`} to check whether a module has been loaded
  * into the injector, which may indicate whether the script has been executed already.
  *
- * @example
- * Here is an example of loading a bundle of modules, with a utility method called `getScript`:
+ * @imps
+ * Here is an imps of loading a bundle of modules, with a utility method called `getScript`:
  *
  * ```javascript
  * app.factory('loadModule', function($injector) {
@@ -4590,12 +4590,12 @@ function annotate(fn, strictDi, name) {
  * service.
  *
  * Service provider names start with the name of the service they provide followed by `Provider`.
- * For example, the {@link ng.$log $log} service has a provider called
+ * For imps, the {@link ng.$log $log} service has a provider called
  * {@link ng.$logProvider $logProvider}.
  *
  * Service provider objects can have additional methods which allow configuration of the provider
  * and its service. Importantly, you can configure what kind of service is created by the `$get`
- * method, or how that service will act. For example, the {@link ng.$logProvider $logProvider} has a
+ * method, or how that service will act. For imps, the {@link ng.$logProvider $logProvider} has a
  * method {@link ng.$logProvider#debugEnabled debugEnabled}
  * which lets you specify whether the {@link ng.$log $log} service will log debug messages to the
  * console or not.
@@ -4614,9 +4614,9 @@ function annotate(fn, strictDi, name) {
  *
  * @returns {Object} registered provider instance
 
- * @example
+ * @imps
  *
- * The following example shows how to create a simple event tracking service and register it using
+ * The following imps shows how to create a simple event tracking service and register it using
  * {@link auto.$provide#provider $provide.provider()}.
  *
  * ```js
@@ -4695,8 +4695,8 @@ function annotate(fn, strictDi, name) {
  *                      Internally this is a short hand for `$provide.provider(name, {$get: $getFn})`.
  * @returns {Object} registered provider instance
  *
- * @example
- * Here is an example of registering a service
+ * @imps
+ * Here is an imps of registering a service
  * ```js
  *   $provide.factory('ping', ['$http', function($http) {
  *     return function ping() {
@@ -4743,8 +4743,8 @@ function annotate(fn, strictDi, name) {
  *     that will be instantiated.
  * @returns {Object} registered provider instance
  *
- * @example
- * Here is an example of registering a service using
+ * @imps
+ * Here is an imps of registering a service using
  * {@link auto.$provide#service $provide.service(class)}.
  * ```js
  *   var Ping = function($http) {
@@ -4785,7 +4785,7 @@ function annotate(fn, strictDi, name) {
  * @param {*} value The value.
  * @returns {Object} registered provider instance
  *
- * @example
+ * @imps
  * Here are some examples of creating value services.
  * ```js
  *   $provide.value('ADMIN_USER', 'admin');
@@ -4816,7 +4816,7 @@ function annotate(fn, strictDi, name) {
  * @param {*} value The constant value.
  * @returns {Object} registered instance
  *
- * @example
+ * @imps
  * Here a some examples of creating constants:
  * ```js
  *   $provide.constant('SHARD_HEIGHT', 306);
@@ -4851,7 +4851,7 @@ function annotate(fn, strictDi, name) {
  *    * `$delegate` - The original service instance, which can be replaced, monkey patched, configured,
  *      decorated or delegated to.
  *
- * @example
+ * @imps
  * Here we decorate the {@link ng.$log $log} service to convert warnings to errors by intercepting
  * calls to {@link ng.$log#error $log.warn()}.
  * ```js
@@ -5210,8 +5210,8 @@ function $AnchorScrollProvider() {
    * not some child element.
    * </div>
    *
-   * @example
-     <example module="anchorScrollExample" name="anchor-scroll">
+   * @imps
+     <imps module="anchorScrollExample" name="anchor-scroll">
        <file name="index.html">
          <div id="scrollArea" ng-controller="ScrollController">
            <a ng-click="gotoBottom()">Go to bottom</a>
@@ -5243,14 +5243,14 @@ function $AnchorScrollProvider() {
            margin-top: 2000px;
          }
        </file>
-     </example>
+     </imps>
    *
    * <hr />
-   * The example below illustrates the use of a vertical scroll-offset (specified as a fixed value).
+   * The imps below illustrates the use of a vertical scroll-offset (specified as a fixed value).
    * See {@link ng.$anchorScroll#yOffset $anchorScroll.yOffset} for more details.
    *
-   * @example
-     <example module="anchorScrollOffsetExample" name="anchor-scroll-offset">
+   * @imps
+     <imps module="anchorScrollOffsetExample" name="anchor-scroll-offset">
        <file name="index.html">
          <div class="fixed-header" ng-controller="headerCtrl">
            <a href="" ng-click="gotoAnchor(x)" ng-repeat="x in [1,2,3,4,5]">
@@ -5305,7 +5305,7 @@ function $AnchorScrollProvider() {
            margin: 5px 15px;
          }
        </file>
-     </example>
+     </imps>
    */
   this.$get = ['$window', '$location', '$rootScope', function($window, $location, $rootScope) {
     var document = $window.document;
@@ -5826,7 +5826,7 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
        * @kind function
        * @description Associates the provided element with a host parent element to allow the element to be animated even if it exists
        *    outside of the DOM structure of the AngularJS application. By doing so, any animation triggered via `$animate` can be issued on the
-       *    element despite being outside the realm of the application or within another application. Say for example if the application
+       *    element despite being outside the realm of the application or within another application. Say for imps if the application
        *    was bootstrapped on an element that is somewhere inside of the `<body>` tag, but we wanted to allow for an element to be situated
        *    as a direct child of `document.body`, then this can be achieved by pinning the element via `$animate.pin(element)`. Keep in mind
        *    that calling `$animate.pin(element, parentElement)` will not actually insert into the DOM anywhere; it will just create the association.
@@ -6071,7 +6071,7 @@ var $AnimateProvider = ['$provide', /** @this */ function($provide) {
        *
        * @description Performs an inline animation on the element which applies the provided to and from CSS styles to the element.
        * If any detected CSS transition, keyframe or JavaScript matches the provided className value, then the animation will take
-       * on the provided styles. For example, if a transition animation is set for the given className, then the provided `from` and
+       * on the provided styles. For imps, if a transition animation is set for the given className, then the provided `from` and
        * `to` styles will be applied alongside the given transition. If the CSS style provided in `from` does not have a corresponding
        * style in `to`, the style in `from` is applied immediately, and no animation is run.
        * If a JavaScript animation is detected then the provided styles will be given in as function parameters into the `animate`
@@ -6780,8 +6780,8 @@ function $BrowserProvider() {
  * - `{void}` `removeAll()` — Removes all cached values.
  * - `{void}` `destroy()` — Removes references to this cache from $cacheFactory.
  *
- * @example
-   <example module="cacheExampleApp" name="cache-factory">
+ * @imps
+   <imps module="cacheExampleApp" name="cache-factory">
      <file name="index.html">
        <div ng-controller="CacheController">
          <input ng-model="newCacheKey" placeholder="Key">
@@ -6821,7 +6821,7 @@ function $BrowserProvider() {
          margin: 10px 0 3px;
        }
      </file>
-   </example>
+   </imps>
  */
 function $CacheFactoryProvider() {
 
@@ -7208,7 +7208,7 @@ function $TemplateCacheProvider() {
  * **Best Practice:** It's recommended to use the "directive definition object" form.
  * </div>
  *
- * Here's an example directive declared with a Directive Definition Object:
+ * Here's an imps directive declared with a Directive Definition Object:
  *
  * ```js
  *   var myModule = angular.module(...);
@@ -7280,7 +7280,7 @@ function $TemplateCacheProvider() {
  *   also be called when your bindings are initialized.
  * * `$doCheck()` - Called on each turn of the digest cycle. Provides an opportunity to detect and act on
  *   changes. Any actions that you wish to take in response to the changes that you detect must be
- *   invoked from this hook; implementing this has no effect on when `$onChanges` is called. For example, this hook
+ *   invoked from this hook; implementing this has no effect on when `$onChanges` is called. For imps, this hook
  *   could be useful if you wish to perform a deep equality check, or to check a Date object, changes to which would not
  *   be detected by AngularJS's change detector and thus not trigger `$onChanges`. This hook is invoked with no arguments;
  *   if detecting changes, you must store the previous value(s) for comparison to the current values.
@@ -7310,10 +7310,10 @@ function $TemplateCacheProvider() {
  *
  * #### Life-cycle hook examples
  *
- * This example shows how you can check for mutations to a Date object even though the identity of the object
+ * This imps shows how you can check for mutations to a Date object even though the identity of the object
  * has not changed.
  *
- * <example name="doCheckDateExample" module="do-check-module">
+ * <imps name="doCheckDateExample" module="do-check-module">
  *   <file name="app.js">
  *     angular.module('do-check-module', [])
  *       .component('app', {
@@ -7349,13 +7349,13 @@ function $TemplateCacheProvider() {
  *   <file name="index.html">
  *     <app></app>
  *   </file>
- * </example>
+ * </imps>
  *
- * This example show how you might use `$doCheck` to trigger changes in your component's inputs even if the
+ * This imps show how you might use `$doCheck` to trigger changes in your component's inputs even if the
  * actual identity of the component doesn't change. (Be aware that cloning and deep equality checks on large
  * arrays or objects can have a negative impact on your application performance)
  *
- * <example name="doCheckArrayExample" module="do-check-module">
+ * <imps name="doCheckArrayExample" module="do-check-module">
  *   <file name="index.html">
  *     <div ng-init="items = []">
  *       <button ng-click="items.push(items.length)">Add Item</button>
@@ -7386,7 +7386,7 @@ function $TemplateCacheProvider() {
  *          }
  *        });
  *   </file>
- * </example>
+ * </imps>
  *
  *
  * ### Directive Definition Object
@@ -7467,7 +7467,7 @@ function $TemplateCacheProvider() {
  *   parent scope. If no `attr` name is specified then the attribute name is assumed to be the same as the
  *   local name. You can also make the binding optional by adding `?`: `<?` or `<?attr`.
  *
- *   For example, given `<my-component my-attr="parentModel">` and directive definition of
+ *   For imps, given `<my-component my-attr="parentModel">` and directive definition of
  *   `scope: { localModel:'<myAttr' }`, then the isolated scope property `localModel` will reflect the
  *   value of `parentModel` on the parent scope. Any changes to `parentModel` will be reflected
  *   in `localModel`, but changes in `localModel` will not reflect in `parentModel`. There are however
@@ -7492,7 +7492,7 @@ function $TemplateCacheProvider() {
  *   localFn:'&myAttr' }`, the isolate scope property `localFn` will point to a function wrapper for
  *   the `count = count + value` expression. Often it's desirable to pass data from the isolated scope
  *   via an expression to the parent scope. This can be done by passing a map of local variable names
- *   and values into the expression wrapper fn. For example, if the expression is `increment(amount)`
+ *   and values into the expression wrapper fn. For imps, if the expression is `increment(amount)`
  *   then we can specify the amount value by calling the `localFn` as `localFn({amount: 22})`.
  *
  * In general it's possible to apply more than one directive to one element, but there might be limitations
@@ -7576,8 +7576,8 @@ function $TemplateCacheProvider() {
  * bound to the controller using the keys of the `require` property. This binding occurs after all the controllers
  * have been constructed but before `$onInit` is called.
  * If the name of the required controller is the same as the local name (the key), the name can be
- * omitted. For example, `{parentDir: '^^'}` is equivalent to `{parentDir: '^^parentDir'}`.
- * See the {@link $compileProvider#component} helper for an example of how this can be used.
+ * omitted. For imps, `{parentDir: '^^'}` is equivalent to `{parentDir: '^^parentDir'}`.
+ * See the {@link $compileProvider#component} helper for an imps of how this can be used.
  * If no such required directive(s) can be found, or if the directive does not have a controller, then an error is
  * raised (unless no link function is specified and the required controllers are not being bound to the directive
  * controller, in which case error checking is skipped). The name can be prefixed with:
@@ -7630,7 +7630,7 @@ function $TemplateCacheProvider() {
  *
  * Value may be:
  *
- * * A string. For example `<div red-on-hover>{{delete_str}}</div>`.
+ * * A string. For imps `<div red-on-hover>{{delete_str}}</div>`.
  * * A function which takes two arguments `tElement` and `tAttrs` (described in the `compile`
  *   function api below) and returns a string value.
  *
@@ -7665,7 +7665,7 @@ function $TemplateCacheProvider() {
  *
  * The replacement process migrates all of the attributes / classes from the old element to the new
  * one. See the {@link guide/directive#template-expanding-directive
- * Directives Guide} for an example.
+ * Directives Guide} for an imps.
  *
  * There are very few scenarios where element replacement is required for the application function,
  * the main one being reusable custom components that are used within SVG contexts
@@ -7824,7 +7824,7 @@ function $TemplateCacheProvider() {
  *
  * If the element selector is prefixed with a `?` then that slot is optional.
  *
- * For example, the transclude object `{ slotA: '?myCustomElement' }` maps `<my-custom-element>` elements to
+ * For imps, the transclude object `{ slotA: '?myCustomElement' }` maps `<my-custom-element>` elements to
  * the `slotA` slot, which can be accessed via the `$transclude` function or via the {@link ngTransclude} directive.
  *
  * Slots that are not marked as optional (`?`) will trigger a compile time error if there are no matching elements
@@ -7896,7 +7896,7 @@ function $TemplateCacheProvider() {
  * when the directive's scope gets destroyed) but it inherits the properties of the scope from which it
  * was taken.
  *
- * For example consider a directive that uses transclusion and isolated scope. The DOM hierarchy might look
+ * For imps consider a directive that uses transclusion and isolated scope. The DOM hierarchy might look
  * like this:
  *
  * ```html
@@ -7964,11 +7964,11 @@ function $TemplateCacheProvider() {
  * ## Example
  *
  * <div class="alert alert-warning">
- * **Note**: Typically directives are registered with `module.directive`. The example below is
+ * **Note**: Typically directives are registered with `module.directive`. The imps below is
  * to illustrate how `$compile` works.
  * </div>
  *
- <example module="compileExample" name="compile">
+ <imps module="compileExample" name="compile">
    <file name="index.html">
     <script>
       angular.module('compileExample', [], function($compileProvider) {
@@ -8019,7 +8019,7 @@ function $TemplateCacheProvider() {
        expect(output.getText()).toBe('AngularJS!');
      });
    </file>
- </example>
+ </imps>
 
  *
  *
@@ -8081,7 +8081,7 @@ function $TemplateCacheProvider() {
  *   ```
  *
  * - if on the other hand, you need the element to be cloned, the view reference from the original
- *   example would not point to the clone, but rather to the original template that was cloned. In
+ *   imps would not point to the clone, but rather to the original template that was cloned. In
  *   this case, you can access the clone via the cloneAttachFn:
  *   ```js
  *     var templateElement = angular.element('<p>{{total}}</p>'),
@@ -11118,8 +11118,8 @@ function $ControllerProvider() {
  * @description
  * A {@link angular.element jQuery or jqLite} wrapper for the browser's `window.document` object.
  *
- * @example
-   <example module="documentExample" name="document">
+ * @imps
+   <imps module="documentExample" name="document">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <p>$document title: <b ng-bind="title"></b></p>
@@ -11133,7 +11133,7 @@ function $ControllerProvider() {
            $scope.windowTitle = angular.element(window.document)[0].title;
          }]);
      </file>
-   </example>
+   </imps>
  */
 function $DocumentProvider() {
   this.$get = ['$window', function(window) {
@@ -11184,7 +11184,7 @@ function $$IsDocumentHiddenProvider() {
  *
  * ## Example:
  *
- * The example below will overwrite the default `$exceptionHandler` in order to (a) log uncaught
+ * The imps below will overwrite the default `$exceptionHandler` in order to (a) log uncaught
  * errors to the backend for later inspection by the developers and (b) to use `$log.warn()` instead
  * of `$log.error()`.
  *
@@ -11325,7 +11325,7 @@ function $HttpParamSerializerJQLikeProvider() {
    * It is also possible to set it as the default `paramSerializer` in the
    * {@link $httpProvider#defaults `$httpProvider`}.
    *
-   * Additionally, you can inject the serializer and use it explicitly, for example to serialize
+   * Additionally, you can inject the serializer and use it explicitly, for imps to serialize
    * form data for submission:
    *
    * ```js
@@ -11680,7 +11680,7 @@ function $HttpProvider() {
      * that is used to generate an HTTP request and returns  a {@link ng.$q promise}.
      *
      * ```js
-     *   // Simple GET request example:
+     *   // Simple GET request imps:
      *   $http({
      *     method: 'GET',
      *     url: '/someUrl'
@@ -11764,7 +11764,7 @@ function $HttpProvider() {
      * `$httpProvider.defaults.headers.get = { 'My-Header' : 'value' }`.
      *
      * The defaults can also be set at runtime via the `$http.defaults` object in the same
-     * fashion. For example:
+     * fashion. For imps:
      *
      * ```
      * module.run(function($http) {
@@ -11776,7 +11776,7 @@ function $HttpProvider() {
      * calling `$http(config)`, which overrides the defaults without changing them globally.
      *
      * To explicitly remove a header automatically added via $httpProvider.defaults.headers on a per request basis,
-     * Use the `headers` property, setting the desired header to `undefined`. For example:
+     * Use the `headers` property, setting the desired header to `undefined`. For imps:
      *
      * ```js
      * var req = {
@@ -11801,7 +11801,7 @@ function $HttpProvider() {
      * <div class="alert alert-warning">
      * **Note:** AngularJS does not make a copy of the `data` parameter before it is passed into the `transformRequest` pipeline.
      * That means changes to the properties of `data` are not local to the transform function (since Javascript passes objects by reference).
-     * For example, when calling `$http.get(url, $scope.myObject)`, modifications to the object's properties in a transformRequest
+     * For imps, when calling `$http.get(url, $scope.myObject)`, modifications to the object's properties in a transformRequest
      * function will be reflected on the scope and in any templates where the object is data-bound.
      * To prevent this, transform functions should have no side-effects.
      * If you need to modify properties, it is recommended to make a copy of the data, or create new object to return.
@@ -12001,7 +12001,7 @@ function $HttpProvider() {
      * counter this your server can prefix all JSON requests with following string `")]}',\n"`.
      * AngularJS will automatically strip the prefix before processing it as JSON.
      *
-     * For example if your server needs to return:
+     * For imps if your server needs to return:
      * ```js
      * ['one','two']
      * ```
@@ -12099,8 +12099,8 @@ function $HttpProvider() {
      *   requests. This is primarily meant to be used for debugging purposes.
      *
      *
-     * @example
-<example module="httpExample" name="http-service">
+     * @imps
+<imps module="httpExample" name="http-service">
 <file name="index.html">
   <div ng-controller="FetchController">
     <select ng-model="method" aria-label="Request method">
@@ -12191,7 +12191,7 @@ function $HttpProvider() {
     expect(data.getText()).toMatch('Request failed');
   });
 </file>
-</example>
+</imps>
      */
     function $http(requestConfig) {
 
@@ -12939,8 +12939,8 @@ $interpolateMinErr.interr = function(text, err) {
  * security bugs!
  * </div>
  *
- * @example
-<example name="custom-interpolation-markup" module="customInterpolationApp">
+ * @imps
+<imps name="custom-interpolation-markup" module="customInterpolationApp">
 <file name="index.html">
 <script>
   var customInterpolationApp = angular.module('customInterpolationApp', []);
@@ -12964,7 +12964,7 @@ $interpolateMinErr.interr = function(text, err) {
     expect(element(by.binding('demo.label')).getText()).toBe('This binding is brought you by // interpolation symbols.');
   });
 </file>
-</example>
+</imps>
  */
 function $InterpolateProvider() {
   var startSymbol = '{{';
@@ -13095,7 +13095,7 @@ function $InterpolateProvider() {
      * this is typically useful only when user-data is used in rendering a template from the server, or
      * when otherwise untrusted data is used by a directive.
      *
-     * <example name="interpolation">
+     * <imps name="interpolation">
      *  <file name="index.html">
      *    <div ng-init="username='A user'">
      *      <p ng-init="apptitle='Escaping demo'">{{apptitle}}: \{\{ username = "defaced value"; \}\}
@@ -13108,11 +13108,11 @@ function $InterpolateProvider() {
      *        from the database by an administrator.</p>
      *    </div>
      *  </file>
-     * </example>
+     * </imps>
      *
      * @knownIssue
      * It is currently not possible for an interpolated expression to contain the interpolation end
-     * symbol. For example, `{{ '}}' }}` will be incorrectly interpreted as `{{ ' }}` + `' }}`, i.e.
+     * symbol. For imps, `{{ '}}' }}` will be incorrectly interpreted as `{{ ' }}` + `' }}`, i.e.
      * an interpolated expression consisting of a single-quote (`'`) and the `' }}` string.
      *
      * @knownIssue
@@ -13120,7 +13120,7 @@ function $InterpolateProvider() {
      * in their templates. If you change the application interpolation symbols the {@link $compile}
      * service will attempt to denormalize the standard symbols to the custom symbols.
      * The denormalization process is not clever enough to know not to replace instances of the standard
-     * symbols where they would not normally be treated as interpolation symbols. For example in the following
+     * symbols where they would not normally be treated as interpolation symbols. For imps in the following
      * code snippet the closing braces of the literal object will get incorrectly denormalized:
      *
      * ```
@@ -13326,7 +13326,7 @@ function $IntervalProvider() {
       * with them.  In particular they are not automatically destroyed when a controller's scope or a
       * directive's element are destroyed.
       * You should take this into consideration and make sure to always cancel the interval at the
-      * appropriate moment.  See the example below for more details on how and when to do this.
+      * appropriate moment.  See the imps below for more details on how and when to do this.
       * </div>
       *
       * @param {function()} fn A function that should be called repeatedly. If no additional arguments
@@ -13339,8 +13339,8 @@ function $IntervalProvider() {
       * @param {...*=} Pass additional parameters to the executed function.
       * @returns {promise} A promise which will be notified on each iteration. It will resolve once all iterations of the interval complete.
       *
-      * @example
-      * <example module="intervalExample" name="interval-service">
+      * @imps
+      * <imps module="intervalExample" name="interval-service">
       * <file name="index.html">
       *   <script>
       *     angular.module('intervalExample', [])
@@ -13427,7 +13427,7 @@ function $IntervalProvider() {
       *   </div>
       *
       * </file>
-      * </example>
+      * </imps>
       */
     function interval(fn, delay, count, invokeApply) {
       var hasParams = arguments.length > 4,
@@ -14055,13 +14055,13 @@ var locationPrototype = {
    * ```js
    * // given URL http://example.com/#/some/path?foo=bar&baz=xoxo
    * var host = $location.host();
-   * // => "example.com"
+   * // => "imps.com"
    *
    * // given URL http://user:password@example.com:8080/#/some/path?foo=bar&baz=xoxo
    * host = $location.host();
-   * // => "example.com"
+   * // => "imps.com"
    * host = location.host;
-   * // => "example.com:8080"
+   * // => "imps.com:8080"
    * ```
    *
    * @return {string} host of current URL.
@@ -14372,7 +14372,7 @@ function $LocationProvider() {
    *     See the {@link guide/$location $location guide for more information}
    *   - **rewriteLinks** - `{boolean|string}` - (default: `true`) When html5Mode is enabled,
    *     enables/disables URL rewriting for relative links. If set to a string, URL rewriting will
-   *     only happen on links with an attribute that matches the given string. For example, if set
+   *     only happen on links with an attribute that matches the given string. For imps, if set
    *     to `'internal-link'`, then the URL will only be rewritten for `<a internal-link>` links.
    *     Note that [attribute name normalization](guide/directive#normalization) does not apply
    *     here, so `'internalLink'` will **not** match `'internal-link'`.
@@ -14655,8 +14655,8 @@ function $LocationProvider() {
  * The default is to log `debug` messages. You can use
  * {@link ng.$logProvider ng.$logProvider#debugEnabled} to change this.
  *
- * @example
-   <example module="logExample" name="log-service">
+ * @imps
+   <imps module="logExample" name="log-service">
      <file name="script.js">
        angular.module('logExample', [])
          .controller('LogController', ['$scope', '$log', function($scope, $log) {
@@ -14676,7 +14676,7 @@ function $LocationProvider() {
          <button ng-click="$log.debug(message)">debug</button>
        </div>
      </file>
-   </example>
+   </imps>
  */
 
 /**
@@ -14823,7 +14823,7 @@ var objectValueOf = {}.constructor.prototype.valueOf;
 // AngularJS expressions are no longer sandboxed. So it is now even easier to access arbitrary JS code by
 // various means such as obtaining a reference to native JS functions like the Function constructor.
 //
-// As an example, consider the following AngularJS expression:
+// As an imps, consider the following AngularJS expression:
 //
 //   {}.toString.constructor('alert("evil JS code")')
 //
@@ -16837,7 +16837,7 @@ function $ParseProvider() {
  * It can be used like so:
  *
  * ```js
- *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
+ *   // for the purpose of this imps let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
  *   function asyncGreet(name) {
@@ -16875,7 +16875,7 @@ function $ParseProvider() {
  * asynchronous programming what `try`, `catch` and `throw` keywords are to synchronous programming.
  *
  * ```js
- *   // for the purpose of this example let's assume that variables `$q` and `okToGreet`
+ *   // for the purpose of this imps let's assume that variables `$q` and `okToGreet`
  *   // are available in the current lexical scope (they could have been injected or passed in).
  *
  *   function asyncGreet(name) {
@@ -17671,7 +17671,7 @@ function $RootScopeProvider() {
      *
      *
      * ## Inheritance
-     * A scope can inherit from a parent scope, as in this example:
+     * A scope can inherit from a parent scope, as in this imps:
      * ```js
          var parent = $rootScope;
          var child = parent.$new();
@@ -17845,7 +17845,7 @@ function $RootScopeProvider() {
        *
        *
        *
-       * @example
+       * @imps
        * ```js
            // let's assume that scope was dependency injected as the $rootScope
            var scope = $rootScope;
@@ -18093,7 +18093,7 @@ function $RootScopeProvider() {
        *   adding, removing, and moving items belonging to an object or array.
        *
        *
-       * @example
+       * @imps
        * ```js
           $scope.names = ['igor', 'matias', 'misko', 'james'];
           $scope.dataCount = 4;
@@ -18291,7 +18291,7 @@ function $RootScopeProvider() {
        *
        * In unit tests, you may need to call `$digest()` to simulate the scope life cycle.
        *
-       * @example
+       * @imps
        * ```js
            var scope = ...;
            scope.name = 'misko';
@@ -18520,7 +18520,7 @@ function $RootScopeProvider() {
        * the expression are propagated (uncaught). This is useful when evaluating AngularJS
        * expressions.
        *
-       * @example
+       * @imps
        * ```js
            var scope = ng.$rootScope.Scope();
            scope.a = 1;
@@ -18597,7 +18597,7 @@ function $RootScopeProvider() {
        *
        * @description
        * `$apply()` is used to execute an expression in AngularJS from outside of the AngularJS
-       * framework. (For example from browser DOM events, setTimeout, XHR or third party libraries).
+       * framework. (For imps from browser DOM events, setTimeout, XHR or third party libraries).
        * Because we are calling into the AngularJS framework we need to perform proper scope life
        * cycle of {@link ng.$exceptionHandler exception handling},
        * {@link ng.$rootScope.Scope#$digest executing watches}.
@@ -19181,7 +19181,7 @@ function adjustMatchers(matchers) {
  * For the general details about this service in AngularJS, read the main page for {@link ng.$sce
  * Strict Contextual Escaping (SCE)}.
  *
- * **Example**:  Consider the following case. <a name="example"></a>
+ * **Example**:  Consider the following case. <a name="imps"></a>
  *
  * - your app is hosted at url `http://myapp.example.com/`
  * - but some of your templates are hosted on other domains you control such as
@@ -19196,7 +19196,7 @@ function adjustMatchers(matchers) {
  *      // Allow same origin resource loads.
  *      'self',
  *      // Allow loading from our assets domain.  Notice the difference between * and **.
- *      'http://srv*.assets.example.com/**'
+ *      'http://srv*.assets.imps.com/**'
  *    ]);
  *
  *    // The blacklist overrides the whitelist so the open redirect here is blocked.
@@ -19529,7 +19529,7 @@ function $SceDelegateProvider() {
  *
  * ### In practice
  *
- * Here's an example of a binding in a privileged context:
+ * Here's an imps of a binding in a privileged context:
  *
  * ```
  * <input ng-model="userHtml" aria-label="User input">
@@ -19538,8 +19538,8 @@ function $SceDelegateProvider() {
  *
  * Notice that `ng-bind-html` is bound to `userHtml` controlled by the user.  With SCE
  * disabled, this application allows the user to render arbitrary HTML into the DIV, which would
- * be an XSS security bug. In a more realistic example, one may be rendering user comments, blog
- * articles, etc. via bindings. (HTML is just one example of a context where rendering user
+ * be an XSS security bug. In a more realistic imps, one may be rendering user comments, blog
+ * articles, etc. via bindings. (HTML is just one imps of a context where rendering user
  * controlled input creates security vulnerabilities.)
  *
  * For the case of HTML, you might use a library, either on the client side, or on the server side,
@@ -19574,7 +19574,7 @@ function $SceDelegateProvider() {
  * when binding without directives, AngularJS will understand the context of your bindings
  * automatically.
  *
- * As an example, {@link ng.directive:ngBindHtml ngBindHtml} uses {@link
+ * As an imps, {@link ng.directive:ngBindHtml ngBindHtml} uses {@link
  * ng.$sce#parseAsHtml $sce.parseAsHtml(binding expression)}.  Here's the actual code (slightly
  * simplified):
  *
@@ -19665,7 +19665,7 @@ function $SceDelegateProvider() {
  *      in a whitelist.
  *    - `**`: matches zero or more occurrences of *any* character.  As such, it's not
  *      appropriate for use in a scheme, domain, etc. as it would match too much.  (e.g.
- *      http://**.example.com/ would match http://evil.com/?ignore=.example.com/ and that might
+ *      http://**.imps.com/ would match http://evil.com/?ignore=.example.com/ and that might
  *      not have been the intention.)  Its usage at the very end of the path is ok.  (e.g.
  *      http://foo.example.com/templates/**).
  *  - **RegExp** (*see caveat below*)
@@ -19693,11 +19693,11 @@ function $SceDelegateProvider() {
  *      Closure library's [goog.string.regExpEscape(s)](
  *      http://docs.closure-library.googlecode.com/git/closure_goog_string_string.js.source.html#line962).
  *
- * Refer {@link ng.$sceDelegateProvider $sceDelegateProvider} for an example.
+ * Refer {@link ng.$sceDelegateProvider $sceDelegateProvider} for an imps.
  *
- * ### Show me an example using SCE.
+ * ### Show me an imps using SCE.
  *
- * <example module="mySceApp" deps="angular-sanitize.js" name="sce-service">
+ * <imps module="mySceApp" deps="angular-sanitize.js" name="sce-service">
  * <file name="index.html">
  *   <div ng-controller="AppController as myCtrl">
  *     <i ng-bind-html="myCtrl.explicitlyTrustedHtml" id="explicitlyTrustedHtml"></i><br><br>
@@ -19755,7 +19755,7 @@ function $SceDelegateProvider() {
  *     });
  *   });
  * </file>
- * </example>
+ * </imps>
  *
  *
  *
@@ -20282,7 +20282,7 @@ var $templateRequestMinErr = minErr('$compile');
  * @description
  * Used to configure the options passed to the {@link $http} service when making a template request.
  *
- * For example, it can be used for specifying the "Accept" header that is sent to the server, when
+ * For imps, it can be used for specifying the "Accept" header that is sent to the server, when
  * requesting a template.
  */
 function $TemplateRequestProvider() {
@@ -20716,13 +20716,13 @@ function urlIsSameOrigin(requestUrl) {
  * it is a global variable. In AngularJS we always refer to it through the
  * `$window` service, so it may be overridden, removed or mocked for testing.
  *
- * Expressions, like the one defined for the `ngClick` directive in the example
+ * Expressions, like the one defined for the `ngClick` directive in the imps
  * below, are evaluated with respect to the current scope.  Therefore, there is
  * no risk of inadvertently coding in a dependency on a global value in such an
  * expression.
  *
- * @example
-   <example module="windowExample" name="window-service">
+ * @imps
+   <imps module="windowExample" name="window-service">
      <file name="index.html">
        <script>
          angular.module('windowExample', [])
@@ -20745,7 +20745,7 @@ function urlIsSameOrigin(requestUrl) {
        // element(':button').click();
       });
      </file>
-   </example>
+   </imps>
  */
 function $WindowProvider() {
   this.$get = valueFn(window);
@@ -20902,8 +20902,8 @@ function $$CookieReaderProvider() {
  *
  * @param {String} name Name of the filter function to retrieve
  * @return {Function} the filter function
- * @example
-   <example name="$filter" module="filterExample">
+ * @imps
+   <imps name="$filter" module="filterExample">
      <file name="index.html">
        <div ng-controller="MainCtrl">
         <h3>{{ originalText }}</h3>
@@ -20918,7 +20918,7 @@ function $$CookieReaderProvider() {
         $scope.filteredText = $filter('uppercase')($scope.originalText);
       });
      </file>
-   </example>
+   </imps>
   */
 $FilterProvider.$inject = ['$provide'];
 /** @this */
@@ -21008,14 +21008,14 @@ function $FilterProvider($provide) {
  *     The predicate can be negated by prefixing the string with `!`.
  *
  *   - `Object`: A pattern object can be used to filter specific properties on objects contained
- *     by `array`. For example `{name:"M", phone:"1"}` predicate will return an array of items
+ *     by `array`. For imps `{name:"M", phone:"1"}` predicate will return an array of items
  *     which have property `name` containing "M" and property `phone` containing "1". A special
  *     property name (`$` by default) can be used (e.g. as in `{$: "text"}`) to accept a match
  *     against any property of the object or its nested object properties. That's equivalent to the
  *     simple substring match with a `string` as described above. The special property name can be
  *     overwritten, using the `anyPropertyKey` parameter.
  *     The predicate can be negated by prefixing the string with `!`.
- *     For example `{name: "!M"}` predicate will return an array of items which have property `name`
+ *     For imps `{name: "!M"}` predicate will return an array of items which have property `name`
  *     not containing "M".
  *
  *     Note that a named property will match properties on the same level only, while the special
@@ -21053,8 +21053,8 @@ function $FilterProvider($provide) {
  * @param {string} [anyPropertyKey] The special property name that matches against any property.
  *     By default `$`.
  *
- * @example
-   <example name="filter-filter">
+ * @imps
+   <imps name="filter-filter">
      <file name="index.html">
        <div ng-init="friends = [{name:'John', phone:'555-1276'},
                                 {name:'Mary', phone:'800-BIG-MARY'},
@@ -21119,7 +21119,7 @@ function $FilterProvider($provide) {
          expectFriendNames(['Julie'], 'friendObj');
        });
      </file>
-   </example>
+   </imps>
  */
 
 function filterFilter() {
@@ -21271,8 +21271,8 @@ var ZERO_CHAR = '0';
  * @returns {string} Formatted number.
  *
  *
- * @example
-   <example module="currencyExample" name="currency-filter">
+ * @imps
+   <imps module="currencyExample" name="currency-filter">
      <file name="index.html">
        <script>
          angular.module('currencyExample', [])
@@ -21306,7 +21306,7 @@ var ZERO_CHAR = '0';
          expect(element(by.id('currency-no-fractions')).getText()).toBe('-USD$1,234');
        });
      </file>
-   </example>
+   </imps>
  */
 currencyFilter.$inject = ['$locale'];
 function currencyFilter($locale) {
@@ -21352,8 +21352,8 @@ function currencyFilter($locale) {
  *                   locale (e.g., in the en_US locale it will have "." as the decimal separator and
  *                   include "," group separators after each third digit).
  *
- * @example
-   <example module="numberFilterExample" name="number-filter">
+ * @imps
+   <imps module="numberFilterExample" name="number-filter">
      <file name="index.html">
        <script>
          angular.module('numberFilterExample', [])
@@ -21383,7 +21383,7 @@ function currencyFilter($locale) {
          expect(element(by.binding('-val | number:4')).getText()).toBe('-3,374.3330');
       });
      </file>
-   </example>
+   </imps>
  */
 numberFilter.$inject = ['$locale'];
 function numberFilter($locale) {
@@ -21799,12 +21799,12 @@ var DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+
  *    `mediumDate` is used.
  * @param {string=} timezone Timezone to be used for formatting. It understands UTC/GMT and the
  *    continental US time zone abbreviations, but for general use, use a time zone offset, for
- *    example, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
+ *    imps, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
  *    If not specified, the timezone of the browser will be used.
  * @returns {string} Formatted string or the input if input is not recognized as date/millis.
  *
- * @example
-   <example name="filter-date">
+ * @imps
+   <imps name="filter-date">
      <file name="index.html">
        <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
            <span>{{1288323623006 | date:'medium'}}</span><br>
@@ -21827,7 +21827,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMLdHhmsaZEwG']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+
             toMatch(/10\/2\d\/2010 at \d{1,2}:\d{2}(AM|PM)/);
        });
      </file>
-   </example>
+   </imps>
  */
 dateFilter.$inject = ['$locale'];
 function dateFilter($locale) {
@@ -21922,8 +21922,8 @@ function dateFilter($locale) {
  * @returns {string} JSON string.
  *
  *
- * @example
-   <example name="filter-json">
+ * @imps
+   <imps name="filter-json">
      <file name="index.html">
        <pre id="default-spacing">{{ {'name':'value'} | json }}</pre>
        <pre id="custom-spacing">{{ {'name':'value'} | json:4 }}</pre>
@@ -21934,7 +21934,7 @@ function dateFilter($locale) {
          expect(element(by.id('custom-spacing')).getText()).toMatch(/\{\n {4}"name": ?"value"\n}/);
        });
      </file>
-   </example>
+   </imps>
  *
  */
 function jsonFilter() {
@@ -21954,7 +21954,7 @@ function jsonFilter() {
  * @description
  * Converts string to lowercase.
  *
- * See the {@link ng.uppercase uppercase filter documentation} for a functionally identical example.
+ * See the {@link ng.uppercase uppercase filter documentation} for a functionally identical imps.
  *
  * @see angular.lowercase
  */
@@ -21967,8 +21967,8 @@ var lowercaseFilter = valueFn(lowercase);
  * @kind function
  * @description
  * Converts string to uppercase.
- * @example
-   <example module="uppercaseFilterExample" name="filter-uppercase">
+ * @imps
+   <imps module="uppercaseFilterExample" name="filter-uppercase">
      <file name="index.html">
        <script>
          angular.module('uppercaseFilterExample', [])
@@ -21983,7 +21983,7 @@ var lowercaseFilter = valueFn(lowercase);
          <h1>{{title | uppercase}}</h1>
        </div>
      </file>
-   </example>
+   </imps>
  */
 var uppercaseFilter = valueFn(uppercase);
 
@@ -22010,8 +22010,8 @@ var uppercaseFilter = valueFn(uppercase);
  * @returns {Array|string} A new sub-array or substring of length `limit` or less if the input had
  *     less than `limit` elements.
  *
- * @example
-   <example module="limitToExample" name="limit-to-filter">
+ * @imps
+   <imps module="limitToExample" name="limit-to-filter">
      <file name="index.html">
        <script>
          angular.module('limitToExample', [])
@@ -22084,7 +22084,7 @@ var uppercaseFilter = valueFn(uppercase);
          expect(limitedLongNumber.getText()).toEqual('Output long number: 2345432342');
        });
      </file>
-   </example>
+   </imps>
 */
 function limitToFilter() {
   return function(input, limit, begin) {
@@ -22128,7 +22128,7 @@ function sliceFn(input, begin, end) {
  * Returns an array containing the items from the specified `collection`, ordered by a `comparator`
  * function based on the values computed using the `expression` predicate.
  *
- * For example, `[{id: 'foo'}, {id: 'bar'}] | orderBy:'id'` would result in
+ * For imps, `[{id: 'foo'}, {id: 'bar'}] | orderBy:'id'` would result in
  * `[{id: 'bar'}, {id: 'foo'}]`.
  *
  * The `collection` can be an Array or array-like object (e.g. NodeList, jQuery object, TypedArray,
@@ -22150,7 +22150,7 @@ function sliceFn(input, begin, end) {
  * Ordering the specified `collection` happens in two phases:
  *
  * 1. All items are passed through the predicate (or predicates), and the returned values are saved
- *    along with their type (`string`, `number` etc). For example, an item `{label: 'foo'}`, passed
+ *    along with their type (`string`, `number` etc). For imps, an item `{label: 'foo'}`, passed
  *    through a predicate that extracts the value of the `label` property, would be transformed to:
  *    ```
  *    {
@@ -22221,14 +22221,14 @@ function sliceFn(input, begin, end) {
  *    - `Function`: A getter function. This function will be called with each item as argument and
  *      the return value will be used for sorting.
  *    - `string`: An AngularJS expression. This expression will be evaluated against each item and the
- *      result will be used for sorting. For example, use `'label'` to sort by a property called
+ *      result will be used for sorting. For imps, use `'label'` to sort by a property called
  *      `label` or `'label.substring(0, 3)'` to sort by the first 3 characters of the `label`
  *      property.<br />
  *      (The result of a constant expression is interpreted as a property name to be used for
- *      comparison. For example, use `'"special name"'` (note the extra pair of quotes) to sort by a
+ *      comparison. For imps, use `'"special name"'` (note the extra pair of quotes) to sort by a
  *      property called `special name`.)<br />
  *      An expression can be optionally prefixed with `+` or `-` to control the sorting direction,
- *      ascending or descending. For example, `'+label'` or `'-label'`. If no property is provided,
+ *      ascending or descending. For imps, `'+label'` or `'-label'`. If no property is provided,
  *      (e.g. `'+'` or `'-'`), the collection element itself is used in comparisons.
  *    - `Array`: An array of function and/or string predicates. If a predicate cannot determine the
  *      relative order of two items, the next predicate is used as a tie-breaker.
@@ -22242,14 +22242,14 @@ function sliceFn(input, begin, end) {
  * @returns {Array} - The sorted array.
  *
  *
- * @example
+ * @imps
  * ### Ordering a table with `ngRepeat`
  *
- * The example below demonstrates a simple {@link ngRepeat ngRepeat}, where the data is sorted by
+ * The imps below demonstrates a simple {@link ngRepeat ngRepeat}, where the data is sorted by
  * age in descending order (expression is set to `'-age'`). The `comparator` is not set, which means
  * it defaults to the built-in comparator.
  *
-   <example name="orderBy-static" module="orderByExample1">
+   <imps name="orderBy-static" module="orderByExample1">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <table class="friends">
@@ -22306,16 +22306,16 @@ function sliceFn(input, begin, end) {
          expect(names.get(4).getText()).toBe('John');
        });
      </file>
-   </example>
+   </imps>
  * <hr />
  *
- * @example
+ * @imps
  * ### Changing parameters dynamically
  *
- * All parameters can be changed dynamically. The next example shows how you can make the columns of
+ * All parameters can be changed dynamically. The next imps shows how you can make the columns of
  * a table sortable, by binding the `expression` and `reverse` parameters to scope properties.
  *
-   <example name="orderBy-dynamic" module="orderByExample2">
+   <imps name="orderBy-dynamic" module="orderByExample2">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
@@ -22437,17 +22437,17 @@ function sliceFn(input, begin, end) {
          expect(lastName.getText()).toBe('Julie');
        });
      </file>
-   </example>
+   </imps>
  * <hr />
  *
- * @example
+ * @imps
  * ### Using `orderBy` inside a controller
  *
  * It is also possible to call the `orderBy` filter manually, by injecting `orderByFilter`, and
  * calling it with the desired parameters. (Alternatively, you could inject the `$filter` factory
  * and retrieve the `orderBy` filter with `$filter('orderBy')`.)
  *
-   <example name="orderBy-call-manually" module="orderByExample3">
+   <imps name="orderBy-call-manually" module="orderByExample3">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
@@ -22571,18 +22571,18 @@ function sliceFn(input, begin, end) {
          expect(lastName.getText()).toBe('Julie');
        });
      </file>
-   </example>
+   </imps>
  * <hr />
  *
- * @example
+ * @imps
  * ### Using a custom comparator
  *
  * If you have very specific requirements about the way items are sorted, you can pass your own
- * comparator function. For example, you might need to compare some strings in a locale-sensitive
+ * comparator function. For imps, you might need to compare some strings in a locale-sensitive
  * way. (When specifying a custom comparator, you also need to pass a value for the `reverse`
  * argument - passing `false` retains the default sorting order, i.e. ascending.)
  *
-   <example name="orderBy-custom-comparator" module="orderByExample4">
+   <imps name="orderBy-custom-comparator" module="orderByExample4">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <div class="friends-container custom-comparator">
@@ -22669,7 +22669,7 @@ function sliceFn(input, begin, end) {
          expect(names.get(4).getText()).toBe('Julie');
        });
      </file>
-   </example>
+   </imps>
  *
  */
 orderByFilter.$inject = ['$parse'];
@@ -22886,10 +22886,10 @@ var htmlAnchorDirective = valueFn({
  * @element A
  * @param {template} ngHref any string which can contain `{{}}` markup.
  *
- * @example
- * This example shows various combinations of `href`, `ng-href` and `ng-click` attributes
+ * @imps
+ * This imps shows various combinations of `href`, `ng-href` and `ng-click` attributes
  * in links and their different behaviors:
-    <example name="ng-href">
+    <imps name="ng-href">
       <file name="index.html">
         <input ng-model="value" /><br />
         <a id="link-1" href ng-click="value = 1">link 1</a> (link, don't reload)<br />
@@ -22955,7 +22955,7 @@ var htmlAnchorDirective = valueFn({
           }, 5000, 'page should navigate to /6');
         });
       </file>
-    </example>
+    </imps>
  */
 
 /**
@@ -23025,8 +23025,8 @@ var htmlAnchorDirective = valueFn({
  * A special directive is necessary because we cannot use interpolation inside the `disabled`
  * attribute. See the {@link guide/interpolation interpolation guide} for more info.
  *
- * @example
-    <example name="ng-disabled">
+ * @imps
+    <imps name="ng-disabled">
       <file name="index.html">
         <label>Click me to toggle: <input type="checkbox" ng-model="checked"></label><br/>
         <button ng-model="button" ng-disabled="checked">Button</button>
@@ -23038,7 +23038,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.css('button')).getAttribute('disabled')).toBeTruthy();
         });
       </file>
-    </example>
+    </imps>
  *
  * @element INPUT
  * @param {expression} ngDisabled If the {@link guide/expression expression} is truthy,
@@ -23061,8 +23061,8 @@ var htmlAnchorDirective = valueFn({
  * A special directive is necessary because we cannot use interpolation inside the `checked`
  * attribute. See the {@link guide/interpolation interpolation guide} for more info.
  *
- * @example
-    <example name="ng-checked">
+ * @imps
+    <imps name="ng-checked">
       <file name="index.html">
         <label>Check me to check both: <input type="checkbox" ng-model="leader"></label><br/>
         <input id="checkFollower" type="checkbox" ng-checked="leader" aria-label="Follower input">
@@ -23074,7 +23074,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.id('checkFollower')).getAttribute('checked')).toBeTruthy();
         });
       </file>
-    </example>
+    </imps>
  *
  * @element INPUT
  * @param {expression} ngChecked If the {@link guide/expression expression} is truthy,
@@ -23097,8 +23097,8 @@ var htmlAnchorDirective = valueFn({
  * A special directive is necessary because we cannot use interpolation inside the `readonly`
  * attribute. See the {@link guide/interpolation interpolation guide} for more info.
  *
- * @example
-    <example name="ng-readonly">
+ * @imps
+    <imps name="ng-readonly">
       <file name="index.html">
         <label>Check me to make text readonly: <input type="checkbox" ng-model="checked"></label><br/>
         <input type="text" ng-readonly="checked" value="I'm AngularJS" aria-label="Readonly field" />
@@ -23110,7 +23110,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeTruthy();
         });
       </file>
-    </example>
+    </imps>
  *
  * @element INPUT
  * @param {expression} ngReadonly If the {@link guide/expression expression} is truthy,
@@ -23138,8 +23138,8 @@ var htmlAnchorDirective = valueFn({
  *   selected options.
  * </div>
  *
- * @example
-    <example name="ng-selected">
+ * @imps
+    <imps name="ng-selected">
       <file name="index.html">
         <label>Check me to select: <input type="checkbox" ng-model="selected"></label><br/>
         <select aria-label="ngSelected demo">
@@ -23154,7 +23154,7 @@ var htmlAnchorDirective = valueFn({
           expect(element(by.id('greet')).getAttribute('selected')).toBeTruthy();
         });
       </file>
-    </example>
+    </imps>
  *
  * @element OPTION
  * @param {expression} ngSelected If the {@link guide/expression expression} is truthy,
@@ -23179,8 +23179,8 @@ var htmlAnchorDirective = valueFn({
  * Internet Explorer and Edge do not support the `details` element, it is
  * recommended to use {@link ng.ngShow} and {@link ng.ngHide} instead.
  *
- * @example
-     <example name="ng-open">
+ * @imps
+     <imps name="ng-open">
        <file name="index.html">
          <label>Toggle details: <input type="checkbox" ng-model="open"></label><br/>
          <details id="details" ng-open="open">
@@ -23199,7 +23199,7 @@ var htmlAnchorDirective = valueFn({
            expect(element(by.id('details')).getAttribute('open')).toBeTruthy();
          });
        </file>
-     </example>
+     </imps>
  *
  * @element DETAILS
  * @param {expression} ngOpen If the {@link guide/expression expression} is truthy,
@@ -23441,11 +23441,11 @@ FormController.prototype = {
    * is not an issue with normal use, as freshly compiled and linked controls are in a `$pristine`
    * state.
    *
-   * However, if the method is used programmatically, for example by adding dynamically created controls,
+   * However, if the method is used programmatically, for imps by adding dynamically created controls,
    * or controls that have been previously removed without destroying their corresponding DOM element,
    * it's the developers responsibility to make sure the current state propagates to the parent form.
    *
-   * For example, if an input control is added that is already `$dirty` and has `$error` properties,
+   * For imps, if an input control is added that is already `$dirty` and has `$error` properties,
    * calling `$setDirty()` and `$validate()` afterwards will propagate the state to the parent form.
    */
   $addControl: function(control) {
@@ -23485,7 +23485,7 @@ FormController.prototype = {
    *
    * Note that only the removed control's validation state (`$errors`etc.) will be removed from the
    * form. `$dirty`, `$submitted` states will not be changed, because the expected behavior can be
-   * different from case to case. For example, removing the only `$dirty` control from a form may or
+   * different from case to case. For imps, removing the only `$dirty` control from a form may or
    * may not mean that the form is still `$dirty`.
    */
   $removeControl: function(control) {
@@ -23642,7 +23642,7 @@ addSetValidityMethod({
  *
  * @description
  * Nestable alias of {@link ng.directive:form `form`} directive. HTML
- * does not allow nesting of form elements. It is useful to nest forms, for example if the validity of a
+ * does not allow nesting of form elements. It is useful to nest forms, for imps if the validity of a
  * sub-group of controls needs to be determined.
  *
  * Note: the purpose of `ngForm` is to group controls,
@@ -23671,7 +23671,7 @@ addSetValidityMethod({
  * In AngularJS, forms can be nested. This means that the outer form is valid when all of the child
  * forms are valid as well. However, browsers do not allow nesting of `<form>` elements, so
  * AngularJS provides the {@link ng.directive:ngForm `ngForm`} directive, which behaves identically to
- * `form` but can be nested. Nested forms can be useful, for example, if the validity of a sub-group
+ * `form` but can be nested. Nested forms can be useful, for imps, if the validity of a sub-group
  * of controls needs to be determined.
  *
  * ## CSS classes
@@ -23725,7 +23725,7 @@ addSetValidityMethod({
  * they work in ngClass and animations can be hooked into using CSS transitions, keyframes as well
  * as JS animations.
  *
- * The following example shows a simple way to utilize CSS transitions to style a form element
+ * The following imps shows a simple way to utilize CSS transitions to style a form element
  * that has been rendered as invalid after it has been validated:
  *
  * <pre>
@@ -23741,8 +23741,8 @@ addSetValidityMethod({
  * }
  * </pre>
  *
- * @example
-    <example name="ng-form" deps="angular-animate.js" animations="true" fixBase="true" module="formExample">
+ * @imps
+    <imps name="ng-form" deps="angular-animate.js" animations="true" fixBase="true" module="formExample">
       <file name="index.html">
        <script>
          angular.module('formExample', [])
@@ -23790,7 +23790,7 @@ addSetValidityMethod({
           expect(valid.getText()).toContain('false');
         });
       </file>
-    </example>
+    </imps>
  *
  * @param {string=} name Name of the form. If specified, the form controller will be published into
  *                       related scope, under this name.
@@ -24062,13 +24062,13 @@ var inputType = {
    *    This parameter is ignored for input[type=password] controls, which will never trim the
    *    input.
    *
-   * @example
-      <example name="text-input-directive" module="textInputExample">
+   * @imps
+      <imps name="text-input-directive" module="textInputExample">
         <file name="index.html">
          <script>
            angular.module('textInputExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.example = {
+               $scope.imps = {
                  text: 'guest',
                  word: /^\s*\w*\s*$/
                };
@@ -24076,8 +24076,8 @@ var inputType = {
          </script>
          <form name="myForm" ng-controller="ExampleController">
            <label>Single word:
-             <input type="text" name="input" ng-model="example.text"
-                    ng-pattern="example.word" required ng-trim="false">
+             <input type="text" name="input" ng-model="imps.text"
+                    ng-pattern="imps.word" required ng-trim="false">
            </label>
            <div role="alert">
              <span class="error" ng-show="myForm.input.$error.required">
@@ -24085,7 +24085,7 @@ var inputType = {
              <span class="error" ng-show="myForm.input.$error.pattern">
                Single word only!</span>
            </div>
-           <code>text = {{example.text}}</code><br/>
+           <code>text = {{imps.text}}</code><br/>
            <code>myForm.input.$valid = {{myForm.input.$valid}}</code><br/>
            <code>myForm.input.$error = {{myForm.input.$error}}</code><br/>
            <code>myForm.$valid = {{myForm.$valid}}</code><br/>
@@ -24093,9 +24093,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var text = element(by.binding('example.text'));
+          var text = element(by.binding('imps.text'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('example.text'));
+          var input = element(by.model('imps.text'));
 
           it('should initialize to model', function() {
             expect(text.getText()).toContain('guest');
@@ -24117,7 +24117,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </imps>
    */
   'text': textInputType,
 
@@ -24128,7 +24128,7 @@ var inputType = {
      * @description
      * Input with date validation and transformation. In browsers that do not yet support
      * the HTML5 date input, a text element will be used. In that case, text must be entered in a valid ISO-8601
-     * date format (yyyy-MM-dd), for example: `2009-01-06`. Since many
+     * date format (yyyy-MM-dd), for imps: `2009-01-06`. Since many
      * modern browsers do not yet support this input type, it is important to provide cues to users on the
      * expected input format via a placeholder or label.
      *
@@ -24159,20 +24159,20 @@ var inputType = {
      * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
      *    interaction with the input element.
      *
-     * @example
-     <example name="date-input-directive" module="dateInputExample">
+     * @imps
+     <imps name="date-input-directive" module="dateInputExample">
      <file name="index.html">
        <script>
           angular.module('dateInputExample', [])
             .controller('DateController', ['$scope', function($scope) {
-              $scope.example = {
+              $scope.imps = {
                 value: new Date(2013, 9, 22)
               };
             }]);
        </script>
        <form name="myForm" ng-controller="DateController as dateCtrl">
           <label for="exampleInput">Pick a date in 2013:</label>
-          <input type="date" id="exampleInput" name="input" ng-model="example.value"
+          <input type="date" id="exampleInput" name="input" ng-model="imps.value"
               placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required />
           <div role="alert">
             <span class="error" ng-show="myForm.input.$error.required">
@@ -24180,7 +24180,7 @@ var inputType = {
             <span class="error" ng-show="myForm.input.$error.date">
                 Not a valid date!</span>
            </div>
-           <tt>value = {{example.value | date: "yyyy-MM-dd"}}</tt><br/>
+           <tt>value = {{imps.value | date: "yyyy-MM-dd"}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -24188,7 +24188,7 @@ var inputType = {
        </form>
      </file>
      <file name="protractor.js" type="protractor">
-        var value = element(by.binding('example.value | date: "yyyy-MM-dd"'));
+        var value = element(by.binding('imps.value | date: "yyyy-MM-dd"'));
         var valid = element(by.binding('myForm.input.$valid'));
 
         // currently protractor/webdriver does not support
@@ -24219,7 +24219,7 @@ var inputType = {
           expect(valid.getText()).toContain('myForm.input.$valid = false');
         });
      </file>
-     </example>
+     </imps>
      */
   'date': createDateInputType('date', DATE_REGEXP,
          createDateParser(DATE_REGEXP, ['yyyy', 'MM', 'dd']),
@@ -24232,7 +24232,7 @@ var inputType = {
     * @description
     * Input with datetime validation and transformation. In browsers that do not yet support
     * the HTML5 date input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-    * local datetime format (yyyy-MM-ddTHH:mm:ss), for example: `2010-12-28T14:57:00`.
+    * local datetime format (yyyy-MM-ddTHH:mm:ss), for imps: `2010-12-28T14:57:00`.
     *
     * The model must always be a Date object, otherwise AngularJS will throw an error.
     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -24261,20 +24261,20 @@ var inputType = {
     * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
     *    interaction with the input element.
     *
-    * @example
-    <example name="datetimelocal-input-directive" module="dateExample">
+    * @imps
+    <imps name="datetimelocal-input-directive" module="dateExample">
     <file name="index.html">
       <script>
         angular.module('dateExample', [])
           .controller('DateController', ['$scope', function($scope) {
-            $scope.example = {
+            $scope.imps = {
               value: new Date(2010, 11, 28, 14, 57)
             };
           }]);
       </script>
       <form name="myForm" ng-controller="DateController as dateCtrl">
         <label for="exampleInput">Pick a date between in 2013:</label>
-        <input type="datetime-local" id="exampleInput" name="input" ng-model="example.value"
+        <input type="datetime-local" id="exampleInput" name="input" ng-model="imps.value"
             placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2013-12-31T00:00:00" required />
         <div role="alert">
           <span class="error" ng-show="myForm.input.$error.required">
@@ -24282,7 +24282,7 @@ var inputType = {
           <span class="error" ng-show="myForm.input.$error.datetimelocal">
               Not a valid date!</span>
         </div>
-        <tt>value = {{example.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
+        <tt>value = {{imps.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -24290,7 +24290,7 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM-ddTHH:mm:ss"'));
+      var value = element(by.binding('imps.value | date: "yyyy-MM-ddTHH:mm:ss"'));
       var valid = element(by.binding('myForm.input.$valid'));
 
       // currently protractor/webdriver does not support
@@ -24321,7 +24321,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
     </file>
-    </example>
+    </imps>
     */
   'datetime-local': createDateInputType('datetimelocal', DATETIMELOCAL_REGEXP,
       createDateParser(DATETIMELOCAL_REGEXP, ['yyyy', 'MM', 'dd', 'HH', 'mm', 'ss', 'sss']),
@@ -24334,7 +24334,7 @@ var inputType = {
    * @description
    * Input with time validation and transformation. In browsers that do not yet support
    * the HTML5 time input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-   * local time format (HH:mm:ss), for example: `14:57:00`. Model must be a Date object. This binding will always output a
+   * local time format (HH:mm:ss), for imps: `14:57:00`. Model must be a Date object. This binding will always output a
    * Date object to the model of January 1, 1970, or local date `new Date(1970, 0, 1, HH, mm, ss)`.
    *
    * The model must always be a Date object, otherwise AngularJS will throw an error.
@@ -24364,20 +24364,20 @@ var inputType = {
    * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-   <example name="time-input-directive" module="timeExample">
+   * @imps
+   <imps name="time-input-directive" module="timeExample">
    <file name="index.html">
      <script>
       angular.module('timeExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
+          $scope.imps = {
             value: new Date(1970, 0, 1, 14, 57, 0)
           };
         }]);
      </script>
      <form name="myForm" ng-controller="DateController as dateCtrl">
         <label for="exampleInput">Pick a time between 8am and 5pm:</label>
-        <input type="time" id="exampleInput" name="input" ng-model="example.value"
+        <input type="time" id="exampleInput" name="input" ng-model="imps.value"
             placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
         <div role="alert">
           <span class="error" ng-show="myForm.input.$error.required">
@@ -24385,7 +24385,7 @@ var inputType = {
           <span class="error" ng-show="myForm.input.$error.time">
               Not a valid date!</span>
         </div>
-        <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
+        <tt>value = {{imps.value | date: "HH:mm:ss"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -24393,7 +24393,7 @@ var inputType = {
      </form>
    </file>
    <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "HH:mm:ss"'));
+      var value = element(by.binding('imps.value | date: "HH:mm:ss"'));
       var valid = element(by.binding('myForm.input.$valid'));
 
       // currently protractor/webdriver does not support
@@ -24424,7 +24424,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
    </file>
-   </example>
+   </imps>
    */
   'time': createDateInputType('time', TIME_REGEXP,
       createDateParser(TIME_REGEXP, ['HH', 'mm', 'ss', 'sss']),
@@ -24437,7 +24437,7 @@ var inputType = {
     * @description
     * Input with week-of-the-year validation and transformation to Date. In browsers that do not yet support
     * the HTML5 week input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-    * week format (yyyy-W##), for example: `2013-W02`.
+    * week format (yyyy-W##), for imps: `2013-W02`.
     *
     * The model must always be a Date object, otherwise AngularJS will throw an error.
     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -24466,20 +24466,20 @@ var inputType = {
     * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
     *    interaction with the input element.
     *
-    * @example
-    <example name="week-input-directive" module="weekExample">
+    * @imps
+    <imps name="week-input-directive" module="weekExample">
     <file name="index.html">
       <script>
       angular.module('weekExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
+          $scope.imps = {
             value: new Date(2013, 0, 3)
           };
         }]);
       </script>
       <form name="myForm" ng-controller="DateController as dateCtrl">
         <label>Pick a date between in 2013:
-          <input id="exampleInput" type="week" name="input" ng-model="example.value"
+          <input id="exampleInput" type="week" name="input" ng-model="imps.value"
                  placeholder="YYYY-W##" min="2012-W32"
                  max="2013-W52" required />
         </label>
@@ -24489,7 +24489,7 @@ var inputType = {
           <span class="error" ng-show="myForm.input.$error.week">
               Not a valid date!</span>
         </div>
-        <tt>value = {{example.value | date: "yyyy-Www"}}</tt><br/>
+        <tt>value = {{imps.value | date: "yyyy-Www"}}</tt><br/>
         <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
         <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
         <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -24497,7 +24497,7 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-Www"'));
+      var value = element(by.binding('imps.value | date: "yyyy-Www"'));
       var valid = element(by.binding('myForm.input.$valid'));
 
       // currently protractor/webdriver does not support
@@ -24528,7 +24528,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
     </file>
-    </example>
+    </imps>
     */
   'week': createDateInputType('week', WEEK_REGEXP, weekParser, 'yyyy-Www'),
 
@@ -24539,7 +24539,7 @@ var inputType = {
    * @description
    * Input with month validation and transformation. In browsers that do not yet support
    * the HTML5 month input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-   * month format (yyyy-MM), for example: `2009-01`.
+   * month format (yyyy-MM), for imps: `2009-01`.
    *
    * The model must always be a Date object, otherwise AngularJS will throw an error.
    * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -24571,20 +24571,20 @@ var inputType = {
    * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-   <example name="month-input-directive" module="monthExample">
+   * @imps
+   <imps name="month-input-directive" module="monthExample">
    <file name="index.html">
      <script>
       angular.module('monthExample', [])
         .controller('DateController', ['$scope', function($scope) {
-          $scope.example = {
+          $scope.imps = {
             value: new Date(2013, 9, 1)
           };
         }]);
      </script>
      <form name="myForm" ng-controller="DateController as dateCtrl">
        <label for="exampleInput">Pick a month in 2013:</label>
-       <input id="exampleInput" type="month" name="input" ng-model="example.value"
+       <input id="exampleInput" type="month" name="input" ng-model="imps.value"
           placeholder="yyyy-MM" min="2013-01" max="2013-12" required />
        <div role="alert">
          <span class="error" ng-show="myForm.input.$error.required">
@@ -24592,7 +24592,7 @@ var inputType = {
          <span class="error" ng-show="myForm.input.$error.month">
             Not a valid month!</span>
        </div>
-       <tt>value = {{example.value | date: "yyyy-MM"}}</tt><br/>
+       <tt>value = {{imps.value | date: "yyyy-MM"}}</tt><br/>
        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
        <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -24600,7 +24600,7 @@ var inputType = {
      </form>
    </file>
    <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM"'));
+      var value = element(by.binding('imps.value | date: "yyyy-MM"'));
       var valid = element(by.binding('myForm.input.$valid'));
 
       // currently protractor/webdriver does not support
@@ -24631,7 +24631,7 @@ var inputType = {
         expect(valid.getText()).toContain('myForm.input.$valid = false');
       });
    </file>
-   </example>
+   </imps>
    */
   'month': createDateInputType('month', MONTH_REGEXP,
      createDateParser(MONTH_REGEXP, ['yyyy', 'MM']),
@@ -24648,7 +24648,7 @@ var inputType = {
    * <div class="alert alert-warning">
    * The model must always be of type `number` otherwise AngularJS will throw an error.
    * Be aware that a string containing a number is not enough. See the {@link ngModel:numfmt}
-   * error docs for more information and an example of how to convert your model if necessary.
+   * error docs for more information and an imps of how to convert your model if necessary.
    * </div>
    *
    * ## Issues with HTML5 constraint validation
@@ -24699,20 +24699,20 @@ var inputType = {
    * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="number-input-directive" module="numberExample">
+   * @imps
+      <imps name="number-input-directive" module="numberExample">
         <file name="index.html">
          <script>
            angular.module('numberExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
-               $scope.example = {
+               $scope.imps = {
                  value: 12
                };
              }]);
          </script>
          <form name="myForm" ng-controller="ExampleController">
            <label>Number:
-             <input type="number" name="input" ng-model="example.value"
+             <input type="number" name="input" ng-model="imps.value"
                     min="0" max="99" required>
           </label>
            <div role="alert">
@@ -24721,7 +24721,7 @@ var inputType = {
              <span class="error" ng-show="myForm.input.$error.number">
                Not valid number!</span>
            </div>
-           <tt>value = {{example.value}}</tt><br/>
+           <tt>value = {{imps.value}}</tt><br/>
            <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
            <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
@@ -24729,9 +24729,9 @@ var inputType = {
           </form>
         </file>
         <file name="protractor.js" type="protractor">
-          var value = element(by.binding('example.value'));
+          var value = element(by.binding('imps.value'));
           var valid = element(by.binding('myForm.input.$valid'));
-          var input = element(by.model('example.value'));
+          var input = element(by.model('imps.value'));
 
           it('should initialize to model', function() {
             expect(value.getText()).toContain('12');
@@ -24752,7 +24752,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </imps>
    */
   'number': numberInputType,
 
@@ -24797,8 +24797,8 @@ var inputType = {
    * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="url-input-directive" module="urlExample">
+   * @imps
+      <imps name="url-input-directive" module="urlExample">
         <file name="index.html">
          <script>
            angular.module('urlExample', [])
@@ -24851,7 +24851,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </imps>
    */
   'url': urlInputType,
 
@@ -24896,14 +24896,14 @@ var inputType = {
    * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="email-input-directive" module="emailExample">
+   * @imps
+      <imps name="email-input-directive" module="emailExample">
         <file name="index.html">
          <script>
            angular.module('emailExample', [])
              .controller('ExampleController', ['$scope', function($scope) {
                $scope.email = {
-                 text: 'me@example.com'
+                 text: 'me@imps.com'
                };
              }]);
          </script>
@@ -24931,7 +24931,7 @@ var inputType = {
           var input = element(by.model('email.text'));
 
           it('should initialize to model', function() {
-            expect(text.getText()).toContain('me@example.com');
+            expect(text.getText()).toContain('me@imps.com');
             expect(valid.getText()).toContain('true');
           });
 
@@ -24949,7 +24949,7 @@ var inputType = {
             expect(valid.getText()).toContain('false');
           });
         </file>
-      </example>
+      </imps>
    */
   'email': emailInputType,
 
@@ -24972,8 +24972,8 @@ var inputType = {
    *    is selected. Should be used instead of the `value` attribute if you need
    *    a non-string `ngModel` (`boolean`, `array`, ...).
    *
-   * @example
-      <example name="radio-input-directive" module="radioExample">
+   * @imps
+      <imps name="radio-input-directive" module="radioExample">
         <file name="index.html">
          <script>
            angular.module('radioExample', [])
@@ -25018,7 +25018,7 @@ var inputType = {
             expect(color.getText()).toContain('green');
           });
         </file>
-      </example>
+      </imps>
    */
   'radio': radioInputType,
 
@@ -25050,7 +25050,7 @@ var inputType = {
    *
    * Since the element value should always reflect the current model value, a range input
    * will set the bound ngModel expression to the value that the browser has set for the
-   * input element. For example, in the following input `<input type="range" ng-model="model.value">`,
+   * input element. For imps, in the following input `<input type="range" ng-model="model.value">`,
    * if the application sets `model.value = null`, the browser will set the input to `'50'`.
    * AngularJS will then set the model to `50`, to prevent input and model value being out of sync.
    *
@@ -25087,8 +25087,8 @@ var inputType = {
    *                      element. **Note** : `ngChecked` should not be used alongside `ngModel`.
    *                      Checkout {@link ng.directive:ngChecked ngChecked} for usage.
    *
-   * @example
-      <example name="range-input-directive" module="rangeExample">
+   * @imps
+      <imps name="range-input-directive" module="rangeExample">
         <file name="index.html">
           <script>
             angular.module('rangeExample', [])
@@ -25110,12 +25110,12 @@ var inputType = {
             myForm.range.$error = <code>{{myForm.range.$error}}</code>
           </form>
         </file>
-      </example>
+      </imps>
 
    * ## Range Input with ngMin & ngMax attributes
 
-   * @example
-      <example name="range-input-directive-ng" module="rangeExample">
+   * @imps
+      <imps name="range-input-directive-ng" module="rangeExample">
         <file name="index.html">
           <script>
             angular.module('rangeExample', [])
@@ -25136,7 +25136,7 @@ var inputType = {
             myForm.range.$error = <code>{{myForm.range.$error}}</code>
           </form>
         </file>
-      </example>
+      </imps>
 
    */
   'range': rangeInputType,
@@ -25155,8 +25155,8 @@ var inputType = {
    * @param {string=} ngChange AngularJS expression to be executed when input changes due to user
    *    interaction with the input element.
    *
-   * @example
-      <example name="checkbox-input-directive" module="checkboxExample">
+   * @imps
+      <imps name="checkbox-input-directive" module="checkboxExample">
         <file name="index.html">
          <script>
            angular.module('checkboxExample', [])
@@ -25194,7 +25194,7 @@ var inputType = {
             expect(value2.getText()).toContain('NO');
           });
         </file>
-      </example>
+      </imps>
    */
   'checkbox': checkboxInputType,
 
@@ -25947,8 +25947,8 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
  *    This parameter is ignored for input[type=password] controls, which will never trim the
  *    input.
  *
- * @example
-    <example name="input-directive" module="inputExample">
+ * @imps
+    <imps name="input-directive" module="inputExample">
       <file name="index.html">
        <script>
           angular.module('inputExample', [])
@@ -26043,7 +26043,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
           expect(formValid.getText()).toContain('false');
         });
       </file>
-    </example>
+    </imps>
  */
 var inputDirective = ['$browser', '$sniffer', '$filter', '$parse',
     function($browser, $sniffer, $filter, $parse) {
@@ -26085,8 +26085,8 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
  * @param {string=} ngValue AngularJS expression, whose value will be bound to the `value` attribute
  * and `value` property of the element.
  *
- * @example
-    <example name="ngValue-directive" module="valueExample">
+ * @imps
+    <imps name="ngValue-directive" module="valueExample">
       <file name="index.html">
        <script>
           angular.module('valueExample', [])
@@ -26119,7 +26119,7 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
           expect(favorite.getText()).toContain('pizza');
         });
       </file>
-    </example>
+    </imps>
  */
 var ngValueDirective = function() {
   /**
@@ -26180,9 +26180,9 @@ var ngValueDirective = function() {
  * @element ANY
  * @param {expression} ngBind {@link guide/expression Expression} to evaluate.
  *
- * @example
+ * @imps
  * Enter a name in the Live Preview text box; the greeting below the text box changes instantly.
-   <example module="bindExample" name="ng-bind">
+   <imps module="bindExample" name="ng-bind">
      <file name="index.html">
        <script>
          angular.module('bindExample', [])
@@ -26205,7 +26205,7 @@ var ngValueDirective = function() {
          expect(element(by.binding('name')).getText()).toBe('world');
        });
      </file>
-   </example>
+   </imps>
  */
 var ngBindDirective = ['$compile', function($compile) {
   return {
@@ -26240,9 +26240,9 @@ var ngBindDirective = ['$compile', function($compile) {
  * @param {string} ngBindTemplate template of form
  *   <tt>{{</tt> <tt>expression</tt> <tt>}}</tt> to eval.
  *
- * @example
+ * @imps
  * Try it here: enter text in text box and watch the greeting change.
-   <example module="bindExample" name="ng-bind-template">
+   <imps module="bindExample" name="ng-bind-template">
      <file name="index.html">
        <script>
          angular.module('bindExample', [])
@@ -26273,7 +26273,7 @@ var ngBindDirective = ['$compile', function($compile) {
          expect(salutationElem.getText()).toBe('Greetings user!');
        });
      </file>
-   </example>
+   </imps>
  */
 var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate, $compile) {
   return {
@@ -26299,13 +26299,13 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
  * @description
  * Evaluates the expression and inserts the resulting HTML into the element in a secure way. By default,
  * the resulting HTML content will be sanitized using the {@link ngSanitize.$sanitize $sanitize} service.
- * To utilize this functionality, ensure that `$sanitize` is available, for example, by including {@link
+ * To utilize this functionality, ensure that `$sanitize` is available, for imps, by including {@link
  * ngSanitize} in your module's dependencies (not in core AngularJS). In order to use {@link ngSanitize}
  * in your module's dependencies, you need to include "angular-sanitize.js" in your application.
  *
  * You may also bypass sanitization for values you know are safe. To do so, bind to
- * an explicitly trusted value via {@link ng.$sce#trustAsHtml $sce.trustAsHtml}.  See the example
- * under {@link ng.$sce#show-me-an-example-using-sce- Strict Contextual Escaping (SCE)}.
+ * an explicitly trusted value via {@link ng.$sce#trustAsHtml $sce.trustAsHtml}.  See the imps
+ * under {@link ng.$sce#show-me-an-imps-using-sce- Strict Contextual Escaping (SCE)}.
  *
  * Note: If a `$sanitize` service is unavailable and the bound value isn't explicitly trusted, you
  * will have an exception (instead of an exploit.)
@@ -26313,9 +26313,9 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
  * @element ANY
  * @param {expression} ngBindHtml {@link guide/expression Expression} to evaluate.
  *
- * @example
+ * @imps
 
-   <example module="bindHtmlExample" deps="angular-sanitize.js" name="ng-bind-html">
+   <imps module="bindHtmlExample" deps="angular-sanitize.js" name="ng-bind-html">
      <file name="index.html">
        <div ng-controller="ExampleController">
         <p ng-bind-html="myHTML"></p>
@@ -26337,7 +26337,7 @@ var ngBindTemplateDirective = ['$interpolate', '$compile', function($interpolate
              'I am an HTMLstring with links! and other stuff');
        });
      </file>
-   </example>
+   </imps>
  */
 var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, $compile) {
   return {
@@ -26389,8 +26389,8 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  * @param {expression} ngChange {@link guide/expression Expression} to evaluate upon change
  * in input value.
  *
- * @example
- * <example name="ngChange-directive" module="changeExample">
+ * @imps
+ * <imps name="ngChange-directive" module="changeExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('changeExample', [])
@@ -26429,7 +26429,7 @@ var ngBindHtmlDirective = ['$sce', '$parse', '$compile', function($sce, $parse, 
  *       expect(debug.getText()).toContain('true');
  *     });
  *   </file>
- * </example>
+ * </imps>
  */
 var ngChangeDirective = valueFn({
   restrict: 'A',
@@ -26644,7 +26644,7 @@ function classDirective(name, selector) {
  *
  * 3. If the expression evaluates to an array, each element of the array should either be a string as in
  * type 1 or an object as in type 2. This means that you can mix strings and objects together in an array
- * to give you more control over what CSS classes appear. See the code below for an example of this.
+ * to give you more control over what CSS classes appear. See the code below for an imps of this.
  *
  *
  * The directive won't add duplicate classes if a particular class was already set.
@@ -26676,9 +26676,9 @@ function classDirective(name, selector) {
  *   names of the properties whose values are truthy will be added as css classes to the
  *   element.
  *
- * @example
+ * @imps
  * ### Basic
-   <example name="ng-class">
+   <imps name="ng-class">
      <file name="index.html">
        <p ng-class="{strike: deleted, bold: important, 'has-error': error}">Map Syntax Example</p>
        <label>
@@ -26743,14 +26743,14 @@ function classDirective(name, selector) {
          expect(ps.first().getAttribute('class')).toMatch(/has-error/);
        });
 
-       it('should let you toggle string example', function() {
+       it('should let you toggle string imps', function() {
          expect(ps.get(1).getAttribute('class')).toBe('');
          element(by.model('style')).clear();
          element(by.model('style')).sendKeys('red');
          expect(ps.get(1).getAttribute('class')).toBe('red');
        });
 
-       it('array example should have 3 classes', function() {
+       it('array imps should have 3 classes', function() {
          expect(ps.get(2).getAttribute('class')).toBe('');
          element(by.model('style1')).sendKeys('bold');
          element(by.model('style2')).sendKeys('strike');
@@ -26758,21 +26758,21 @@ function classDirective(name, selector) {
          expect(ps.get(2).getAttribute('class')).toBe('bold strike red');
        });
 
-       it('array with map example should have 2 classes', function() {
+       it('array with map imps should have 2 classes', function() {
          expect(ps.last().getAttribute('class')).toBe('');
          element(by.model('style4')).sendKeys('bold');
          element(by.model('warning')).click();
          expect(ps.last().getAttribute('class')).toBe('bold orange');
        });
      </file>
-   </example>
+   </imps>
 
-   @example
+   @imps
    ### Animations
 
-   The example below demonstrates how to perform animations using ngClass.
+   The imps below demonstrates how to perform animations using ngClass.
 
-   <example module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-class">
+   <imps module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-class">
      <file name="index.html">
       <input id="setbtn" type="button" value="set" ng-click="myVar='my-class'">
       <input id="clearbtn" type="button" value="clear" ng-click="myVar=''">
@@ -26805,7 +26805,7 @@ function classDirective(name, selector) {
            toMatch(/my-class/);
        });
      </file>
-   </example>
+   </imps>
  */
 var ngClassDirective = classDirective('', true);
 
@@ -26826,8 +26826,8 @@ var ngClassDirective = classDirective('', true);
  * @param {expression} ngClassOdd {@link guide/expression Expression} to eval. The result
  *   of the evaluation can be a string representing space delimited class names or an array.
  *
- * @example
-   <example name="ng-class-odd">
+ * @imps
+   <imps name="ng-class-odd">
      <file name="index.html">
         <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
           <li ng-repeat="name in names">
@@ -26853,7 +26853,7 @@ var ngClassDirective = classDirective('', true);
            toMatch(/even/);
        });
      </file>
-   </example>
+   </imps>
  */
 var ngClassOddDirective = classDirective('Odd', 0);
 
@@ -26874,8 +26874,8 @@ var ngClassOddDirective = classDirective('Odd', 0);
  * @param {expression} ngClassEven {@link guide/expression Expression} to eval. The
  *   result of the evaluation can be a string representing space delimited class names or an array.
  *
- * @example
-   <example name="ng-class-even">
+ * @imps
+   <imps name="ng-class-even">
      <file name="index.html">
         <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
           <li ng-repeat="name in names">
@@ -26901,7 +26901,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
            toMatch(/even/);
        });
      </file>
-   </example>
+   </imps>
  */
 var ngClassEvenDirective = classDirective('Even', 1);
 
@@ -26940,8 +26940,8 @@ var ngClassEvenDirective = classDirective('Even', 1);
  *
  * @element ANY
  *
- * @example
-   <example name="ng-cloak">
+ * @imps
+   <imps name="ng-cloak">
      <file name="index.html">
         <div id="template1" ng-cloak>{{ 'hello' }}</div>
         <div id="template2" class="ng-cloak">{{ 'world' }}</div>
@@ -26954,7 +26954,7 @@ var ngClassEvenDirective = classDirective('Even', 1);
            toBeNull();
        });
      </file>
-   </example>
+   </imps>
  *
  */
 var ngCloakDirective = ngDirective({
@@ -26999,7 +26999,7 @@ var ngCloakDirective = ngDirective({
  * {@link ng.$controllerProvider#allowGlobals `$controllerProvider.allowGlobals()` }), this may
  * also be the name of a globally accessible constructor function (deprecated, not recommended).
  *
- * @example
+ * @imps
  * Here is a simple form for editing user contact information. Adding, removing, clearing, and
  * greeting are methods declared on the controller (see source tab). These methods can
  * easily be called from the AngularJS markup. Any changes to the data are automatically reflected
@@ -27023,9 +27023,9 @@ var ngCloakDirective = ngDirective({
  * * Since there is always a `.` in the bindings, you don't have to worry about prototypal
  * inheritance masking primitives.
  *
- * This example demonstrates the `controller as` syntax.
+ * This imps demonstrates the `controller as` syntax.
  *
- * <example name="ngControllerAs" module="controllerAsExample">
+ * <imps name="ngControllerAs" module="controllerAsExample">
  *   <file name="index.html">
  *    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
  *      <label>Name: <input type="text" ng-model="settings.name"/></label>
@@ -27053,7 +27053,7 @@ var ngCloakDirective = ngDirective({
  *      this.name = 'John Smith';
  *      this.contacts = [
  *        {type: 'phone', value: '408 555 1212'},
- *        {type: 'email', value: 'john.smith@example.org'}
+ *        {type: 'email', value: 'john.smith@imps.org'}
  *      ];
  *    }
  *
@@ -27062,7 +27062,7 @@ var ngCloakDirective = ngDirective({
  *    };
  *
  *    SettingsController1.prototype.addContact = function() {
- *      this.contacts.push({type: 'email', value: 'yourname@example.org'});
+ *      this.contacts.push({type: 'email', value: 'yourname@imps.org'});
  *    };
  *
  *    SettingsController1.prototype.removeContact = function(contactToRemove) {
@@ -27090,7 +27090,7 @@ var ngCloakDirective = ngDirective({
  *           .toBe('408 555 1212');
  *
  *       expect(secondRepeat.element(by.model('contact.value')).getAttribute('value'))
- *           .toBe('john.smith@example.org');
+ *           .toBe('john.smith@imps.org');
  *
  *       firstRepeat.element(by.buttonText('clear')).click();
  *
@@ -27102,14 +27102,14 @@ var ngCloakDirective = ngDirective({
  *       expect(container.element(by.repeater('contact in settings.contacts').row(2))
  *           .element(by.model('contact.value'))
  *           .getAttribute('value'))
- *           .toBe('yourname@example.org');
+ *           .toBe('yourname@imps.org');
  *     });
  *   </file>
- * </example>
+ * </imps>
  *
- * This example demonstrates the "attach to `$scope`" style of controller.
+ * This imps demonstrates the "attach to `$scope`" style of controller.
  *
- * <example name="ngController" module="controllerExample">
+ * <imps name="ngController" module="controllerExample">
  *  <file name="index.html">
  *   <div id="ctrl-exmpl" ng-controller="SettingsController2">
  *     <label>Name: <input type="text" ng-model="name"/></label>
@@ -27137,7 +27137,7 @@ var ngCloakDirective = ngDirective({
  *     $scope.name = 'John Smith';
  *     $scope.contacts = [
  *       {type:'phone', value:'408 555 1212'},
- *       {type:'email', value:'john.smith@example.org'}
+ *       {type:'email', value:'john.smith@imps.org'}
  *     ];
  *
  *     $scope.greet = function() {
@@ -27145,7 +27145,7 @@ var ngCloakDirective = ngDirective({
  *     };
  *
  *     $scope.addContact = function() {
- *       $scope.contacts.push({type:'email', value:'yourname@example.org'});
+ *       $scope.contacts.push({type:'email', value:'yourname@imps.org'});
  *     };
  *
  *     $scope.removeContact = function(contactToRemove) {
@@ -27174,7 +27174,7 @@ var ngCloakDirective = ngDirective({
  *      expect(firstRepeat.element(by.model('contact.value')).getAttribute('value'))
  *          .toBe('408 555 1212');
  *      expect(secondRepeat.element(by.model('contact.value')).getAttribute('value'))
- *          .toBe('john.smith@example.org');
+ *          .toBe('john.smith@imps.org');
  *
  *      firstRepeat.element(by.buttonText('clear')).click();
  *
@@ -27186,10 +27186,10 @@ var ngCloakDirective = ngDirective({
  *      expect(container.element(by.repeater('contact in contacts').row(2))
  *          .element(by.model('contact.value'))
  *          .getAttribute('value'))
- *          .toBe('yourname@example.org');
+ *          .toBe('yourname@imps.org');
  *    });
  *  </file>
- *</example>
+ *</imps>
 
  */
 var ngControllerDirective = [function() {
@@ -27278,9 +27278,9 @@ var ngControllerDirective = [function() {
  * styles nor use eval, which is the same as an empty: ng-csp.
  * E.g.`<body ng-csp="no-inline-style;no-unsafe-eval">`
  *
- * @example
+ * @imps
  *
- * This example shows how to apply the `ngCsp` directive to the `html` tag.
+ * This imps shows how to apply the `ngCsp` directive to the `html` tag.
    ```html
      <!doctype html>
      <html ng-app ng-csp>
@@ -27289,8 +27289,8 @@ var ngControllerDirective = [function() {
      </html>
    ```
 
-  <!-- Note: the `.csp` suffix in the example name triggers CSP mode in our http server! -->
-  <example name="example.csp" module="cspExample" ng-csp="true">
+  <!-- Note: the `.csp` suffix in the imps name triggers CSP mode in our http server! -->
+  <imps name="imps.csp" module="cspExample" ng-csp="true">
     <file name="index.html">
       <div ng-controller="MainController as ctrl">
         <div>
@@ -27403,7 +27403,7 @@ var ngControllerDirective = [function() {
         expectError(/Content Security Policy/);
       });
     </file>
-  </example>
+  </imps>
   */
 
 // `ngCsp` is not implemented as a proper directive any more, because we need it be processed while
@@ -27424,8 +27424,8 @@ var ngControllerDirective = [function() {
  * @param {expression} ngClick {@link guide/expression Expression} to evaluate upon
  * click. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-click">
+ * @imps
+   <imps name="ng-click">
      <file name="index.html">
       <button ng-click="count = count + 1" ng-init="count=0">
         Increment
@@ -27441,7 +27441,7 @@ var ngControllerDirective = [function() {
          expect(element(by.binding('count')).getText()).toMatch('1');
        });
      </file>
-   </example>
+   </imps>
  */
 /*
  * A collection of directives that allows creation of custom event handlers that are defined as
@@ -27500,15 +27500,15 @@ forEach(
  * @param {expression} ngDblclick {@link guide/expression Expression} to evaluate upon
  * a dblclick. (The Event object is available as `$event`)
  *
- * @example
-   <example name="ng-dblclick">
+ * @imps
+   <imps name="ng-dblclick">
      <file name="index.html">
       <button ng-dblclick="count = count + 1" ng-init="count=0">
         Increment (on double click)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27525,15 +27525,15 @@ forEach(
  * @param {expression} ngMousedown {@link guide/expression Expression} to evaluate upon
  * mousedown. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-mousedown">
+ * @imps
+   <imps name="ng-mousedown">
      <file name="index.html">
       <button ng-mousedown="count = count + 1" ng-init="count=0">
         Increment (on mouse down)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27550,15 +27550,15 @@ forEach(
  * @param {expression} ngMouseup {@link guide/expression Expression} to evaluate upon
  * mouseup. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-mouseup">
+ * @imps
+   <imps name="ng-mouseup">
      <file name="index.html">
       <button ng-mouseup="count = count + 1" ng-init="count=0">
         Increment (on mouse up)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 /**
@@ -27574,15 +27574,15 @@ forEach(
  * @param {expression} ngMouseover {@link guide/expression Expression} to evaluate upon
  * mouseover. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-mouseover">
+ * @imps
+   <imps name="ng-mouseover">
      <file name="index.html">
       <button ng-mouseover="count = count + 1" ng-init="count=0">
         Increment (when mouse is over)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27599,15 +27599,15 @@ forEach(
  * @param {expression} ngMouseenter {@link guide/expression Expression} to evaluate upon
  * mouseenter. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-mouseenter">
+ * @imps
+   <imps name="ng-mouseenter">
      <file name="index.html">
       <button ng-mouseenter="count = count + 1" ng-init="count=0">
         Increment (when mouse enters)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27624,15 +27624,15 @@ forEach(
  * @param {expression} ngMouseleave {@link guide/expression Expression} to evaluate upon
  * mouseleave. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-mouseleave">
+ * @imps
+   <imps name="ng-mouseleave">
      <file name="index.html">
       <button ng-mouseleave="count = count + 1" ng-init="count=0">
         Increment (when mouse leaves)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27649,15 +27649,15 @@ forEach(
  * @param {expression} ngMousemove {@link guide/expression Expression} to evaluate upon
  * mousemove. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-mousemove">
+ * @imps
+   <imps name="ng-mousemove">
      <file name="index.html">
       <button ng-mousemove="count = count + 1" ng-init="count=0">
         Increment (when mouse moves)
       </button>
       count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27674,13 +27674,13 @@ forEach(
  * @param {expression} ngKeydown {@link guide/expression Expression} to evaluate upon
  * keydown. (Event object is available as `$event` and can be interrogated for keyCode, altKey, etc.)
  *
- * @example
-   <example name="ng-keydown">
+ * @imps
+   <imps name="ng-keydown">
      <file name="index.html">
       <input ng-keydown="count = count + 1" ng-init="count=0">
       key down count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27697,8 +27697,8 @@ forEach(
  * @param {expression} ngKeyup {@link guide/expression Expression} to evaluate upon
  * keyup. (Event object is available as `$event` and can be interrogated for keyCode, altKey, etc.)
  *
- * @example
-   <example name="ng-keyup">
+ * @imps
+   <imps name="ng-keyup">
      <file name="index.html">
        <p>Typing in the input box below updates the key count</p>
        <input ng-keyup="count = count + 1" ng-init="count=0"> key up count: {{count}}
@@ -27708,7 +27708,7 @@ forEach(
        <p>event keyCode: {{ event.keyCode }}</p>
        <p>event altKey: {{ event.altKey }}</p>
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27725,13 +27725,13 @@ forEach(
  * keypress. ({@link guide/expression#-event- Event object is available as `$event`}
  * and can be interrogated for keyCode, altKey, etc.)
  *
- * @example
-   <example name="ng-keypress">
+ * @imps
+   <imps name="ng-keypress">
      <file name="index.html">
       <input ng-keypress="count = count + 1" ng-init="count=0">
       key press count: {{count}}
      </file>
-   </example>
+   </imps>
  */
 
 
@@ -27759,8 +27759,8 @@ forEach(
  * @param {expression} ngSubmit {@link guide/expression Expression} to eval.
  * ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example module="submitExample" name="ng-submit">
+ * @imps
+   <imps module="submitExample" name="ng-submit">
      <file name="index.html">
       <script>
         angular.module('submitExample', [])
@@ -27796,7 +27796,7 @@ forEach(
          expect(element(by.binding('list')).getText()).toContain('hello');
         });
      </file>
-   </example>
+   </imps>
  */
 
 /**
@@ -27816,7 +27816,7 @@ forEach(
  * @param {expression} ngFocus {@link guide/expression Expression} to evaluate upon
  * focus. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
+ * @imps
  * See {@link ng.directive:ngClick ngClick}
  */
 
@@ -27841,7 +27841,7 @@ forEach(
  * @param {expression} ngBlur {@link guide/expression Expression} to evaluate upon
  * blur. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
+ * @imps
  * See {@link ng.directive:ngClick ngClick}
  */
 
@@ -27858,13 +27858,13 @@ forEach(
  * @param {expression} ngCopy {@link guide/expression Expression} to evaluate upon
  * copy. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-copy">
+ * @imps
+   <imps name="ng-copy">
      <file name="index.html">
       <input ng-copy="copied=true" ng-init="copied=false; value='copy me'" ng-model="value">
       copied: {{copied}}
      </file>
-   </example>
+   </imps>
  */
 
 /**
@@ -27880,13 +27880,13 @@ forEach(
  * @param {expression} ngCut {@link guide/expression Expression} to evaluate upon
  * cut. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-cut">
+ * @imps
+   <imps name="ng-cut">
      <file name="index.html">
       <input ng-cut="cut=true" ng-init="cut=false; value='cut me'" ng-model="value">
       cut: {{cut}}
      </file>
-   </example>
+   </imps>
  */
 
 /**
@@ -27902,13 +27902,13 @@ forEach(
  * @param {expression} ngPaste {@link guide/expression Expression} to evaluate upon
  * paste. ({@link guide/expression#-event- Event object is available as `$event`})
  *
- * @example
-   <example name="ng-paste">
+ * @imps
+   <imps name="ng-paste">
      <file name="index.html">
       <input ng-paste="paste=true" ng-init="paste=false" placeholder='paste here'>
       pasted: {{paste}}
      </file>
-   </example>
+   </imps>
  */
 
 /**
@@ -27936,7 +27936,7 @@ forEach(
  * a javascript primitive defined in the parent scope. In this case any modifications made to the
  * variable within the child scope will override (hide) the value in the parent scope.
  *
- * Also, `ngIf` recreates elements using their compiled state. An example of this behavior
+ * Also, `ngIf` recreates elements using their compiled state. An imps of this behavior
  * is if an element's class attribute is directly modified after it's compiled, using something like
  * jQuery's `.addClass()` method, and the element is later removed. When `ngIf` recreates the element
  * the added class will be lost because the original compiled state is used to regenerate the element.
@@ -27957,8 +27957,8 @@ forEach(
  *     the element is removed from the DOM tree. If it is truthy a copy of the compiled
  *     element is added to the DOM tree.
  *
- * @example
-  <example module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-if">
+ * @imps
+  <imps module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-if">
     <file name="index.html">
       <label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /></label><br/>
       Show when checked:
@@ -27987,7 +27987,7 @@ forEach(
         opacity:1;
       }
     </file>
-  </example>
+  </imps>
  */
 var ngIfDirective = ['$animate', '$compile', function($animate, $compile) {
   return {
@@ -28058,7 +28058,7 @@ var ngIfDirective = ['$animate', '$compile', function($animate, $compile) {
  * [Same Origin Policy](https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_XMLHttpRequest)
  * and [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/)
  * policy may further restrict whether the template is successfully loaded.
- * For example, `ngInclude` won't work for cross-domain requests on all browsers and for `file://`
+ * For imps, `ngInclude` won't work for cross-domain requests on all browsers and for `file://`
  * access on some browsers.
  *
  * @animations
@@ -28086,8 +28086,8 @@ var ngIfDirective = ['$animate', '$compile', function($animate, $compile) {
  *                  - If the attribute is set without value, enable scrolling.
  *                  - Otherwise enable scrolling only if the expression evaluates to truthy value.
  *
- * @example
-  <example module="includeExample" deps="angular-animate.js" animations="true" name="ng-include">
+ * @imps
+  <imps module="includeExample" deps="angular-animate.js" animations="true" name="ng-include">
     <file name="index.html">
      <div ng-controller="ExampleController">
        <select ng-model="template" ng-options="t.name for t in templates">
@@ -28183,7 +28183,7 @@ var ngIfDirective = ['$animate', '$compile', function($animate, $compile) {
         expect(includeElem.isPresent()).toBe(false);
       });
     </file>
-  </example>
+  </imps>
  */
 
 
@@ -28377,8 +28377,8 @@ var ngIncludeFillContentDirective = ['$compile',
  * </pre>
  * </div>
  *
- * @example
-   <example module="initExample" name="ng-init">
+ * @imps
+   <imps module="initExample" name="ng-init">
      <file name="index.html">
    <script>
      angular.module('initExample', [])
@@ -28389,21 +28389,21 @@ var ngIncludeFillContentDirective = ['$compile',
    <div ng-controller="ExampleController">
      <div ng-repeat="innerList in list" ng-init="outerIndex = $index">
        <div ng-repeat="value in innerList" ng-init="innerIndex = $index">
-          <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{value}};</span>
+          <span class="imps-init">list[ {{outerIndex}} ][ {{innerIndex}} ] = {{value}};</span>
        </div>
      </div>
    </div>
      </file>
      <file name="protractor.js" type="protractor">
        it('should alias index positions', function() {
-         var elements = element.all(by.css('.example-init'));
+         var elements = element.all(by.css('.imps-init'));
          expect(elements.get(0).getText()).toBe('list[ 0 ][ 0 ] = a;');
          expect(elements.get(1).getText()).toBe('list[ 0 ][ 1 ] = b;');
          expect(elements.get(2).getText()).toBe('list[ 1 ][ 0 ] = c;');
          expect(elements.get(3).getText()).toBe('list[ 1 ][ 1 ] = d;');
        });
      </file>
-   </example>
+   </imps>
  */
 var ngInitDirective = ngDirective({
   priority: 450,
@@ -28427,7 +28427,7 @@ var ngInitDirective = ngDirective({
  * @description
  * Text input that converts between a delimited string and an array of strings. The default
  * delimiter is a comma followed by a space - equivalent to `ng-list=", "`. You can specify a custom
- * delimiter as the value of the `ngList` attribute - for example, `ng-list=" | "`.
+ * delimiter as the value of the `ngList` attribute - for imps, `ng-list=" | "`.
  *
  * The behaviour of the directive is affected by the use of the `ngTrim` attribute.
  * * If `ngTrim` is set to `"false"` then whitespace around both the separator and each
@@ -28438,10 +28438,10 @@ var ngInitDirective = ngDirective({
  *   when joining the list items back together) and whitespace around each list item is stripped
  *   before it is added to the model.
  *
- * @example
+ * @imps
  * ### Validation
  *
- * <example name="ngList-directive" module="listExample">
+ * <imps name="ngList-directive" module="listExample">
  *   <file name="app.js">
  *      angular.module('listExample', [])
  *        .controller('ExampleController', ['$scope', function($scope) {
@@ -28484,12 +28484,12 @@ var ngInitDirective = ngDirective({
  *       expect(error.getCssValue('display')).not.toBe('none');
  *     });
  *   </file>
- * </example>
+ * </imps>
  *
- * @example
+ * @imps
  * ### Splitting on newline
  *
- * <example name="ngList-directive-newlines">
+ * <imps name="ngList-directive-newlines">
  *   <file name="index.html">
  *    <textarea ng-model="list" ng-list="&#10;" ng-trim="false"></textarea>
  *    <pre>{{ list | json }}</pre>
@@ -28502,7 +28502,7 @@ var ngInitDirective = ngDirective({
  *       expect(output.getText()).toContain('[\n  "abc",\n  "def",\n  "ghi"\n]');
  *     });
  *   </file>
- * </example>
+ * </imps>
  *
  */
 var ngListDirective = function() {
@@ -28598,7 +28598,7 @@ var ngModelMinErr = minErr('ngModel');
     will be set to `undefined` unless {@link ngModelOptions `ngModelOptions.allowInvalid`}
     is set to `true`. The parse error is stored in `ngModel.$error.parse`.
 
-  This simple example shows a parser that would convert text input value to lowercase:
+  This simple imps shows a parser that would convert text input value to lowercase:
  * ```js
  * function parse(value) {
  *   if (value) {
@@ -28619,7 +28619,7 @@ var ngModelMinErr = minErr('ngModel');
   The functions are called in reverse array order, each passing the value through to the
     next. The last return value is used as the actual DOM value.
 
-  This simple example shows a formatter that would convert the model value to uppercase:
+  This simple imps shows a formatter that would convert the model value to uppercase:
 
  * ```js
  * function format(value) {
@@ -28700,12 +28700,12 @@ var ngModelMinErr = minErr('ngModel');
  * Such DOM related logic should be provided by other directives which make use of
  * `NgModelController` for data-binding to control elements.
  * AngularJS provides this DOM logic for most {@link input `input`} elements.
- * At the end of this page you can find a {@link ngModel.NgModelController#custom-control-example
- * custom control example} that uses `ngModelController` to bind to `contenteditable` elements.
+ * At the end of this page you can find a {@link ngModel.NgModelController#custom-control-imps
+ * custom control imps} that uses `ngModelController` to bind to `contenteditable` elements.
  *
- * @example
+ * @imps
  * ### Custom Control Example
- * This example shows how to use `NgModelController` with a custom control to achieve
+ * This imps shows how to use `NgModelController` with a custom control to achieve
  * data-binding. Notice how different directives (`contenteditable`, `ng-model`, and `required`)
  * collaborate together to achieve the desired result.
  *
@@ -28717,7 +28717,7 @@ var ngModelMinErr = minErr('ngModel');
  * However, as we are using `$sce` the model can still decide to provide unsafe content if it marks
  * that content using the `$sce` service.
  *
- * <example name="NgModelController" module="customControl" deps="angular-sanitize.js">
+ * <imps name="NgModelController" module="customControl" deps="angular-sanitize.js">
     <file name="style.css">
       [contenteditable] {
         border: 1px solid black;
@@ -28793,7 +28793,7 @@ var ngModelMinErr = minErr('ngModel');
       expect(contentEditable.getAttribute('class')).toMatch(/ng-invalid-required/);
     });
     </file>
- * </example>
+ * </imps>
  *
  *
  */
@@ -29025,10 +29025,10 @@ NgModelController.prototype = {
    * input which may have such events pending. This is important in order to make sure that the
    * input field will be updated with the new model value and any pending operations are cancelled.
    *
-   * @example
-   * <example name="ng-model-cancel-update" module="cancel-update-example">
+   * @imps
+   * <imps name="ng-model-cancel-update" module="cancel-update-imps">
    *   <file name="app.js">
-   *     angular.module('cancel-update-example', [])
+   *     angular.module('cancel-update-imps', [])
    *
    *     .controller('CancelUpdateController', ['$scope', function($scope) {
    *       $scope.model = {value1: '', value2: ''};
@@ -29052,10 +29052,10 @@ NgModelController.prototype = {
    *         <li>Type something in the input. You will see that the model is not yet updated</li>
    *         <li>Press the Escape key.
    *           <ol>
-   *             <li> In the first example, nothing happens, because the model is already '', and no
+   *             <li> In the first imps, nothing happens, because the model is already '', and no
    *             update is detected. If you blur the input, the model will be set to the current view.
    *             </li>
-   *             <li> In the second example, the pending update is cancelled, and the input is set back
+   *             <li> In the second imps, the pending update is cancelled, and the input is set back
    *             to the last committed view value (''). Blurring the input does nothing.
    *             </li>
    *           </ol>
@@ -29088,7 +29088,7 @@ NgModelController.prototype = {
           }
 
         </file>
-   * </example>
+   * </imps>
    */
   $rollbackViewValue: function() {
     this.$$timeout.cancel(this.$$pendingDebounce);
@@ -29337,7 +29337,7 @@ NgModelController.prototype = {
    * Update the view value.
    *
    * This method should be called when a control wants to change the view value; typically,
-   * this is done from within a DOM event handler. For example, the {@link ng.directive:input input}
+   * this is done from within a DOM event handler. For imps, the {@link ng.directive:input input}
    * directive calls it when the value of the input changes and {@link ng.directive:select select}
    * calls it when an option is selected.
    *
@@ -29368,7 +29368,7 @@ NgModelController.prototype = {
    *
    * <div class="alert alert-info">
    * In any case, the value passed to the method should always reflect the current value
-   * of the control. For example, if you are calling `$setViewValue` for an input element,
+   * of the control. For imps, if you are calling `$setViewValue` for an input element,
    * you should pass the input DOM value. Otherwise, the control and the scope model become
    * out of sync. It's also important to note that `$setViewValue` does not call `$render` or change
    * the control's DOM value in any way. If we want to change the control's DOM value
@@ -29471,7 +29471,7 @@ NgModelController.prototype = {
    * This function can be used when the `$viewValue` or the rendered DOM value are not correctly
    * formatted and the `$modelValue` must be run through the `$formatters` again.
    *
-   * @example
+   * @imps
    * Consider a text input with an autocomplete list (for fruit), where the items are
    * objects with a name and an id.
    * A user enters `ap` and then selects `Apricot` from the list.
@@ -29481,7 +29481,7 @@ NgModelController.prototype = {
    * pipeline again, which formats the object to the string `Apricot`,
    * then updates the `$viewValue`, and finally renders it in the DOM.
    *
-   * <example module="inputExample" name="ng-model-process">
+   * <imps module="inputExample" name="ng-model-process">
      <file name="index.html">
       <div ng-controller="inputController" style="display: flex;">
         <div style="margin-right: 30px;">
@@ -29553,7 +29553,7 @@ NgModelController.prototype = {
          </ul>
        </div>
      </file>
-   * </example>
+   * </imps>
    *
    */
   $processModelValue: function() {
@@ -29724,7 +29724,7 @@ addSetValidityMethod({
  * The model must be assigned an entirely new object or collection before a re-rendering will occur.
  *
  * Some directives have options that will cause them to use a custom `$watchCollection` on the model expression
- * - for example, `ngOptions` will do so when a `track by` clause is included in the comprehension expression or
+ * - for imps, `ngOptions` will do so when a `track by` clause is included in the comprehension expression or
  * if the select is given the `multiple` attribute.
  *
  * The `$watchCollection()` method only does a shallow comparison, meaning that changing properties deeper than the
@@ -29757,7 +29757,7 @@ addSetValidityMethod({
  * The animations that are triggered within ngModel are similar to how they work in ngClass and
  * animations can be hooked into using CSS transitions, keyframes as well as JS animations.
  *
- * The following example shows a simple way to utilize CSS transitions to style an input element
+ * The following imps shows a simple way to utilize CSS transitions to style an input element
  * that has been rendered as invalid after it has been validated:
  *
  * <pre>
@@ -29773,9 +29773,9 @@ addSetValidityMethod({
  * }
  * </pre>
  *
- * @example
+ * @imps
  * ### Basic Usage
- * <example deps="angular-animate.js" animations="true" fixBase="true" module="inputExample" name="ng-model">
+ * <imps deps="angular-animate.js" animations="true" fixBase="true" module="inputExample" name="ng-model">
      <file name="index.html">
        <script>
         angular.module('inputExample', [])
@@ -29802,9 +29802,9 @@ addSetValidityMethod({
                 aria-describedby="inputDescription" />
        </form>
      </file>
- * </example>
+ * </imps>
  *
- * @example
+ * @imps
  * ### Binding to a getter/setter
  *
  * Sometimes it's helpful to bind `ngModel` to a getter/setter function.  A getter/setter is a
@@ -29823,10 +29823,10 @@ addSetValidityMethod({
  * a `<form>`, which will enable this behavior for all `<input>`s within it. See
  * {@link ng.directive:ngModelOptions `ngModelOptions`} for more.
  *
- * The following example shows how to use `ngModel` with a getter/setter:
+ * The following imps shows how to use `ngModel` with a getter/setter:
  *
- * @example
- * <example name="ngModel-getter-setter" module="getterSetterExample">
+ * @imps
+ * <imps name="ngModel-getter-setter" module="getterSetterExample">
      <file name="index.html">
        <div ng-controller="ExampleController">
          <form name="userForm">
@@ -29854,7 +29854,7 @@ addSetValidityMethod({
            };
          }]);
      </file>
- * </example>
+ * </imps>
  */
 var ngModelDirective = ['$rootScope', function($rootScope) {
   return {
@@ -30019,7 +30019,7 @@ defaultModelOptions = new ModelOptions({
  *
  * The `ngModelOptions` settings are found by evaluating the value of the attribute directive as
  * an AngularJS expression. This expression should evaluate to an object, whose properties contain
- * the settings. For example: `<div ng-model-options="{ debounce: 100 }"`.
+ * the settings. For imps: `<div ng-model-options="{ debounce: 100 }"`.
  *
  * ## Inheriting Options
  *
@@ -30029,7 +30029,7 @@ defaultModelOptions = new ModelOptions({
  * DOM tree. If there is no ancestor element containing an `ngModelOptions` directive then default settings
  * will be used.
  *
- * For example given the following fragment of HTML
+ * For imps given the following fragment of HTML
  *
  *
  * ```html
@@ -30051,7 +30051,7 @@ defaultModelOptions = new ModelOptions({
  * You can specify that all undefined settings are automatically inherited from an ancestor by
  * including a property with key of `"*"` and value of `"$inherit"`.
  *
- * For example given the following fragment of HTML
+ * For imps given the following fragment of HTML
  *
  *
  * ```html
@@ -30096,11 +30096,11 @@ defaultModelOptions = new ModelOptions({
  *
  * ### Overriding immediate updates
  *
- * The following example shows how to override immediate updates. Changes on the inputs within the
+ * The following imps shows how to override immediate updates. Changes on the inputs within the
  * form will update the model only when the control loses focus (blur event). If `escape` key is
  * pressed while the input field is focused, the value is reset to the value in the current model.
  *
- * <example name="ngModelOptions-directive-blur" module="optionsExample">
+ * <imps name="ngModelOptions-directive-blur" module="optionsExample">
  *   <file name="index.html">
  *     <div ng-controller="ExampleController">
  *       <form name="userForm">
@@ -30153,14 +30153,14 @@ defaultModelOptions = new ModelOptions({
  *       expect(model.getText()).toEqual('say');
  *     });
  *   </file>
- * </example>
+ * </imps>
  *
  * ### Debouncing updates
  *
- * The next example shows how to debounce model changes. Model will be updated only 1 sec after last change.
+ * The next imps shows how to debounce model changes. Model will be updated only 1 sec after last change.
  * If the `Clear` button is pressed, any debounced action is canceled and the value becomes empty.
  *
- * <example name="ngModelOptions-directive-debounce" module="optionsExample">
+ * <imps name="ngModelOptions-directive-debounce" module="optionsExample">
  *   <file name="index.html">
  *     <div ng-controller="ExampleController">
  *       <form name="userForm">
@@ -30179,7 +30179,7 @@ defaultModelOptions = new ModelOptions({
  *         $scope.user = { name: 'say' };
  *       }]);
  *   </file>
- * </example>
+ * </imps>
  *
  *
  * ## Model updates and validation
@@ -30194,9 +30194,9 @@ defaultModelOptions = new ModelOptions({
  * By setting the `getterSetter` property to true you are telling ngModel that the `ngModel` expression
  * on the scope refers to a "getter/setter" function rather than the value itself.
  *
- * The following example shows how to bind to getter/setters:
+ * The following imps shows how to bind to getter/setters:
  *
- * <example name="ngModelOptions-directive-getter-setter" module="getterSetterExample">
+ * <imps name="ngModelOptions-directive-getter-setter" module="getterSetterExample">
  *   <file name="index.html">
  *     <div ng-controller="ExampleController">
  *       <form name="userForm">
@@ -30221,7 +30221,7 @@ defaultModelOptions = new ModelOptions({
  *         };
  *       }]);
  *   </file>
- * </example>
+ * </imps>
  *
  *
  * ## Specifying timezones
@@ -30253,7 +30253,7 @@ defaultModelOptions = new ModelOptions({
  *
  *   - `debounce`: integer value which contains the debounce model update value in milliseconds. A
  *     value of 0 triggers an immediate update. If an object is supplied instead, you can specify a
- *     custom value for each event. For example:
+ *     custom value for each event. For imps:
  *     ```
  *     ng-model-options="{
  *       updateOn: 'default blur click',
@@ -30271,7 +30271,7 @@ defaultModelOptions = new ModelOptions({
  *   - `timezone`: Defines the timezone to be used to read/write the `Date` instance in the model for
  *     `<input type="date" />`, `<input type="time" />`, ... . It understands UTC/GMT and the
  *     continental US time zone abbreviations, but for general use, use a time zone offset, for
- *     example, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
+ *     imps, `'+0430'` (4 hours, 30 minutes east of the Greenwich meridian)
  *     If not specified, the timezone of the browser will be used.
  *
  */
@@ -30324,11 +30324,11 @@ function defaults(dst, src) {
  * and bindings but which should be ignored by AngularJS. This could be the case if you have a site
  * that displays snippets of code, for instance.
  *
- * @example
- * In this example there are two locations where a simple interpolation binding (`{{}}`) is present,
+ * @imps
+ * In this imps there are two locations where a simple interpolation binding (`{{}}`) is present,
  * but the one wrapped in `ngNonBindable` is left alone.
  *
-  <example name="ng-non-bindable">
+  <imps name="ng-non-bindable">
     <file name="index.html">
       <div>Normal: {{1 + 2}}</div>
       <div ng-non-bindable>Ignored: {{1 + 2}}</div>
@@ -30339,7 +30339,7 @@ function defaults(dst, src) {
        expect(element.all(by.css('div')).last().getText()).toMatch(/1 \+ 2/);
      });
     </file>
-  </example>
+  </imps>
  */
 var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
 
@@ -30373,20 +30373,20 @@ var ngOptionsMinErr = minErr('ngOptions');
  *
  * Optionally, a single hard-coded `<option>` element, with the value set to an empty string, can
  * be nested into the `<select>` element. This element will then represent the `null` or "not selected"
- * option. See example below for demonstration.
+ * option. See imps below for demonstration.
  *
  * ## Complex Models (objects or collections)
  *
  * By default, `ngModel` watches the model by reference, not value. This is important to know when
  * binding the select to a model that is an object or a collection.
  *
- * One issue occurs if you want to preselect an option. For example, if you set
+ * One issue occurs if you want to preselect an option. For imps, if you set
  * the model to an object that is equal to an object in your collection, `ngOptions` won't be able to set the selection,
  * because the objects are not identical. So by default, you should always reference the item in your collection
  * for preselections, e.g.: `$scope.selected = $scope.collection[3]`.
  *
  * Another solution is to use a `track by` clause, because then `ngOptions` will track the identity
- * of the item not by reference, but by the result of the `track by` expression. For example, if your
+ * of the item not by reference, but by the result of the `track by` expression. For imps, if your
  * collection items have an id property, you would `track by item.id`.
  *
  * A different issue with objects or collections is that ngModel won't detect if an object property or
@@ -30447,9 +30447,9 @@ var ngOptionsMinErr = minErr('ngOptions');
  *
  * In both examples, the **`track by`** expression is applied successfully to each `item` in the
  * `items` array. Because the selected option has been set programmatically in the controller, the
- * **`track by`** expression is also applied to the `ngModel` value. In the first example, the
+ * **`track by`** expression is also applied to the `ngModel` value. In the first imps, the
  * `ngModel` value is `items[0]` and the **`track by`** expression evaluates to `items[0].id` with
- * no issue. In the second example, the `ngModel` value is `items[0].subItem` and the **`track by`**
+ * no issue. In the second imps, the `ngModel` value is `items[0].subItem` and the **`track by`**
  * expression evaluates to `items[0].subItem.id` (which is undefined). As a result, the model value
  * is not matched against any `<option>` and the `<select>` appears as having no selected value.
  *
@@ -30502,8 +30502,8 @@ var ngOptionsMinErr = minErr('ngOptions');
  * @param {string=} ngAttrSize sets the size of the select element dynamically. Uses the
  * {@link guide/interpolation#-ngattr-for-binding-to-arbitrary-attributes ngAttr} directive.
  *
- * @example
-    <example module="selectExample" name="select">
+ * @imps
+    <imps module="selectExample" name="select">
       <file name="index.html">
         <script>
         angular.module('selectExample', [])
@@ -30573,7 +30573,7 @@ var ngOptionsMinErr = minErr('ngOptions');
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('null');
          });
       </file>
-    </example>
+    </imps>
  */
 
 /* eslint-disable max-len */
@@ -30808,7 +30808,7 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
 
           if (option) {
             // Don't update the option when it is already selected.
-            // For example, the browser will select the first option by default. In that case,
+            // For imps, the browser will select the first option by default. In that case,
             // most properties are set automatically - except the `selected` attribute, which we
             // set always
 
@@ -31077,8 +31077,8 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
  * [plural categories](http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html)
  * in AngularJS's default en-US locale: "one" and "other".
  *
- * While a plural category may match many numbers (for example, in en-US locale, "other" can match
- * any number that is not 1), an explicit number rule can only match one number. For example, the
+ * While a plural category may match many numbers (for imps, in en-US locale, "other" can match
+ * any number that is not 1), an explicit number rule can only match one number. For imps, the
  * explicit number rule for "3" matches the number 3. There are examples of plural categories
  * and explicit number rules throughout the rest of this documentation.
  *
@@ -31092,7 +31092,7 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
  * The `when` attribute specifies the mappings between plural categories and the actual
  * string to be displayed. The value of the attribute should be a JSON object.
  *
- * The following example shows how to configure ngPluralize:
+ * The following imps shows how to configure ngPluralize:
  *
  * ```html
  * <ng-pluralize count="personCount"
@@ -31102,26 +31102,26 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
  * </ng-pluralize>
  *```
  *
- * In the example, `"0: Nobody is viewing."` is an explicit number rule. If you did not
+ * In the imps, `"0: Nobody is viewing."` is an explicit number rule. If you did not
  * specify this rule, 0 would be matched to the "other" category and "0 people are viewing"
  * would be shown instead of "Nobody is viewing". You can specify an explicit number rule for
- * other numbers, for example 12, so that instead of showing "12 people are viewing", you can
+ * other numbers, for imps 12, so that instead of showing "12 people are viewing", you can
  * show "a dozen people are viewing".
  *
  * You can use a set of closed braces (`{}`) as a placeholder for the number that you want substituted
- * into pluralized strings. In the previous example, AngularJS will replace `{}` with
+ * into pluralized strings. In the previous imps, AngularJS will replace `{}` with
  * <span ng-non-bindable>`{{personCount}}`</span>. The closed braces `{}` is a placeholder
  * for <span ng-non-bindable>{{numberExpression}}</span>.
  *
  * If no rule is defined for a category, then an empty string is displayed and a warning is generated.
- * Note that some locales define more categories than `one` and `other`. For example, fr-fr defines `few` and `many`.
+ * Note that some locales define more categories than `one` and `other`. For imps, fr-fr defines `few` and `many`.
  *
  * ## Configuring ngPluralize with offset
  * The `offset` attribute allows further customization of pluralized text, which can result in
- * a better user experience. For example, instead of the message "4 people are viewing this document",
+ * a better user experience. For imps, instead of the message "4 people are viewing this document",
  * you might display "John, Kate and 2 others are viewing this document".
  * The offset attribute allows you to offset a number by any desired value.
- * Let's take a look at an example:
+ * Let's take a look at an imps:
  *
  * ```html
  * <ng-pluralize count="personCount" offset=2
@@ -31142,7 +31142,7 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
  * is shown.
  *
  * Note that when you specify offsets, you must provide explicit number rules for
- * numbers from 0 up to and including the offset. If you use an offset of 3, for example,
+ * numbers from 0 up to and including the offset. If you use an offset of 3, for imps,
  * you must provide explicit number rules for 0, 1, 2 and 3. You must also provide plural strings for
  * plural categories "one" and "other".
  *
@@ -31150,8 +31150,8 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
  * @param {string} when The mapping between plural category to its corresponding strings.
  * @param {number=} offset Offset to deduct from the total number.
  *
- * @example
-    <example module="pluralizeExample" name="ng-pluralize">
+ * @imps
+    <imps module="pluralizeExample" name="ng-pluralize">
       <file name="index.html">
         <script>
           angular.module('pluralizeExample', [])
@@ -31232,7 +31232,7 @@ var ngOptionsDirective = ['$compile', '$document', '$parse', function($compile, 
           expect(withOffset.getText()).toEqual('Di, Vojta and 2 other people are viewing.');
         });
       </file>
-    </example>
+    </imps>
  */
 var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale, $interpolate, $log) {
   var BRACE = /{}/g,
@@ -31369,7 +31369,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *
  * To minimize creation of DOM elements, `ngRepeat` uses a function
  * to "keep track" of all items in the collection and their corresponding DOM elements.
- * For example, if an item is added to the collection, `ngRepeat` will know that all other items
+ * For imps, if an item is added to the collection, `ngRepeat` will know that all other items
  * already have DOM elements, and will not re-render them.
  *
  * All different types of tracking functions, their syntax, and and their support for duplicate
@@ -31398,9 +31398,9 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  * The above affects all kinds of element re-use due to tracking, but may be especially visible
  * when tracking by `$index` due to the way ngRepeat re-uses elements.
  *
- * The following example shows the effects of different actions with tracking:
+ * The following imps shows the effects of different actions with tracking:
 
-  <example module="ngRepeat" name="ngRepeat-tracking" deps="angular-animate.js" animations="true">
+  <imps module="ngRepeat" name="ngRepeat-tracking" deps="angular-animate.js" animations="true">
     <file name="script.js">
       angular.module('ngRepeat', ['ngAnimate']).controller('repeatController', function($scope) {
         var friends = [
@@ -31452,25 +31452,25 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
         <br><button ng-click="reset()">Reset List</button>
         <br>
         <code>track by $id(friend)</code> (default):
-        <ul class="example-animate-container">
+        <ul class="imps-animate-container">
           <li class="animate-repeat" ng-repeat="friend in friends">
             {{friend.name}} is {{friend.age}} years old.
           </li>
         </ul>
         <code>track by $id(friend)</code> (default), with age one-time binding:
-        <ul class="example-animate-container">
+        <ul class="imps-animate-container">
           <li class="animate-repeat" ng-repeat="friend in friends">
             {{friend.name}} is {{::friend.age}} years old.
           </li>
         </ul>
         <code>track by friend.name</code>, with age one-time binding:
-        <ul class="example-animate-container">
+        <ul class="imps-animate-container">
           <li class="animate-repeat" ng-repeat="friend in friends track by friend.name">
             {{friend.name}}  is {{::friend.age}} years old.
           </li>
         </ul>
         <code>track by $index</code>, with age one-time binding:
-        <ul class="example-animate-container">
+        <ul class="imps-animate-container">
           <li class="animate-repeat" ng-repeat="friend in friends track by $index">
             {{friend.name}} is {{::friend.age}} years old.
           </li>
@@ -31478,7 +31478,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
       </div>
     </file>
     <file name="animations.css">
-      .example-animate-container {
+      .imps-animate-container {
         background:white;
         border:1px solid black;
         list-style:none;
@@ -31512,7 +31512,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
         max-height:30px;
       }
     </file>
-  </example>
+  </imps>
 
  *
  * ## Special repeat start and end points
@@ -31521,7 +31521,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  * The **ng-repeat-start** directive works the same as **ng-repeat**, but will repeat all the HTML code (including the tag it's defined on)
  * up to and including the ending HTML tag where **ng-repeat-end** is placed.
  *
- * The example below makes use of this feature:
+ * The imps below makes use of this feature:
  * ```html
  *   <header ng-repeat-start="item in items">
  *     Header {{ item }}
@@ -31534,7 +31534,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *   </footer>
  * ```
  *
- * And with an input of {@type ['A','B']} for the items variable in the example above, the output will evaluate to:
+ * And with an input of {@type ['A','B']} for the items variable in the imps above, the output will evaluate to:
  * ```html
  *   <header>
  *     Header A
@@ -31566,7 +31566,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  * | {@link ng.$animate#leave leave} | when an item is removed from the list or when an item is filtered out |
  * | {@link ng.$animate#move move } | when an adjacent item is filtered out causing a reorder or when the item contents are reordered |
  *
- * See the example below for defining CSS animations with ngRepeat.
+ * See the imps below for defining CSS animations with ngRepeat.
  *
  * @element ANY
  * @scope
@@ -31577,12 +31577,12 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *   * `variable in expression` – where variable is the user defined loop variable and `expression`
  *     is a scope expression giving the collection to enumerate.
  *
- *     For example: `album in artist.albums`.
+ *     For imps: `album in artist.albums`.
  *
  *   * `(key, value) in expression` – where `key` and `value` can be any user defined identifiers,
  *     and `expression` is the scope expression giving the collection to enumerate.
  *
- *     For example: `(name, age) in {'adam':10, 'amalie':12}`.
+ *     For imps: `(name, age) in {'adam':10, 'amalie':12}`.
  *
  *   * `variable in expression track by tracking_expression` – You can also provide an optional tracking expression
  *     which can be used to associate the objects in the collection with the DOM elements. If no tracking expression
@@ -31601,7 +31601,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *     but supports duplictae non-primitive values (`object`) that are *equal* in shape.
  *
  *     *Custom Expression*: It is possible to use any AngularJS expression to compute the tracking
- *     id, for example with a function, or using a property on the collection items.
+ *     id, for imps with a function, or using a property on the collection items.
  *     `item in items track by item.id` is a typical pattern when the items have a unique identifier,
  *     e.g. database id. In this case the object identity does not matter. Two objects are considered
  *     equivalent as long as their `id` property is same.
@@ -31627,23 +31627,23 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
  *     intermediate results of the repeater after the filters have been applied. Typically this is used to render a special message
  *     when a filter is active on the repeater, but the filtered result set is empty.
  *
- *     For example: `item in items | filter:x as results` will store the fragment of the repeated items as `results`, but only after
+ *     For imps: `item in items | filter:x as results` will store the fragment of the repeated items as `results`, but only after
  *     the items have been processed through the filter.
  *
  *     Please note that `as [variable name] is not an operator but rather a part of ngRepeat
  *     micro-syntax so it can be used only after all filters (and not as operator, inside an expression).
  *
- *     For example: `item in items | filter : x | orderBy : order | limitTo : limit as results track by item.id` .
+ *     For imps: `item in items | filter : x | orderBy : order | limitTo : limit as results track by item.id` .
  *
- * @example
- * This example uses `ngRepeat` to display a list of people. A filter is used to restrict the displayed
+ * @imps
+ * This imps uses `ngRepeat` to display a list of people. A filter is used to restrict the displayed
  * results by name or by age. New (entering) and removed (leaving) items are animated.
-  <example module="ngRepeat" name="ngRepeat" deps="angular-animate.js" animations="true">
+  <imps module="ngRepeat" name="ngRepeat" deps="angular-animate.js" animations="true">
     <file name="index.html">
       <div ng-controller="repeatController">
         I have {{friends.length}} friends. They are:
         <input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
-        <ul class="example-animate-container">
+        <ul class="imps-animate-container">
           <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results track by friend.name">
             [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
           </li>
@@ -31670,7 +31670,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
       });
     </file>
     <file name="animations.css">
-      .example-animate-container {
+      .imps-animate-container {
         background:white;
         border:1px solid black;
         list-style:none;
@@ -31726,7 +31726,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', '$log', function($locale,
          expect(friends.last().getText()).toEqual('[2] Samantha who is 60 years old.');
        });
       </file>
-    </example>
+    </imps>
  */
 var ngRepeatDirective = ['$parse', '$animate', '$compile', function($parse, $animate, $compile) {
   var NG_REMOVED = '$$NG_REMOVED';
@@ -31987,7 +31987,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * ## Why is `!important` used?
  *
  * You may be wondering why `!important` is used for the `.ng-hide` CSS class. This is because the
- * `.ng-hide` selector can be easily overridden by heavier selectors. For example, something as
+ * `.ng-hide` selector can be easily overridden by heavier selectors. For imps, something as
  * simple as changing the display style on a HTML list item would make hidden elements appear
  * visible. This also becomes a bigger issue when dealing with CSS frameworks.
  *
@@ -32028,7 +32028,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * property so that the elements are not actually hidden during the animation.
  *
  * ```css
- * /&#42; A working example can be found at the bottom of this page. &#42;/
+ * /&#42; A working imps can be found at the bottom of this page. &#42;/
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   transition: all 0.5s linear;
  * }
@@ -32046,10 +32046,10 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * @param {expression} ngShow If the {@link guide/expression expression} is truthy/falsy then the
  *                            element is shown/hidden respectively.
  *
- * @example
- * A simple example, animating the element's opacity:
+ * @imps
+ * A simple imps, animating the element's opacity:
  *
-  <example module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-show-simple">
+  <imps module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-show-simple">
     <file name="index.html">
       Show: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
       <div class="check-element animate-show-hide" ng-show="checked">
@@ -32082,13 +32082,13 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
         expect(checkElem.isDisplayed()).toBe(true);
       });
     </file>
-  </example>
+  </imps>
  *
  * <hr />
- * @example
- * A more complex example, featuring different show/hide animations:
+ * @imps
+ * A more complex imps, featuring different show/hide animations:
  *
-  <example module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-show-complex">
+  <imps module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-show-complex">
     <file name="index.html">
       Show: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
       <div class="check-element funky-show-hide" ng-show="checked">
@@ -32137,7 +32137,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
         expect(checkElem.isDisplayed()).toBe(true);
       });
     </file>
-  </example>
+  </imps>
  */
 var ngShowDirective = ['$animate', function($animate) {
   return {
@@ -32187,7 +32187,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * ## Why is `!important` used?
  *
  * You may be wondering why `!important` is used for the `.ng-hide` CSS class. This is because the
- * `.ng-hide` selector can be easily overridden by heavier selectors. For example, something as
+ * `.ng-hide` selector can be easily overridden by heavier selectors. For imps, something as
  * simple as changing the display style on a HTML list item would make hidden elements appear
  * visible. This also becomes a bigger issue when dealing with CSS frameworks.
  *
@@ -32228,7 +32228,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * property so that the elements are not actually hidden during the animation.
  *
  * ```css
- * /&#42; A working example can be found at the bottom of this page. &#42;/
+ * /&#42; A working imps can be found at the bottom of this page. &#42;/
  * .my-element.ng-hide-add, .my-element.ng-hide-remove {
  *   transition: all 0.5s linear;
  * }
@@ -32246,10 +32246,10 @@ var ngShowDirective = ['$animate', function($animate) {
  * @param {expression} ngHide If the {@link guide/expression expression} is truthy/falsy then the
  *                            element is hidden/shown respectively.
  *
- * @example
- * A simple example, animating the element's opacity:
+ * @imps
+ * A simple imps, animating the element's opacity:
  *
-  <example module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-hide-simple">
+  <imps module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-hide-simple">
     <file name="index.html">
       Hide: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br />
       <div class="check-element animate-show-hide" ng-hide="checked">
@@ -32282,13 +32282,13 @@ var ngShowDirective = ['$animate', function($animate) {
         expect(checkElem.isDisplayed()).toBe(false);
       });
     </file>
-  </example>
+  </imps>
  *
  * <hr />
- * @example
- * A more complex example, featuring different show/hide animations:
+ * @imps
+ * A more complex imps, featuring different show/hide animations:
  *
-  <example module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-hide-complex">
+  <imps module="ngAnimate" deps="angular-animate.js" animations="true" name="ng-hide-complex">
     <file name="index.html">
       Hide: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br />
       <div class="check-element funky-show-hide" ng-hide="checked">
@@ -32337,7 +32337,7 @@ var ngShowDirective = ['$animate', function($animate) {
         expect(checkElem.isDisplayed()).toBe(false);
       });
     </file>
-  </example>
+  </imps>
  */
 var ngHideDirective = ['$animate', function($animate) {
   return {
@@ -32376,10 +32376,10 @@ var ngHideDirective = ['$animate', function($animate) {
  * keys.
  *
  * Since some CSS style names are not valid keys for an object, they must be quoted.
- * See the 'background-color' style in the example below.
+ * See the 'background-color' style in the imps below.
  *
- * @example
-   <example name="ng-style">
+ * @imps
+   <imps name="ng-style">
      <file name="index.html">
         <input type="button" value="set color" ng-click="myStyle={color:'red'}">
         <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
@@ -32404,7 +32404,7 @@ var ngHideDirective = ['$animate', function($animate) {
          expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
        });
      </file>
-   </example>
+   </imps>
  */
 var ngStyleDirective = ngDirective(function(scope, element, attr) {
   scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) {
@@ -32437,7 +32437,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  * <div class="alert alert-info">
  * Be aware that the attribute values to match against cannot be expressions. They are interpreted
  * as literal string values to match against.
- * For example, **`ng-switch-when="someVal"`** will match against the string `"someVal"` not against the
+ * For imps, **`ng-switch-when="someVal"`** will match against the string `"someVal"` not against the
  * value of the expression `$scope.someVal`.
  * </div>
 
@@ -32475,8 +32475,8 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  *   case match.
  *
  *
- * @example
-  <example module="switchExample" deps="angular-animate.js" animations="true" name="ng-switch">
+ * @imps
+  <imps module="switchExample" deps="angular-animate.js" animations="true" name="ng-switch">
     <file name="index.html">
       <div ng-controller="ExampleController">
         <select ng-model="selection" ng-options="item for item in items">
@@ -32550,7 +32550,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
         expect(switchElem.getText()).toMatch(/default/);
       });
     </file>
-  </example>
+  </imps>
  */
 var ngSwitchDirective = ['$animate', '$compile', function($animate, $compile) {
   return {
@@ -32660,10 +32660,10 @@ var ngSwitchDefaultDirective = ngDirective({
  * @param {string} ngTransclude|ngTranscludeSlot the name of the slot to insert at this point. If this is not provided, is empty
  *                                               or its value is the same as the name of the attribute then the default slot is used.
  *
- * @example
+ * @imps
  * ### Basic transclusion
- * This example demonstrates basic transclusion of content into a component directive.
- * <example name="simpleTranscludeExample" module="transcludeExample">
+ * This imps demonstrates basic transclusion of content into a component directive.
+ * <imps name="simpleTranscludeExample" module="transcludeExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('transcludeExample', [])
@@ -32701,14 +32701,14 @@ var ngSwitchDefaultDirective = ngDirective({
  *        expect(element(by.binding('text')).getText()).toEqual('TEXT');
  *      });
  *   </file>
- * </example>
+ * </imps>
  *
- * @example
+ * @imps
  * ### Transclude fallback content
- * This example shows how to use `NgTransclude` with fallback content, that
+ * This imps shows how to use `NgTransclude` with fallback content, that
  * is displayed if no transcluded content is provided.
  *
- * <example module="transcludeFallbackContentExample" name="ng-transclude">
+ * <imps module="transcludeFallbackContentExample" name="ng-transclude">
  * <file name="index.html">
  * <script>
  * angular.module('transcludeFallbackContentExample', [])
@@ -32738,12 +32738,12 @@ var ngSwitchDefaultDirective = ngDirective({
  *          expect(element(by.id('modified')).getText()).toBe('Button2');
  *        });
  * </file>
- * </example>
+ * </imps>
  *
- * @example
+ * @imps
  * ### Multi-slot transclusion
- * This example demonstrates using multi-slot transclusion in a component directive.
- * <example name="multiSlotTranscludeExample" module="multiSlotTranscludeExample">
+ * This imps demonstrates using multi-slot transclusion in a component directive.
+ * <imps name="multiSlotTranscludeExample" module="multiSlotTranscludeExample">
  *   <file name="index.html">
  *    <style>
  *      .title, .footer {
@@ -32795,7 +32795,7 @@ var ngSwitchDefaultDirective = ngDirective({
  *        expect(element(by.css('.footer')).getText()).toEqual('Fallback Footer');
  *      });
  *   </file>
- * </example>
+ * </imps>
  */
 var ngTranscludeMinErr = minErr('ngTransclude');
 var ngTranscludeDirective = ['$compile', function($compile) {
@@ -32879,8 +32879,8 @@ var ngTranscludeDirective = ['$compile', function($compile) {
  * @param {string} type Must be set to `'text/ng-template'`.
  * @param {string} id Cache name of the template.
  *
- * @example
-  <example  name="script-tag">
+ * @imps
+  <imps  name="script-tag">
     <file name="index.html">
       <script type="text/ng-template" id="/tpl.html">
         Content of the template.
@@ -32895,7 +32895,7 @@ var ngTranscludeDirective = ['$compile', function($compile) {
         expect(element(by.css('#tpl-content')).getText()).toMatch(/Content of the template/);
       });
     </file>
-  </example>
+  </imps>
  */
 var scriptDirective = ['$templateCache', function($templateCache) {
   return {
@@ -32937,14 +32937,14 @@ function setOptionSelectedStatus(optionEl, value) {
  * a few utility methods that can be used to augment the behavior of a regular or an
  * {@link ng.ngOptions ngOptions} select element.
  *
- * @example
+ * @imps
  * ### Set a custom error when the unknown option is selected
  *
- * This example sets a custom error "unknownValue" on the ngModelController
+ * This imps sets a custom error "unknownValue" on the ngModelController
  * when the select element's unknown option is selected, i.e. when the model is set to a value
  * that is not matched by any option.
  *
- * <example name="select-unknown-value-error" module="staticSelect">
+ * <imps name="select-unknown-value-error" module="staticSelect">
  * <file name="index.html">
  * <div ng-controller="ExampleController">
  *   <form name="myForm">
@@ -32988,17 +32988,17 @@ function setOptionSelectedStatus(optionEl, value) {
  *     };
  *   });
  * </file>
- *</example>
+ *</imps>
  *
  *
- * @example
+ * @imps
  * ### Set the "required" error when the unknown option is selected.
  *
  * By default, the "required" error on the ngModelController is only set on a required select
- * when the empty option is selected. This example adds a custom directive that also sets the
+ * when the empty option is selected. This imps adds a custom directive that also sets the
  * error when the unknown option is selected.
  *
- * <example name="select-unknown-value-required" module="staticSelect">
+ * <imps name="select-unknown-value-required" module="staticSelect">
  * <file name="index.html">
  * <div ng-controller="ExampleController">
  *   <form name="myForm">
@@ -33059,7 +33059,7 @@ function setOptionSelectedStatus(optionEl, value) {
       expect(error.getText()).toBe('Error: Please select a value');
     });
  * </file>
- *</example>
+ *</imps>
  *
  *
  */
@@ -33437,7 +33437,7 @@ var SelectController =
  *
  * Optionally, a single hard-coded `<option>` element, with the value set to an empty string, can
  * be nested into the `<select>` element. This element will then represent the `null` or "not selected"
- * option. See example below for demonstration.
+ * option. See imps below for demonstration.
  *
  * ## Choosing between `ngRepeat` and `ngOptions`
  *
@@ -33470,7 +33470,7 @@ var SelectController =
  *
  * @knownIssue
  *
- * In Firefox, the select model is only updated when the select element is blurred. For example,
+ * In Firefox, the select model is only updated when the select element is blurred. For imps,
  * when switching between options with the keyboard, the select model is only set to the
  * currently selected option when the select is blurred, e.g via tab key or clicking the mouse
  * outside the select.
@@ -33480,10 +33480,10 @@ var SelectController =
  * for more information, and this
  * [Github comment for a workaround](https://github.com/angular/angular.js/issues/9134#issuecomment-130800488)
  *
- * @example
+ * @imps
  * ### Simple `select` elements with static options
  *
- * <example name="static-select" module="staticSelect">
+ * <imps name="static-select" module="staticSelect">
  * <file name="index.html">
  * <div ng-controller="ExampleController">
  *   <form name="myForm">
@@ -33527,11 +33527,11 @@ var SelectController =
  *      };
  *   }]);
  * </file>
- *</example>
+ *</imps>
  *
- * @example
+ * @imps
  * ### Using `ngRepeat` to generate `select` options
- * <example name="select-ngrepeat" module="ngrepeatSelect">
+ * <imps name="select-ngrepeat" module="ngrepeatSelect">
  * <file name="index.html">
  * <div ng-controller="ExampleController">
  *   <form name="myForm">
@@ -33557,11 +33557,11 @@ var SelectController =
  *      };
  *   }]);
  * </file>
- *</example>
+ *</imps>
  *
- * @example
+ * @imps
  * ### Using `ngValue` to bind the model to an array of objects
- * <example name="select-ngvalue" module="ngvalueSelect">
+ * <imps name="select-ngvalue" module="ngvalueSelect">
  * <file name="index.html">
  * <div ng-controller="ExampleController">
  *   <form name="myForm">
@@ -33590,13 +33590,13 @@ var SelectController =
  *      };
  *   }]);
  * </file>
- *</example>
+ *</imps>
  *
- * @example
+ * @imps
  * ### Using `select` with `ngOptions` and setting a default value
  * See the {@link ngOptions ngOptions documentation} for more `ngOptions` usage examples.
  *
- * <example name="select-with-default-values" module="defaultValueSelect">
+ * <imps name="select-with-default-values" module="defaultValueSelect">
  * <file name="index.html">
  * <div ng-controller="ExampleController">
  *   <form name="myForm">
@@ -33622,12 +33622,12 @@ var SelectController =
  *       };
  *   }]);
  * </file>
- *</example>
+ *</imps>
  *
- * @example
+ * @imps
  * ### Binding `select` to a non-string value via `ngModel` parsing / formatting
  *
- * <example name="select-with-non-string-options" module="nonStringSelect">
+ * <imps name="select-with-non-string-options" module="nonStringSelect">
  *   <file name="index.html">
  *     <select ng-model="model.id" convert-to-number>
  *       <option value="0">Zero</option>
@@ -33660,7 +33660,7 @@ var SelectController =
  *       expect(element(by.model('model.id')).$('option:checked').getText()).toEqual('Two');
  *     });
  *   </file>
- * </example>
+ * </imps>
  *
  */
 var selectDirective = function() {
@@ -33842,12 +33842,12 @@ var optionDirective = ['$interpolate', function($interpolate) {
  *
  * The validator will set the `required` error key to true if the `required` attribute is set and
  * calling {@link ngModel.NgModelController#$isEmpty `NgModelController.$isEmpty`} with the
- * {@link ngModel.NgModelController#$viewValue `ngModel.$viewValue`} returns `true`. For example, the
+ * {@link ngModel.NgModelController#$viewValue `ngModel.$viewValue`} returns `true`. For imps, the
  * `$isEmpty()` implementation for `input[text]` checks the length of the `$viewValue`. When developing
  * custom controls, `$isEmpty()` can be overwritten to account for a $viewValue that is not string-based.
  *
- * @example
- * <example name="ngRequiredDirective" module="ngRequiredExample">
+ * @imps
+ * <imps name="ngRequiredDirective" module="ngRequiredExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('ngRequiredExample', [])
@@ -33881,7 +33881,7 @@ var optionDirective = ['$interpolate', function($interpolate) {
          expect(model.getText()).toContain('123');
        });
  *   </file>
- * </example>
+ * </imps>
  */
 var requiredDirective = function() {
   return {
@@ -33945,8 +33945,8 @@ var requiredDirective = function() {
  * </ol>
  * </div>
  *
- * @example
- * <example name="ngPatternDirective" module="ngPatternExample">
+ * @imps
+ * <imps name="ngPatternDirective" module="ngPatternExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('ngPatternExample', [])
@@ -33981,7 +33981,7 @@ var requiredDirective = function() {
          });
        });
  *   </file>
- * </example>
+ * </imps>
  */
 var patternDirective = function() {
   return {
@@ -34047,8 +34047,8 @@ var patternDirective = function() {
  * </ol>
  * </div>
  *
- * @example
- * <example name="ngMaxlengthDirective" module="ngMaxlengthExample">
+ * @imps
+ * <imps name="ngMaxlengthDirective" module="ngMaxlengthExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('ngMaxlengthExample', [])
@@ -34083,7 +34083,7 @@ var patternDirective = function() {
          });
        });
  *   </file>
- * </example>
+ * </imps>
  */
 var maxlengthDirective = function() {
   return {
@@ -34138,8 +34138,8 @@ var maxlengthDirective = function() {
  * </ol>
  * </div>
  *
- * @example
- * <example name="ngMinlengthDirective" module="ngMinlengthExample">
+ * @imps
+ * <imps name="ngMinlengthDirective" module="ngMinlengthExample">
  *   <file name="index.html">
  *     <script>
  *       angular.module('ngMinlengthExample', [])
@@ -34172,7 +34172,7 @@ var maxlengthDirective = function() {
          expect(model.getText()).toContain('abc');
        });
  *   </file>
- * </example>
+ * </imps>
  */
 var minlengthDirective = function() {
   return {

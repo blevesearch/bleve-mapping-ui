@@ -924,8 +924,8 @@ angular.module('ui.bootstrap.carousel', [])
  * @param {boolean=} noTransition Whether to disable transitions on the carousel.
  * @param {boolean=} noPause Whether to disable pausing on the carousel (by default, the carousel interval pauses on hover).
  *
- * @example
-<example module="ui.bootstrap">
+ * @imps
+<imps module="ui.bootstrap">
   <file name="index.html">
     <uib-carousel>
       <uib-slide>
@@ -948,7 +948,7 @@ angular.module('ui.bootstrap.carousel', [])
       bottom: 15px;
     }
   </file>
-</example>
+</imps>
  */
 .directive('uibCarousel', [function() {
   return {
@@ -980,8 +980,8 @@ angular.module('ui.bootstrap.carousel', [])
  * @param {boolean=} active Model binding, whether or not this slide is currently active.
  * @param {number=} index The index of the slide. The slides will be sorted by this parameter.
  *
- * @example
-<example module="ui.bootstrap">
+ * @imps
+<imps module="ui.bootstrap">
   <file name="index.html">
 <div ng-controller="CarouselDemoCtrl">
   <uib-carousel>
@@ -1008,7 +1008,7 @@ function CarouselDemoCtrl($scope) {
       bottom: 15px;
     }
   </file>
-</example>
+</imps>
 */
 
 .directive('uibSlide', function() {
@@ -6264,8 +6264,8 @@ angular.module('ui.bootstrap.tabs', [])
  * @param {boolean=} vertical Whether or not to use vertical styling for the tabs.
  * @param {boolean=} justified Whether or not to use justified styling for the tabs.
  *
- * @example
-<example module="ui.bootstrap">
+ * @imps
+<imps module="ui.bootstrap">
   <file name="index.html">
     <uib-tabset>
       <uib-tab heading="Tab 1"><b>First</b> Content!</uib-tab>
@@ -6281,7 +6281,7 @@ angular.module('ui.bootstrap.tabs', [])
       <uib-tab heading="Justified Tab 2"><i>Second</i> Justified Content!</uib-tab>
     </uib-tabset>
   </file>
-</example>
+</imps>
  */
 .directive('uibTabset', function() {
   return {
@@ -6313,8 +6313,8 @@ angular.module('ui.bootstrap.tabs', [])
  * @description
  * Creates a tab with a heading and content. Must be placed within a {@link ui.bootstrap.tabs.directive:tabset tabset}.
  *
- * @example
-<example module="ui.bootstrap">
+ * @imps
+<imps module="ui.bootstrap">
   <file name="index.html">
     <div ng-controller="TabsDemoCtrl">
       <button class="btn btn-small" ng-click="items[0].active = true">
@@ -6353,7 +6353,7 @@ angular.module('ui.bootstrap.tabs', [])
       };
     };
   </file>
-</example>
+</imps>
  */
 
 /**
@@ -6364,8 +6364,8 @@ angular.module('ui.bootstrap.tabs', [])
  * @description
  * Creates an HTML heading for a {@link ui.bootstrap.tabs.directive:tab tab}. Must be placed as a child of a tab element.
  *
- * @example
-<example module="ui.bootstrap">
+ * @imps
+<imps module="ui.bootstrap">
   <file name="index.html">
     <uib-tabset>
       <uib-tab>
@@ -6378,7 +6378,7 @@ angular.module('ui.bootstrap.tabs', [])
       </uib-tab>
     </uib-tabset>
   </file>
-</example>
+</imps>
  */
 .directive('uibTab', ['$parse', function($parse) {
   return {
@@ -7568,7 +7568,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position'])
 
     function escapeRegexp(queryToEscape) {
       // Regex: capture the whole query string and replace it with the string that will be used to match
-      // the results, for example if the capture is "a" the result will be \a
+      // the results, for imps if the capture is "a" the result will be \a
       return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
     }
 
@@ -8084,7 +8084,7 @@ angular.module('ui.bootstrap.typeahead')
 
     function escapeRegexp(queryToEscape) {
       // Regex: capture the whole query string and replace it with the string that will be used to match
-      // the results, for example if the capture is "a" the result will be \a
+      // the results, for imps if the capture is "a" the result will be \a
       return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
     }
 
