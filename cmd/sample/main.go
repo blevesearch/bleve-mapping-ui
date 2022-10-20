@@ -13,13 +13,13 @@ package main
 
 import (
 	"flag"
-	"github.com/hktalent/bleve-mapping-ui/imps"
+	"github.com/blevesearch/bleve-mapping-ui/imps"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
 
-	bleveMappingUI "github.com/hktalent/bleve-mapping-ui"
+	bleveMappingUI "github.com/blevesearch/bleve-mapping-ui"
 
 	// import general purpose configuration
 	_ "github.com/blevesearch/bleve/v2/config"

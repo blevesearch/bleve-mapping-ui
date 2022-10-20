@@ -1,8 +1,8 @@
 package imps
 
 import (
+	xx "github.com/blevesearch/bleve-mapping-ui"
 	"github.com/gorilla/mux"
-	xx "github.com/hktalent/bleve-mapping-ui"
 	"net/http"
 )
 

@@ -1,4 +1,4 @@
-module github.com/hktalent/bleve-mapping-ui
+module github.com/blevesearch/bleve-mapping-ui
 
 go 1.18
 
