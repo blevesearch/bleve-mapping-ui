@@ -3,6 +3,9 @@
 A reusable, web-based editor and viewer UI for bleve IndexMapping
 JSON based on angular JS, angular-bootstrap and the angular-ui-control.
 
+解除与gorilla/mux的耦合
+支持任意的http server中间件，例如：gin
+
 ## Demo
 
 Build the sample webapp...

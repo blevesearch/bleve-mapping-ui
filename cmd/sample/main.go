@@ -13,6 +13,7 @@ package main
 
 import (
 	"flag"
+	"github.com/blevesearch/bleve-mapping-ui/imps"
 	"log"
 	"net/http"
 
@@ -32,8 +33,8 @@ func main() {
 	router := mux.NewRouter()
 
 	router.StrictSlash(true)
-
-	bleveMappingUI.RegisterHandlers(router, "/api")
+	x1 := imps.NewGorillaMuxImp(router)
+	bleveMappingUI.RegisterHandlers(x1, "/api")
 
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir(".")))
 

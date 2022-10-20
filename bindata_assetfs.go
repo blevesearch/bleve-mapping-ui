@@ -960,7 +960,7 @@ var _bindata = map[string]func() (*asset, error){
 
 // AssetDir returns the file names below a certain
 // directory embedded in the file by go-bindata.
-// For example if you run go-bindata on data/... and data contains the
+// For imps if you run go-bindata on data/... and data contains the
 // following hierarchy:
 //     data/
 //       foo.txt

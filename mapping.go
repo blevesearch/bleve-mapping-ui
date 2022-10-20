@@ -25,8 +25,6 @@ import (
 
 	"github.com/elazarl/go-bindata-assetfs"
 
-	"github.com/gorilla/mux"
-
 	"github.com/blevesearch/bleve/v2"
 	"github.com/blevesearch/bleve/v2/analysis"
 	"github.com/blevesearch/bleve/v2/mapping"
@@ -39,7 +37,7 @@ func AssetFS() *assetfs.AssetFS {
 
 // RegisterHandlers registers mapping handlers on a router at the
 // given pathBase, such as at "/api".
-func RegisterHandlers(router *mux.Router, pathBase string) {
+func RegisterHandlers(router HandleFuncFace, pathBase string) {
 	router.HandleFunc(pathBase+"/_analyzerNames", ListAnalyzerNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_datetimeParserNames", ListDateTimeParserNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_charFilterNames", ListCharFilterNames).Methods("POST")
