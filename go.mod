@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/blevesearch/bleve/v2 v2.3.5
 	github.com/elazarl/go-bindata-assetfs v1.0.0
-	github.com/gorilla/mux v1.7.4
+	github.com/gorilla/mux v1.8.0
 )
 
 require (
