@@ -33,9 +33,13 @@ Apache License Version 2.0
 ### Code generation
 
 There's static bindata resources, which can be regenerated using...
+```
+go install github.com/elazarl/go-bindata-assetfs/...
+go generate
 
-    go generate
-
+or set 
+var StaticBleveMappingPath = flag.String("staticBleveMapping", "./static/", "optional path to static-bleve-mapping directory for web resources")
+```
 ### Unit tests
 
 There are some "poor man's" unit tests, which you can run by visiting...
