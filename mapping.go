@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/elazarl/go-bindata-assetfs"
+	assetfs "github.com/elazarl/go-bindata-assetfs"
 
 	"github.com/gorilla/mux"
 
@@ -428,6 +428,26 @@ func ValidateMapping(w http.ResponseWriter, req *http.Request) {
 		if err != nil {
 			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
 			return
+		}
+	}
+
+	// validate custom date time parser layout strings
+	for name, config := range indexMapping.CustomAnalysis.DateTimeParsers {
+		layouts, ok := config["layouts"].([]interface{})
+		if !ok {
+			showError(w, req, fmt.Sprintf("must specify layouts for dateTimeParser named %s", name), 400)
+			return
+		}
+		for _, layout := range layouts {
+			layoutStr, ok := layout.(string)
+			if ok {
+				if !validateDateTimeParserLayout(layoutStr) {
+					showError(w, req, fmt.Sprintf("invalid datetime parser layout: %s, for dateTimeParser named %s,"+
+						" please refer to https://pkg.go.dev/time#pkg-constants for supported"+
+						" layouts", layoutStr, name), 400)
+					return
+				}
+			}
 		}
 	}
 
