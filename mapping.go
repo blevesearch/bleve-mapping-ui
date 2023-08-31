@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/elazarl/go-bindata-assetfs"
+	assetfs "github.com/elazarl/go-bindata-assetfs"
 
 	"github.com/gorilla/mux"
 
@@ -168,8 +168,7 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	// built in char filter names
-	_, dateTimeParserNames := registry.DateTimeParserTypesAndInstances()
+	types, dateTimeParserNames := registry.DateTimeParserTypesAndInstances()
 	// add custom date time parser names
 	for name := range indexMapping.CustomAnalysis.DateTimeParsers {
 		dateTimeParserNames = append(dateTimeParserNames, name)
@@ -178,11 +177,13 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 	sort.Strings(dateTimeParserNames)
 
 	rv := struct {
-		Status          string   `json:"status"`
-		DateTimeParsers []string `json:"datetime_parsers"`
+		Status                    string   `json:"status"`
+		DateTimeParsers           []string `json:"datetime_parsers"`
+		DateTimeLayoutFormatTypes []string `json:"datetime_layout_format_types"`
 	}{
-		Status:          "ok",
-		DateTimeParsers: dateTimeParserNames,
+		Status:                    "ok",
+		DateTimeParsers:           dateTimeParserNames,
+		DateTimeLayoutFormatTypes: types,
 	}
 	mustEncode(w, rv)
 }
