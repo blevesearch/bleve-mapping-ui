@@ -168,7 +168,11 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	types, dateTimeParserNames := registry.DateTimeParserTypesAndInstances()
+	// types => flexiblego, sanitizedgo etc are built in date time parser types
+	// 			that expect the user to provide datetime layouts in specific formats
+	//
+	// dateTimeParserNames => user defined date time parsers of some type (flexiblego, sanitizedgo etc)
+	dateTimeParserTypes, dateTimeParserNames := registry.DateTimeParserTypesAndInstances()
 	// add custom date time parser names
 	for name := range indexMapping.CustomAnalysis.DateTimeParsers {
 		dateTimeParserNames = append(dateTimeParserNames, name)
@@ -183,7 +187,7 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 	}{
 		Status:                    "ok",
 		DateTimeParsers:           dateTimeParserNames,
-		DateTimeLayoutFormatTypes: types,
+		DateTimeLayoutFormatTypes: dateTimeParserTypes,
 	}
 	mustEncode(w, rv)
 }
