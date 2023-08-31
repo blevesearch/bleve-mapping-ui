@@ -179,15 +179,16 @@ func ListDateTimeParserNames(w http.ResponseWriter, req *http.Request) {
 	}
 
 	sort.Strings(dateTimeParserNames)
+	sort.Strings(dateTimeParserTypes)
 
 	rv := struct {
-		Status                    string   `json:"status"`
-		DateTimeParsers           []string `json:"datetime_parsers"`
-		DateTimeLayoutFormatTypes []string `json:"datetime_layout_format_types"`
+		Status                string   `json:"status"`
+		DateTimeParsers       []string `json:"datetime_parsers"`
+		DateTimeLayoutFormats []string `json:"datetime_layout_formats"`
 	}{
-		Status:                    "ok",
-		DateTimeParsers:           dateTimeParserNames,
-		DateTimeLayoutFormatTypes: dateTimeParserTypes,
+		Status:                "ok",
+		DateTimeParsers:       dateTimeParserNames,
+		DateTimeLayoutFormats: dateTimeParserTypes,
 	}
 	mustEncode(w, rv)
 }
