@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"sort"
 
-	assetfs "github.com/elazarl/go-bindata-assetfs"
+	"github.com/elazarl/go-bindata-assetfs"
 
 	"github.com/gorilla/mux"
 
