@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/elazarl/go-bindata-assetfs"
+	assetfs "github.com/elazarl/go-bindata-assetfs"
 
 	"github.com/gorilla/mux"
 
@@ -31,6 +31,7 @@ import (
 	"github.com/blevesearch/bleve/v2/analysis"
 	"github.com/blevesearch/bleve/v2/mapping"
 	"github.com/blevesearch/bleve/v2/registry"
+	"github.com/blevesearch/bleve/v2/search/query"
 )
 
 func AssetFS() *assetfs.AssetFS {
@@ -51,6 +52,7 @@ func RegisterHandlers(router *mux.Router, pathBase string) {
 	router.HandleFunc(pathBase+"/_tokenMapNames", ListTokenMapNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_analyze", AnalyzerText).Methods("POST")
 	router.HandleFunc(pathBase+"/_validateMapping", ValidateMapping).Methods("POST")
+	router.HandleFunc(pathBase+"/_dumpQuery", DumpQuery).Methods("POST")
 }
 
 func ListAnalyzerNames(w http.ResponseWriter, req *http.Request) {
@@ -508,4 +510,34 @@ func Cleanse(v interface{}) interface{} {
 	}
 
 	return v
+}
+
+func DumpQuery(w http.ResponseWriter, req *http.Request) {
+	requestBody, err := io.ReadAll(req.Body)
+	if err != nil {
+		showError(w, req, fmt.Sprintf("error reading request body: %v", err), 400)
+		return
+	}
+	var dumpQueryRequest = struct {
+		Query        string                    `json:"query"`
+		IndexMapping *mapping.IndexMappingImpl `json:"mapping"`
+	}{}
+	err = json.Unmarshal(requestBody, &dumpQueryRequest)
+	if err != nil {
+		showError(w, req, fmt.Sprintf("error parsing dumpQueryRequest: %v", err), 400)
+		return
+	}
+	queryJson, err := query.DumpQuery(dumpQueryRequest.IndexMapping, query.NewQueryStringQuery(dumpQueryRequest.Query))
+	if err != nil {
+		showError(w, req, fmt.Sprintf("error dumping query: %v", err), 400)
+		return
+	}
+	rv := struct {
+		Status string `json:"status"`
+		Query  string `json:"query"`
+	}{
+		Status: "ok",
+		Query:  queryJson,
+	}
+	mustEncode(w, rv)
 }
