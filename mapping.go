@@ -220,6 +220,7 @@ func ListSynonymSources(w http.ResponseWriter, req *http.Request) {
 		}
 	}
 
+	synonymSources := make([]string, 0, len(indexMapping.SynonymSources))
 	for name := range indexMapping.SynonymSources {
 		synonymSources = append(synonymSources, name)
 	}
