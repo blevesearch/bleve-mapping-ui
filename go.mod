@@ -39,5 +39,3 @@ require (
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
 )
-
-replace github.com/blevesearch/bleve/v2 => ../bleve
