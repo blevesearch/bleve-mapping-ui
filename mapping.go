@@ -220,10 +220,7 @@ func ListSynonymSources(w http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	// built in char filter names
-	_, synonymSources := registry.SynonymSourceTypesAndInstances()
-	// add custom date time parser names
-	for name := range indexMapping.CustomAnalysis.SynonymSources {
+	for name := range indexMapping.SynonymSources {
 		synonymSources = append(synonymSources, name)
 	}
 
