@@ -5,6 +5,7 @@
 .project
 .settings
 .DS_Store
+/vendor
 /sample
 /tmp
 /test
