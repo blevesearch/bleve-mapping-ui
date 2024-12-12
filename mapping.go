@@ -41,18 +41,19 @@ func AssetFS() *assetfs.AssetFS {
 // RegisterHandlers registers mapping handlers on a router at the
 // given pathBase, such as at "/api".
 func RegisterHandlers(router *mux.Router, pathBase string) {
+	router.HandleFunc(pathBase+"/_analyze", AnalyzerText).Methods("POST")
 	router.HandleFunc(pathBase+"/_analyzerNames", ListAnalyzerNames).Methods("POST")
-	router.HandleFunc(pathBase+"/_datetimeParserNames", ListDateTimeParserNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_charFilterNames", ListCharFilterNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_charFilterTypes", ListCharFilterTypes).Methods("GET")
+	router.HandleFunc(pathBase+"/_datetimeParserNames", ListDateTimeParserNames).Methods("POST")
+	router.HandleFunc(pathBase+"/_dumpQuery", DumpQuery).Methods("POST")
+	router.HandleFunc(pathBase+"/_synonymSources", ListSynonymSources).Methods("POST")
 	router.HandleFunc(pathBase+"/_tokenizerNames", ListTokenizerNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_tokenizerTypes", ListTokenizerTypes).Methods("GET")
 	router.HandleFunc(pathBase+"/_tokenFilterNames", ListTokenFilterNames).Methods("POST")
 	router.HandleFunc(pathBase+"/_tokenFilterTypes", ListTokenFilterTypes).Methods("GET")
 	router.HandleFunc(pathBase+"/_tokenMapNames", ListTokenMapNames).Methods("POST")
-	router.HandleFunc(pathBase+"/_analyze", AnalyzerText).Methods("POST")
 	router.HandleFunc(pathBase+"/_validateMapping", ValidateMapping).Methods("POST")
-	router.HandleFunc(pathBase+"/_dumpQuery", DumpQuery).Methods("POST")
 }
 
 func ListAnalyzerNames(w http.ResponseWriter, req *http.Request) {
@@ -538,6 +539,47 @@ func DumpQuery(w http.ResponseWriter, req *http.Request) {
 	}{
 		Status: "ok",
 		Query:  queryJson,
+	}
+	mustEncode(w, rv)
+}
+
+func ListSynonymSources(w http.ResponseWriter, req *http.Request) {
+	indexMapping := bleve.NewIndexMapping()
+
+	// read the request body
+	requestBody, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		showError(w, req, fmt.Sprintf("error reading request body: %v", err), 400)
+		return
+	}
+
+	// interpret request body as index mapping
+	if len(requestBody) > 0 {
+		requestBody, err = CleanseJSON(requestBody)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error preparing index mapping: %v", err), 400)
+			return
+		}
+		err = json.Unmarshal(requestBody, &indexMapping)
+		if err != nil {
+			showError(w, req, fmt.Sprintf("error parsing index mapping: %v", err), 400)
+			return
+		}
+	}
+
+	synonymSources := make([]string, 0, indexMapping.SynonymCount())
+	for name := range indexMapping.CustomAnalysis.SynonymSources {
+		synonymSources = append(synonymSources, name)
+	}
+
+	sort.Strings(synonymSources)
+
+	rv := struct {
+		Status         string   `json:"status"`
+		SynonymSources []string `json:"synonym_sources"`
+	}{
+		Status:         "ok",
+		SynonymSources: synonymSources,
 	}
 	mustEncode(w, rv)
 }
